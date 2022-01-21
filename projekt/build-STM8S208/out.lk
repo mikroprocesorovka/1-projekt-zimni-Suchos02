@@ -1,0 +1,24 @@
+-muwx
+-E ./build-STM8S208/out.elf
+-y
+-b HOME = 0x8000
+-b DATA = 0x0001
+-k C:\Program Files\SDCC\bin\..\lib\stm8
+-l stm8
+-l stm8
+build-STM8S208/main.rel
+build-STM8S208/milis.rel
+build-STM8S208/spse_stm8.rel
+build-STM8S208/stm8_hd44780.rel
+build-STM8S208/stm8s_it.rel
+build-STM8S208/swi2c.rel
+build-STM8S208/swspi.rel
+build-STM8S208/uart1.rel
+build-STM8S208/stm8s_gpio.rel
+build-STM8S208/stm8s_clk.rel
+build-STM8S208/stm8s_tim4.rel
+build-STM8S208/stm8s_itc.rel
+build-STM8S208/stm8s_uart1.rel
+build-STM8S208/stm8s_adc2.rel
+
+-e

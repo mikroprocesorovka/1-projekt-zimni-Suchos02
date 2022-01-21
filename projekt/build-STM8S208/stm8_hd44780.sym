@@ -1,0 +1,1510 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$stm8_hd44780$100                                             000006 GR
+  9 A$stm8_hd44780$1001                                            0001EF GR
+  9 A$stm8_hd44780$1004                                            0001F1 GR
+  9 A$stm8_hd44780$1007                                            0001F3 GR
+  9 A$stm8_hd44780$1009                                            0001F5 GR
+  9 A$stm8_hd44780$101                                             000008 GR
+  9 A$stm8_hd44780$1012                                            0001F7 GR
+  9 A$stm8_hd44780$1013                                            0001FA GR
+  9 A$stm8_hd44780$1018                                            0001FC GR
+  9 A$stm8_hd44780$1021                                            0001FE GR
+  9 A$stm8_hd44780$1024                                            000200 GR
+  9 A$stm8_hd44780$1026                                            000202 GR
+  9 A$stm8_hd44780$1029                                            000204 GR
+  9 A$stm8_hd44780$1030                                            000207 GR
+  9 A$stm8_hd44780$1035                                            000209 GR
+  9 A$stm8_hd44780$1038                                            00020B GR
+  9 A$stm8_hd44780$1041                                            00020D GR
+  9 A$stm8_hd44780$1043                                            00020F GR
+  9 A$stm8_hd44780$1046                                            000211 GR
+  9 A$stm8_hd44780$1047                                            000214 GR
+  9 A$stm8_hd44780$1052                                            000216 GR
+  9 A$stm8_hd44780$1055                                            000218 GR
+  9 A$stm8_hd44780$1058                                            00021A GR
+  9 A$stm8_hd44780$106                                             00000B GR
+  9 A$stm8_hd44780$1060                                            00021C GR
+  9 A$stm8_hd44780$1063                                            00021E GR
+  9 A$stm8_hd44780$1064                                            000221 GR
+  9 A$stm8_hd44780$1069                                            000223 GR
+  9 A$stm8_hd44780$1072                                            000225 GR
+  9 A$stm8_hd44780$1075                                            000227 GR
+  9 A$stm8_hd44780$1077                                            000229 GR
+  9 A$stm8_hd44780$1080                                            00022B GR
+  9 A$stm8_hd44780$1081                                            00022E GR
+  9 A$stm8_hd44780$1086                                            000230 GR
+  9 A$stm8_hd44780$1089                                            000232 GR
+  9 A$stm8_hd44780$1092                                            000234 GR
+  9 A$stm8_hd44780$1094                                            000236 GR
+  9 A$stm8_hd44780$1097                                            000238 GR
+  9 A$stm8_hd44780$1098                                            00023B GR
+  9 A$stm8_hd44780$1103                                            00023D GR
+  9 A$stm8_hd44780$1106                                            00023F GR
+  9 A$stm8_hd44780$1109                                            000241 GR
+  9 A$stm8_hd44780$1111                                            000243 GR
+  9 A$stm8_hd44780$1114                                            000245 GR
+  9 A$stm8_hd44780$1115                                            000248 GR
+  9 A$stm8_hd44780$1124                                            00024A GR
+  9 A$stm8_hd44780$1139                                            00024B GR
+  9 A$stm8_hd44780$114                                             00000C GR
+  9 A$stm8_hd44780$1140                                            00024D GR
+  9 A$stm8_hd44780$1141                                            00024E GR
+  9 A$stm8_hd44780$1142                                            000250 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$1147                                            000253 GR
+  9 A$stm8_hd44780$1150                                            000255 GR
+  9 A$stm8_hd44780$1152                                            000257 GR
+  9 A$stm8_hd44780$1155                                            000259 GR
+  9 A$stm8_hd44780$1156                                            00025C GR
+  9 A$stm8_hd44780$1160                                            00025E GR
+  9 A$stm8_hd44780$1165                                            000261 GR
+  9 A$stm8_hd44780$1168                                            000263 GR
+  9 A$stm8_hd44780$1170                                            000265 GR
+  9 A$stm8_hd44780$1173                                            000267 GR
+  9 A$stm8_hd44780$1174                                            00026A GR
+  9 A$stm8_hd44780$1182                                            00026C GR
+  9 A$stm8_hd44780$1183                                            00026E GR
+  9 A$stm8_hd44780$1184                                            000270 GR
+  9 A$stm8_hd44780$1185                                            000272 GR
+  9 A$stm8_hd44780$1190                                            000275 GR
+  9 A$stm8_hd44780$1193                                            000277 GR
+  9 A$stm8_hd44780$1195                                            000279 GR
+  9 A$stm8_hd44780$1198                                            00027B GR
+  9 A$stm8_hd44780$1199                                            00027E GR
+  9 A$stm8_hd44780$1203                                            000280 GR
+  9 A$stm8_hd44780$1208                                            000283 GR
+  9 A$stm8_hd44780$1211                                            000285 GR
+  9 A$stm8_hd44780$1213                                            000287 GR
+  9 A$stm8_hd44780$1216                                            000289 GR
+  9 A$stm8_hd44780$1217                                            00028C GR
+  9 A$stm8_hd44780$1225                                            00028E GR
+  9 A$stm8_hd44780$1226                                            000290 GR
+  9 A$stm8_hd44780$1227                                            000292 GR
+  9 A$stm8_hd44780$1228                                            000294 GR
+  9 A$stm8_hd44780$1233                                            000297 GR
+  9 A$stm8_hd44780$1236                                            000299 GR
+  9 A$stm8_hd44780$1238                                            00029B GR
+  9 A$stm8_hd44780$1241                                            00029D GR
+  9 A$stm8_hd44780$1242                                            0002A0 GR
+  9 A$stm8_hd44780$1246                                            0002A2 GR
+  9 A$stm8_hd44780$1251                                            0002A5 GR
+  9 A$stm8_hd44780$1254                                            0002A7 GR
+  9 A$stm8_hd44780$1256                                            0002A9 GR
+  9 A$stm8_hd44780$1259                                            0002AB GR
+  9 A$stm8_hd44780$1260                                            0002AE GR
+  9 A$stm8_hd44780$1268                                            0002B0 GR
+  9 A$stm8_hd44780$1269                                            0002B2 GR
+  9 A$stm8_hd44780$1270                                            0002B4 GR
+  9 A$stm8_hd44780$1271                                            0002B6 GR
+  9 A$stm8_hd44780$1276                                            0002B9 GR
+  9 A$stm8_hd44780$1279                                            0002BB GR
+  9 A$stm8_hd44780$1281                                            0002BD GR
+  9 A$stm8_hd44780$1284                                            0002BF GR
+  9 A$stm8_hd44780$1285                                            0002C2 GR
+  9 A$stm8_hd44780$1289                                            0002C4 GR
+  9 A$stm8_hd44780$1294                                            0002C7 GR
+  9 A$stm8_hd44780$1297                                            0002C9 GR
+  9 A$stm8_hd44780$1299                                            0002CB GR
+  9 A$stm8_hd44780$130                                             00000D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$1302                                            0002CD GR
+  9 A$stm8_hd44780$1303                                            0002D0 GR
+  9 A$stm8_hd44780$131                                             00000F GR
+  9 A$stm8_hd44780$1313                                            0002D2 GR
+  9 A$stm8_hd44780$1325                                            0002D3 GR
+  9 A$stm8_hd44780$133                                             000010 GR
+  9 A$stm8_hd44780$1330                                            0002D4 GR
+  9 A$stm8_hd44780$1334                                            0002D6 GR
+  9 A$stm8_hd44780$1337                                            0002D8 GR
+  9 A$stm8_hd44780$1339                                            0002DA GR
+  9 A$stm8_hd44780$1342                                            0002DC GR
+  9 A$stm8_hd44780$1343                                            0002DF GR
+  9 A$stm8_hd44780$1346                                            0002E1 GR
+  9 A$stm8_hd44780$1347                                            0002E2 GR
+  9 A$stm8_hd44780$1348                                            0002E4 GR
+  9 A$stm8_hd44780$135                                             000012 GR
+  9 A$stm8_hd44780$1352                                            0002E7 GR
+  9 A$stm8_hd44780$1353                                            0002E9 GR
+  9 A$stm8_hd44780$1354                                            0002EA GR
+  9 A$stm8_hd44780$1361                                            0002EC GR
+  9 A$stm8_hd44780$1364                                            0002EE GR
+  9 A$stm8_hd44780$1366                                            0002F0 GR
+  9 A$stm8_hd44780$1369                                            0002F2 GR
+  9 A$stm8_hd44780$1370                                            0002F5 GR
+  9 A$stm8_hd44780$1373                                            0002F7 GR
+  9 A$stm8_hd44780$1374                                            0002F8 GR
+  9 A$stm8_hd44780$1375                                            0002FA GR
+  9 A$stm8_hd44780$1379                                            0002FD GR
+  9 A$stm8_hd44780$138                                             000013 GR
+  9 A$stm8_hd44780$1380                                            0002FF GR
+  9 A$stm8_hd44780$1381                                            000301 GR
+  9 A$stm8_hd44780$1388                                            000303 GR
+  9 A$stm8_hd44780$1391                                            000305 GR
+  9 A$stm8_hd44780$1393                                            000307 GR
+  9 A$stm8_hd44780$1396                                            000309 GR
+  9 A$stm8_hd44780$1397                                            00030C GR
+  9 A$stm8_hd44780$140                                             000015 GR
+  9 A$stm8_hd44780$1400                                            00030E GR
+  9 A$stm8_hd44780$1401                                            00030F GR
+  9 A$stm8_hd44780$1402                                            000311 GR
+  9 A$stm8_hd44780$1406                                            000314 GR
+  9 A$stm8_hd44780$1407                                            000316 GR
+  9 A$stm8_hd44780$1408                                            000318 GR
+  9 A$stm8_hd44780$1415                                            00031A GR
+  9 A$stm8_hd44780$1418                                            00031C GR
+  9 A$stm8_hd44780$142                                             000017 GR
+  9 A$stm8_hd44780$1420                                            00031E GR
+  9 A$stm8_hd44780$1423                                            000320 GR
+  9 A$stm8_hd44780$1424                                            000323 GR
+  9 A$stm8_hd44780$1427                                            000325 GR
+  9 A$stm8_hd44780$1428                                            000326 GR
+  9 A$stm8_hd44780$1429                                            000328 GR
+  9 A$stm8_hd44780$1433                                            00032B GR
+  9 A$stm8_hd44780$1434                                            00032D GR
+  9 A$stm8_hd44780$1435                                            00032F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$144                                             000019 GR
+  9 A$stm8_hd44780$1442                                            000331 GR
+  9 A$stm8_hd44780$1448                                            000333 GR
+  9 A$stm8_hd44780$1452                                            000335 GR
+  9 A$stm8_hd44780$1467                                            000336 GR
+  9 A$stm8_hd44780$147                                             00001B GR
+  9 A$stm8_hd44780$1470                                            000338 GR
+  9 A$stm8_hd44780$1472                                            00033A GR
+  9 A$stm8_hd44780$1475                                            00033C GR
+  9 A$stm8_hd44780$1476                                            00033F GR
+  9 A$stm8_hd44780$148                                             00001E GR
+  9 A$stm8_hd44780$1481                                            000341 GR
+  9 A$stm8_hd44780$1485                                            000344 GR
+  9 A$stm8_hd44780$1486                                            000345 GR
+  9 A$stm8_hd44780$1496                                            000346 GR
+  9 A$stm8_hd44780$1500                                            000347 GR
+  9 A$stm8_hd44780$1501                                            000348 GR
+  9 A$stm8_hd44780$1502                                            00034A GR
+  9 A$stm8_hd44780$1506                                            00034D GR
+  9 A$stm8_hd44780$1511                                            00034E GR
+  9 A$stm8_hd44780$1514                                            000350 GR
+  9 A$stm8_hd44780$1516                                            000352 GR
+  9 A$stm8_hd44780$1519                                            000354 GR
+  9 A$stm8_hd44780$1520                                            000357 GR
+  9 A$stm8_hd44780$1525                                            000359 GR
+  9 A$stm8_hd44780$1529                                            00035C GR
+  9 A$stm8_hd44780$1530                                            00035D GR
+  9 A$stm8_hd44780$154                                             000020 GR
+  9 A$stm8_hd44780$1540                                            00035E GR
+  9 A$stm8_hd44780$1544                                            00035F GR
+  9 A$stm8_hd44780$1545                                            000360 GR
+  9 A$stm8_hd44780$1546                                            000362 GR
+  9 A$stm8_hd44780$1550                                            000365 GR
+  9 A$stm8_hd44780$156                                             000022 GR
+  9 A$stm8_hd44780$1561                                            000366 GR
+  9 A$stm8_hd44780$1576                                            000367 GR
+  9 A$stm8_hd44780$1579                                            000369 GR
+  9 A$stm8_hd44780$158                                             000024 GR
+  9 A$stm8_hd44780$1581                                            00036B GR
+  9 A$stm8_hd44780$1584                                            00036D GR
+  9 A$stm8_hd44780$1585                                            000370 GR
+  9 A$stm8_hd44780$1590                                            000372 GR
+  9 A$stm8_hd44780$1594                                            000375 GR
+  9 A$stm8_hd44780$1595                                            000376 GR
+  9 A$stm8_hd44780$160                                             000026 GR
+  9 A$stm8_hd44780$1605                                            000377 GR
+  9 A$stm8_hd44780$1609                                            000378 GR
+  9 A$stm8_hd44780$1610                                            000379 GR
+  9 A$stm8_hd44780$1611                                            00037B GR
+  9 A$stm8_hd44780$1615                                            00037E GR
+  9 A$stm8_hd44780$1620                                            00037F GR
+  9 A$stm8_hd44780$1621                                            000381 GR
+  9 A$stm8_hd44780$1622                                            000382 GR
+  9 A$stm8_hd44780$1624                                            000384 GR
+  9 A$stm8_hd44780$1626                                            000386 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$1629                                            000387 GR
+  9 A$stm8_hd44780$163                                             000028 GR
+  9 A$stm8_hd44780$1630                                            00038A GR
+  9 A$stm8_hd44780$1635                                            00038B GR
+  9 A$stm8_hd44780$1639                                            00038E GR
+  9 A$stm8_hd44780$1641                                            000390 GR
+  9 A$stm8_hd44780$1643                                            000392 GR
+  9 A$stm8_hd44780$1646                                            000393 GR
+  9 A$stm8_hd44780$1647                                            000396 GR
+  9 A$stm8_hd44780$165                                             000029 GR
+  9 A$stm8_hd44780$1652                                            000397 GR
+  9 A$stm8_hd44780$1656                                            00039A GR
+  9 A$stm8_hd44780$1664                                            00039D GR
+  9 A$stm8_hd44780$1679                                            00039E GR
+  9 A$stm8_hd44780$168                                             00002B GR
+  9 A$stm8_hd44780$1682                                            0003A0 GR
+  9 A$stm8_hd44780$1684                                            0003A2 GR
+  9 A$stm8_hd44780$1687                                            0003A4 GR
+  9 A$stm8_hd44780$1688                                            0003A7 GR
+  9 A$stm8_hd44780$169                                             00002E GR
+  9 A$stm8_hd44780$1693                                            0003A9 GR
+  9 A$stm8_hd44780$1697                                            0003AC GR
+  9 A$stm8_hd44780$1698                                            0003AD GR
+  9 A$stm8_hd44780$1708                                            0003AE GR
+  9 A$stm8_hd44780$1712                                            0003AF GR
+  9 A$stm8_hd44780$1713                                            0003B0 GR
+  9 A$stm8_hd44780$1714                                            0003B2 GR
+  9 A$stm8_hd44780$1718                                            0003B5 GR
+  9 A$stm8_hd44780$1723                                            0003B6 GR
+  9 A$stm8_hd44780$1724                                            0003B8 GR
+  9 A$stm8_hd44780$1725                                            0003B9 GR
+  9 A$stm8_hd44780$1727                                            0003BB GR
+  9 A$stm8_hd44780$1729                                            0003BD GR
+  9 A$stm8_hd44780$173                                             000030 GR
+  9 A$stm8_hd44780$1732                                            0003BE GR
+  9 A$stm8_hd44780$1733                                            0003C1 GR
+  9 A$stm8_hd44780$1738                                            0003C2 GR
+  9 A$stm8_hd44780$174                                             000032 GR
+  9 A$stm8_hd44780$1742                                            0003C5 GR
+  9 A$stm8_hd44780$1744                                            0003C7 GR
+  9 A$stm8_hd44780$1746                                            0003C9 GR
+  9 A$stm8_hd44780$1749                                            0003CA GR
+  9 A$stm8_hd44780$175                                             000033 GR
+  9 A$stm8_hd44780$1750                                            0003CD GR
+  9 A$stm8_hd44780$1755                                            0003CE GR
+  9 A$stm8_hd44780$1759                                            0003D1 GR
+  9 A$stm8_hd44780$176                                             000035 GR
+  9 A$stm8_hd44780$1767                                            0003D4 GR
+  9 A$stm8_hd44780$177                                             000036 GR
+  9 A$stm8_hd44780$1779                                            0003D5 GR
+  9 A$stm8_hd44780$178                                             000038 GR
+  9 A$stm8_hd44780$1784                                            0003D6 GR
+  9 A$stm8_hd44780$1787                                            0003D8 GR
+  9 A$stm8_hd44780$1789                                            0003DA GR
+  9 A$stm8_hd44780$1792                                            0003DC GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$1793                                            0003DF GR
+  9 A$stm8_hd44780$1798                                            0003E1 GR
+  9 A$stm8_hd44780$1802                                            0003E4 GR
+  9 A$stm8_hd44780$1805                                            0003E6 GR
+  9 A$stm8_hd44780$1807                                            0003E8 GR
+  9 A$stm8_hd44780$1810                                            0003EA GR
+  9 A$stm8_hd44780$1811                                            0003ED GR
+  9 A$stm8_hd44780$1816                                            0003EF GR
+  9 A$stm8_hd44780$1820                                            0003F2 GR
+  9 A$stm8_hd44780$1821                                            0003F3 GR
+  9 A$stm8_hd44780$183                                             000039 GR
+  9 A$stm8_hd44780$1831                                            0003F4 GR
+  9 A$stm8_hd44780$1835                                            0003F5 GR
+  9 A$stm8_hd44780$1836                                            0003F6 GR
+  9 A$stm8_hd44780$1837                                            0003F8 GR
+  9 A$stm8_hd44780$1841                                            0003FB GR
+  9 A$stm8_hd44780$1846                                            0003FC GR
+  9 A$stm8_hd44780$1849                                            0003FE GR
+  9 A$stm8_hd44780$1851                                            000400 GR
+  9 A$stm8_hd44780$1854                                            000402 GR
+  9 A$stm8_hd44780$1855                                            000405 GR
+  9 A$stm8_hd44780$1860                                            000407 GR
+  9 A$stm8_hd44780$1864                                            00040A GR
+  9 A$stm8_hd44780$1865                                            00040B GR
+  9 A$stm8_hd44780$1875                                            00040C GR
+  9 A$stm8_hd44780$1879                                            00040D GR
+  9 A$stm8_hd44780$1880                                            00040E GR
+  9 A$stm8_hd44780$1881                                            000410 GR
+  9 A$stm8_hd44780$1885                                            000413 GR
+  9 A$stm8_hd44780$1890                                            000414 GR
+  9 A$stm8_hd44780$1894                                            000417 GR
+  9 A$stm8_hd44780$1895                                            000418 GR
+  9 A$stm8_hd44780$1896                                            00041A GR
+  9 A$stm8_hd44780$1900                                            00041C GR
+  9 A$stm8_hd44780$1903                                            00041E GR
+  9 A$stm8_hd44780$1905                                            000420 GR
+  9 A$stm8_hd44780$1908                                            000422 GR
+  9 A$stm8_hd44780$1909                                            000425 GR
+  9 A$stm8_hd44780$191                                             00003A GR
+  9 A$stm8_hd44780$1914                                            000427 GR
+  9 A$stm8_hd44780$1918                                            00042A GR
+  9 A$stm8_hd44780$1919                                            00042B GR
+  9 A$stm8_hd44780$192                                             00003B GR
+  9 A$stm8_hd44780$1929                                            00042C GR
+  9 A$stm8_hd44780$1933                                            00042D GR
+  9 A$stm8_hd44780$1934                                            00042E GR
+  9 A$stm8_hd44780$1935                                            000430 GR
+  9 A$stm8_hd44780$1939                                            000433 GR
+  9 A$stm8_hd44780$1944                                            000434 GR
+  9 A$stm8_hd44780$1947                                            000436 GR
+  9 A$stm8_hd44780$1949                                            000438 GR
+  9 A$stm8_hd44780$1952                                            00043A GR
+  9 A$stm8_hd44780$1953                                            00043D GR
+  9 A$stm8_hd44780$1958                                            00043F GR
+  9 A$stm8_hd44780$1962                                            000442 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$1963                                            000443 GR
+  9 A$stm8_hd44780$1973                                            000444 GR
+  9 A$stm8_hd44780$1977                                            000445 GR
+  9 A$stm8_hd44780$1978                                            000446 GR
+  9 A$stm8_hd44780$1979                                            000448 GR
+  9 A$stm8_hd44780$1983                                            00044B GR
+  9 A$stm8_hd44780$1988                                            00044C GR
+  9 A$stm8_hd44780$1990                                            00044F GR
+  9 A$stm8_hd44780$1992                                            000451 GR
+  9 A$stm8_hd44780$1996                                            000453 GR
+  9 A$stm8_hd44780$1999                                            000455 GR
+  9 A$stm8_hd44780$2001                                            000457 GR
+  9 A$stm8_hd44780$2004                                            000459 GR
+  9 A$stm8_hd44780$2005                                            00045C GR
+  9 A$stm8_hd44780$2010                                            00045E GR
+  9 A$stm8_hd44780$2014                                            000461 GR
+  9 A$stm8_hd44780$2015                                            000462 GR
+  9 A$stm8_hd44780$202                                             00003C GR
+  9 A$stm8_hd44780$2025                                            000463 GR
+  9 A$stm8_hd44780$2029                                            000464 GR
+  9 A$stm8_hd44780$2030                                            000465 GR
+  9 A$stm8_hd44780$2031                                            000467 GR
+  9 A$stm8_hd44780$2035                                            00046A GR
+  9 A$stm8_hd44780$2040                                            00046B GR
+  9 A$stm8_hd44780$2043                                            00046D GR
+  9 A$stm8_hd44780$2045                                            00046F GR
+  9 A$stm8_hd44780$2048                                            000471 GR
+  9 A$stm8_hd44780$2049                                            000474 GR
+  9 A$stm8_hd44780$2054                                            000476 GR
+  9 A$stm8_hd44780$2058                                            000479 GR
+  9 A$stm8_hd44780$206                                             00003D GR
+  9 A$stm8_hd44780$2064                                            00047B GR
+  9 A$stm8_hd44780$2068                                            00047D GR
+  9 A$stm8_hd44780$207                                             00003E GR
+  9 A$stm8_hd44780$208                                             000040 GR
+  9 A$stm8_hd44780$2083                                            00047E GR
+  9 A$stm8_hd44780$2086                                            000480 GR
+  9 A$stm8_hd44780$2088                                            000482 GR
+  9 A$stm8_hd44780$2091                                            000484 GR
+  9 A$stm8_hd44780$2092                                            000487 GR
+  9 A$stm8_hd44780$2097                                            000489 GR
+  9 A$stm8_hd44780$2100                                            00048B GR
+  9 A$stm8_hd44780$2102                                            00048D GR
+  9 A$stm8_hd44780$2105                                            00048F GR
+  9 A$stm8_hd44780$2106                                            000492 GR
+  9 A$stm8_hd44780$2111                                            000494 GR
+  9 A$stm8_hd44780$2119                                            000497 GR
+  9 A$stm8_hd44780$212                                             000043 GR
+  9 A$stm8_hd44780$2134                                            000498 GR
+  9 A$stm8_hd44780$2137                                            00049A GR
+  9 A$stm8_hd44780$2139                                            00049C GR
+  9 A$stm8_hd44780$2142                                            00049E GR
+  9 A$stm8_hd44780$2143                                            0004A1 GR
+  9 A$stm8_hd44780$2148                                            0004A3 GR
+  9 A$stm8_hd44780$2151                                            0004A5 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$2153                                            0004A7 GR
+  9 A$stm8_hd44780$2156                                            0004A9 GR
+  9 A$stm8_hd44780$2157                                            0004AC GR
+  9 A$stm8_hd44780$2162                                            0004AE GR
+  9 A$stm8_hd44780$2165                                            0004B0 GR
+  9 A$stm8_hd44780$2167                                            0004B2 GR
+  9 A$stm8_hd44780$2170                                            0004B4 GR
+  9 A$stm8_hd44780$2171                                            0004B7 GR
+  9 A$stm8_hd44780$2176                                            0004B9 GR
+  9 A$stm8_hd44780$2179                                            0004BB GR
+  9 A$stm8_hd44780$2181                                            0004BD GR
+  9 A$stm8_hd44780$2184                                            0004BF GR
+  9 A$stm8_hd44780$2185                                            0004C2 GR
+  9 A$stm8_hd44780$2190                                            0004C4 GR
+  9 A$stm8_hd44780$2193                                            0004C6 GR
+  9 A$stm8_hd44780$2195                                            0004C8 GR
+  9 A$stm8_hd44780$2198                                            0004CA GR
+  9 A$stm8_hd44780$2199                                            0004CD GR
+  9 A$stm8_hd44780$2204                                            0004CF GR
+  9 A$stm8_hd44780$2212                                            0004D2 GR
+  9 A$stm8_hd44780$2227                                            0004D3 GR
+  9 A$stm8_hd44780$223                                             000044 GR
+  9 A$stm8_hd44780$2234                                            0004D6 GR
+  9 A$stm8_hd44780$2235                                            0004D7 GR
+  9 A$stm8_hd44780$2236                                            0004D9 GR
+  9 A$stm8_hd44780$2239                                            0004DC GR
+  9 A$stm8_hd44780$2241                                            0004DD GR
+  9 A$stm8_hd44780$2242                                            0004E0 GR
+  9 A$stm8_hd44780$2245                                            0004E1 GR
+  9 A$stm8_hd44780$2246                                            0004E2 GR
+  9 A$stm8_hd44780$2247                                            0004E4 GR
+  9 A$stm8_hd44780$2254                                            0004E7 GR
+  9 A$stm8_hd44780$2257                                            0004E8 GR
+  9 A$stm8_hd44780$2264                                            0004EB GR
+  9 A$stm8_hd44780$2265                                            0004EC GR
+  9 A$stm8_hd44780$2266                                            0004EE GR
+  9 A$stm8_hd44780$2270                                            0004F1 GR
+  9 A$stm8_hd44780$2271                                            0004F3 GR
+  9 A$stm8_hd44780$2279                                            0004F6 GR
+  9 A$stm8_hd44780$2288                                            0004F7 GR
+  9 A$stm8_hd44780$235                                             000045 GR
+  9 A$stm8_hd44780$241                                             000046 GR
+  9 A$stm8_hd44780$242                                             000048 GR
+  9 A$stm8_hd44780$243                                             00004A GR
+  9 A$stm8_hd44780$244                                             00004C GR
+  9 A$stm8_hd44780$248                                             00004F GR
+  9 A$stm8_hd44780$254                                             000052 GR
+  9 A$stm8_hd44780$255                                             000054 GR
+  9 A$stm8_hd44780$257                                             000056 GR
+  9 A$stm8_hd44780$260                                             000057 GR
+  9 A$stm8_hd44780$261                                             00005A GR
+  9 A$stm8_hd44780$266                                             00005B GR
+  9 A$stm8_hd44780$273                                             00005D GR
+  9 A$stm8_hd44780$274                                             00005E GR
+  9 A$stm8_hd44780$275                                             000060 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$276                                             000061 GR
+  9 A$stm8_hd44780$278                                             000064 GR
+  9 A$stm8_hd44780$280                                             000065 GR
+  9 A$stm8_hd44780$283                                             000066 GR
+  9 A$stm8_hd44780$284                                             000069 GR
+  9 A$stm8_hd44780$290                                             00006A GR
+  9 A$stm8_hd44780$293                                             00006C GR
+  9 A$stm8_hd44780$294                                             00006E GR
+  9 A$stm8_hd44780$295                                             000070 GR
+  9 A$stm8_hd44780$296                                             000072 GR
+  9 A$stm8_hd44780$302                                             000075 GR
+  9 A$stm8_hd44780$305                                             000077 GR
+  9 A$stm8_hd44780$306                                             00007A GR
+  9 A$stm8_hd44780$313                                             00007B GR
+  9 A$stm8_hd44780$317                                             00007C GR
+  9 A$stm8_hd44780$332                                             00007D GR
+  9 A$stm8_hd44780$336                                             00007F GR
+  9 A$stm8_hd44780$338                                             000080 GR
+  9 A$stm8_hd44780$339                                             000081 GR
+  9 A$stm8_hd44780$340                                             000083 GR
+  9 A$stm8_hd44780$346                                             000086 GR
+  9 A$stm8_hd44780$348                                             000087 GR
+  9 A$stm8_hd44780$351                                             000088 GR
+  9 A$stm8_hd44780$352                                             00008B GR
+  9 A$stm8_hd44780$354                                             00008C GR
+  9 A$stm8_hd44780$359                                             00008D GR
+  9 A$stm8_hd44780$362                                             00008E GR
+  9 A$stm8_hd44780$370                                             000091 GR
+  9 A$stm8_hd44780$385                                             000092 GR
+  9 A$stm8_hd44780$389                                             000095 GR
+  9 A$stm8_hd44780$393                                             000098 GR
+  9 A$stm8_hd44780$397                                             00009B GR
+  9 A$stm8_hd44780$398                                             00009C GR
+  9 A$stm8_hd44780$408                                             00009D GR
+  9 A$stm8_hd44780$412                                             00009E GR
+  9 A$stm8_hd44780$413                                             00009F GR
+  9 A$stm8_hd44780$414                                             0000A1 GR
+  9 A$stm8_hd44780$418                                             0000A4 GR
+  9 A$stm8_hd44780$423                                             0000A5 GR
+  9 A$stm8_hd44780$426                                             0000A7 GR
+  9 A$stm8_hd44780$427                                             0000AA GR
+  9 A$stm8_hd44780$432                                             0000AB GR
+  9 A$stm8_hd44780$436                                             0000AE GR
+  9 A$stm8_hd44780$440                                             0000B1 GR
+  9 A$stm8_hd44780$441                                             0000B2 GR
+  9 A$stm8_hd44780$451                                             0000B3 GR
+  9 A$stm8_hd44780$455                                             0000B4 GR
+  9 A$stm8_hd44780$456                                             0000B5 GR
+  9 A$stm8_hd44780$457                                             0000B7 GR
+  9 A$stm8_hd44780$461                                             0000BA GR
+  9 A$stm8_hd44780$466                                             0000BB GR
+  9 A$stm8_hd44780$469                                             0000BD GR
+  9 A$stm8_hd44780$470                                             0000C0 GR
+  9 A$stm8_hd44780$475                                             0000C1 GR
+  9 A$stm8_hd44780$479                                             0000C4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$483                                             0000C7 GR
+  9 A$stm8_hd44780$484                                             0000C8 GR
+  9 A$stm8_hd44780$494                                             0000C9 GR
+  9 A$stm8_hd44780$498                                             0000CA GR
+  9 A$stm8_hd44780$499                                             0000CB GR
+  9 A$stm8_hd44780$500                                             0000CD GR
+  9 A$stm8_hd44780$504                                             0000D0 GR
+  9 A$stm8_hd44780$509                                             0000D1 GR
+  9 A$stm8_hd44780$512                                             0000D3 GR
+  9 A$stm8_hd44780$513                                             0000D6 GR
+  9 A$stm8_hd44780$518                                             0000D7 GR
+  9 A$stm8_hd44780$522                                             0000DA GR
+  9 A$stm8_hd44780$525                                             0000DC GR
+  9 A$stm8_hd44780$526                                             0000DF GR
+  9 A$stm8_hd44780$531                                             0000E0 GR
+  9 A$stm8_hd44780$535                                             0000E3 GR
+  9 A$stm8_hd44780$539                                             0000E6 GR
+  9 A$stm8_hd44780$540                                             0000E7 GR
+  9 A$stm8_hd44780$550                                             0000E8 GR
+  9 A$stm8_hd44780$554                                             0000E9 GR
+  9 A$stm8_hd44780$555                                             0000EA GR
+  9 A$stm8_hd44780$556                                             0000EC GR
+  9 A$stm8_hd44780$560                                             0000EF GR
+  9 A$stm8_hd44780$565                                             0000F0 GR
+  9 A$stm8_hd44780$568                                             0000F2 GR
+  9 A$stm8_hd44780$569                                             0000F5 GR
+  9 A$stm8_hd44780$574                                             0000F6 GR
+  9 A$stm8_hd44780$577                                             0000F8 GR
+  9 A$stm8_hd44780$578                                             0000FB GR
+  9 A$stm8_hd44780$583                                             0000FC GR
+  9 A$stm8_hd44780$586                                             0000FE GR
+  9 A$stm8_hd44780$587                                             000101 GR
+  9 A$stm8_hd44780$592                                             000102 GR
+  9 A$stm8_hd44780$595                                             000104 GR
+  9 A$stm8_hd44780$596                                             000107 GR
+  9 A$stm8_hd44780$601                                             000108 GR
+  9 A$stm8_hd44780$604                                             00010A GR
+  9 A$stm8_hd44780$605                                             00010D GR
+  9 A$stm8_hd44780$610                                             00010E GR
+  9 A$stm8_hd44780$613                                             000110 GR
+  9 A$stm8_hd44780$614                                             000113 GR
+  9 A$stm8_hd44780$623                                             000114 GR
+  9 A$stm8_hd44780$639                                             000115 GR
+  9 A$stm8_hd44780$640                                             000117 GR
+  9 A$stm8_hd44780$641                                             000119 GR
+  9 A$stm8_hd44780$642                                             00011B GR
+  9 A$stm8_hd44780$647                                             00011E GR
+  9 A$stm8_hd44780$648                                             000120 GR
+  9 A$stm8_hd44780$655                                             000122 GR
+  9 A$stm8_hd44780$656                                             000124 GR
+  9 A$stm8_hd44780$657                                             000126 GR
+  9 A$stm8_hd44780$661                                             000129 GR
+  9 A$stm8_hd44780$664                                             00012A GR
+  9 A$stm8_hd44780$670                                             00012D GR
+  9 A$stm8_hd44780$671                                             00012F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$672                                             000130 GR
+  9 A$stm8_hd44780$673                                             000132 GR
+  9 A$stm8_hd44780$675                                             000135 GR
+  9 A$stm8_hd44780$681                                             000138 GR
+  9 A$stm8_hd44780$684                                             00013A GR
+  9 A$stm8_hd44780$690                                             00013D GR
+  9 A$stm8_hd44780$691                                             00013F GR
+  9 A$stm8_hd44780$692                                             000141 GR
+  9 A$stm8_hd44780$693                                             000143 GR
+  9 A$stm8_hd44780$695                                             000146 GR
+  9 A$stm8_hd44780$701                                             000149 GR
+  9 A$stm8_hd44780$704                                             00014B GR
+  9 A$stm8_hd44780$711                                             00014E GR
+  9 A$stm8_hd44780$718                                             000150 GR
+  9 A$stm8_hd44780$723                                             000152 GR
+  9 A$stm8_hd44780$725                                             000154 GR
+  9 A$stm8_hd44780$728                                             000155 GR
+  9 A$stm8_hd44780$729                                             000158 GR
+  9 A$stm8_hd44780$738                                             000159 GR
+  9 A$stm8_hd44780$753                                             00015A GR
+  9 A$stm8_hd44780$756                                             00015C GR
+  9 A$stm8_hd44780$759                                             00015E GR
+  9 A$stm8_hd44780$761                                             000160 GR
+  9 A$stm8_hd44780$764                                             000162 GR
+  9 A$stm8_hd44780$765                                             000165 GR
+  9 A$stm8_hd44780$770                                             000167 GR
+  9 A$stm8_hd44780$773                                             000169 GR
+  9 A$stm8_hd44780$776                                             00016B GR
+  9 A$stm8_hd44780$778                                             00016D GR
+  9 A$stm8_hd44780$781                                             00016F GR
+  9 A$stm8_hd44780$782                                             000172 GR
+  9 A$stm8_hd44780$787                                             000174 GR
+  9 A$stm8_hd44780$790                                             000176 GR
+  9 A$stm8_hd44780$793                                             000178 GR
+  9 A$stm8_hd44780$795                                             00017A GR
+  9 A$stm8_hd44780$798                                             00017C GR
+  9 A$stm8_hd44780$799                                             00017F GR
+  9 A$stm8_hd44780$804                                             000181 GR
+  9 A$stm8_hd44780$812                                             000184 GR
+  9 A$stm8_hd44780$82                                              000000 GR
+  9 A$stm8_hd44780$827                                             000185 GR
+  9 A$stm8_hd44780$83                                              000001 GR
+  9 A$stm8_hd44780$830                                             000187 GR
+  9 A$stm8_hd44780$833                                             000189 GR
+  9 A$stm8_hd44780$835                                             00018B GR
+  9 A$stm8_hd44780$838                                             00018D GR
+  9 A$stm8_hd44780$839                                             000190 GR
+  9 A$stm8_hd44780$844                                             000192 GR
+  9 A$stm8_hd44780$847                                             000194 GR
+  9 A$stm8_hd44780$850                                             000196 GR
+  9 A$stm8_hd44780$852                                             000198 GR
+  9 A$stm8_hd44780$855                                             00019A GR
+  9 A$stm8_hd44780$856                                             00019D GR
+  9 A$stm8_hd44780$861                                             00019F GR
+  9 A$stm8_hd44780$864                                             0001A1 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8_hd44780$867                                             0001A3 GR
+  9 A$stm8_hd44780$869                                             0001A5 GR
+  9 A$stm8_hd44780$87                                              000002 GR
+  9 A$stm8_hd44780$872                                             0001A7 GR
+  9 A$stm8_hd44780$873                                             0001AA GR
+  9 A$stm8_hd44780$878                                             0001AC GR
+  9 A$stm8_hd44780$881                                             0001AE GR
+  9 A$stm8_hd44780$884                                             0001B0 GR
+  9 A$stm8_hd44780$886                                             0001B2 GR
+  9 A$stm8_hd44780$889                                             0001B4 GR
+  9 A$stm8_hd44780$890                                             0001B7 GR
+  9 A$stm8_hd44780$899                                             0001B9 GR
+  9 A$stm8_hd44780$914                                             0001BA GR
+  9 A$stm8_hd44780$917                                             0001BC GR
+  9 A$stm8_hd44780$920                                             0001BE GR
+  9 A$stm8_hd44780$922                                             0001C0 GR
+  9 A$stm8_hd44780$925                                             0001C2 GR
+  9 A$stm8_hd44780$926                                             0001C5 GR
+  9 A$stm8_hd44780$931                                             0001C7 GR
+  9 A$stm8_hd44780$934                                             0001C9 GR
+  9 A$stm8_hd44780$937                                             0001CB GR
+  9 A$stm8_hd44780$939                                             0001CD GR
+  9 A$stm8_hd44780$94                                              000004 GR
+  9 A$stm8_hd44780$942                                             0001CF GR
+  9 A$stm8_hd44780$943                                             0001D2 GR
+  9 A$stm8_hd44780$948                                             0001D4 GR
+  9 A$stm8_hd44780$951                                             0001D6 GR
+  9 A$stm8_hd44780$954                                             0001D8 GR
+  9 A$stm8_hd44780$956                                             0001DA GR
+  9 A$stm8_hd44780$959                                             0001DC GR
+  9 A$stm8_hd44780$960                                             0001DF GR
+  9 A$stm8_hd44780$965                                             0001E1 GR
+  9 A$stm8_hd44780$968                                             0001E3 GR
+  9 A$stm8_hd44780$971                                             0001E5 GR
+  9 A$stm8_hd44780$973                                             0001E7 GR
+  9 A$stm8_hd44780$976                                             0001E9 GR
+  9 A$stm8_hd44780$977                                             0001EC GR
+  9 A$stm8_hd44780$986                                             0001EE GR
+  9 A$stm8_hd44780$99                                              000005 GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE10_end                                               00064B R
+ 10 Ldebug_CIE10_start                                             00063D R
+ 10 Ldebug_CIE11_end                                               000700 R
+ 10 Ldebug_CIE11_start                                             0006F2 R
+ 10 Ldebug_CIE12_end                                               0007B5 R
+ 10 Ldebug_CIE12_start                                             0007A7 R
+ 10 Ldebug_CIE13_end                                               000847 R
+ 10 Ldebug_CIE13_start                                             000839 R
+ 10 Ldebug_CIE14_end                                               00088C R
+ 10 Ldebug_CIE14_start                                             00087E R
+ 10 Ldebug_CIE15_end                                               000941 R
+ 10 Ldebug_CIE15_start                                             000933 R
+ 10 Ldebug_CIE16_end                                               000986 R
+ 10 Ldebug_CIE16_start                                             000978 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 13.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 10 Ldebug_CIE17_end                                               0009E7 R
+ 10 Ldebug_CIE17_start                                             0009D9 R
+ 10 Ldebug_CIE18_end                                               000A72 R
+ 10 Ldebug_CIE18_start                                             000A64 R
+ 10 Ldebug_CIE1_end                                                000049 R
+ 10 Ldebug_CIE1_start                                              00003B R
+ 10 Ldebug_CIE2_end                                                0000FE R
+ 10 Ldebug_CIE2_start                                              0000F0 R
+ 10 Ldebug_CIE3_end                                                00015F R
+ 10 Ldebug_CIE3_start                                              000151 R
+ 10 Ldebug_CIE4_end                                                00025A R
+ 10 Ldebug_CIE4_start                                              00024C R
+ 10 Ldebug_CIE5_end                                                0002BB R
+ 10 Ldebug_CIE5_start                                              0002AD R
+ 10 Ldebug_CIE6_end                                                00031C R
+ 10 Ldebug_CIE6_start                                              00030E R
+ 10 Ldebug_CIE7_end                                                00037D R
+ 10 Ldebug_CIE7_start                                              00036F R
+ 10 Ldebug_CIE8_end                                                000424 R
+ 10 Ldebug_CIE8_start                                              000416 R
+ 10 Ldebug_CIE9_end                                                00052D R
+ 10 Ldebug_CIE9_start                                              00051F R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                000B10 R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                000581 R
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               00008E R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            00012A R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Sstm8_hd44780$_delay_cycl$0                                 =  000000 GR
+  9 Sstm8_hd44780$_delay_cycl$1                                 =  000000 GR
+  9 Sstm8_hd44780$_delay_cycl$10                                =  00000C GR
+  9 Sstm8_hd44780$_delay_cycl$11                                =  00000D GR
+  9 Sstm8_hd44780$_delay_cycl$2                                 =  000000 GR
+  9 Sstm8_hd44780$_delay_cycl$3                                 =  000002 GR
+  9 Sstm8_hd44780$_delay_cycl$4                                 =  000004 GR
+  9 Sstm8_hd44780$_delay_cycl$5                                 =  000004 GR
+  9 Sstm8_hd44780$_delay_cycl$6                                 =  000005 GR
+  9 Sstm8_hd44780$_delay_cycl$7                                 =  000005 GR
+  9 Sstm8_hd44780$_delay_cycl$8                                 =  00000B GR
+  9 Sstm8_hd44780$_delay_cycl$9                                 =  00000C GR
+  9 Sstm8_hd44780$_delay_us$12                                  =  00000D GR
+  9 Sstm8_hd44780$_delay_us$13                                  =  00000D GR
+  9 Sstm8_hd44780$_delay_us$14                                  =  00000D GR
+  9 Sstm8_hd44780$_delay_us$15                                  =  000012 GR
+  9 Sstm8_hd44780$_delay_us$16                                  =  000013 GR
+  9 Sstm8_hd44780$_delay_us$17                                  =  000015 GR
+  9 Sstm8_hd44780$_delay_us$18                                  =  000017 GR
+  9 Sstm8_hd44780$_delay_us$19                                  =  000019 GR
+  9 Sstm8_hd44780$_delay_us$20                                  =  00001B GR
+  9 Sstm8_hd44780$_delay_us$21                                  =  000020 GR
+  9 Sstm8_hd44780$_delay_us$22                                  =  000020 GR
+  9 Sstm8_hd44780$_delay_us$23                                  =  000022 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 14.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$_delay_us$24                                  =  000024 GR
+  9 Sstm8_hd44780$_delay_us$25                                  =  000026 GR
+  9 Sstm8_hd44780$_delay_us$26                                  =  000028 GR
+  9 Sstm8_hd44780$_delay_us$27                                  =  000029 GR
+  9 Sstm8_hd44780$_delay_us$28                                  =  00002B GR
+  9 Sstm8_hd44780$_delay_us$29                                  =  000030 GR
+  9 Sstm8_hd44780$_delay_us$30                                  =  000030 GR
+  9 Sstm8_hd44780$_delay_us$31                                  =  000039 GR
+  9 Sstm8_hd44780$_delay_us$32                                  =  00003A GR
+  9 Sstm8_hd44780$_delay_us$33                                  =  00003A GR
+  9 Sstm8_hd44780$_delay_us$34                                  =  00003C GR
+  9 Sstm8_hd44780$_delay_us$35                                  =  00003C GR
+  9 Sstm8_hd44780$_delay_us$36                                  =  00003C GR
+  9 Sstm8_hd44780$_delay_us$37                                  =  00003D GR
+  9 Sstm8_hd44780$_delay_us$38                                  =  000044 GR
+  9 Sstm8_hd44780$_delay_us$39                                  =  000044 GR
+  9 Sstm8_hd44780$_delay_us$40                                  =  000044 GR
+  9 Sstm8_hd44780$_delay_us$41                                  =  000044 GR
+  9 Sstm8_hd44780$_delay_us$42                                  =  000045 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$226                            =  0001BA GR
+  9 Sstm8_hd44780$lcd_bus_inputs$227                            =  0001BA GR
+  9 Sstm8_hd44780$lcd_bus_inputs$228                            =  0001BA GR
+  9 Sstm8_hd44780$lcd_bus_inputs$229                            =  0001BC GR
+  9 Sstm8_hd44780$lcd_bus_inputs$230                            =  0001BE GR
+  9 Sstm8_hd44780$lcd_bus_inputs$231                            =  0001C0 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$232                            =  0001C2 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$233                            =  0001C7 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$234                            =  0001C7 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$235                            =  0001C9 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$236                            =  0001CB GR
+  9 Sstm8_hd44780$lcd_bus_inputs$237                            =  0001CD GR
+  9 Sstm8_hd44780$lcd_bus_inputs$238                            =  0001CF GR
+  9 Sstm8_hd44780$lcd_bus_inputs$239                            =  0001D4 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$240                            =  0001D4 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$241                            =  0001D6 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$242                            =  0001D8 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$243                            =  0001DA GR
+  9 Sstm8_hd44780$lcd_bus_inputs$244                            =  0001DC GR
+  9 Sstm8_hd44780$lcd_bus_inputs$245                            =  0001E1 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$246                            =  0001E1 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$247                            =  0001E3 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$248                            =  0001E5 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$249                            =  0001E7 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$250                            =  0001E9 GR
+  9 Sstm8_hd44780$lcd_bus_inputs$251                            =  0001EE GR
+  9 Sstm8_hd44780$lcd_bus_inputs$252                            =  0001EE GR
+  9 Sstm8_hd44780$lcd_bus_inputs$253                            =  0001EE GR
+  9 Sstm8_hd44780$lcd_bus_inputs$254                            =  0001EF GR
+  9 Sstm8_hd44780$lcd_bus_outputs$197                           =  000185 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$198                           =  000185 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$199                           =  000185 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$200                           =  000187 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$201                           =  000189 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$202                           =  00018B GR
+  9 Sstm8_hd44780$lcd_bus_outputs$203                           =  00018D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 15.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_bus_outputs$204                           =  000192 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$205                           =  000192 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$206                           =  000194 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$207                           =  000196 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$208                           =  000198 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$209                           =  00019A GR
+  9 Sstm8_hd44780$lcd_bus_outputs$210                           =  00019F GR
+  9 Sstm8_hd44780$lcd_bus_outputs$211                           =  00019F GR
+  9 Sstm8_hd44780$lcd_bus_outputs$212                           =  0001A1 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$213                           =  0001A3 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$214                           =  0001A5 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$215                           =  0001A7 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$216                           =  0001AC GR
+  9 Sstm8_hd44780$lcd_bus_outputs$217                           =  0001AC GR
+  9 Sstm8_hd44780$lcd_bus_outputs$218                           =  0001AE GR
+  9 Sstm8_hd44780$lcd_bus_outputs$219                           =  0001B0 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$220                           =  0001B2 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$221                           =  0001B4 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$222                           =  0001B9 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$223                           =  0001B9 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$224                           =  0001B9 GR
+  9 Sstm8_hd44780$lcd_bus_outputs$225                           =  0001BA GR
+  9 Sstm8_hd44780$lcd_bus_read$359                              =  0002D3 GR
+  9 Sstm8_hd44780$lcd_bus_read$360                              =  0002D3 GR
+  9 Sstm8_hd44780$lcd_bus_read$361                              =  0002D4 GR
+  9 Sstm8_hd44780$lcd_bus_read$362                              =  0002D4 GR
+  9 Sstm8_hd44780$lcd_bus_read$363                              =  0002D6 GR
+  9 Sstm8_hd44780$lcd_bus_read$364                              =  0002D8 GR
+  9 Sstm8_hd44780$lcd_bus_read$365                              =  0002DA GR
+  9 Sstm8_hd44780$lcd_bus_read$366                              =  0002DC GR
+  9 Sstm8_hd44780$lcd_bus_read$367                              =  0002E1 GR
+  9 Sstm8_hd44780$lcd_bus_read$368                              =  0002E7 GR
+  9 Sstm8_hd44780$lcd_bus_read$369                              =  0002EC GR
+  9 Sstm8_hd44780$lcd_bus_read$370                              =  0002EC GR
+  9 Sstm8_hd44780$lcd_bus_read$371                              =  0002EE GR
+  9 Sstm8_hd44780$lcd_bus_read$372                              =  0002F0 GR
+  9 Sstm8_hd44780$lcd_bus_read$373                              =  0002F2 GR
+  9 Sstm8_hd44780$lcd_bus_read$374                              =  0002F7 GR
+  9 Sstm8_hd44780$lcd_bus_read$375                              =  0002FD GR
+  9 Sstm8_hd44780$lcd_bus_read$376                              =  000303 GR
+  9 Sstm8_hd44780$lcd_bus_read$377                              =  000303 GR
+  9 Sstm8_hd44780$lcd_bus_read$378                              =  000305 GR
+  9 Sstm8_hd44780$lcd_bus_read$379                              =  000307 GR
+  9 Sstm8_hd44780$lcd_bus_read$380                              =  000309 GR
+  9 Sstm8_hd44780$lcd_bus_read$381                              =  00030E GR
+  9 Sstm8_hd44780$lcd_bus_read$382                              =  000314 GR
+  9 Sstm8_hd44780$lcd_bus_read$383                              =  00031A GR
+  9 Sstm8_hd44780$lcd_bus_read$384                              =  00031A GR
+  9 Sstm8_hd44780$lcd_bus_read$385                              =  00031C GR
+  9 Sstm8_hd44780$lcd_bus_read$386                              =  00031E GR
+  9 Sstm8_hd44780$lcd_bus_read$387                              =  000320 GR
+  9 Sstm8_hd44780$lcd_bus_read$388                              =  000325 GR
+  9 Sstm8_hd44780$lcd_bus_read$389                              =  00032B GR
+  9 Sstm8_hd44780$lcd_bus_read$390                              =  000331 GR
+  9 Sstm8_hd44780$lcd_bus_read$391                              =  000331 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 16.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_bus_read$392                              =  000333 GR
+  9 Sstm8_hd44780$lcd_bus_read$393                              =  000335 GR
+  9 Sstm8_hd44780$lcd_bus_read$394                              =  000335 GR
+  9 Sstm8_hd44780$lcd_bus_read$395                              =  000336 GR
+  9 Sstm8_hd44780$lcd_bus_set$302                               =  00024B GR
+  9 Sstm8_hd44780$lcd_bus_set$303                               =  00024B GR
+  9 Sstm8_hd44780$lcd_bus_set$304                               =  00024B GR
+  9 Sstm8_hd44780$lcd_bus_set$305                               =  000253 GR
+  9 Sstm8_hd44780$lcd_bus_set$306                               =  000255 GR
+  9 Sstm8_hd44780$lcd_bus_set$307                               =  000257 GR
+  9 Sstm8_hd44780$lcd_bus_set$308                               =  000259 GR
+  9 Sstm8_hd44780$lcd_bus_set$309                               =  00025E GR
+  9 Sstm8_hd44780$lcd_bus_set$310                               =  00025E GR
+  9 Sstm8_hd44780$lcd_bus_set$311                               =  000261 GR
+  9 Sstm8_hd44780$lcd_bus_set$312                               =  000263 GR
+  9 Sstm8_hd44780$lcd_bus_set$313                               =  000265 GR
+  9 Sstm8_hd44780$lcd_bus_set$314                               =  000267 GR
+  9 Sstm8_hd44780$lcd_bus_set$315                               =  00026C GR
+  9 Sstm8_hd44780$lcd_bus_set$316                               =  00026C GR
+  9 Sstm8_hd44780$lcd_bus_set$317                               =  00026C GR
+  9 Sstm8_hd44780$lcd_bus_set$318                               =  000275 GR
+  9 Sstm8_hd44780$lcd_bus_set$319                               =  000277 GR
+  9 Sstm8_hd44780$lcd_bus_set$320                               =  000279 GR
+  9 Sstm8_hd44780$lcd_bus_set$321                               =  00027B GR
+  9 Sstm8_hd44780$lcd_bus_set$322                               =  000280 GR
+  9 Sstm8_hd44780$lcd_bus_set$323                               =  000280 GR
+  9 Sstm8_hd44780$lcd_bus_set$324                               =  000283 GR
+  9 Sstm8_hd44780$lcd_bus_set$325                               =  000285 GR
+  9 Sstm8_hd44780$lcd_bus_set$326                               =  000287 GR
+  9 Sstm8_hd44780$lcd_bus_set$327                               =  000289 GR
+  9 Sstm8_hd44780$lcd_bus_set$328                               =  00028E GR
+  9 Sstm8_hd44780$lcd_bus_set$329                               =  00028E GR
+  9 Sstm8_hd44780$lcd_bus_set$330                               =  00028E GR
+  9 Sstm8_hd44780$lcd_bus_set$331                               =  000297 GR
+  9 Sstm8_hd44780$lcd_bus_set$332                               =  000299 GR
+  9 Sstm8_hd44780$lcd_bus_set$333                               =  00029B GR
+  9 Sstm8_hd44780$lcd_bus_set$334                               =  00029D GR
+  9 Sstm8_hd44780$lcd_bus_set$335                               =  0002A2 GR
+  9 Sstm8_hd44780$lcd_bus_set$336                               =  0002A2 GR
+  9 Sstm8_hd44780$lcd_bus_set$337                               =  0002A5 GR
+  9 Sstm8_hd44780$lcd_bus_set$338                               =  0002A7 GR
+  9 Sstm8_hd44780$lcd_bus_set$339                               =  0002A9 GR
+  9 Sstm8_hd44780$lcd_bus_set$340                               =  0002AB GR
+  9 Sstm8_hd44780$lcd_bus_set$341                               =  0002B0 GR
+  9 Sstm8_hd44780$lcd_bus_set$342                               =  0002B0 GR
+  9 Sstm8_hd44780$lcd_bus_set$343                               =  0002B0 GR
+  9 Sstm8_hd44780$lcd_bus_set$344                               =  0002B9 GR
+  9 Sstm8_hd44780$lcd_bus_set$345                               =  0002BB GR
+  9 Sstm8_hd44780$lcd_bus_set$346                               =  0002BD GR
+  9 Sstm8_hd44780$lcd_bus_set$347                               =  0002BF GR
+  9 Sstm8_hd44780$lcd_bus_set$348                               =  0002C4 GR
+  9 Sstm8_hd44780$lcd_bus_set$349                               =  0002C4 GR
+  9 Sstm8_hd44780$lcd_bus_set$350                               =  0002C7 GR
+  9 Sstm8_hd44780$lcd_bus_set$351                               =  0002C9 GR
+  9 Sstm8_hd44780$lcd_bus_set$352                               =  0002CB GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 17.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_bus_set$353                               =  0002CD GR
+  9 Sstm8_hd44780$lcd_bus_set$354                               =  0002D2 GR
+  9 Sstm8_hd44780$lcd_bus_set$355                               =  0002D2 GR
+  9 Sstm8_hd44780$lcd_bus_set$356                               =  0002D2 GR
+  9 Sstm8_hd44780$lcd_bus_set$357                               =  0002D2 GR
+  9 Sstm8_hd44780$lcd_bus_set$358                               =  0002D3 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$560                             =  00047E GR
+  9 Sstm8_hd44780$lcd_bus_sleep$561                             =  00047E GR
+  9 Sstm8_hd44780$lcd_bus_sleep$562                             =  00047E GR
+  9 Sstm8_hd44780$lcd_bus_sleep$563                             =  000480 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$564                             =  000482 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$565                             =  000484 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$566                             =  000489 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$567                             =  000489 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$568                             =  00048B GR
+  9 Sstm8_hd44780$lcd_bus_sleep$569                             =  00048D GR
+  9 Sstm8_hd44780$lcd_bus_sleep$570                             =  00048F GR
+  9 Sstm8_hd44780$lcd_bus_sleep$571                             =  000494 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$572                             =  000494 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$573                             =  000497 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$574                             =  000497 GR
+  9 Sstm8_hd44780$lcd_bus_sleep$575                             =  000498 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$576                            =  000498 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$577                            =  000498 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$578                            =  000498 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$579                            =  00049A GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$580                            =  00049C GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$581                            =  00049E GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$582                            =  0004A3 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$583                            =  0004A3 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$584                            =  0004A5 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$585                            =  0004A7 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$586                            =  0004A9 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$587                            =  0004AE GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$588                            =  0004AE GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$589                            =  0004B0 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$590                            =  0004B2 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$591                            =  0004B4 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$592                            =  0004B9 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$593                            =  0004B9 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$594                            =  0004BB GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$595                            =  0004BD GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$596                            =  0004BF GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$597                            =  0004C4 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$598                            =  0004C4 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$599                            =  0004C6 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$600                            =  0004C8 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$601                            =  0004CA GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$602                            =  0004CF GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$603                            =  0004CF GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$604                            =  0004D2 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$605                            =  0004D2 GR
+  9 Sstm8_hd44780$lcd_bus_wakeup$606                            =  0004D3 GR
+  9 Sstm8_hd44780$lcd_busy_wait$607                             =  0004D3 GR
+  9 Sstm8_hd44780$lcd_busy_wait$608                             =  0004D3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 18.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_busy_wait$609                             =  0004D3 GR
+  9 Sstm8_hd44780$lcd_busy_wait$610                             =  0004D6 GR
+  9 Sstm8_hd44780$lcd_busy_wait$611                             =  0004DD GR
+  9 Sstm8_hd44780$lcd_busy_wait$612                             =  0004E1 GR
+  9 Sstm8_hd44780$lcd_busy_wait$613                             =  0004E7 GR
+  9 Sstm8_hd44780$lcd_busy_wait$614                             =  0004E7 GR
+  9 Sstm8_hd44780$lcd_busy_wait$615                             =  0004E8 GR
+  9 Sstm8_hd44780$lcd_busy_wait$616                             =  0004EB GR
+  9 Sstm8_hd44780$lcd_busy_wait$617                             =  0004F1 GR
+  9 Sstm8_hd44780$lcd_busy_wait$618                             =  0004F6 GR
+  9 Sstm8_hd44780$lcd_busy_wait$619                             =  0004F6 GR
+  9 Sstm8_hd44780$lcd_busy_wait$620                             =  0004F6 GR
+  9 Sstm8_hd44780$lcd_busy_wait$621                             =  0004F7 GR
+  9 Sstm8_hd44780$lcd_busy_wait$622                             =  0004F7 GR
+  9 Sstm8_hd44780$lcd_busy_wait$623                             =  0004F7 GR
+  9 Sstm8_hd44780$lcd_busy_wait$624                             =  0004F8 GR
+  9 Sstm8_hd44780$lcd_command$426                               =  000367 GR
+  9 Sstm8_hd44780$lcd_command$427                               =  000367 GR
+  9 Sstm8_hd44780$lcd_command$428                               =  000367 GR
+  9 Sstm8_hd44780$lcd_command$429                               =  000369 GR
+  9 Sstm8_hd44780$lcd_command$430                               =  00036B GR
+  9 Sstm8_hd44780$lcd_command$431                               =  00036D GR
+  9 Sstm8_hd44780$lcd_command$432                               =  000372 GR
+  9 Sstm8_hd44780$lcd_command$433                               =  000372 GR
+  9 Sstm8_hd44780$lcd_command$434                               =  000375 GR
+  9 Sstm8_hd44780$lcd_command$435                               =  000377 GR
+  9 Sstm8_hd44780$lcd_command$436                               =  000377 GR
+  9 Sstm8_hd44780$lcd_command$437                               =  000377 GR
+  9 Sstm8_hd44780$lcd_command$438                               =  000378 GR
+  9 Sstm8_hd44780$lcd_command$439                               =  00037F GR
+  9 Sstm8_hd44780$lcd_command$440                               =  00037F GR
+  9 Sstm8_hd44780$lcd_command$441                               =  000387 GR
+  9 Sstm8_hd44780$lcd_command$442                               =  00038B GR
+  9 Sstm8_hd44780$lcd_command$443                               =  00038B GR
+  9 Sstm8_hd44780$lcd_command$444                               =  00038E GR
+  9 Sstm8_hd44780$lcd_command$445                               =  000393 GR
+  9 Sstm8_hd44780$lcd_command$446                               =  000397 GR
+  9 Sstm8_hd44780$lcd_command$447                               =  000397 GR
+  9 Sstm8_hd44780$lcd_command$448                               =  00039A GR
+  9 Sstm8_hd44780$lcd_command$449                               =  00039D GR
+  9 Sstm8_hd44780$lcd_command$450                               =  00039D GR
+  9 Sstm8_hd44780$lcd_command$451                               =  00039E GR
+  9 Sstm8_hd44780$lcd_data$452                                  =  00039E GR
+  9 Sstm8_hd44780$lcd_data$453                                  =  00039E GR
+  9 Sstm8_hd44780$lcd_data$454                                  =  00039E GR
+  9 Sstm8_hd44780$lcd_data$455                                  =  0003A0 GR
+  9 Sstm8_hd44780$lcd_data$456                                  =  0003A2 GR
+  9 Sstm8_hd44780$lcd_data$457                                  =  0003A4 GR
+  9 Sstm8_hd44780$lcd_data$458                                  =  0003A9 GR
+  9 Sstm8_hd44780$lcd_data$459                                  =  0003A9 GR
+  9 Sstm8_hd44780$lcd_data$460                                  =  0003AC GR
+  9 Sstm8_hd44780$lcd_data$461                                  =  0003AE GR
+  9 Sstm8_hd44780$lcd_data$462                                  =  0003AE GR
+  9 Sstm8_hd44780$lcd_data$463                                  =  0003AE GR
+  9 Sstm8_hd44780$lcd_data$464                                  =  0003AF GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 19.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_data$465                                  =  0003B6 GR
+  9 Sstm8_hd44780$lcd_data$466                                  =  0003B6 GR
+  9 Sstm8_hd44780$lcd_data$467                                  =  0003BE GR
+  9 Sstm8_hd44780$lcd_data$468                                  =  0003C2 GR
+  9 Sstm8_hd44780$lcd_data$469                                  =  0003C2 GR
+  9 Sstm8_hd44780$lcd_data$470                                  =  0003C5 GR
+  9 Sstm8_hd44780$lcd_data$471                                  =  0003CA GR
+  9 Sstm8_hd44780$lcd_data$472                                  =  0003CE GR
+  9 Sstm8_hd44780$lcd_data$473                                  =  0003CE GR
+  9 Sstm8_hd44780$lcd_data$474                                  =  0003D1 GR
+  9 Sstm8_hd44780$lcd_data$475                                  =  0003D4 GR
+  9 Sstm8_hd44780$lcd_data$476                                  =  0003D4 GR
+  9 Sstm8_hd44780$lcd_data$477                                  =  0003D5 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$255                             =  0001EF GR
+  9 Sstm8_hd44780$lcd_deinit_hw$256                             =  0001EF GR
+  9 Sstm8_hd44780$lcd_deinit_hw$257                             =  0001EF GR
+  9 Sstm8_hd44780$lcd_deinit_hw$258                             =  0001F1 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$259                             =  0001F3 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$260                             =  0001F5 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$261                             =  0001F7 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$262                             =  0001FC GR
+  9 Sstm8_hd44780$lcd_deinit_hw$263                             =  0001FC GR
+  9 Sstm8_hd44780$lcd_deinit_hw$264                             =  0001FE GR
+  9 Sstm8_hd44780$lcd_deinit_hw$265                             =  000200 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$266                             =  000202 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$267                             =  000204 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$268                             =  000209 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$269                             =  000209 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$270                             =  00020B GR
+  9 Sstm8_hd44780$lcd_deinit_hw$271                             =  00020D GR
+  9 Sstm8_hd44780$lcd_deinit_hw$272                             =  00020F GR
+  9 Sstm8_hd44780$lcd_deinit_hw$273                             =  000211 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$274                             =  000216 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$275                             =  000216 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$276                             =  000218 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$277                             =  00021A GR
+  9 Sstm8_hd44780$lcd_deinit_hw$278                             =  00021C GR
+  9 Sstm8_hd44780$lcd_deinit_hw$279                             =  00021E GR
+  9 Sstm8_hd44780$lcd_deinit_hw$280                             =  000223 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$281                             =  000223 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$282                             =  000225 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$283                             =  000227 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$284                             =  000229 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$285                             =  00022B GR
+  9 Sstm8_hd44780$lcd_deinit_hw$286                             =  000230 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$287                             =  000230 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$288                             =  000232 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$289                             =  000234 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$290                             =  000236 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$291                             =  000238 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$292                             =  00023D GR
+  9 Sstm8_hd44780$lcd_deinit_hw$293                             =  00023D GR
+  9 Sstm8_hd44780$lcd_deinit_hw$294                             =  00023F GR
+  9 Sstm8_hd44780$lcd_deinit_hw$295                             =  000241 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$296                             =  000243 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 20.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_deinit_hw$297                             =  000245 GR
+  9 Sstm8_hd44780$lcd_deinit_hw$298                             =  00024A GR
+  9 Sstm8_hd44780$lcd_deinit_hw$299                             =  00024A GR
+  9 Sstm8_hd44780$lcd_deinit_hw$300                             =  00024A GR
+  9 Sstm8_hd44780$lcd_deinit_hw$301                             =  00024B GR
+  9 Sstm8_hd44780$lcd_e_tick$396                                =  000336 GR
+  9 Sstm8_hd44780$lcd_e_tick$397                                =  000336 GR
+  9 Sstm8_hd44780$lcd_e_tick$398                                =  000336 GR
+  9 Sstm8_hd44780$lcd_e_tick$399                                =  000338 GR
+  9 Sstm8_hd44780$lcd_e_tick$400                                =  00033A GR
+  9 Sstm8_hd44780$lcd_e_tick$401                                =  00033C GR
+  9 Sstm8_hd44780$lcd_e_tick$402                                =  000341 GR
+  9 Sstm8_hd44780$lcd_e_tick$403                                =  000341 GR
+  9 Sstm8_hd44780$lcd_e_tick$404                                =  000344 GR
+  9 Sstm8_hd44780$lcd_e_tick$405                                =  000346 GR
+  9 Sstm8_hd44780$lcd_e_tick$406                                =  000346 GR
+  9 Sstm8_hd44780$lcd_e_tick$407                                =  000346 GR
+  9 Sstm8_hd44780$lcd_e_tick$408                                =  000347 GR
+  9 Sstm8_hd44780$lcd_e_tick$409                                =  00034E GR
+  9 Sstm8_hd44780$lcd_e_tick$410                                =  00034E GR
+  9 Sstm8_hd44780$lcd_e_tick$411                                =  000350 GR
+  9 Sstm8_hd44780$lcd_e_tick$412                                =  000352 GR
+  9 Sstm8_hd44780$lcd_e_tick$413                                =  000354 GR
+  9 Sstm8_hd44780$lcd_e_tick$414                                =  000359 GR
+  9 Sstm8_hd44780$lcd_e_tick$415                                =  000359 GR
+  9 Sstm8_hd44780$lcd_e_tick$416                                =  00035C GR
+  9 Sstm8_hd44780$lcd_e_tick$417                                =  00035E GR
+  9 Sstm8_hd44780$lcd_e_tick$418                                =  00035E GR
+  9 Sstm8_hd44780$lcd_e_tick$419                                =  00035E GR
+  9 Sstm8_hd44780$lcd_e_tick$420                                =  00035F GR
+  9 Sstm8_hd44780$lcd_e_tick$421                                =  000366 GR
+  9 Sstm8_hd44780$lcd_e_tick$422                                =  000366 GR
+  9 Sstm8_hd44780$lcd_e_tick$423                                =  000366 GR
+  9 Sstm8_hd44780$lcd_e_tick$424                                =  000366 GR
+  9 Sstm8_hd44780$lcd_e_tick$425                                =  000367 GR
+  9 Sstm8_hd44780$lcd_gotoxy$147                                =  000115 GR
+  9 Sstm8_hd44780$lcd_gotoxy$148                                =  000115 GR
+  9 Sstm8_hd44780$lcd_gotoxy$149                                =  000115 GR
+  9 Sstm8_hd44780$lcd_gotoxy$150                                =  00011E GR
+  9 Sstm8_hd44780$lcd_gotoxy$151                                =  000122 GR
+  9 Sstm8_hd44780$lcd_gotoxy$152                                =  000122 GR
+  9 Sstm8_hd44780$lcd_gotoxy$153                                =  000129 GR
+  9 Sstm8_hd44780$lcd_gotoxy$154                                =  00012A GR
+  9 Sstm8_hd44780$lcd_gotoxy$155                                =  00012D GR
+  9 Sstm8_hd44780$lcd_gotoxy$156                                =  000138 GR
+  9 Sstm8_hd44780$lcd_gotoxy$157                                =  000138 GR
+  9 Sstm8_hd44780$lcd_gotoxy$158                                =  00013A GR
+  9 Sstm8_hd44780$lcd_gotoxy$159                                =  00013D GR
+  9 Sstm8_hd44780$lcd_gotoxy$160                                =  000149 GR
+  9 Sstm8_hd44780$lcd_gotoxy$161                                =  000149 GR
+  9 Sstm8_hd44780$lcd_gotoxy$162                                =  00014B GR
+  9 Sstm8_hd44780$lcd_gotoxy$163                                =  00014E GR
+  9 Sstm8_hd44780$lcd_gotoxy$164                                =  00014E GR
+  9 Sstm8_hd44780$lcd_gotoxy$165                                =  000150 GR
+  9 Sstm8_hd44780$lcd_gotoxy$166                                =  000150 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 21.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_gotoxy$167                                =  000152 GR
+  9 Sstm8_hd44780$lcd_gotoxy$168                                =  000155 GR
+  9 Sstm8_hd44780$lcd_gotoxy$169                                =  000159 GR
+  9 Sstm8_hd44780$lcd_gotoxy$170                                =  000159 GR
+  9 Sstm8_hd44780$lcd_gotoxy$171                                =  000159 GR
+  9 Sstm8_hd44780$lcd_gotoxy$172                                =  00015A GR
+  9 Sstm8_hd44780$lcd_init$100                                  =  0000BB GR
+  9 Sstm8_hd44780$lcd_init$101                                  =  0000BD GR
+  9 Sstm8_hd44780$lcd_init$102                                  =  0000C1 GR
+  9 Sstm8_hd44780$lcd_init$103                                  =  0000C1 GR
+  9 Sstm8_hd44780$lcd_init$104                                  =  0000C4 GR
+  9 Sstm8_hd44780$lcd_init$105                                  =  0000C7 GR
+  9 Sstm8_hd44780$lcd_init$106                                  =  0000C9 GR
+  9 Sstm8_hd44780$lcd_init$107                                  =  0000C9 GR
+  9 Sstm8_hd44780$lcd_init$108                                  =  0000C9 GR
+  9 Sstm8_hd44780$lcd_init$109                                  =  0000CA GR
+  9 Sstm8_hd44780$lcd_init$110                                  =  0000D1 GR
+  9 Sstm8_hd44780$lcd_init$111                                  =  0000D1 GR
+  9 Sstm8_hd44780$lcd_init$112                                  =  0000D3 GR
+  9 Sstm8_hd44780$lcd_init$113                                  =  0000D7 GR
+  9 Sstm8_hd44780$lcd_init$114                                  =  0000D7 GR
+  9 Sstm8_hd44780$lcd_init$115                                  =  0000DA GR
+  9 Sstm8_hd44780$lcd_init$116                                  =  0000DC GR
+  9 Sstm8_hd44780$lcd_init$117                                  =  0000E0 GR
+  9 Sstm8_hd44780$lcd_init$118                                  =  0000E0 GR
+  9 Sstm8_hd44780$lcd_init$119                                  =  0000E3 GR
+  9 Sstm8_hd44780$lcd_init$120                                  =  0000E6 GR
+  9 Sstm8_hd44780$lcd_init$121                                  =  0000E8 GR
+  9 Sstm8_hd44780$lcd_init$122                                  =  0000E8 GR
+  9 Sstm8_hd44780$lcd_init$123                                  =  0000E8 GR
+  9 Sstm8_hd44780$lcd_init$124                                  =  0000E9 GR
+  9 Sstm8_hd44780$lcd_init$125                                  =  0000F0 GR
+  9 Sstm8_hd44780$lcd_init$126                                  =  0000F0 GR
+  9 Sstm8_hd44780$lcd_init$127                                  =  0000F2 GR
+  9 Sstm8_hd44780$lcd_init$128                                  =  0000F6 GR
+  9 Sstm8_hd44780$lcd_init$129                                  =  0000F6 GR
+  9 Sstm8_hd44780$lcd_init$130                                  =  0000F8 GR
+  9 Sstm8_hd44780$lcd_init$131                                  =  0000FC GR
+  9 Sstm8_hd44780$lcd_init$132                                  =  0000FC GR
+  9 Sstm8_hd44780$lcd_init$133                                  =  0000FE GR
+  9 Sstm8_hd44780$lcd_init$134                                  =  000102 GR
+  9 Sstm8_hd44780$lcd_init$135                                  =  000102 GR
+  9 Sstm8_hd44780$lcd_init$136                                  =  000104 GR
+  9 Sstm8_hd44780$lcd_init$137                                  =  000108 GR
+  9 Sstm8_hd44780$lcd_init$138                                  =  000108 GR
+  9 Sstm8_hd44780$lcd_init$139                                  =  00010A GR
+  9 Sstm8_hd44780$lcd_init$140                                  =  00010E GR
+  9 Sstm8_hd44780$lcd_init$141                                  =  00010E GR
+  9 Sstm8_hd44780$lcd_init$142                                  =  000110 GR
+  9 Sstm8_hd44780$lcd_init$143                                  =  000114 GR
+  9 Sstm8_hd44780$lcd_init$144                                  =  000114 GR
+  9 Sstm8_hd44780$lcd_init$145                                  =  000114 GR
+  9 Sstm8_hd44780$lcd_init$146                                  =  000115 GR
+  9 Sstm8_hd44780$lcd_init$78                                   =  000092 GR
+  9 Sstm8_hd44780$lcd_init$79                                   =  000092 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 22.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_init$80                                   =  000092 GR
+  9 Sstm8_hd44780$lcd_init$81                                   =  000095 GR
+  9 Sstm8_hd44780$lcd_init$82                                   =  000098 GR
+  9 Sstm8_hd44780$lcd_init$83                                   =  00009B GR
+  9 Sstm8_hd44780$lcd_init$84                                   =  00009D GR
+  9 Sstm8_hd44780$lcd_init$85                                   =  00009D GR
+  9 Sstm8_hd44780$lcd_init$86                                   =  00009D GR
+  9 Sstm8_hd44780$lcd_init$87                                   =  00009E GR
+  9 Sstm8_hd44780$lcd_init$88                                   =  0000A5 GR
+  9 Sstm8_hd44780$lcd_init$89                                   =  0000A5 GR
+  9 Sstm8_hd44780$lcd_init$90                                   =  0000A7 GR
+  9 Sstm8_hd44780$lcd_init$91                                   =  0000AB GR
+  9 Sstm8_hd44780$lcd_init$92                                   =  0000AB GR
+  9 Sstm8_hd44780$lcd_init$93                                   =  0000AE GR
+  9 Sstm8_hd44780$lcd_init$94                                   =  0000B1 GR
+  9 Sstm8_hd44780$lcd_init$95                                   =  0000B3 GR
+  9 Sstm8_hd44780$lcd_init$96                                   =  0000B3 GR
+  9 Sstm8_hd44780$lcd_init$97                                   =  0000B3 GR
+  9 Sstm8_hd44780$lcd_init$98                                   =  0000B4 GR
+  9 Sstm8_hd44780$lcd_init$99                                   =  0000BB GR
+  9 Sstm8_hd44780$lcd_init_hw$173                               =  00015A GR
+  9 Sstm8_hd44780$lcd_init_hw$174                               =  00015A GR
+  9 Sstm8_hd44780$lcd_init_hw$175                               =  00015A GR
+  9 Sstm8_hd44780$lcd_init_hw$176                               =  00015C GR
+  9 Sstm8_hd44780$lcd_init_hw$177                               =  00015E GR
+  9 Sstm8_hd44780$lcd_init_hw$178                               =  000160 GR
+  9 Sstm8_hd44780$lcd_init_hw$179                               =  000162 GR
+  9 Sstm8_hd44780$lcd_init_hw$180                               =  000167 GR
+  9 Sstm8_hd44780$lcd_init_hw$181                               =  000167 GR
+  9 Sstm8_hd44780$lcd_init_hw$182                               =  000169 GR
+  9 Sstm8_hd44780$lcd_init_hw$183                               =  00016B GR
+  9 Sstm8_hd44780$lcd_init_hw$184                               =  00016D GR
+  9 Sstm8_hd44780$lcd_init_hw$185                               =  00016F GR
+  9 Sstm8_hd44780$lcd_init_hw$186                               =  000174 GR
+  9 Sstm8_hd44780$lcd_init_hw$187                               =  000174 GR
+  9 Sstm8_hd44780$lcd_init_hw$188                               =  000176 GR
+  9 Sstm8_hd44780$lcd_init_hw$189                               =  000178 GR
+  9 Sstm8_hd44780$lcd_init_hw$190                               =  00017A GR
+  9 Sstm8_hd44780$lcd_init_hw$191                               =  00017C GR
+  9 Sstm8_hd44780$lcd_init_hw$192                               =  000181 GR
+  9 Sstm8_hd44780$lcd_init_hw$193                               =  000181 GR
+  9 Sstm8_hd44780$lcd_init_hw$194                               =  000184 GR
+  9 Sstm8_hd44780$lcd_init_hw$195                               =  000184 GR
+  9 Sstm8_hd44780$lcd_init_hw$196                               =  000185 GR
+  9 Sstm8_hd44780$lcd_puts$64                                   =  00007D GR
+  9 Sstm8_hd44780$lcd_puts$65                                   =  00007D GR
+  9 Sstm8_hd44780$lcd_puts$66                                   =  00007D GR
+  9 Sstm8_hd44780$lcd_puts$67                                   =  000086 GR
+  9 Sstm8_hd44780$lcd_puts$68                                   =  000086 GR
+  9 Sstm8_hd44780$lcd_puts$69                                   =  000087 GR
+  9 Sstm8_hd44780$lcd_puts$70                                   =  000088 GR
+  9 Sstm8_hd44780$lcd_puts$71                                   =  00008C GR
+  9 Sstm8_hd44780$lcd_puts$72                                   =  00008D GR
+  9 Sstm8_hd44780$lcd_puts$73                                   =  00008D GR
+  9 Sstm8_hd44780$lcd_puts$74                                   =  00008E GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 23.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_puts$75                                   =  000091 GR
+  9 Sstm8_hd44780$lcd_puts$76                                   =  000091 GR
+  9 Sstm8_hd44780$lcd_puts$77                                   =  000092 GR
+  9 Sstm8_hd44780$lcd_read$478                                  =  0003D5 GR
+  9 Sstm8_hd44780$lcd_read$479                                  =  0003D5 GR
+  9 Sstm8_hd44780$lcd_read$480                                  =  0003D6 GR
+  9 Sstm8_hd44780$lcd_read$481                                  =  0003D6 GR
+  9 Sstm8_hd44780$lcd_read$482                                  =  0003D8 GR
+  9 Sstm8_hd44780$lcd_read$483                                  =  0003DA GR
+  9 Sstm8_hd44780$lcd_read$484                                  =  0003DC GR
+  9 Sstm8_hd44780$lcd_read$485                                  =  0003E1 GR
+  9 Sstm8_hd44780$lcd_read$486                                  =  0003E1 GR
+  9 Sstm8_hd44780$lcd_read$487                                  =  0003E4 GR
+  9 Sstm8_hd44780$lcd_read$488                                  =  0003E6 GR
+  9 Sstm8_hd44780$lcd_read$489                                  =  0003E8 GR
+  9 Sstm8_hd44780$lcd_read$490                                  =  0003EA GR
+  9 Sstm8_hd44780$lcd_read$491                                  =  0003EF GR
+  9 Sstm8_hd44780$lcd_read$492                                  =  0003EF GR
+  9 Sstm8_hd44780$lcd_read$493                                  =  0003F2 GR
+  9 Sstm8_hd44780$lcd_read$494                                  =  0003F4 GR
+  9 Sstm8_hd44780$lcd_read$495                                  =  0003F4 GR
+  9 Sstm8_hd44780$lcd_read$496                                  =  0003F4 GR
+  9 Sstm8_hd44780$lcd_read$497                                  =  0003F5 GR
+  9 Sstm8_hd44780$lcd_read$498                                  =  0003FC GR
+  9 Sstm8_hd44780$lcd_read$499                                  =  0003FC GR
+  9 Sstm8_hd44780$lcd_read$500                                  =  0003FE GR
+  9 Sstm8_hd44780$lcd_read$501                                  =  000400 GR
+  9 Sstm8_hd44780$lcd_read$502                                  =  000402 GR
+  9 Sstm8_hd44780$lcd_read$503                                  =  000407 GR
+  9 Sstm8_hd44780$lcd_read$504                                  =  000407 GR
+  9 Sstm8_hd44780$lcd_read$505                                  =  00040A GR
+  9 Sstm8_hd44780$lcd_read$506                                  =  00040C GR
+  9 Sstm8_hd44780$lcd_read$507                                  =  00040C GR
+  9 Sstm8_hd44780$lcd_read$508                                  =  00040C GR
+  9 Sstm8_hd44780$lcd_read$509                                  =  00040D GR
+  9 Sstm8_hd44780$lcd_read$510                                  =  000414 GR
+  9 Sstm8_hd44780$lcd_read$511                                  =  000414 GR
+  9 Sstm8_hd44780$lcd_read$512                                  =  00041C GR
+  9 Sstm8_hd44780$lcd_read$513                                  =  00041E GR
+  9 Sstm8_hd44780$lcd_read$514                                  =  000420 GR
+  9 Sstm8_hd44780$lcd_read$515                                  =  000422 GR
+  9 Sstm8_hd44780$lcd_read$516                                  =  000427 GR
+  9 Sstm8_hd44780$lcd_read$517                                  =  000427 GR
+  9 Sstm8_hd44780$lcd_read$518                                  =  00042A GR
+  9 Sstm8_hd44780$lcd_read$519                                  =  00042C GR
+  9 Sstm8_hd44780$lcd_read$520                                  =  00042C GR
+  9 Sstm8_hd44780$lcd_read$521                                  =  00042C GR
+  9 Sstm8_hd44780$lcd_read$522                                  =  00042D GR
+  9 Sstm8_hd44780$lcd_read$523                                  =  000434 GR
+  9 Sstm8_hd44780$lcd_read$524                                  =  000434 GR
+  9 Sstm8_hd44780$lcd_read$525                                  =  000436 GR
+  9 Sstm8_hd44780$lcd_read$526                                  =  000438 GR
+  9 Sstm8_hd44780$lcd_read$527                                  =  00043A GR
+  9 Sstm8_hd44780$lcd_read$528                                  =  00043F GR
+  9 Sstm8_hd44780$lcd_read$529                                  =  00043F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 24.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8_hd44780$lcd_read$530                                  =  000442 GR
+  9 Sstm8_hd44780$lcd_read$531                                  =  000444 GR
+  9 Sstm8_hd44780$lcd_read$532                                  =  000444 GR
+  9 Sstm8_hd44780$lcd_read$533                                  =  000444 GR
+  9 Sstm8_hd44780$lcd_read$534                                  =  000445 GR
+  9 Sstm8_hd44780$lcd_read$535                                  =  00044C GR
+  9 Sstm8_hd44780$lcd_read$536                                  =  00044C GR
+  9 Sstm8_hd44780$lcd_read$537                                  =  000453 GR
+  9 Sstm8_hd44780$lcd_read$538                                  =  000455 GR
+  9 Sstm8_hd44780$lcd_read$539                                  =  000457 GR
+  9 Sstm8_hd44780$lcd_read$540                                  =  000459 GR
+  9 Sstm8_hd44780$lcd_read$541                                  =  00045E GR
+  9 Sstm8_hd44780$lcd_read$542                                  =  00045E GR
+  9 Sstm8_hd44780$lcd_read$543                                  =  000461 GR
+  9 Sstm8_hd44780$lcd_read$544                                  =  000463 GR
+  9 Sstm8_hd44780$lcd_read$545                                  =  000463 GR
+  9 Sstm8_hd44780$lcd_read$546                                  =  000463 GR
+  9 Sstm8_hd44780$lcd_read$547                                  =  000464 GR
+  9 Sstm8_hd44780$lcd_read$548                                  =  00046B GR
+  9 Sstm8_hd44780$lcd_read$549                                  =  00046B GR
+  9 Sstm8_hd44780$lcd_read$550                                  =  00046D GR
+  9 Sstm8_hd44780$lcd_read$551                                  =  00046F GR
+  9 Sstm8_hd44780$lcd_read$552                                  =  000471 GR
+  9 Sstm8_hd44780$lcd_read$553                                  =  000476 GR
+  9 Sstm8_hd44780$lcd_read$554                                  =  000476 GR
+  9 Sstm8_hd44780$lcd_read$555                                  =  000479 GR
+  9 Sstm8_hd44780$lcd_read$556                                  =  00047B GR
+  9 Sstm8_hd44780$lcd_read$557                                  =  00047D GR
+  9 Sstm8_hd44780$lcd_read$558                                  =  00047D GR
+  9 Sstm8_hd44780$lcd_read$559                                  =  00047E GR
+  9 Sstm8_hd44780$lcd_store_symbol$43                           =  000045 GR
+  9 Sstm8_hd44780$lcd_store_symbol$44                           =  000045 GR
+  9 Sstm8_hd44780$lcd_store_symbol$45                           =  000046 GR
+  9 Sstm8_hd44780$lcd_store_symbol$46                           =  000046 GR
+  9 Sstm8_hd44780$lcd_store_symbol$47                           =  000052 GR
+  9 Sstm8_hd44780$lcd_store_symbol$48                           =  000057 GR
+  9 Sstm8_hd44780$lcd_store_symbol$49                           =  00005B GR
+  9 Sstm8_hd44780$lcd_store_symbol$50                           =  00005B GR
+  9 Sstm8_hd44780$lcd_store_symbol$51                           =  00005D GR
+  9 Sstm8_hd44780$lcd_store_symbol$52                           =  00005D GR
+  9 Sstm8_hd44780$lcd_store_symbol$53                           =  000066 GR
+  9 Sstm8_hd44780$lcd_store_symbol$54                           =  00006A GR
+  9 Sstm8_hd44780$lcd_store_symbol$55                           =  00006A GR
+  9 Sstm8_hd44780$lcd_store_symbol$56                           =  00006A GR
+  9 Sstm8_hd44780$lcd_store_symbol$57                           =  000075 GR
+  9 Sstm8_hd44780$lcd_store_symbol$58                           =  000077 GR
+  9 Sstm8_hd44780$lcd_store_symbol$59                           =  00007B GR
+  9 Sstm8_hd44780$lcd_store_symbol$60                           =  00007B GR
+  9 Sstm8_hd44780$lcd_store_symbol$61                           =  00007C GR
+  9 Sstm8_hd44780$lcd_store_symbol$62                           =  00007C GR
+  9 Sstm8_hd44780$lcd_store_symbol$63                           =  00007D GR
+  9 XFstm8_hd44780$_delay_cycl$0$0                              =  00000C GR
+  9 XFstm8_hd44780$_delay_us$0$0                                =  000044 GR
+  9 XG$lcd_bus_inputs$0$0                                       =  0001EE GR
+  9 XG$lcd_bus_outputs$0$0                                      =  0001B9 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 25.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 XG$lcd_bus_read$0$0                                         =  000335 GR
+  9 XG$lcd_bus_set$0$0                                          =  0002D2 GR
+  9 XG$lcd_bus_sleep$0$0                                        =  000497 GR
+  9 XG$lcd_bus_wakeup$0$0                                       =  0004D2 GR
+  9 XG$lcd_busy_wait$0$0                                        =  0004F7 GR
+  9 XG$lcd_command$0$0                                          =  00039D GR
+  9 XG$lcd_data$0$0                                             =  0003D4 GR
+  9 XG$lcd_deinit_hw$0$0                                        =  00024A GR
+  9 XG$lcd_e_tick$0$0                                           =  000366 GR
+  9 XG$lcd_gotoxy$0$0                                           =  000159 GR
+  9 XG$lcd_init$0$0                                             =  000114 GR
+  9 XG$lcd_init_hw$0$0                                          =  000184 GR
+  9 XG$lcd_puts$0$0                                             =  000091 GR
+  9 XG$lcd_read$0$0                                             =  00047D GR
+  9 XG$lcd_store_symbol$0$0                                     =  00007C GR
+    _GPIO_Init                                                     ****** GX
+    _GPIO_ReadInputPin                                             ****** GX
+    _GPIO_WriteHigh                                                ****** GX
+    _GPIO_WriteLow                                                 ****** GX
+  9 __delay_cycl                                                   000000 R
+  9 __delay_us                                                     00000D R
+    __divulong                                                     ****** GX
+    __mullong                                                      ****** GX
+  9 _lcd_bus_inputs                                                0001BA GR
+  9 _lcd_bus_outputs                                               000185 GR
+  9 _lcd_bus_read                                                  0002D3 GR
+  9 _lcd_bus_set                                                   00024B GR
+  9 _lcd_bus_sleep                                                 00047E GR
+  9 _lcd_bus_wakeup                                                000498 GR
+  9 _lcd_busy_wait                                                 0004D3 GR
+  9 _lcd_command                                                   000367 GR
+  9 _lcd_data                                                      00039E GR
+  9 _lcd_deinit_hw                                                 0001EF GR
+  9 _lcd_e_tick                                                    000336 GR
+  9 _lcd_gotoxy                                                    000115 GR
+  9 _lcd_init                                                      000092 GR
+  9 _lcd_init_hw                                                   00015A GR
+  9 _lcd_puts                                                      00007D GR
+  9 _lcd_read                                                      0003D5 GR
+  9 _lcd_store_symbol                                              000045 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 26.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size    4F8   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size    581   flags  100
+   C .debug_loc                                 size    E54   flags  100
+   D .debug_abbrev                              size     B5   flags  100
+   E .debug_info                                size    B10   flags  100
+   F .debug_pubnames                            size    12A   flags  100
+  10 .debug_frame                               size    A89   flags  100
+

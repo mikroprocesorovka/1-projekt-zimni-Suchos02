@@ -1,0 +1,7810 @@
+;--------------------------------------------------------
+; File Created by SDCC : free open source ANSI-C Compiler
+; Version 4.1.0 #12072 (MINGW64)
+;--------------------------------------------------------
+	.module stm8_hd44780
+	.optsdcc -mstm8
+	
+;--------------------------------------------------------
+; Public variables in this module
+;--------------------------------------------------------
+	.globl _GPIO_ReadInputPin
+	.globl _GPIO_WriteLow
+	.globl _GPIO_WriteHigh
+	.globl _GPIO_Init
+	.globl _lcd_store_symbol
+	.globl _lcd_puts
+	.globl _lcd_init
+	.globl _lcd_gotoxy
+	.globl _lcd_init_hw
+	.globl _lcd_bus_outputs
+	.globl _lcd_bus_inputs
+	.globl _lcd_deinit_hw
+	.globl _lcd_bus_set
+	.globl _lcd_bus_read
+	.globl _lcd_e_tick
+	.globl _lcd_command
+	.globl _lcd_data
+	.globl _lcd_read
+	.globl _lcd_bus_sleep
+	.globl _lcd_bus_wakeup
+	.globl _lcd_busy_wait
+;--------------------------------------------------------
+; ram data
+;--------------------------------------------------------
+	.area DATA
+;--------------------------------------------------------
+; ram data
+;--------------------------------------------------------
+	.area INITIALIZED
+;--------------------------------------------------------
+; absolute external ram data
+;--------------------------------------------------------
+	.area DABS (ABS)
+
+; default segment ordering for linker
+	.area HOME
+	.area GSINIT
+	.area GSFINAL
+	.area CONST
+	.area INITIALIZER
+	.area CODE
+
+;--------------------------------------------------------
+; global & static initialisations
+;--------------------------------------------------------
+	.area HOME
+	.area GSINIT
+	.area GSFINAL
+	.area GSINIT
+;--------------------------------------------------------
+; Home
+;--------------------------------------------------------
+	.area HOME
+	.area HOME
+;--------------------------------------------------------
+; code
+;--------------------------------------------------------
+	.area CODE
+	Sstm8_hd44780$_delay_cycl$0 ==.
+;	inc/delay.h: 14: static @inline void _delay_cycl( unsigned short __ticks )
+; genLabel
+;	-----------------------------------------
+;	 function _delay_cycl
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+__delay_cycl:
+	Sstm8_hd44780$_delay_cycl$1 ==.
+	Sstm8_hd44780$_delay_cycl$2 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$_delay_cycl$3 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+	ldw	x, (0x03, sp)
+; genLabel
+00101$:
+	Sstm8_hd44780$_delay_cycl$4 ==.
+	Sstm8_hd44780$_delay_cycl$5 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$_delay_cycl$6 ==.
+	Sstm8_hd44780$_delay_cycl$7 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00117$
+	jp	00101$
+00117$:
+	Sstm8_hd44780$_delay_cycl$8 ==.
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+; genLabel
+00104$:
+	Sstm8_hd44780$_delay_cycl$9 ==.
+;	inc/delay.h: 39: }
+; genEndFunction
+	Sstm8_hd44780$_delay_cycl$10 ==.
+	XFstm8_hd44780$_delay_cycl$0$0 ==.
+	ret
+	Sstm8_hd44780$_delay_cycl$11 ==.
+	Sstm8_hd44780$_delay_us$12 ==.
+;	inc/delay.h: 41: static @inline void _delay_us( const unsigned short __us ){
+; genLabel
+;	-----------------------------------------
+;	 function _delay_us
+;	-----------------------------------------
+;	Register assignment might be sub-optimal.
+;	Stack space usage: 0 bytes.
+__delay_us:
+	Sstm8_hd44780$_delay_us$13 ==.
+	Sstm8_hd44780$_delay_us$14 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genCast
+; genAssign
+	ldw	y, (0x03, sp)
+	clrw	x
+; genIPush
+	pushw	y
+	Sstm8_hd44780$_delay_us$15 ==.
+	pushw	x
+	Sstm8_hd44780$_delay_us$16 ==.
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$_delay_us$17 ==.
+	push	#0x24
+	Sstm8_hd44780$_delay_us$18 ==.
+	push	#0xf4
+	Sstm8_hd44780$_delay_us$19 ==.
+	push	#0x00
+	Sstm8_hd44780$_delay_us$20 ==.
+; genCall
+	call	__mullong
+	addw	sp, #8
+	Sstm8_hd44780$_delay_us$21 ==.
+	Sstm8_hd44780$_delay_us$22 ==.
+; genCast
+; genAssign
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$_delay_us$23 ==.
+	push	#0x42
+	Sstm8_hd44780$_delay_us$24 ==.
+	push	#0x0f
+	Sstm8_hd44780$_delay_us$25 ==.
+	push	#0x00
+	Sstm8_hd44780$_delay_us$26 ==.
+; genIPush
+	pushw	x
+	Sstm8_hd44780$_delay_us$27 ==.
+	pushw	y
+	Sstm8_hd44780$_delay_us$28 ==.
+; genCall
+	call	__divulong
+	addw	sp, #8
+	Sstm8_hd44780$_delay_us$29 ==.
+	Sstm8_hd44780$_delay_us$30 ==.
+; genRightShiftLiteral
+	srlw	y
+	rrcw	x
+	srlw	y
+	rrcw	x
+	srlw	y
+	rrcw	x
+; genCast
+; genAssign
+	Sstm8_hd44780$_delay_us$31 ==.
+; genPlus
+	incw	x
+; genAssign
+; genAssign
+	Sstm8_hd44780$_delay_us$32 ==.
+; genAssign
+	Sstm8_hd44780$_delay_us$33 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$_delay_us$34 ==.
+	Sstm8_hd44780$_delay_us$35 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00101$:
+	Sstm8_hd44780$_delay_us$36 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$_delay_us$37 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00118$
+	jp	00101$
+00118$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$_delay_us$38 ==.
+	Sstm8_hd44780$_delay_us$39 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genLabel
+00105$:
+	Sstm8_hd44780$_delay_us$40 ==.
+;	inc/delay.h: 43: }
+; genEndFunction
+	Sstm8_hd44780$_delay_us$41 ==.
+	XFstm8_hd44780$_delay_us$0$0 ==.
+	ret
+	Sstm8_hd44780$_delay_us$42 ==.
+	Sstm8_hd44780$lcd_store_symbol$43 ==.
+;	./src/stm8_hd44780.c: 13: void lcd_store_symbol(uint8_t pos, uint8_t* charmap){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_store_symbol
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 1 bytes.
+_lcd_store_symbol:
+	Sstm8_hd44780$lcd_store_symbol$44 ==.
+	push	a
+	Sstm8_hd44780$lcd_store_symbol$45 ==.
+	Sstm8_hd44780$lcd_store_symbol$46 ==.
+;	./src/stm8_hd44780.c: 15: if(pos>7) return;
+; genCmp
+; genCmpTop
+	ld	a, (0x04, sp)
+	cp	a, #0x07
+	jrugt	00124$
+	jp	00102$
+00124$:
+; skipping generated iCode
+; genReturn
+	jp	00106$
+; genLabel
+00102$:
+	Sstm8_hd44780$lcd_store_symbol$47 ==.
+;	./src/stm8_hd44780.c: 16: lcd_command(LCD_SET_CGRAM | pos);
+; genOr
+	ld	a, (0x04, sp)
+	or	a, #0x40
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_store_symbol$48 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_store_symbol$49 ==.
+	Sstm8_hd44780$lcd_store_symbol$50 ==.
+;	./src/stm8_hd44780.c: 17: for(i=0;i<8;i++){
+; genAssign
+	clr	(0x01, sp)
+; genLabel
+00104$:
+	Sstm8_hd44780$lcd_store_symbol$51 ==.
+	Sstm8_hd44780$lcd_store_symbol$52 ==.
+;	./src/stm8_hd44780.c: 18: lcd_data(charmap[i]);
+; genPlus
+	clrw	x
+	ld	a, (0x01, sp)
+	ld	xl, a
+	addw	x, (0x05, sp)
+; genPointerGet
+	ld	a, (x)
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_store_symbol$53 ==.
+; genCall
+	call	_lcd_data
+	pop	a
+	Sstm8_hd44780$lcd_store_symbol$54 ==.
+	Sstm8_hd44780$lcd_store_symbol$55 ==.
+	Sstm8_hd44780$lcd_store_symbol$56 ==.
+;	./src/stm8_hd44780.c: 17: for(i=0;i<8;i++){
+; genPlus
+	inc	(0x01, sp)
+; genCmp
+; genCmpTop
+	ld	a, (0x01, sp)
+	cp	a, #0x08
+	jrnc	00125$
+	jp	00104$
+00125$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_store_symbol$57 ==.
+;	./src/stm8_hd44780.c: 20: lcd_command(LCD_SET_DDRAM | 0); // other funtions (like lcd_puts) relies that address counter points into DDRAM
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_store_symbol$58 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_store_symbol$59 ==.
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_store_symbol$60 ==.
+;	./src/stm8_hd44780.c: 21: }
+; genEndFunction
+	pop	a
+	Sstm8_hd44780$lcd_store_symbol$61 ==.
+	Sstm8_hd44780$lcd_store_symbol$62 ==.
+	XG$lcd_store_symbol$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_store_symbol$63 ==.
+	Sstm8_hd44780$lcd_puts$64 ==.
+;	./src/stm8_hd44780.c: 25: void lcd_puts(char* text){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_puts
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_puts:
+	Sstm8_hd44780$lcd_puts$65 ==.
+	Sstm8_hd44780$lcd_puts$66 ==.
+;	./src/stm8_hd44780.c: 26: while(*text){
+; genAssign
+	ldw	x, (0x03, sp)
+; genLabel
+00101$:
+; genPointerGet
+	ld	a, (x)
+; genIfx
+	tnz	a
+	jrne	00117$
+	jp	00104$
+00117$:
+	Sstm8_hd44780$lcd_puts$67 ==.
+	Sstm8_hd44780$lcd_puts$68 ==.
+;	./src/stm8_hd44780.c: 27: lcd_data(*text);
+; genIPush
+	pushw	x
+	Sstm8_hd44780$lcd_puts$69 ==.
+	push	a
+	Sstm8_hd44780$lcd_puts$70 ==.
+; genCall
+	call	_lcd_data
+	pop	a
+	Sstm8_hd44780$lcd_puts$71 ==.
+	popw	x
+	Sstm8_hd44780$lcd_puts$72 ==.
+	Sstm8_hd44780$lcd_puts$73 ==.
+;	./src/stm8_hd44780.c: 28: text++;
+; genPlus
+	incw	x
+	Sstm8_hd44780$lcd_puts$74 ==.
+; genGoto
+	jp	00101$
+; genLabel
+00104$:
+	Sstm8_hd44780$lcd_puts$75 ==.
+;	./src/stm8_hd44780.c: 30: }
+; genEndFunction
+	Sstm8_hd44780$lcd_puts$76 ==.
+	XG$lcd_puts$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_puts$77 ==.
+	Sstm8_hd44780$lcd_init$78 ==.
+;	./src/stm8_hd44780.c: 32: void lcd_init(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_init
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_init:
+	Sstm8_hd44780$lcd_init$79 ==.
+	Sstm8_hd44780$lcd_init$80 ==.
+;	./src/stm8_hd44780.c: 33: lcd_init_hw();
+; genCall
+	call	_lcd_init_hw
+	Sstm8_hd44780$lcd_init$81 ==.
+;	./src/stm8_hd44780.c: 35: lcd_bus_outputs();
+; genCall
+	call	_lcd_bus_outputs
+	Sstm8_hd44780$lcd_init$82 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x01d9
+	Sstm8_hd44780$lcd_init$83 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_init$84 ==.
+	Sstm8_hd44780$lcd_init$85 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_init$86 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_init$87 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00167$
+	jp	00101$
+00167$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_init$88 ==.
+	Sstm8_hd44780$lcd_init$89 ==.
+;	./src/stm8_hd44780.c: 38: lcd_bus_set(0b0011);
+; genIPush
+	push	#0x03
+	Sstm8_hd44780$lcd_init$90 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_init$91 ==.
+	Sstm8_hd44780$lcd_init$92 ==.
+;	./src/stm8_hd44780.c: 39: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_init$93 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0093
+	Sstm8_hd44780$lcd_init$94 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_init$95 ==.
+	Sstm8_hd44780$lcd_init$96 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_init$97 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_init$98 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00168$
+	jp	00106$
+00168$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_init$99 ==.
+	Sstm8_hd44780$lcd_init$100 ==.
+;	./src/stm8_hd44780.c: 42: lcd_bus_set(0b0011);
+; genIPush
+	push	#0x03
+	Sstm8_hd44780$lcd_init$101 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_init$102 ==.
+	Sstm8_hd44780$lcd_init$103 ==.
+;	./src/stm8_hd44780.c: 43: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_init$104 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x00c9
+	Sstm8_hd44780$lcd_init$105 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_init$106 ==.
+	Sstm8_hd44780$lcd_init$107 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00111$:
+	Sstm8_hd44780$lcd_init$108 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_init$109 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00169$
+	jp	00111$
+00169$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_init$110 ==.
+	Sstm8_hd44780$lcd_init$111 ==.
+;	./src/stm8_hd44780.c: 46: lcd_bus_set(0b0011);
+; genIPush
+	push	#0x03
+	Sstm8_hd44780$lcd_init$112 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_init$113 ==.
+	Sstm8_hd44780$lcd_init$114 ==.
+;	./src/stm8_hd44780.c: 47: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_init$115 ==.
+;	./src/stm8_hd44780.c: 48: lcd_bus_set(0b0010);
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_init$116 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_init$117 ==.
+	Sstm8_hd44780$lcd_init$118 ==.
+;	./src/stm8_hd44780.c: 49: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_init$119 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0051
+	Sstm8_hd44780$lcd_init$120 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_init$121 ==.
+	Sstm8_hd44780$lcd_init$122 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00116$:
+	Sstm8_hd44780$lcd_init$123 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_init$124 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00170$
+	jp	00116$
+00170$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_init$125 ==.
+	Sstm8_hd44780$lcd_init$126 ==.
+;	./src/stm8_hd44780.c: 55: lcd_command(LCD_FUNCTION_SET | LCD_4BITS | LCD_2LINES | USED_FONT);
+; genIPush
+	push	#0x28
+	Sstm8_hd44780$lcd_init$127 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_init$128 ==.
+	Sstm8_hd44780$lcd_init$129 ==.
+;	./src/stm8_hd44780.c: 57: lcd_command(LCD_ENTRY_MODE_SET | LCD_INCREMENT | LCD_DISPLAY_NOSHIFT);
+; genIPush
+	push	#0x06
+	Sstm8_hd44780$lcd_init$130 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_init$131 ==.
+	Sstm8_hd44780$lcd_init$132 ==.
+;	./src/stm8_hd44780.c: 58: lcd_command(LCD_DISPLAY_ONOFF | LCD_ON | LCD_CURSOR_OFF | LCD_BLINK_OFF);
+; genIPush
+	push	#0x0c
+	Sstm8_hd44780$lcd_init$133 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_init$134 ==.
+	Sstm8_hd44780$lcd_init$135 ==.
+;	./src/stm8_hd44780.c: 59: lcd_command(LCD_CURSOR_OR_DISPLAY_SHIFT | LCD_CURSOR_SHIFT | LCD_SHIFT_RIGHT);
+; genIPush
+	push	#0x14
+	Sstm8_hd44780$lcd_init$136 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_init$137 ==.
+	Sstm8_hd44780$lcd_init$138 ==.
+;	./src/stm8_hd44780.c: 60: lcd_command(LCD_DISPLAY_CLEAR);
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_init$139 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_init$140 ==.
+	Sstm8_hd44780$lcd_init$141 ==.
+;	./src/stm8_hd44780.c: 61: lcd_command(LCD_RETURN_HOME);
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_init$142 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_init$143 ==.
+; genLabel
+00121$:
+	Sstm8_hd44780$lcd_init$144 ==.
+;	./src/stm8_hd44780.c: 62: }
+; genEndFunction
+	Sstm8_hd44780$lcd_init$145 ==.
+	XG$lcd_init$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_init$146 ==.
+	Sstm8_hd44780$lcd_gotoxy$147 ==.
+;	./src/stm8_hd44780.c: 64: void lcd_gotoxy(uint8_t column, uint8_t line){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_gotoxy
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_gotoxy:
+	Sstm8_hd44780$lcd_gotoxy$148 ==.
+	Sstm8_hd44780$lcd_gotoxy$149 ==.
+;	./src/stm8_hd44780.c: 68: if(column > (LCD_COLUMNS-1)){column=LCD_COLUMNS-1;}
+; genCmp
+; genCmpTop
+	ld	a, (0x03, sp)
+	cp	a, #0x13
+	jrugt	00134$
+	jp	00102$
+00134$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_gotoxy$150 ==.
+; genAssign
+	ld	a, #0x13
+	ld	(0x03, sp), a
+	Sstm8_hd44780$lcd_gotoxy$151 ==.
+; genLabel
+00102$:
+	Sstm8_hd44780$lcd_gotoxy$152 ==.
+;	./src/stm8_hd44780.c: 69: if(line == 0){tmp=0x00;}
+; genIfx
+	tnz	(0x04, sp)
+	jreq	00135$
+	jp	00110$
+00135$:
+	Sstm8_hd44780$lcd_gotoxy$153 ==.
+; genAssign
+	clr	a
+	Sstm8_hd44780$lcd_gotoxy$154 ==.
+; genGoto
+	jp	00111$
+; genLabel
+00110$:
+	Sstm8_hd44780$lcd_gotoxy$155 ==.
+;	./src/stm8_hd44780.c: 70: else if(line==1){tmp = 0x40;}
+; genCmpEQorNE
+	ld	a, (0x04, sp)
+	dec	a
+	jrne	00137$
+	jp	00138$
+00137$:
+	jp	00107$
+00138$:
+	Sstm8_hd44780$lcd_gotoxy$156 ==.
+; skipping generated iCode
+	Sstm8_hd44780$lcd_gotoxy$157 ==.
+; genAssign
+	ld	a, #0x40
+	Sstm8_hd44780$lcd_gotoxy$158 ==.
+; genGoto
+	jp	00111$
+; genLabel
+00107$:
+	Sstm8_hd44780$lcd_gotoxy$159 ==.
+;	./src/stm8_hd44780.c: 71: else if(line==2){tmp = 0x14;}
+; genCmpEQorNE
+	ld	a, (0x04, sp)
+	cp	a, #0x02
+	jrne	00140$
+	jp	00141$
+00140$:
+	jp	00104$
+00141$:
+	Sstm8_hd44780$lcd_gotoxy$160 ==.
+; skipping generated iCode
+	Sstm8_hd44780$lcd_gotoxy$161 ==.
+; genAssign
+	ld	a, #0x14
+	Sstm8_hd44780$lcd_gotoxy$162 ==.
+; genGoto
+	jp	00111$
+; genLabel
+00104$:
+	Sstm8_hd44780$lcd_gotoxy$163 ==.
+	Sstm8_hd44780$lcd_gotoxy$164 ==.
+;	./src/stm8_hd44780.c: 72: else{tmp = 0x54;}
+; genAssign
+	ld	a, #0x54
+	Sstm8_hd44780$lcd_gotoxy$165 ==.
+; genLabel
+00111$:
+	Sstm8_hd44780$lcd_gotoxy$166 ==.
+;	./src/stm8_hd44780.c: 73: tmp = tmp + column;
+; genPlus
+	add	a, (0x03, sp)
+; genAssign
+	Sstm8_hd44780$lcd_gotoxy$167 ==.
+;	./src/stm8_hd44780.c: 87: lcd_command(LCD_SET_DDRAM | tmp);
+; genOr
+	or	a, #0x80
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_gotoxy$168 ==.
+; genCall
+	call	_lcd_command
+	pop	a
+	Sstm8_hd44780$lcd_gotoxy$169 ==.
+; genLabel
+00112$:
+	Sstm8_hd44780$lcd_gotoxy$170 ==.
+;	./src/stm8_hd44780.c: 88: }
+; genEndFunction
+	Sstm8_hd44780$lcd_gotoxy$171 ==.
+	XG$lcd_gotoxy$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_gotoxy$172 ==.
+	Sstm8_hd44780$lcd_init_hw$173 ==.
+;	./src/stm8_hd44780.c: 91: void lcd_init_hw(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_init_hw
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_init_hw:
+	Sstm8_hd44780$lcd_init_hw$174 ==.
+	Sstm8_hd44780$lcd_init_hw$175 ==.
+;	./src/stm8_hd44780.c: 110: GPIO_Init(LCD_RS_PORT,LCD_RS_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+; genIPush
+	push	#0xc0
+	Sstm8_hd44780$lcd_init_hw$176 ==.
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_init_hw$177 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_init_hw$178 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_init_hw$179 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_init_hw$180 ==.
+	Sstm8_hd44780$lcd_init_hw$181 ==.
+;	./src/stm8_hd44780.c: 111: GPIO_Init(LCD_RW_PORT,LCD_RW_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+; genIPush
+	push	#0xc0
+	Sstm8_hd44780$lcd_init_hw$182 ==.
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$lcd_init_hw$183 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_init_hw$184 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_init_hw$185 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_init_hw$186 ==.
+	Sstm8_hd44780$lcd_init_hw$187 ==.
+;	./src/stm8_hd44780.c: 112: GPIO_Init(LCD_E_PORT,LCD_E_PIN,GPIO_MODE_OUT_PP_HIGH_SLOW);
+; genIPush
+	push	#0xd0
+	Sstm8_hd44780$lcd_init_hw$188 ==.
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_init_hw$189 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_init_hw$190 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_init_hw$191 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_init_hw$192 ==.
+	Sstm8_hd44780$lcd_init_hw$193 ==.
+;	./src/stm8_hd44780.c: 115: lcd_bus_outputs();
+; genCall
+	jp	_lcd_bus_outputs
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_init_hw$194 ==.
+;	./src/stm8_hd44780.c: 116: }
+; genEndFunction
+	Sstm8_hd44780$lcd_init_hw$195 ==.
+	XG$lcd_init_hw$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_init_hw$196 ==.
+	Sstm8_hd44780$lcd_bus_outputs$197 ==.
+;	./src/stm8_hd44780.c: 119: void lcd_bus_outputs(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_bus_outputs
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_bus_outputs:
+	Sstm8_hd44780$lcd_bus_outputs$198 ==.
+	Sstm8_hd44780$lcd_bus_outputs$199 ==.
+;	./src/stm8_hd44780.c: 123: GPIO_Init(LCD_D4_PORT,LCD_D4_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+; genIPush
+	push	#0xc0
+	Sstm8_hd44780$lcd_bus_outputs$200 ==.
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_bus_outputs$201 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_outputs$202 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_outputs$203 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_outputs$204 ==.
+	Sstm8_hd44780$lcd_bus_outputs$205 ==.
+;	./src/stm8_hd44780.c: 124: GPIO_Init(LCD_D5_PORT,LCD_D5_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+; genIPush
+	push	#0xc0
+	Sstm8_hd44780$lcd_bus_outputs$206 ==.
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_bus_outputs$207 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_outputs$208 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_outputs$209 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_outputs$210 ==.
+	Sstm8_hd44780$lcd_bus_outputs$211 ==.
+;	./src/stm8_hd44780.c: 125: GPIO_Init(LCD_D6_PORT,LCD_D6_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+; genIPush
+	push	#0xc0
+	Sstm8_hd44780$lcd_bus_outputs$212 ==.
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_bus_outputs$213 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_outputs$214 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_outputs$215 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_outputs$216 ==.
+	Sstm8_hd44780$lcd_bus_outputs$217 ==.
+;	./src/stm8_hd44780.c: 126: GPIO_Init(LCD_D7_PORT,LCD_D7_PIN,GPIO_MODE_OUT_PP_LOW_SLOW);
+; genIPush
+	push	#0xc0
+	Sstm8_hd44780$lcd_bus_outputs$218 ==.
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_bus_outputs$219 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_outputs$220 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_outputs$221 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_outputs$222 ==.
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_bus_outputs$223 ==.
+;	./src/stm8_hd44780.c: 128: }
+; genEndFunction
+	Sstm8_hd44780$lcd_bus_outputs$224 ==.
+	XG$lcd_bus_outputs$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_bus_outputs$225 ==.
+	Sstm8_hd44780$lcd_bus_inputs$226 ==.
+;	./src/stm8_hd44780.c: 131: void lcd_bus_inputs(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_bus_inputs
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_bus_inputs:
+	Sstm8_hd44780$lcd_bus_inputs$227 ==.
+	Sstm8_hd44780$lcd_bus_inputs$228 ==.
+;	./src/stm8_hd44780.c: 139: GPIO_Init(LCD_D4_PORT,LCD_D4_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_bus_inputs$229 ==.
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_bus_inputs$230 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_inputs$231 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_inputs$232 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_inputs$233 ==.
+	Sstm8_hd44780$lcd_bus_inputs$234 ==.
+;	./src/stm8_hd44780.c: 140: GPIO_Init(LCD_D5_PORT,LCD_D5_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_bus_inputs$235 ==.
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_bus_inputs$236 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_inputs$237 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_inputs$238 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_inputs$239 ==.
+	Sstm8_hd44780$lcd_bus_inputs$240 ==.
+;	./src/stm8_hd44780.c: 141: GPIO_Init(LCD_D6_PORT,LCD_D6_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_bus_inputs$241 ==.
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_bus_inputs$242 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_inputs$243 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_inputs$244 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_inputs$245 ==.
+	Sstm8_hd44780$lcd_bus_inputs$246 ==.
+;	./src/stm8_hd44780.c: 142: GPIO_Init(LCD_D7_PORT,LCD_D7_PIN,GPIO_MODE_IN_FL_NO_IT); 
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_bus_inputs$247 ==.
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_bus_inputs$248 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_inputs$249 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_inputs$250 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_bus_inputs$251 ==.
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_bus_inputs$252 ==.
+;	./src/stm8_hd44780.c: 144: }
+; genEndFunction
+	Sstm8_hd44780$lcd_bus_inputs$253 ==.
+	XG$lcd_bus_inputs$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_bus_inputs$254 ==.
+	Sstm8_hd44780$lcd_deinit_hw$255 ==.
+;	./src/stm8_hd44780.c: 147: void lcd_deinit_hw(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_deinit_hw
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_deinit_hw:
+	Sstm8_hd44780$lcd_deinit_hw$256 ==.
+	Sstm8_hd44780$lcd_deinit_hw$257 ==.
+;	./src/stm8_hd44780.c: 148: GPIO_Init(LCD_RS_PORT,LCD_RS_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$258 ==.
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_deinit_hw$259 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_deinit_hw$260 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$261 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$262 ==.
+	Sstm8_hd44780$lcd_deinit_hw$263 ==.
+;	./src/stm8_hd44780.c: 149: GPIO_Init(LCD_RW_PORT,LCD_RW_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$264 ==.
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$lcd_deinit_hw$265 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_deinit_hw$266 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$267 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$268 ==.
+	Sstm8_hd44780$lcd_deinit_hw$269 ==.
+;	./src/stm8_hd44780.c: 150: GPIO_Init(LCD_E_PORT,LCD_E_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$270 ==.
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_deinit_hw$271 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_deinit_hw$272 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$273 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$274 ==.
+	Sstm8_hd44780$lcd_deinit_hw$275 ==.
+;	./src/stm8_hd44780.c: 151: GPIO_Init(LCD_D4_PORT,LCD_D4_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$276 ==.
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_deinit_hw$277 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_deinit_hw$278 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$279 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$280 ==.
+	Sstm8_hd44780$lcd_deinit_hw$281 ==.
+;	./src/stm8_hd44780.c: 152: GPIO_Init(LCD_D5_PORT,LCD_D5_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$282 ==.
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_deinit_hw$283 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_deinit_hw$284 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$285 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$286 ==.
+	Sstm8_hd44780$lcd_deinit_hw$287 ==.
+;	./src/stm8_hd44780.c: 153: GPIO_Init(LCD_D6_PORT,LCD_D6_PIN,GPIO_MODE_IN_FL_NO_IT);
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$288 ==.
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_deinit_hw$289 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_deinit_hw$290 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$291 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$292 ==.
+	Sstm8_hd44780$lcd_deinit_hw$293 ==.
+;	./src/stm8_hd44780.c: 154: GPIO_Init(LCD_D7_PORT,LCD_D7_PIN,GPIO_MODE_IN_FL_NO_IT); 
+; genIPush
+	push	#0x00
+	Sstm8_hd44780$lcd_deinit_hw$294 ==.
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_deinit_hw$295 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_deinit_hw$296 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_deinit_hw$297 ==.
+; genCall
+	call	_GPIO_Init
+	addw	sp, #4
+	Sstm8_hd44780$lcd_deinit_hw$298 ==.
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_deinit_hw$299 ==.
+;	./src/stm8_hd44780.c: 155: }
+; genEndFunction
+	Sstm8_hd44780$lcd_deinit_hw$300 ==.
+	XG$lcd_deinit_hw$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_deinit_hw$301 ==.
+	Sstm8_hd44780$lcd_bus_set$302 ==.
+;	./src/stm8_hd44780.c: 158: void lcd_bus_set(uint8_t data){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_bus_set
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_bus_set:
+	Sstm8_hd44780$lcd_bus_set$303 ==.
+	Sstm8_hd44780$lcd_bus_set$304 ==.
+;	./src/stm8_hd44780.c: 159: if(data & (1<<0)){LCD_D4_H;}else{LCD_D4_L;}
+; genAnd
+	ld	a, (0x03, sp)
+	srl	a
+	jrc	00135$
+	jp	00102$
+00135$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_bus_set$305 ==.
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_bus_set$306 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$307 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$308 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$309 ==.
+	Sstm8_hd44780$lcd_bus_set$310 ==.
+; genGoto
+	jp	00103$
+; genLabel
+00102$:
+	Sstm8_hd44780$lcd_bus_set$311 ==.
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_bus_set$312 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$313 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$314 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$315 ==.
+	Sstm8_hd44780$lcd_bus_set$316 ==.
+; genLabel
+00103$:
+	Sstm8_hd44780$lcd_bus_set$317 ==.
+;	./src/stm8_hd44780.c: 160: if(data & (1<<1)){LCD_D5_H;}else{LCD_D5_L;}
+; genAnd
+	ld	a, (0x03, sp)
+	bcp	a, #0x02
+	jrne	00136$
+	jp	00105$
+00136$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_bus_set$318 ==.
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_bus_set$319 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$320 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$321 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$322 ==.
+	Sstm8_hd44780$lcd_bus_set$323 ==.
+; genGoto
+	jp	00106$
+; genLabel
+00105$:
+	Sstm8_hd44780$lcd_bus_set$324 ==.
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_bus_set$325 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$326 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$327 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$328 ==.
+	Sstm8_hd44780$lcd_bus_set$329 ==.
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_bus_set$330 ==.
+;	./src/stm8_hd44780.c: 161: if(data & (1<<2)){LCD_D6_H;}else{LCD_D6_L;}
+; genAnd
+	ld	a, (0x03, sp)
+	bcp	a, #0x04
+	jrne	00137$
+	jp	00108$
+00137$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_bus_set$331 ==.
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_bus_set$332 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$333 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$334 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$335 ==.
+	Sstm8_hd44780$lcd_bus_set$336 ==.
+; genGoto
+	jp	00109$
+; genLabel
+00108$:
+	Sstm8_hd44780$lcd_bus_set$337 ==.
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_bus_set$338 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$339 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$340 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$341 ==.
+	Sstm8_hd44780$lcd_bus_set$342 ==.
+; genLabel
+00109$:
+	Sstm8_hd44780$lcd_bus_set$343 ==.
+;	./src/stm8_hd44780.c: 162: if(data & (1<<3)){LCD_D7_H;}else{LCD_D7_L;}
+; genAnd
+	ld	a, (0x03, sp)
+	bcp	a, #0x08
+	jrne	00138$
+	jp	00111$
+00138$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_bus_set$344 ==.
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_bus_set$345 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$346 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$347 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$348 ==.
+	Sstm8_hd44780$lcd_bus_set$349 ==.
+; genGoto
+	jp	00113$
+; genLabel
+00111$:
+	Sstm8_hd44780$lcd_bus_set$350 ==.
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_bus_set$351 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_set$352 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_set$353 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_set$354 ==.
+	Sstm8_hd44780$lcd_bus_set$355 ==.
+; genLabel
+00113$:
+	Sstm8_hd44780$lcd_bus_set$356 ==.
+;	./src/stm8_hd44780.c: 163: }
+; genEndFunction
+	Sstm8_hd44780$lcd_bus_set$357 ==.
+	XG$lcd_bus_set$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_bus_set$358 ==.
+	Sstm8_hd44780$lcd_bus_read$359 ==.
+;	./src/stm8_hd44780.c: 166: uint8_t lcd_bus_read(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_bus_read
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 1 bytes.
+_lcd_bus_read:
+	Sstm8_hd44780$lcd_bus_read$360 ==.
+	push	a
+	Sstm8_hd44780$lcd_bus_read$361 ==.
+	Sstm8_hd44780$lcd_bus_read$362 ==.
+;	./src/stm8_hd44780.c: 167: uint8_t tmp=0;
+; genAssign
+	clr	(0x01, sp)
+	Sstm8_hd44780$lcd_bus_read$363 ==.
+;	./src/stm8_hd44780.c: 168: if(GPIO_ReadInputPin(LCD_D4_PORT,LCD_D4_PIN)){tmp |= 1<<0;}
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_bus_read$364 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_read$365 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_read$366 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_read$367 ==.
+; genIfx
+	tnz	a
+	jrne	00131$
+	jp	00102$
+00131$:
+	Sstm8_hd44780$lcd_bus_read$368 ==.
+; genOr
+	srl	(0x01, sp)
+	scf
+	rlc	(0x01, sp)
+	Sstm8_hd44780$lcd_bus_read$369 ==.
+; genLabel
+00102$:
+	Sstm8_hd44780$lcd_bus_read$370 ==.
+;	./src/stm8_hd44780.c: 169: if(GPIO_ReadInputPin(LCD_D5_PORT,LCD_D5_PIN)){tmp |= 1<<1;}
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_bus_read$371 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_read$372 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_read$373 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_read$374 ==.
+; genIfx
+	tnz	a
+	jrne	00132$
+	jp	00104$
+00132$:
+	Sstm8_hd44780$lcd_bus_read$375 ==.
+; genOr
+	ld	a, (0x01, sp)
+	or	a, #0x02
+	ld	(0x01, sp), a
+	Sstm8_hd44780$lcd_bus_read$376 ==.
+; genLabel
+00104$:
+	Sstm8_hd44780$lcd_bus_read$377 ==.
+;	./src/stm8_hd44780.c: 170: if(GPIO_ReadInputPin(LCD_D6_PORT,LCD_D6_PIN)){tmp |= 1<<2;}
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_bus_read$378 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_read$379 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_read$380 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_read$381 ==.
+; genIfx
+	tnz	a
+	jrne	00133$
+	jp	00106$
+00133$:
+	Sstm8_hd44780$lcd_bus_read$382 ==.
+; genOr
+	ld	a, (0x01, sp)
+	or	a, #0x04
+	ld	(0x01, sp), a
+	Sstm8_hd44780$lcd_bus_read$383 ==.
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_bus_read$384 ==.
+;	./src/stm8_hd44780.c: 171: if(GPIO_ReadInputPin(LCD_D7_PORT,LCD_D7_PIN)){tmp |= 1<<3;}
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_bus_read$385 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_read$386 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_read$387 ==.
+; genCall
+	call	_GPIO_ReadInputPin
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_read$388 ==.
+; genIfx
+	tnz	a
+	jrne	00134$
+	jp	00108$
+00134$:
+	Sstm8_hd44780$lcd_bus_read$389 ==.
+; genOr
+	ld	a, (0x01, sp)
+	or	a, #0x08
+	ld	(0x01, sp), a
+	Sstm8_hd44780$lcd_bus_read$390 ==.
+; genLabel
+00108$:
+	Sstm8_hd44780$lcd_bus_read$391 ==.
+;	./src/stm8_hd44780.c: 172: return tmp;
+; genReturn
+	ld	a, (0x01, sp)
+; genLabel
+00109$:
+	Sstm8_hd44780$lcd_bus_read$392 ==.
+;	./src/stm8_hd44780.c: 173: }
+; genEndFunction
+	addw	sp, #1
+	Sstm8_hd44780$lcd_bus_read$393 ==.
+	Sstm8_hd44780$lcd_bus_read$394 ==.
+	XG$lcd_bus_read$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_bus_read$395 ==.
+	Sstm8_hd44780$lcd_e_tick$396 ==.
+;	./src/stm8_hd44780.c: 176: void lcd_e_tick(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_e_tick
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_e_tick:
+	Sstm8_hd44780$lcd_e_tick$397 ==.
+	Sstm8_hd44780$lcd_e_tick$398 ==.
+;	./src/stm8_hd44780.c: 177: LCD_E_H;
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_e_tick$399 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_e_tick$400 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_e_tick$401 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_e_tick$402 ==.
+	Sstm8_hd44780$lcd_e_tick$403 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_e_tick$404 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_e_tick$405 ==.
+	Sstm8_hd44780$lcd_e_tick$406 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_e_tick$407 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_e_tick$408 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00135$
+	jp	00101$
+00135$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_e_tick$409 ==.
+	Sstm8_hd44780$lcd_e_tick$410 ==.
+;	./src/stm8_hd44780.c: 179: LCD_E_L;
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_e_tick$411 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_e_tick$412 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_e_tick$413 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_e_tick$414 ==.
+	Sstm8_hd44780$lcd_e_tick$415 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_e_tick$416 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_e_tick$417 ==.
+	Sstm8_hd44780$lcd_e_tick$418 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_e_tick$419 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_e_tick$420 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00136$
+	jp	00106$
+00136$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_e_tick$421 ==.
+	Sstm8_hd44780$lcd_e_tick$422 ==.
+;	./src/stm8_hd44780.c: 180: _delay_us(LCD_E_DELAY);
+; genLabel
+00111$:
+	Sstm8_hd44780$lcd_e_tick$423 ==.
+;	./src/stm8_hd44780.c: 181: }
+; genEndFunction
+	Sstm8_hd44780$lcd_e_tick$424 ==.
+	XG$lcd_e_tick$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_e_tick$425 ==.
+	Sstm8_hd44780$lcd_command$426 ==.
+;	./src/stm8_hd44780.c: 184: void lcd_command(uint8_t command){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_command
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_command:
+	Sstm8_hd44780$lcd_command$427 ==.
+	Sstm8_hd44780$lcd_command$428 ==.
+;	./src/stm8_hd44780.c: 185: LCD_RS_L;
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_command$429 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_command$430 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_command$431 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_command$432 ==.
+	Sstm8_hd44780$lcd_command$433 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_command$434 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_command$435 ==.
+	Sstm8_hd44780$lcd_command$436 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_command$437 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_command$438 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00119$
+	jp	00101$
+00119$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_command$439 ==.
+	Sstm8_hd44780$lcd_command$440 ==.
+;	./src/stm8_hd44780.c: 187: lcd_bus_set((command >> 4) & 0b1111);
+; genRightShiftLiteral
+	ld	a, (0x03, sp)
+	swap	a
+	and	a, #0x0f
+; genAnd
+	and	a, #0x0f
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_command$441 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_command$442 ==.
+	Sstm8_hd44780$lcd_command$443 ==.
+;	./src/stm8_hd44780.c: 188: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_command$444 ==.
+;	./src/stm8_hd44780.c: 189: lcd_bus_set(command & 0b1111);
+; genAssign
+	ld	a, (0x03, sp)
+; genAnd
+	and	a, #0x0f
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_command$445 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_command$446 ==.
+	Sstm8_hd44780$lcd_command$447 ==.
+;	./src/stm8_hd44780.c: 190: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_command$448 ==.
+;	./src/stm8_hd44780.c: 191: lcd_busy_wait();
+; genCall
+	jp	_lcd_busy_wait
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_command$449 ==.
+;	./src/stm8_hd44780.c: 192: }
+; genEndFunction
+	Sstm8_hd44780$lcd_command$450 ==.
+	XG$lcd_command$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_command$451 ==.
+	Sstm8_hd44780$lcd_data$452 ==.
+;	./src/stm8_hd44780.c: 195: void lcd_data(uint8_t data){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_data
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_data:
+	Sstm8_hd44780$lcd_data$453 ==.
+	Sstm8_hd44780$lcd_data$454 ==.
+;	./src/stm8_hd44780.c: 196: LCD_RS_H;
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_data$455 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_data$456 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_data$457 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_data$458 ==.
+	Sstm8_hd44780$lcd_data$459 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_data$460 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_data$461 ==.
+	Sstm8_hd44780$lcd_data$462 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_data$463 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_data$464 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00119$
+	jp	00101$
+00119$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_data$465 ==.
+	Sstm8_hd44780$lcd_data$466 ==.
+;	./src/stm8_hd44780.c: 198: lcd_bus_set((data >> 4) & 0b1111);
+; genRightShiftLiteral
+	ld	a, (0x03, sp)
+	swap	a
+	and	a, #0x0f
+; genAnd
+	and	a, #0x0f
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_data$467 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_data$468 ==.
+	Sstm8_hd44780$lcd_data$469 ==.
+;	./src/stm8_hd44780.c: 199: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_data$470 ==.
+;	./src/stm8_hd44780.c: 200: lcd_bus_set(data & 0b1111);
+; genAssign
+	ld	a, (0x03, sp)
+; genAnd
+	and	a, #0x0f
+; genIPush
+	push	a
+	Sstm8_hd44780$lcd_data$471 ==.
+; genCall
+	call	_lcd_bus_set
+	pop	a
+	Sstm8_hd44780$lcd_data$472 ==.
+	Sstm8_hd44780$lcd_data$473 ==.
+;	./src/stm8_hd44780.c: 201: lcd_e_tick();
+; genCall
+	call	_lcd_e_tick
+	Sstm8_hd44780$lcd_data$474 ==.
+;	./src/stm8_hd44780.c: 202: lcd_busy_wait();
+; genCall
+	jp	_lcd_busy_wait
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_data$475 ==.
+;	./src/stm8_hd44780.c: 203: }
+; genEndFunction
+	Sstm8_hd44780$lcd_data$476 ==.
+	XG$lcd_data$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_data$477 ==.
+	Sstm8_hd44780$lcd_read$478 ==.
+;	./src/stm8_hd44780.c: 206: uint8_t lcd_read(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_read
+;	-----------------------------------------
+;	Register assignment might be sub-optimal.
+;	Stack space usage: 1 bytes.
+_lcd_read:
+	Sstm8_hd44780$lcd_read$479 ==.
+	push	a
+	Sstm8_hd44780$lcd_read$480 ==.
+	Sstm8_hd44780$lcd_read$481 ==.
+;	./src/stm8_hd44780.c: 208: LCD_RS_L;
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_read$482 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$483 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$484 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$485 ==.
+	Sstm8_hd44780$lcd_read$486 ==.
+;	./src/stm8_hd44780.c: 209: lcd_bus_inputs();
+; genCall
+	call	_lcd_bus_inputs
+	Sstm8_hd44780$lcd_read$487 ==.
+;	./src/stm8_hd44780.c: 210: LCD_RW_H;
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$lcd_read$488 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$489 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$490 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$491 ==.
+	Sstm8_hd44780$lcd_read$492 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_read$493 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_read$494 ==.
+	Sstm8_hd44780$lcd_read$495 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_read$496 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_read$497 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00183$
+	jp	00101$
+00183$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_read$498 ==.
+	Sstm8_hd44780$lcd_read$499 ==.
+;	./src/stm8_hd44780.c: 212: LCD_E_H;
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_read$500 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$501 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$502 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$503 ==.
+	Sstm8_hd44780$lcd_read$504 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_read$505 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_read$506 ==.
+	Sstm8_hd44780$lcd_read$507 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_read$508 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_read$509 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00184$
+	jp	00106$
+00184$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_read$510 ==.
+	Sstm8_hd44780$lcd_read$511 ==.
+;	./src/stm8_hd44780.c: 214: tmp = lcd_bus_read()<<4;
+; genCall
+	call	_lcd_bus_read
+; genCast
+; genAssign
+; genLeftShiftLiteral
+	swap	a
+	and	a, #0xf0
+	ld	(0x01, sp), a
+	Sstm8_hd44780$lcd_read$512 ==.
+;	./src/stm8_hd44780.c: 215: LCD_E_L;
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_read$513 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$514 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$515 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$516 ==.
+	Sstm8_hd44780$lcd_read$517 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_read$518 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_read$519 ==.
+	Sstm8_hd44780$lcd_read$520 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00111$:
+	Sstm8_hd44780$lcd_read$521 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_read$522 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00185$
+	jp	00111$
+00185$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_read$523 ==.
+	Sstm8_hd44780$lcd_read$524 ==.
+;	./src/stm8_hd44780.c: 217: LCD_E_H;
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_read$525 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$526 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$527 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$528 ==.
+	Sstm8_hd44780$lcd_read$529 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_read$530 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_read$531 ==.
+	Sstm8_hd44780$lcd_read$532 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00116$:
+	Sstm8_hd44780$lcd_read$533 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_read$534 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00186$
+	jp	00116$
+00186$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_read$535 ==.
+	Sstm8_hd44780$lcd_read$536 ==.
+;	./src/stm8_hd44780.c: 219: tmp |= lcd_bus_read();
+; genCall
+	call	_lcd_bus_read
+; genOr
+	or	a, (0x01, sp)
+; genAssign
+	ld	(0x01, sp), a
+	Sstm8_hd44780$lcd_read$537 ==.
+;	./src/stm8_hd44780.c: 220: LCD_E_L;
+; genIPush
+	push	#0x20
+	Sstm8_hd44780$lcd_read$538 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$539 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$540 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$541 ==.
+	Sstm8_hd44780$lcd_read$542 ==.
+;	inc/delay.h: 42: _delay_cycl( (unsigned short)( T_COUNT(__us) ));
+; genAssign
+	ldw	x, #0x0003
+	Sstm8_hd44780$lcd_read$543 ==.
+;	inc/delay.h: 25: __asm__("nop\n nop\n"); 
+;	genInline
+	nop
+	nop
+	Sstm8_hd44780$lcd_read$544 ==.
+	Sstm8_hd44780$lcd_read$545 ==.
+;	inc/delay.h: 26: do { 		// ASM: ldw X, #tick; lab$: decw X; tnzw X; jrne lab$
+; genAssign
+; genLabel
+00121$:
+	Sstm8_hd44780$lcd_read$546 ==.
+;	inc/delay.h: 27: __ticks--;//      2c;                 1c;     2c    ; 1/2c   
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_read$547 ==.
+;	inc/delay.h: 28: } while ( __ticks );
+; genIfx
+	tnzw	x
+	jreq	00187$
+	jp	00121$
+00187$:
+;	inc/delay.h: 29: __asm__("nop\n");
+;	genInline
+	nop
+	Sstm8_hd44780$lcd_read$548 ==.
+	Sstm8_hd44780$lcd_read$549 ==.
+;	./src/stm8_hd44780.c: 222: LCD_RW_L;
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$lcd_read$550 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_read$551 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_read$552 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_read$553 ==.
+	Sstm8_hd44780$lcd_read$554 ==.
+;	./src/stm8_hd44780.c: 223: lcd_bus_outputs();
+; genCall
+	call	_lcd_bus_outputs
+	Sstm8_hd44780$lcd_read$555 ==.
+;	./src/stm8_hd44780.c: 224: return tmp;
+; genReturn
+	ld	a, (0x01, sp)
+; genLabel
+00126$:
+	Sstm8_hd44780$lcd_read$556 ==.
+;	./src/stm8_hd44780.c: 225: }
+; genEndFunction
+	addw	sp, #1
+	Sstm8_hd44780$lcd_read$557 ==.
+	Sstm8_hd44780$lcd_read$558 ==.
+	XG$lcd_read$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_read$559 ==.
+	Sstm8_hd44780$lcd_bus_sleep$560 ==.
+;	./src/stm8_hd44780.c: 229: void lcd_bus_sleep(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_bus_sleep
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_bus_sleep:
+	Sstm8_hd44780$lcd_bus_sleep$561 ==.
+	Sstm8_hd44780$lcd_bus_sleep$562 ==.
+;	./src/stm8_hd44780.c: 230: LCD_RS_H;
+; genIPush
+	push	#0x80
+	Sstm8_hd44780$lcd_bus_sleep$563 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_bus_sleep$564 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_sleep$565 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_sleep$566 ==.
+	Sstm8_hd44780$lcd_bus_sleep$567 ==.
+;	./src/stm8_hd44780.c: 231: LCD_RW_H;
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$lcd_bus_sleep$568 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_bus_sleep$569 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_sleep$570 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_sleep$571 ==.
+	Sstm8_hd44780$lcd_bus_sleep$572 ==.
+;	./src/stm8_hd44780.c: 232: lcd_bus_inputs();
+; genCall
+	jp	_lcd_bus_inputs
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_bus_sleep$573 ==.
+;	./src/stm8_hd44780.c: 233: }
+; genEndFunction
+	Sstm8_hd44780$lcd_bus_sleep$574 ==.
+	XG$lcd_bus_sleep$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_bus_sleep$575 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$576 ==.
+;	./src/stm8_hd44780.c: 236: void lcd_bus_wakeup(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_bus_wakeup
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_bus_wakeup:
+	Sstm8_hd44780$lcd_bus_wakeup$577 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$578 ==.
+;	./src/stm8_hd44780.c: 237: LCD_RW_L;
+; genIPush
+	push	#0x40
+	Sstm8_hd44780$lcd_bus_wakeup$579 ==.
+; genIPush
+	push	#0x19
+	Sstm8_hd44780$lcd_bus_wakeup$580 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_wakeup$581 ==.
+; genCall
+	call	_GPIO_WriteLow
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_wakeup$582 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$583 ==.
+;	./src/stm8_hd44780.c: 238: LCD_D4_H;
+; genIPush
+	push	#0x01
+	Sstm8_hd44780$lcd_bus_wakeup$584 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_wakeup$585 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_wakeup$586 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_wakeup$587 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$588 ==.
+;	./src/stm8_hd44780.c: 239: LCD_D5_H;
+; genIPush
+	push	#0x02
+	Sstm8_hd44780$lcd_bus_wakeup$589 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_wakeup$590 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_wakeup$591 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_wakeup$592 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$593 ==.
+;	./src/stm8_hd44780.c: 240: LCD_D6_H;
+; genIPush
+	push	#0x04
+	Sstm8_hd44780$lcd_bus_wakeup$594 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_wakeup$595 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_wakeup$596 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_wakeup$597 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$598 ==.
+;	./src/stm8_hd44780.c: 241: LCD_D7_H;
+; genIPush
+	push	#0x08
+	Sstm8_hd44780$lcd_bus_wakeup$599 ==.
+; genIPush
+	push	#0x1e
+	Sstm8_hd44780$lcd_bus_wakeup$600 ==.
+	push	#0x50
+	Sstm8_hd44780$lcd_bus_wakeup$601 ==.
+; genCall
+	call	_GPIO_WriteHigh
+	addw	sp, #3
+	Sstm8_hd44780$lcd_bus_wakeup$602 ==.
+	Sstm8_hd44780$lcd_bus_wakeup$603 ==.
+;	./src/stm8_hd44780.c: 242: lcd_bus_outputs();
+; genCall
+	jp	_lcd_bus_outputs
+; genLabel
+00101$:
+	Sstm8_hd44780$lcd_bus_wakeup$604 ==.
+;	./src/stm8_hd44780.c: 243: }	
+; genEndFunction
+	Sstm8_hd44780$lcd_bus_wakeup$605 ==.
+	XG$lcd_bus_wakeup$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_bus_wakeup$606 ==.
+	Sstm8_hd44780$lcd_busy_wait$607 ==.
+;	./src/stm8_hd44780.c: 246: uint8_t lcd_busy_wait(void){
+; genLabel
+;	-----------------------------------------
+;	 function lcd_busy_wait
+;	-----------------------------------------
+;	Register assignment is optimal.
+;	Stack space usage: 0 bytes.
+_lcd_busy_wait:
+	Sstm8_hd44780$lcd_busy_wait$608 ==.
+	Sstm8_hd44780$lcd_busy_wait$609 ==.
+;	./src/stm8_hd44780.c: 247: uint16_t timeout=LCD_BUSY_TIMEOUT;
+; genAssign
+	ldw	x, #0x01f4
+	Sstm8_hd44780$lcd_busy_wait$610 ==.
+;	./src/stm8_hd44780.c: 248: while(timeout && lcd_busy()){
+; genAssign
+; genLabel
+00102$:
+; genIfx
+	tnzw	x
+	jrne	00131$
+	jp	00114$
+00131$:
+; genCall
+	pushw	x
+	Sstm8_hd44780$lcd_busy_wait$611 ==.
+	call	_lcd_read
+	popw	x
+	Sstm8_hd44780$lcd_busy_wait$612 ==.
+; genAnd
+	tnz	a
+	jrmi	00132$
+	jp	00114$
+00132$:
+; skipping generated iCode
+	Sstm8_hd44780$lcd_busy_wait$613 ==.
+	Sstm8_hd44780$lcd_busy_wait$614 ==.
+;	./src/stm8_hd44780.c: 249: timeout--;
+; genMinus
+	decw	x
+	Sstm8_hd44780$lcd_busy_wait$615 ==.
+; genGoto
+	jp	00102$
+; genLabel
+00114$:
+; genAssign
+	Sstm8_hd44780$lcd_busy_wait$616 ==.
+;	./src/stm8_hd44780.c: 251: if(timeout==0){return 1;} // error, busy still ==1
+; genIfx
+	tnzw	x
+	jreq	00133$
+	jp	00106$
+00133$:
+	Sstm8_hd44780$lcd_busy_wait$617 ==.
+; genReturn
+	ld	a, #0x01
+	jp	00108$
+	Sstm8_hd44780$lcd_busy_wait$618 ==.
+; genLabel
+00106$:
+	Sstm8_hd44780$lcd_busy_wait$619 ==.
+	Sstm8_hd44780$lcd_busy_wait$620 ==.
+;	./src/stm8_hd44780.c: 252: else{return 0;}
+; genReturn
+	clr	a
+	Sstm8_hd44780$lcd_busy_wait$621 ==.
+; genLabel
+00108$:
+	Sstm8_hd44780$lcd_busy_wait$622 ==.
+;	./src/stm8_hd44780.c: 253: }
+; genEndFunction
+	Sstm8_hd44780$lcd_busy_wait$623 ==.
+	XG$lcd_busy_wait$0$0 ==.
+	ret
+	Sstm8_hd44780$lcd_busy_wait$624 ==.
+	.area CODE
+	.area CONST
+	.area INITIALIZER
+	.area CABS (ABS)
+
+	.area .debug_line (NOLOAD)
+	.dw	0,Ldebug_line_end-Ldebug_line_start
+Ldebug_line_start:
+	.dw	2
+	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+	.db	1
+	.db	1
+	.db	-5
+	.db	15
+	.db	10
+	.db	0
+	.db	1
+	.db	1
+	.db	1
+	.db	1
+	.db	0
+	.db	0
+	.db	0
+	.db	1
+	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+	.db	0
+	.ascii "C:\Program Files\SDCC\bin\..\include"
+	.db	0
+	.db	0
+	.ascii "inc/delay.h"
+	.db	0
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+	.ascii "./src/stm8_hd44780.c"
+	.db	0
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+	.db	0
+Ldebug_line_stmt:
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$_delay_cycl$0)
+	.db	3
+	.sleb128	13
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_cycl$2-Sstm8_hd44780$_delay_cycl$0
+	.db	3
+	.sleb128	11
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_cycl$3-Sstm8_hd44780$_delay_cycl$2
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_cycl$5-Sstm8_hd44780$_delay_cycl$3
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_cycl$7-Sstm8_hd44780$_delay_cycl$5
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_cycl$8-Sstm8_hd44780$_delay_cycl$7
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_cycl$9-Sstm8_hd44780$_delay_cycl$8
+	.db	3
+	.sleb128	10
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$_delay_cycl$10-Sstm8_hd44780$_delay_cycl$9
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$_delay_us$12)
+	.db	3
+	.sleb128	40
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_us$35-Sstm8_hd44780$_delay_us$12
+	.db	3
+	.sleb128	-15
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_us$39-Sstm8_hd44780$_delay_us$35
+	.db	3
+	.sleb128	16
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$_delay_us$40-Sstm8_hd44780$_delay_us$39
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$_delay_us$41-Sstm8_hd44780$_delay_us$40
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$43)
+	.db	3
+	.sleb128	12
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$46-Sstm8_hd44780$lcd_store_symbol$43
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$47-Sstm8_hd44780$lcd_store_symbol$46
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$50-Sstm8_hd44780$lcd_store_symbol$47
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$52-Sstm8_hd44780$lcd_store_symbol$50
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$56-Sstm8_hd44780$lcd_store_symbol$52
+	.db	3
+	.sleb128	-1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$57-Sstm8_hd44780$lcd_store_symbol$56
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_store_symbol$60-Sstm8_hd44780$lcd_store_symbol$57
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_store_symbol$62-Sstm8_hd44780$lcd_store_symbol$60
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_puts$64)
+	.db	3
+	.sleb128	24
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_puts$66-Sstm8_hd44780$lcd_puts$64
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_puts$68-Sstm8_hd44780$lcd_puts$66
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_puts$73-Sstm8_hd44780$lcd_puts$68
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_puts$75-Sstm8_hd44780$lcd_puts$73
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_puts$76-Sstm8_hd44780$lcd_puts$75
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_init$78)
+	.db	3
+	.sleb128	31
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$80-Sstm8_hd44780$lcd_init$78
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$81-Sstm8_hd44780$lcd_init$80
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$85-Sstm8_hd44780$lcd_init$81
+	.db	3
+	.sleb128	-9
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$89-Sstm8_hd44780$lcd_init$85
+	.db	3
+	.sleb128	12
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$92-Sstm8_hd44780$lcd_init$89
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$96-Sstm8_hd44780$lcd_init$92
+	.db	3
+	.sleb128	-13
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$100-Sstm8_hd44780$lcd_init$96
+	.db	3
+	.sleb128	16
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$103-Sstm8_hd44780$lcd_init$100
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$107-Sstm8_hd44780$lcd_init$103
+	.db	3
+	.sleb128	-17
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$111-Sstm8_hd44780$lcd_init$107
+	.db	3
+	.sleb128	20
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$114-Sstm8_hd44780$lcd_init$111
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$115-Sstm8_hd44780$lcd_init$114
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$118-Sstm8_hd44780$lcd_init$115
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$122-Sstm8_hd44780$lcd_init$118
+	.db	3
+	.sleb128	-23
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$126-Sstm8_hd44780$lcd_init$122
+	.db	3
+	.sleb128	29
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$129-Sstm8_hd44780$lcd_init$126
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$132-Sstm8_hd44780$lcd_init$129
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$135-Sstm8_hd44780$lcd_init$132
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$138-Sstm8_hd44780$lcd_init$135
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$141-Sstm8_hd44780$lcd_init$138
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init$144-Sstm8_hd44780$lcd_init$141
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_init$145-Sstm8_hd44780$lcd_init$144
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$147)
+	.db	3
+	.sleb128	63
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$149-Sstm8_hd44780$lcd_gotoxy$147
+	.db	3
+	.sleb128	4
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$152-Sstm8_hd44780$lcd_gotoxy$149
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$155-Sstm8_hd44780$lcd_gotoxy$152
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$159-Sstm8_hd44780$lcd_gotoxy$155
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$164-Sstm8_hd44780$lcd_gotoxy$159
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$166-Sstm8_hd44780$lcd_gotoxy$164
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$167-Sstm8_hd44780$lcd_gotoxy$166
+	.db	3
+	.sleb128	14
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_gotoxy$170-Sstm8_hd44780$lcd_gotoxy$167
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_gotoxy$171-Sstm8_hd44780$lcd_gotoxy$170
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$173)
+	.db	3
+	.sleb128	90
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init_hw$175-Sstm8_hd44780$lcd_init_hw$173
+	.db	3
+	.sleb128	19
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init_hw$181-Sstm8_hd44780$lcd_init_hw$175
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init_hw$187-Sstm8_hd44780$lcd_init_hw$181
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init_hw$193-Sstm8_hd44780$lcd_init_hw$187
+	.db	3
+	.sleb128	3
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_init_hw$194-Sstm8_hd44780$lcd_init_hw$193
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_init_hw$195-Sstm8_hd44780$lcd_init_hw$194
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$197)
+	.db	3
+	.sleb128	118
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_outputs$199-Sstm8_hd44780$lcd_bus_outputs$197
+	.db	3
+	.sleb128	4
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_outputs$205-Sstm8_hd44780$lcd_bus_outputs$199
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_outputs$211-Sstm8_hd44780$lcd_bus_outputs$205
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_outputs$217-Sstm8_hd44780$lcd_bus_outputs$211
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_outputs$223-Sstm8_hd44780$lcd_bus_outputs$217
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_bus_outputs$224-Sstm8_hd44780$lcd_bus_outputs$223
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$226)
+	.db	3
+	.sleb128	130
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_inputs$228-Sstm8_hd44780$lcd_bus_inputs$226
+	.db	3
+	.sleb128	8
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_inputs$234-Sstm8_hd44780$lcd_bus_inputs$228
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_inputs$240-Sstm8_hd44780$lcd_bus_inputs$234
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_inputs$246-Sstm8_hd44780$lcd_bus_inputs$240
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_inputs$252-Sstm8_hd44780$lcd_bus_inputs$246
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_bus_inputs$253-Sstm8_hd44780$lcd_bus_inputs$252
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$255)
+	.db	3
+	.sleb128	146
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$257-Sstm8_hd44780$lcd_deinit_hw$255
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$263-Sstm8_hd44780$lcd_deinit_hw$257
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$269-Sstm8_hd44780$lcd_deinit_hw$263
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$275-Sstm8_hd44780$lcd_deinit_hw$269
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$281-Sstm8_hd44780$lcd_deinit_hw$275
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$287-Sstm8_hd44780$lcd_deinit_hw$281
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$293-Sstm8_hd44780$lcd_deinit_hw$287
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_deinit_hw$299-Sstm8_hd44780$lcd_deinit_hw$293
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_deinit_hw$300-Sstm8_hd44780$lcd_deinit_hw$299
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$302)
+	.db	3
+	.sleb128	157
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_set$304-Sstm8_hd44780$lcd_bus_set$302
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_set$317-Sstm8_hd44780$lcd_bus_set$304
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_set$330-Sstm8_hd44780$lcd_bus_set$317
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_set$343-Sstm8_hd44780$lcd_bus_set$330
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_set$356-Sstm8_hd44780$lcd_bus_set$343
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_bus_set$357-Sstm8_hd44780$lcd_bus_set$356
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$359)
+	.db	3
+	.sleb128	165
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$362-Sstm8_hd44780$lcd_bus_read$359
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$363-Sstm8_hd44780$lcd_bus_read$362
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$370-Sstm8_hd44780$lcd_bus_read$363
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$377-Sstm8_hd44780$lcd_bus_read$370
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$384-Sstm8_hd44780$lcd_bus_read$377
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$391-Sstm8_hd44780$lcd_bus_read$384
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_read$392-Sstm8_hd44780$lcd_bus_read$391
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_bus_read$394-Sstm8_hd44780$lcd_bus_read$392
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$396)
+	.db	3
+	.sleb128	175
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_e_tick$398-Sstm8_hd44780$lcd_e_tick$396
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_e_tick$406-Sstm8_hd44780$lcd_e_tick$398
+	.db	3
+	.sleb128	-151
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_e_tick$410-Sstm8_hd44780$lcd_e_tick$406
+	.db	3
+	.sleb128	153
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_e_tick$418-Sstm8_hd44780$lcd_e_tick$410
+	.db	3
+	.sleb128	-153
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_e_tick$422-Sstm8_hd44780$lcd_e_tick$418
+	.db	3
+	.sleb128	154
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_e_tick$423-Sstm8_hd44780$lcd_e_tick$422
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_e_tick$424-Sstm8_hd44780$lcd_e_tick$423
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_command$426)
+	.db	3
+	.sleb128	183
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$428-Sstm8_hd44780$lcd_command$426
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$436-Sstm8_hd44780$lcd_command$428
+	.db	3
+	.sleb128	-159
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$440-Sstm8_hd44780$lcd_command$436
+	.db	3
+	.sleb128	161
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$443-Sstm8_hd44780$lcd_command$440
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$444-Sstm8_hd44780$lcd_command$443
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$447-Sstm8_hd44780$lcd_command$444
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$448-Sstm8_hd44780$lcd_command$447
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_command$449-Sstm8_hd44780$lcd_command$448
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_command$450-Sstm8_hd44780$lcd_command$449
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_data$452)
+	.db	3
+	.sleb128	194
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$454-Sstm8_hd44780$lcd_data$452
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$462-Sstm8_hd44780$lcd_data$454
+	.db	3
+	.sleb128	-170
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$466-Sstm8_hd44780$lcd_data$462
+	.db	3
+	.sleb128	172
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$469-Sstm8_hd44780$lcd_data$466
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$470-Sstm8_hd44780$lcd_data$469
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$473-Sstm8_hd44780$lcd_data$470
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$474-Sstm8_hd44780$lcd_data$473
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_data$475-Sstm8_hd44780$lcd_data$474
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_data$476-Sstm8_hd44780$lcd_data$475
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_read$478)
+	.db	3
+	.sleb128	205
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$481-Sstm8_hd44780$lcd_read$478
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$486-Sstm8_hd44780$lcd_read$481
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$487-Sstm8_hd44780$lcd_read$486
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$495-Sstm8_hd44780$lcd_read$487
+	.db	3
+	.sleb128	-184
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$499-Sstm8_hd44780$lcd_read$495
+	.db	3
+	.sleb128	186
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$507-Sstm8_hd44780$lcd_read$499
+	.db	3
+	.sleb128	-186
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$511-Sstm8_hd44780$lcd_read$507
+	.db	3
+	.sleb128	188
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$512-Sstm8_hd44780$lcd_read$511
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$520-Sstm8_hd44780$lcd_read$512
+	.db	3
+	.sleb128	-189
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$524-Sstm8_hd44780$lcd_read$520
+	.db	3
+	.sleb128	191
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$532-Sstm8_hd44780$lcd_read$524
+	.db	3
+	.sleb128	-191
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$536-Sstm8_hd44780$lcd_read$532
+	.db	3
+	.sleb128	193
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$537-Sstm8_hd44780$lcd_read$536
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	4
+	.uleb128	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$545-Sstm8_hd44780$lcd_read$537
+	.db	3
+	.sleb128	-194
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$549-Sstm8_hd44780$lcd_read$545
+	.db	3
+	.sleb128	196
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$554-Sstm8_hd44780$lcd_read$549
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$555-Sstm8_hd44780$lcd_read$554
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_read$556-Sstm8_hd44780$lcd_read$555
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_read$558-Sstm8_hd44780$lcd_read$556
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$560)
+	.db	3
+	.sleb128	228
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_sleep$562-Sstm8_hd44780$lcd_bus_sleep$560
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_sleep$567-Sstm8_hd44780$lcd_bus_sleep$562
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_sleep$572-Sstm8_hd44780$lcd_bus_sleep$567
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_sleep$573-Sstm8_hd44780$lcd_bus_sleep$572
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_bus_sleep$574-Sstm8_hd44780$lcd_bus_sleep$573
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$576)
+	.db	3
+	.sleb128	235
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$578-Sstm8_hd44780$lcd_bus_wakeup$576
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$583-Sstm8_hd44780$lcd_bus_wakeup$578
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$588-Sstm8_hd44780$lcd_bus_wakeup$583
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$593-Sstm8_hd44780$lcd_bus_wakeup$588
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$598-Sstm8_hd44780$lcd_bus_wakeup$593
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$603-Sstm8_hd44780$lcd_bus_wakeup$598
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_bus_wakeup$604-Sstm8_hd44780$lcd_bus_wakeup$603
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_bus_wakeup$605-Sstm8_hd44780$lcd_bus_wakeup$604
+	.db	0
+	.uleb128	1
+	.db	1
+	.db	4
+	.uleb128	2
+	.db	0
+	.uleb128	5
+	.db	2
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$607)
+	.db	3
+	.sleb128	245
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_busy_wait$609-Sstm8_hd44780$lcd_busy_wait$607
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_busy_wait$610-Sstm8_hd44780$lcd_busy_wait$609
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_busy_wait$614-Sstm8_hd44780$lcd_busy_wait$610
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_busy_wait$616-Sstm8_hd44780$lcd_busy_wait$614
+	.db	3
+	.sleb128	2
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_busy_wait$620-Sstm8_hd44780$lcd_busy_wait$616
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	Sstm8_hd44780$lcd_busy_wait$622-Sstm8_hd44780$lcd_busy_wait$620
+	.db	3
+	.sleb128	1
+	.db	1
+	.db	9
+	.dw	1+Sstm8_hd44780$lcd_busy_wait$623-Sstm8_hd44780$lcd_busy_wait$622
+	.db	0
+	.uleb128	1
+	.db	1
+Ldebug_line_end:
+
+	.area .debug_loc (NOLOAD)
+Ldebug_loc_start:
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$612)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$624)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$611)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$612)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$608)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$611)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$602)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$606)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$601)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$602)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$600)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$601)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$599)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$600)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$597)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$599)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$596)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$597)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$595)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$596)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$594)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$595)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$592)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$594)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$591)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$592)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$590)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$591)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$589)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$590)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$587)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$589)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$586)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$587)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$585)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$586)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$584)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$585)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$582)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$584)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$581)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$582)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$580)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$581)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$579)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$580)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$577)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$579)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$571)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$575)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$570)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$571)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$569)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$570)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$568)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$569)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$566)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$568)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$565)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$566)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$564)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$565)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$563)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$564)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$561)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$563)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_read$557)
+	.dw	0,(Sstm8_hd44780$lcd_read$559)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_read$553)
+	.dw	0,(Sstm8_hd44780$lcd_read$557)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$552)
+	.dw	0,(Sstm8_hd44780$lcd_read$553)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$551)
+	.dw	0,(Sstm8_hd44780$lcd_read$552)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$550)
+	.dw	0,(Sstm8_hd44780$lcd_read$551)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$541)
+	.dw	0,(Sstm8_hd44780$lcd_read$550)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$540)
+	.dw	0,(Sstm8_hd44780$lcd_read$541)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$539)
+	.dw	0,(Sstm8_hd44780$lcd_read$540)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$538)
+	.dw	0,(Sstm8_hd44780$lcd_read$539)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$528)
+	.dw	0,(Sstm8_hd44780$lcd_read$538)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$527)
+	.dw	0,(Sstm8_hd44780$lcd_read$528)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$526)
+	.dw	0,(Sstm8_hd44780$lcd_read$527)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$525)
+	.dw	0,(Sstm8_hd44780$lcd_read$526)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$516)
+	.dw	0,(Sstm8_hd44780$lcd_read$525)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$515)
+	.dw	0,(Sstm8_hd44780$lcd_read$516)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$514)
+	.dw	0,(Sstm8_hd44780$lcd_read$515)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$513)
+	.dw	0,(Sstm8_hd44780$lcd_read$514)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$503)
+	.dw	0,(Sstm8_hd44780$lcd_read$513)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$502)
+	.dw	0,(Sstm8_hd44780$lcd_read$503)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$501)
+	.dw	0,(Sstm8_hd44780$lcd_read$502)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$500)
+	.dw	0,(Sstm8_hd44780$lcd_read$501)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$491)
+	.dw	0,(Sstm8_hd44780$lcd_read$500)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$490)
+	.dw	0,(Sstm8_hd44780$lcd_read$491)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$489)
+	.dw	0,(Sstm8_hd44780$lcd_read$490)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$488)
+	.dw	0,(Sstm8_hd44780$lcd_read$489)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$485)
+	.dw	0,(Sstm8_hd44780$lcd_read$488)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$484)
+	.dw	0,(Sstm8_hd44780$lcd_read$485)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_read$483)
+	.dw	0,(Sstm8_hd44780$lcd_read$484)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$482)
+	.dw	0,(Sstm8_hd44780$lcd_read$483)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_read$480)
+	.dw	0,(Sstm8_hd44780$lcd_read$482)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_read$479)
+	.dw	0,(Sstm8_hd44780$lcd_read$480)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_data$472)
+	.dw	0,(Sstm8_hd44780$lcd_data$477)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_data$471)
+	.dw	0,(Sstm8_hd44780$lcd_data$472)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_data$468)
+	.dw	0,(Sstm8_hd44780$lcd_data$471)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_data$467)
+	.dw	0,(Sstm8_hd44780$lcd_data$468)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_data$458)
+	.dw	0,(Sstm8_hd44780$lcd_data$467)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_data$457)
+	.dw	0,(Sstm8_hd44780$lcd_data$458)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_data$456)
+	.dw	0,(Sstm8_hd44780$lcd_data$457)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_data$455)
+	.dw	0,(Sstm8_hd44780$lcd_data$456)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_data$453)
+	.dw	0,(Sstm8_hd44780$lcd_data$455)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_command$446)
+	.dw	0,(Sstm8_hd44780$lcd_command$451)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_command$445)
+	.dw	0,(Sstm8_hd44780$lcd_command$446)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_command$442)
+	.dw	0,(Sstm8_hd44780$lcd_command$445)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_command$441)
+	.dw	0,(Sstm8_hd44780$lcd_command$442)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_command$432)
+	.dw	0,(Sstm8_hd44780$lcd_command$441)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_command$431)
+	.dw	0,(Sstm8_hd44780$lcd_command$432)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_command$430)
+	.dw	0,(Sstm8_hd44780$lcd_command$431)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_command$429)
+	.dw	0,(Sstm8_hd44780$lcd_command$430)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_command$427)
+	.dw	0,(Sstm8_hd44780$lcd_command$429)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$414)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$425)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$413)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$414)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$412)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$413)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$411)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$412)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$402)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$411)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$401)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$402)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$400)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$401)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$399)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$400)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$397)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$399)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$393)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$395)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$388)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$393)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$387)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$388)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$386)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$387)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$385)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$386)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$381)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$385)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$380)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$381)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$379)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$380)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$378)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$379)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$374)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$378)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$373)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$374)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$372)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$373)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$371)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$372)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$367)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$371)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$366)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$367)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$365)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$366)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$364)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$365)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$361)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$364)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$360)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$361)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$354)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$358)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$353)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$354)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$352)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$353)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$351)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$352)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$348)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$351)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$347)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$348)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$346)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$347)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$345)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$346)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$341)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$345)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$340)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$341)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$339)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$340)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$338)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$339)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$335)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$338)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$334)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$335)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$333)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$334)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$332)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$333)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$328)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$332)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$327)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$328)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$326)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$327)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$325)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$326)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$322)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$325)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$321)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$322)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$320)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$321)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$319)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$320)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$315)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$319)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$314)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$315)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$313)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$314)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$312)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$313)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$309)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$312)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$308)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$309)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$307)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$308)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$306)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$307)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$303)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$306)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$298)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$301)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$297)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$298)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$296)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$297)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$295)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$296)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$294)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$295)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$292)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$294)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$291)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$292)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$290)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$291)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$289)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$290)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$288)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$289)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$286)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$288)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$285)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$286)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$284)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$285)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$283)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$284)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$282)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$283)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$280)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$282)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$279)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$280)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$278)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$279)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$277)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$278)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$276)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$277)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$274)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$276)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$273)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$274)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$272)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$273)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$271)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$272)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$270)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$271)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$268)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$270)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$267)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$268)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$266)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$267)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$265)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$266)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$264)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$265)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$262)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$264)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$261)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$262)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$260)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$261)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$259)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$260)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$258)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$259)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$256)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$258)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$251)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$254)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$250)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$251)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$249)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$250)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$248)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$249)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$247)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$248)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$245)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$247)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$244)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$245)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$243)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$244)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$242)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$243)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$241)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$242)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$239)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$241)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$238)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$239)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$237)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$238)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$236)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$237)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$235)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$236)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$233)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$235)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$232)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$233)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$231)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$232)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$230)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$231)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$229)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$230)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$227)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$229)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$222)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$225)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$221)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$222)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$220)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$221)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$219)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$220)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$218)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$219)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$216)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$218)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$215)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$216)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$214)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$215)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$213)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$214)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$212)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$213)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$210)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$212)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$209)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$210)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$208)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$209)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$207)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$208)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$206)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$207)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$204)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$206)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$203)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$204)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$202)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$203)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$201)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$202)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$200)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$201)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$198)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$200)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$192)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$196)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$191)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$192)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$190)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$191)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$189)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$190)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$188)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$189)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$186)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$188)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$185)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$186)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$184)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$185)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$183)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$184)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$182)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$183)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$180)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$182)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$179)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$180)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$178)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$179)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$177)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$178)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$176)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$177)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$174)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$176)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$169)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$172)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$168)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$169)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$160)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$168)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$156)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$160)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$148)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$156)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_init$143)
+	.dw	0,(Sstm8_hd44780$lcd_init$146)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$142)
+	.dw	0,(Sstm8_hd44780$lcd_init$143)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$140)
+	.dw	0,(Sstm8_hd44780$lcd_init$142)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$139)
+	.dw	0,(Sstm8_hd44780$lcd_init$140)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$137)
+	.dw	0,(Sstm8_hd44780$lcd_init$139)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$136)
+	.dw	0,(Sstm8_hd44780$lcd_init$137)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$134)
+	.dw	0,(Sstm8_hd44780$lcd_init$136)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$133)
+	.dw	0,(Sstm8_hd44780$lcd_init$134)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$131)
+	.dw	0,(Sstm8_hd44780$lcd_init$133)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$130)
+	.dw	0,(Sstm8_hd44780$lcd_init$131)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$128)
+	.dw	0,(Sstm8_hd44780$lcd_init$130)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$127)
+	.dw	0,(Sstm8_hd44780$lcd_init$128)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$117)
+	.dw	0,(Sstm8_hd44780$lcd_init$127)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$116)
+	.dw	0,(Sstm8_hd44780$lcd_init$117)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$113)
+	.dw	0,(Sstm8_hd44780$lcd_init$116)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$112)
+	.dw	0,(Sstm8_hd44780$lcd_init$113)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$102)
+	.dw	0,(Sstm8_hd44780$lcd_init$112)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$101)
+	.dw	0,(Sstm8_hd44780$lcd_init$102)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$91)
+	.dw	0,(Sstm8_hd44780$lcd_init$101)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_init$90)
+	.dw	0,(Sstm8_hd44780$lcd_init$91)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_init$79)
+	.dw	0,(Sstm8_hd44780$lcd_init$90)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_puts$72)
+	.dw	0,(Sstm8_hd44780$lcd_puts$77)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_puts$71)
+	.dw	0,(Sstm8_hd44780$lcd_puts$72)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_puts$70)
+	.dw	0,(Sstm8_hd44780$lcd_puts$71)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_puts$69)
+	.dw	0,(Sstm8_hd44780$lcd_puts$70)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_puts$65)
+	.dw	0,(Sstm8_hd44780$lcd_puts$69)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$61)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$63)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$59)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$61)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$58)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$59)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$54)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$58)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$53)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$54)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$49)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$53)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$48)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$49)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$45)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$48)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$44)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$45)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$_delay_us$29)
+	.dw	0,(Sstm8_hd44780$_delay_us$42)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$_delay_us$28)
+	.dw	0,(Sstm8_hd44780$_delay_us$29)
+	.dw	2
+	.db	120
+	.sleb128	9
+	.dw	0,(Sstm8_hd44780$_delay_us$27)
+	.dw	0,(Sstm8_hd44780$_delay_us$28)
+	.dw	2
+	.db	120
+	.sleb128	7
+	.dw	0,(Sstm8_hd44780$_delay_us$26)
+	.dw	0,(Sstm8_hd44780$_delay_us$27)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$_delay_us$25)
+	.dw	0,(Sstm8_hd44780$_delay_us$26)
+	.dw	2
+	.db	120
+	.sleb128	4
+	.dw	0,(Sstm8_hd44780$_delay_us$24)
+	.dw	0,(Sstm8_hd44780$_delay_us$25)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$_delay_us$23)
+	.dw	0,(Sstm8_hd44780$_delay_us$24)
+	.dw	2
+	.db	120
+	.sleb128	2
+	.dw	0,(Sstm8_hd44780$_delay_us$21)
+	.dw	0,(Sstm8_hd44780$_delay_us$23)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,(Sstm8_hd44780$_delay_us$20)
+	.dw	0,(Sstm8_hd44780$_delay_us$21)
+	.dw	2
+	.db	120
+	.sleb128	9
+	.dw	0,(Sstm8_hd44780$_delay_us$19)
+	.dw	0,(Sstm8_hd44780$_delay_us$20)
+	.dw	2
+	.db	120
+	.sleb128	8
+	.dw	0,(Sstm8_hd44780$_delay_us$18)
+	.dw	0,(Sstm8_hd44780$_delay_us$19)
+	.dw	2
+	.db	120
+	.sleb128	7
+	.dw	0,(Sstm8_hd44780$_delay_us$17)
+	.dw	0,(Sstm8_hd44780$_delay_us$18)
+	.dw	2
+	.db	120
+	.sleb128	6
+	.dw	0,(Sstm8_hd44780$_delay_us$16)
+	.dw	0,(Sstm8_hd44780$_delay_us$17)
+	.dw	2
+	.db	120
+	.sleb128	5
+	.dw	0,(Sstm8_hd44780$_delay_us$15)
+	.dw	0,(Sstm8_hd44780$_delay_us$16)
+	.dw	2
+	.db	120
+	.sleb128	3
+	.dw	0,(Sstm8_hd44780$_delay_us$13)
+	.dw	0,(Sstm8_hd44780$_delay_us$15)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+	.dw	0,(Sstm8_hd44780$_delay_cycl$1)
+	.dw	0,(Sstm8_hd44780$_delay_cycl$11)
+	.dw	2
+	.db	120
+	.sleb128	1
+	.dw	0,0
+	.dw	0,0
+
+	.area .debug_abbrev (NOLOAD)
+Ldebug_abbrev:
+	.uleb128	11
+	.uleb128	15
+	.db	0
+	.uleb128	11
+	.uleb128	11
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	13
+	.uleb128	11
+	.db	1
+	.uleb128	0
+	.uleb128	0
+	.uleb128	16
+	.uleb128	46
+	.db	1
+	.uleb128	3
+	.uleb128	8
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	63
+	.uleb128	12
+	.uleb128	64
+	.uleb128	6
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	3
+	.uleb128	5
+	.db	0
+	.uleb128	2
+	.uleb128	10
+	.uleb128	3
+	.uleb128	8
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	2
+	.uleb128	46
+	.db	1
+	.uleb128	1
+	.uleb128	19
+	.uleb128	3
+	.uleb128	8
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	63
+	.uleb128	12
+	.uleb128	64
+	.uleb128	6
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.uleb128	52
+	.db	0
+	.uleb128	2
+	.uleb128	10
+	.uleb128	3
+	.uleb128	8
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	15
+	.uleb128	46
+	.db	1
+	.uleb128	1
+	.uleb128	19
+	.uleb128	3
+	.uleb128	8
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	63
+	.uleb128	12
+	.uleb128	64
+	.uleb128	6
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	12
+	.uleb128	11
+	.db	1
+	.uleb128	1
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	6
+	.uleb128	38
+	.db	0
+	.uleb128	73
+	.uleb128	19
+	.uleb128	0
+	.uleb128	0
+	.uleb128	1
+	.uleb128	17
+	.db	1
+	.uleb128	3
+	.uleb128	8
+	.uleb128	16
+	.uleb128	6
+	.uleb128	19
+	.uleb128	11
+	.uleb128	37
+	.uleb128	8
+	.uleb128	0
+	.uleb128	0
+	.uleb128	4
+	.uleb128	11
+	.db	0
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	0
+	.uleb128	0
+	.uleb128	7
+	.uleb128	11
+	.db	1
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	0
+	.uleb128	0
+	.uleb128	8
+	.uleb128	11
+	.db	1
+	.uleb128	1
+	.uleb128	19
+	.uleb128	17
+	.uleb128	1
+	.uleb128	0
+	.uleb128	0
+	.uleb128	14
+	.uleb128	46
+	.db	0
+	.uleb128	3
+	.uleb128	8
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	63
+	.uleb128	12
+	.uleb128	64
+	.uleb128	6
+	.uleb128	0
+	.uleb128	0
+	.uleb128	9
+	.uleb128	11
+	.db	1
+	.uleb128	1
+	.uleb128	19
+	.uleb128	17
+	.uleb128	1
+	.uleb128	18
+	.uleb128	1
+	.uleb128	0
+	.uleb128	0
+	.uleb128	5
+	.uleb128	36
+	.db	0
+	.uleb128	3
+	.uleb128	8
+	.uleb128	11
+	.uleb128	11
+	.uleb128	62
+	.uleb128	11
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+
+	.area .debug_info (NOLOAD)
+	.dw	0,Ldebug_info_end-Ldebug_info_start
+Ldebug_info_start:
+	.dw	2
+	.dw	0,(Ldebug_abbrev)
+	.db	4
+	.uleb128	1
+	.ascii "./src/stm8_hd44780.c"
+	.db	0
+	.dw	0,(Ldebug_line_start+-4)
+	.db	1
+	.ascii "SDCC version 4.1.0 #12072"
+	.db	0
+	.uleb128	2
+	.dw	0,120
+	.ascii "_delay_cycl"
+	.db	0
+	.dw	0,(__delay_cycl)
+	.dw	0,(XFstm8_hd44780$_delay_cycl$0$0+1)
+	.db	0
+	.dw	0,(Ldebug_loc_start+3648)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$_delay_cycl$4)
+	.dw	0,(Sstm8_hd44780$_delay_cycl$6)
+	.uleb128	0
+	.uleb128	5
+	.ascii "unsigned int"
+	.db	0
+	.db	2
+	.db	7
+	.uleb128	2
+	.dw	0,271
+	.ascii "_delay_us"
+	.db	0
+	.dw	0,(__delay_us)
+	.dw	0,(XFstm8_hd44780$_delay_us$0$0+1)
+	.db	0
+	.dw	0,(Ldebug_loc_start+3460)
+	.uleb128	6
+	.dw	0,120
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	7
+	.dw	0,(Sstm8_hd44780$_delay_us$14)
+	.dw	0,(Sstm8_hd44780$_delay_us$31)
+	.uleb128	8
+	.dw	0,244
+	.dw	0,(Sstm8_hd44780$_delay_us$32)
+	.uleb128	9
+	.dw	0,223
+	.dw	0,(Sstm8_hd44780$_delay_us$33)
+	.dw	0,(Sstm8_hd44780$_delay_us$38)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$_delay_us$36)
+	.dw	0,(Sstm8_hd44780$_delay_us$37)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	2
+	.dw	0,360
+	.ascii "lcd_store_symbol"
+	.db	0
+	.dw	0,(_lcd_store_symbol)
+	.dw	0,(XG$lcd_store_symbol$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+3344)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "pos"
+	.db	0
+	.dw	0,360
+	.uleb128	11
+	.db	2
+	.dw	0,360
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	3
+	.ascii "charmap"
+	.db	0
+	.dw	0,318
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$51)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$55)
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "i"
+	.db	0
+	.dw	0,360
+	.uleb128	0
+	.uleb128	5
+	.ascii "unsigned char"
+	.db	0
+	.db	1
+	.db	8
+	.uleb128	2
+	.dw	0,427
+	.ascii "lcd_puts"
+	.db	0
+	.dw	0,(_lcd_puts)
+	.dw	0,(XG$lcd_puts$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+3276)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "text"
+	.db	0
+	.dw	0,318
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_puts$67)
+	.dw	0,(Sstm8_hd44780$lcd_puts$74)
+	.uleb128	0
+	.uleb128	2
+	.dw	0,963
+	.ascii "lcd_init"
+	.db	0
+	.dw	0,(_lcd_init)
+	.dw	0,(XG$lcd_init$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+3016)
+	.uleb128	12
+	.dw	0,582
+	.uleb128	12
+	.dw	0,560
+	.uleb128	12
+	.dw	0,546
+	.uleb128	13
+	.uleb128	8
+	.dw	0,523
+	.dw	0,(Sstm8_hd44780$lcd_init$82)
+	.uleb128	9
+	.dw	0,502
+	.dw	0,(Sstm8_hd44780$lcd_init$83)
+	.dw	0,(Sstm8_hd44780$lcd_init$88)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init$86)
+	.dw	0,(Sstm8_hd44780$lcd_init$87)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720012"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	12
+	.dw	0,710
+	.uleb128	12
+	.dw	0,688
+	.uleb128	12
+	.dw	0,674
+	.uleb128	13
+	.uleb128	8
+	.dw	0,651
+	.dw	0,(Sstm8_hd44780$lcd_init$93)
+	.uleb128	9
+	.dw	0,630
+	.dw	0,(Sstm8_hd44780$lcd_init$94)
+	.dw	0,(Sstm8_hd44780$lcd_init$99)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init$97)
+	.dw	0,(Sstm8_hd44780$lcd_init$98)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720014"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	12
+	.dw	0,838
+	.uleb128	12
+	.dw	0,816
+	.uleb128	12
+	.dw	0,802
+	.uleb128	13
+	.uleb128	8
+	.dw	0,779
+	.dw	0,(Sstm8_hd44780$lcd_init$104)
+	.uleb128	9
+	.dw	0,758
+	.dw	0,(Sstm8_hd44780$lcd_init$105)
+	.dw	0,(Sstm8_hd44780$lcd_init$110)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init$108)
+	.dw	0,(Sstm8_hd44780$lcd_init$109)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720016"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	13
+	.uleb128	12
+	.dw	0,940
+	.uleb128	12
+	.dw	0,926
+	.uleb128	13
+	.uleb128	8
+	.dw	0,903
+	.dw	0,(Sstm8_hd44780$lcd_init$119)
+	.uleb128	9
+	.dw	0,882
+	.dw	0,(Sstm8_hd44780$lcd_init$120)
+	.dw	0,(Sstm8_hd44780$lcd_init$125)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_init$123)
+	.dw	0,(Sstm8_hd44780$lcd_init$124)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720018"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	0
+	.uleb128	2
+	.dw	0,1077
+	.ascii "lcd_gotoxy"
+	.db	0
+	.dw	0,(_lcd_gotoxy)
+	.dw	0,(XG$lcd_gotoxy$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+2948)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "column"
+	.db	0
+	.dw	0,360
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	3
+	.ascii "line"
+	.db	0
+	.dw	0,360
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$150)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$151)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$153)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$154)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$157)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$158)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$161)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$162)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$163)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$165)
+	.uleb128	10
+	.db	1
+	.db	80
+	.ascii "tmp"
+	.db	0
+	.dw	0,360
+	.uleb128	0
+	.uleb128	14
+	.ascii "lcd_init_hw"
+	.db	0
+	.dw	0,(_lcd_init_hw)
+	.dw	0,(XG$lcd_init_hw$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+2748)
+	.uleb128	14
+	.ascii "lcd_bus_outputs"
+	.db	0
+	.dw	0,(_lcd_bus_outputs)
+	.dw	0,(XG$lcd_bus_outputs$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+2488)
+	.uleb128	14
+	.ascii "lcd_bus_inputs"
+	.db	0
+	.dw	0,(_lcd_bus_inputs)
+	.dw	0,(XG$lcd_bus_inputs$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+2228)
+	.uleb128	14
+	.ascii "lcd_deinit_hw"
+	.db	0
+	.dw	0,(_lcd_deinit_hw)
+	.dw	0,(XG$lcd_deinit_hw$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+1788)
+	.uleb128	2
+	.dw	0,1306
+	.ascii "lcd_bus_set"
+	.db	0
+	.dw	0,(_lcd_bus_set)
+	.dw	0,(XG$lcd_bus_set$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+1384)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "data"
+	.db	0
+	.dw	0,360
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$305)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$310)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$311)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$316)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$318)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$323)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$324)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$329)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$331)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$336)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$337)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$342)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$344)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$349)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$350)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$355)
+	.uleb128	0
+	.uleb128	15
+	.dw	0,1390
+	.ascii "lcd_bus_read"
+	.db	0
+	.dw	0,(_lcd_bus_read)
+	.dw	0,(XG$lcd_bus_read$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+1148)
+	.dw	0,360
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$368)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$369)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$375)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$376)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$382)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$383)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$389)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$390)
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	-1
+	.ascii "tmp"
+	.db	0
+	.dw	0,360
+	.uleb128	0
+	.uleb128	2
+	.dw	0,1672
+	.ascii "lcd_e_tick"
+	.db	0
+	.dw	0,(_lcd_e_tick)
+	.dw	0,(XG$lcd_e_tick$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+1032)
+	.uleb128	12
+	.dw	0,1547
+	.uleb128	12
+	.dw	0,1525
+	.uleb128	12
+	.dw	0,1511
+	.uleb128	13
+	.uleb128	8
+	.dw	0,1488
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$403)
+	.uleb128	9
+	.dw	0,1467
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$404)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$409)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$407)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$408)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720020"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	13
+	.uleb128	12
+	.dw	0,1649
+	.uleb128	12
+	.dw	0,1635
+	.uleb128	13
+	.uleb128	8
+	.dw	0,1612
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$415)
+	.uleb128	9
+	.dw	0,1591
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$416)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$421)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$419)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$420)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720022"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	0
+	.uleb128	2
+	.dw	0,1843
+	.ascii "lcd_command"
+	.db	0
+	.dw	0,(_lcd_command)
+	.dw	0,(XG$lcd_command$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+916)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "command"
+	.db	0
+	.dw	0,360
+	.uleb128	13
+	.uleb128	12
+	.dw	0,1820
+	.uleb128	12
+	.dw	0,1806
+	.uleb128	13
+	.uleb128	8
+	.dw	0,1783
+	.dw	0,(Sstm8_hd44780$lcd_command$433)
+	.uleb128	9
+	.dw	0,1762
+	.dw	0,(Sstm8_hd44780$lcd_command$434)
+	.dw	0,(Sstm8_hd44780$lcd_command$439)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_command$437)
+	.dw	0,(Sstm8_hd44780$lcd_command$438)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720024"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	0
+	.uleb128	2
+	.dw	0,2008
+	.ascii "lcd_data"
+	.db	0
+	.dw	0,(_lcd_data)
+	.dw	0,(XG$lcd_data$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+800)
+	.uleb128	3
+	.db	2
+	.db	145
+	.sleb128	2
+	.ascii "data"
+	.db	0
+	.dw	0,360
+	.uleb128	13
+	.uleb128	12
+	.dw	0,1985
+	.uleb128	12
+	.dw	0,1971
+	.uleb128	13
+	.uleb128	8
+	.dw	0,1948
+	.dw	0,(Sstm8_hd44780$lcd_data$459)
+	.uleb128	9
+	.dw	0,1927
+	.dw	0,(Sstm8_hd44780$lcd_data$460)
+	.dw	0,(Sstm8_hd44780$lcd_data$465)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_data$463)
+	.dw	0,(Sstm8_hd44780$lcd_data$464)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720026"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	0
+	.uleb128	15
+	.dw	0,2692
+	.ascii "lcd_read"
+	.db	0
+	.dw	0,(_lcd_read)
+	.dw	0,(XG$lcd_read$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+420)
+	.dw	0,360
+	.uleb128	12
+	.dw	0,2167
+	.uleb128	12
+	.dw	0,2145
+	.uleb128	12
+	.dw	0,2131
+	.uleb128	13
+	.uleb128	8
+	.dw	0,2108
+	.dw	0,(Sstm8_hd44780$lcd_read$492)
+	.uleb128	9
+	.dw	0,2087
+	.dw	0,(Sstm8_hd44780$lcd_read$493)
+	.dw	0,(Sstm8_hd44780$lcd_read$498)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$496)
+	.dw	0,(Sstm8_hd44780$lcd_read$497)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720028"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	12
+	.dw	0,2295
+	.uleb128	12
+	.dw	0,2273
+	.uleb128	12
+	.dw	0,2259
+	.uleb128	13
+	.uleb128	8
+	.dw	0,2236
+	.dw	0,(Sstm8_hd44780$lcd_read$504)
+	.uleb128	9
+	.dw	0,2215
+	.dw	0,(Sstm8_hd44780$lcd_read$505)
+	.dw	0,(Sstm8_hd44780$lcd_read$510)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$508)
+	.dw	0,(Sstm8_hd44780$lcd_read$509)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720030"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	12
+	.dw	0,2423
+	.uleb128	12
+	.dw	0,2401
+	.uleb128	12
+	.dw	0,2387
+	.uleb128	13
+	.uleb128	8
+	.dw	0,2364
+	.dw	0,(Sstm8_hd44780$lcd_read$517)
+	.uleb128	9
+	.dw	0,2343
+	.dw	0,(Sstm8_hd44780$lcd_read$518)
+	.dw	0,(Sstm8_hd44780$lcd_read$523)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$521)
+	.dw	0,(Sstm8_hd44780$lcd_read$522)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720032"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	12
+	.dw	0,2551
+	.uleb128	12
+	.dw	0,2529
+	.uleb128	12
+	.dw	0,2515
+	.uleb128	13
+	.uleb128	8
+	.dw	0,2492
+	.dw	0,(Sstm8_hd44780$lcd_read$529)
+	.uleb128	9
+	.dw	0,2471
+	.dw	0,(Sstm8_hd44780$lcd_read$530)
+	.dw	0,(Sstm8_hd44780$lcd_read$535)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$533)
+	.dw	0,(Sstm8_hd44780$lcd_read$534)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720034"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	12
+	.dw	0,2679
+	.uleb128	12
+	.dw	0,2657
+	.uleb128	12
+	.dw	0,2643
+	.uleb128	13
+	.uleb128	8
+	.dw	0,2620
+	.dw	0,(Sstm8_hd44780$lcd_read$542)
+	.uleb128	9
+	.dw	0,2599
+	.dw	0,(Sstm8_hd44780$lcd_read$543)
+	.dw	0,(Sstm8_hd44780$lcd_read$548)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_read$546)
+	.dw	0,(Sstm8_hd44780$lcd_read$547)
+	.uleb128	0
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "__ticks"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720010"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__us"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	0
+	.ascii "__1310720036"
+	.db	0
+	.dw	0,164
+	.uleb128	0
+	.uleb128	10
+	.db	2
+	.db	145
+	.sleb128	-1
+	.ascii "tmp"
+	.db	0
+	.dw	0,360
+	.uleb128	0
+	.uleb128	14
+	.ascii "lcd_bus_sleep"
+	.db	0
+	.dw	0,(_lcd_bus_sleep)
+	.dw	0,(XG$lcd_bus_sleep$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+304)
+	.uleb128	14
+	.ascii "lcd_bus_wakeup"
+	.db	0
+	.dw	0,(_lcd_bus_wakeup)
+	.dw	0,(XG$lcd_bus_wakeup$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start+44)
+	.uleb128	16
+	.ascii "lcd_busy_wait"
+	.db	0
+	.dw	0,(_lcd_busy_wait)
+	.dw	0,(XG$lcd_busy_wait$0$0+1)
+	.db	1
+	.dw	0,(Ldebug_loc_start)
+	.dw	0,360
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$613)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$615)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$617)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$618)
+	.uleb128	4
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$619)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$621)
+	.uleb128	10
+	.db	6
+	.db	82
+	.db	147
+	.uleb128	1
+	.db	81
+	.db	147
+	.uleb128	1
+	.ascii "timeout"
+	.db	0
+	.dw	0,120
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+	.uleb128	0
+Ldebug_info_end:
+
+	.area .debug_pubnames (NOLOAD)
+	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+Ldebug_pubnames_start:
+	.dw	2
+	.dw	0,(Ldebug_info_start-4)
+	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+	.dw	0,271
+	.ascii "lcd_store_symbol"
+	.db	0
+	.dw	0,377
+	.ascii "lcd_puts"
+	.db	0
+	.dw	0,427
+	.ascii "lcd_init"
+	.db	0
+	.dw	0,963
+	.ascii "lcd_gotoxy"
+	.db	0
+	.dw	0,1077
+	.ascii "lcd_init_hw"
+	.db	0
+	.dw	0,1103
+	.ascii "lcd_bus_outputs"
+	.db	0
+	.dw	0,1133
+	.ascii "lcd_bus_inputs"
+	.db	0
+	.dw	0,1162
+	.ascii "lcd_deinit_hw"
+	.db	0
+	.dw	0,1190
+	.ascii "lcd_bus_set"
+	.db	0
+	.dw	0,1306
+	.ascii "lcd_bus_read"
+	.db	0
+	.dw	0,1390
+	.ascii "lcd_e_tick"
+	.db	0
+	.dw	0,1672
+	.ascii "lcd_command"
+	.db	0
+	.dw	0,1843
+	.ascii "lcd_data"
+	.db	0
+	.dw	0,2008
+	.ascii "lcd_read"
+	.db	0
+	.dw	0,2692
+	.ascii "lcd_bus_sleep"
+	.db	0
+	.dw	0,2720
+	.ascii "lcd_bus_wakeup"
+	.db	0
+	.dw	0,2749
+	.ascii "lcd_busy_wait"
+	.db	0
+	.dw	0,0
+Ldebug_pubnames_end:
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+Ldebug_CIE0_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE0_end:
+	.dw	0,33
+	.dw	0,(Ldebug_CIE0_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$608)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_busy_wait$624-Sstm8_hd44780$lcd_busy_wait$608
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$608)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$611)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_busy_wait$612)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+Ldebug_CIE1_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE1_end:
+	.dw	0,159
+	.dw	0,(Ldebug_CIE1_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$577)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_bus_wakeup$606-Sstm8_hd44780$lcd_bus_wakeup$577
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$577)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$579)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$580)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$581)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$582)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$584)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$585)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$586)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$587)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$589)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$590)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$591)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$592)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$594)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$595)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$596)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$597)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$599)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$600)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$601)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_wakeup$602)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+Ldebug_CIE2_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE2_end:
+	.dw	0,75
+	.dw	0,(Ldebug_CIE2_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$561)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_bus_sleep$575-Sstm8_hd44780$lcd_bus_sleep$561
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$561)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$563)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$564)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$565)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$566)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$568)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$569)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$570)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_sleep$571)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE3_end-Ldebug_CIE3_start
+Ldebug_CIE3_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE3_end:
+	.dw	0,229
+	.dw	0,(Ldebug_CIE3_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_read$479)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_read$559-Sstm8_hd44780$lcd_read$479
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$479)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$480)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$482)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$483)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$484)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$485)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$488)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$489)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$490)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$491)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$500)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$501)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$502)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$503)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$513)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$514)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$515)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$516)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$525)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$526)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$527)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$528)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$538)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$539)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$540)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$541)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$550)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$551)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$552)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$553)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_read$557)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE4_end-Ldebug_CIE4_start
+Ldebug_CIE4_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE4_end:
+	.dw	0,75
+	.dw	0,(Ldebug_CIE4_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_data$453)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_data$477-Sstm8_hd44780$lcd_data$453
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$453)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$455)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$456)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$457)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$458)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$467)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$468)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$471)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_data$472)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE5_end-Ldebug_CIE5_start
+Ldebug_CIE5_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE5_end:
+	.dw	0,75
+	.dw	0,(Ldebug_CIE5_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_command$427)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_command$451-Sstm8_hd44780$lcd_command$427
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$427)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$429)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$430)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$431)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$432)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$441)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$442)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$445)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_command$446)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE6_end-Ldebug_CIE6_start
+Ldebug_CIE6_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE6_end:
+	.dw	0,75
+	.dw	0,(Ldebug_CIE6_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$397)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_e_tick$425-Sstm8_hd44780$lcd_e_tick$397
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$397)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$399)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$400)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$401)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$402)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$411)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$412)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$413)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_e_tick$414)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE7_end-Ldebug_CIE7_start
+Ldebug_CIE7_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE7_end:
+	.dw	0,145
+	.dw	0,(Ldebug_CIE7_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$360)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_bus_read$395-Sstm8_hd44780$lcd_bus_read$360
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$360)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$361)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$364)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$365)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$366)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$367)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$371)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$372)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$373)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$374)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$378)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$379)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$380)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$381)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$385)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$386)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$387)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$388)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_read$393)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE8_end-Ldebug_CIE8_start
+Ldebug_CIE8_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE8_end:
+	.dw	0,243
+	.dw	0,(Ldebug_CIE8_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$303)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_bus_set$358-Sstm8_hd44780$lcd_bus_set$303
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$303)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$306)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$307)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$308)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$309)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$312)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$313)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$314)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$315)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$319)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$320)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$321)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$322)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$325)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$326)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$327)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$328)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$332)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$333)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$334)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$335)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$338)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$339)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$340)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$341)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$345)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$346)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$347)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$348)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$351)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$352)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$353)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_set$354)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE9_end-Ldebug_CIE9_start
+Ldebug_CIE9_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE9_end:
+	.dw	0,264
+	.dw	0,(Ldebug_CIE9_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$256)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_deinit_hw$301-Sstm8_hd44780$lcd_deinit_hw$256
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$256)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$258)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$259)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$260)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$261)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$262)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$264)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$265)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$266)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$267)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$268)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$270)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$271)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$272)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$273)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$274)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$276)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$277)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$278)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$279)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$280)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$282)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$283)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$284)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$285)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$286)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$288)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$289)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$290)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$291)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$292)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$294)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$295)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$296)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$297)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_deinit_hw$298)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE10_end-Ldebug_CIE10_start
+Ldebug_CIE10_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE10_end:
+	.dw	0,159
+	.dw	0,(Ldebug_CIE10_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$227)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_bus_inputs$254-Sstm8_hd44780$lcd_bus_inputs$227
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$227)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$229)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$230)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$231)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$232)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$233)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$235)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$236)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$237)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$238)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$239)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$241)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$242)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$243)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$244)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$245)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$247)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$248)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$249)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$250)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_inputs$251)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE11_end-Ldebug_CIE11_start
+Ldebug_CIE11_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE11_end:
+	.dw	0,159
+	.dw	0,(Ldebug_CIE11_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$198)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_bus_outputs$225-Sstm8_hd44780$lcd_bus_outputs$198
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$198)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$200)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$201)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$202)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$203)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$204)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$206)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$207)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$208)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$209)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$210)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$212)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$213)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$214)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$215)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$216)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$218)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$219)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$220)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$221)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_bus_outputs$222)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE12_end-Ldebug_CIE12_start
+Ldebug_CIE12_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE12_end:
+	.dw	0,124
+	.dw	0,(Ldebug_CIE12_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$174)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_init_hw$196-Sstm8_hd44780$lcd_init_hw$174
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$174)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$176)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$177)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$178)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$179)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$180)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$182)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$183)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$184)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$185)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$186)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$188)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$189)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$190)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$191)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init_hw$192)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE13_end-Ldebug_CIE13_start
+Ldebug_CIE13_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE13_end:
+	.dw	0,47
+	.dw	0,(Ldebug_CIE13_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$148)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_gotoxy$172-Sstm8_hd44780$lcd_gotoxy$148
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$148)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$156)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$160)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$168)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_gotoxy$169)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE14_end-Ldebug_CIE14_start
+Ldebug_CIE14_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE14_end:
+	.dw	0,159
+	.dw	0,(Ldebug_CIE14_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_init$79)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_init$146-Sstm8_hd44780$lcd_init$79
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$79)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$90)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$91)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$101)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$102)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$112)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$113)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$116)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$117)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$127)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$128)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$130)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$131)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$133)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$134)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$136)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$137)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$139)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$140)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$142)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_init$143)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE15_end-Ldebug_CIE15_start
+Ldebug_CIE15_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE15_end:
+	.dw	0,47
+	.dw	0,(Ldebug_CIE15_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_puts$65)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_puts$77-Sstm8_hd44780$lcd_puts$65
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_puts$65)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_puts$69)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_puts$70)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_puts$71)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_puts$72)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE16_end-Ldebug_CIE16_start
+Ldebug_CIE16_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE16_end:
+	.dw	0,75
+	.dw	0,(Ldebug_CIE16_start-4)
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$44)	;initial loc
+	.dw	0,Sstm8_hd44780$lcd_store_symbol$63-Sstm8_hd44780$lcd_store_symbol$44
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$44)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$45)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$48)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$49)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$53)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$54)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$58)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$59)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$lcd_store_symbol$61)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE17_end-Ldebug_CIE17_start
+Ldebug_CIE17_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE17_end:
+	.dw	0,117
+	.dw	0,(Ldebug_CIE17_start-4)
+	.dw	0,(Sstm8_hd44780$_delay_us$13)	;initial loc
+	.dw	0,Sstm8_hd44780$_delay_us$42-Sstm8_hd44780$_delay_us$13
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$13)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$15)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$16)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$17)
+	.db	14
+	.uleb128	7
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$18)
+	.db	14
+	.uleb128	8
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$19)
+	.db	14
+	.uleb128	9
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$20)
+	.db	14
+	.uleb128	10
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$21)
+	.db	14
+	.uleb128	2
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$23)
+	.db	14
+	.uleb128	3
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$24)
+	.db	14
+	.uleb128	4
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$25)
+	.db	14
+	.uleb128	5
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$26)
+	.db	14
+	.uleb128	6
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$27)
+	.db	14
+	.uleb128	8
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$28)
+	.db	14
+	.uleb128	10
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_us$29)
+	.db	14
+	.uleb128	2
+
+	.area .debug_frame (NOLOAD)
+	.dw	0
+	.dw	Ldebug_CIE18_end-Ldebug_CIE18_start
+Ldebug_CIE18_start:
+	.dw	0xffff
+	.dw	0xffff
+	.db	1
+	.db	0
+	.uleb128	1
+	.sleb128	-1
+	.db	9
+	.db	12
+	.uleb128	8
+	.uleb128	2
+	.db	137
+	.uleb128	1
+Ldebug_CIE18_end:
+	.dw	0,19
+	.dw	0,(Ldebug_CIE18_start-4)
+	.dw	0,(Sstm8_hd44780$_delay_cycl$1)	;initial loc
+	.dw	0,Sstm8_hd44780$_delay_cycl$11-Sstm8_hd44780$_delay_cycl$1
+	.db	1
+	.dw	0,(Sstm8_hd44780$_delay_cycl$1)
+	.db	14
+	.uleb128	2

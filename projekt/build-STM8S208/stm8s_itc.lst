@@ -1,0 +1,1670 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_itc
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _ITC_GetCPUCC
+                                     12 	.globl _ITC_DeInit
+                                     13 	.globl _ITC_GetSoftIntStatus
+                                     14 	.globl _ITC_GetSoftwarePriority
+                                     15 	.globl _ITC_SetSoftwarePriority
+                                     16 ;--------------------------------------------------------
+                                     17 ; ram data
+                                     18 ;--------------------------------------------------------
+                                     19 	.area DATA
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area INITIALIZED
+                                     24 ;--------------------------------------------------------
+                                     25 ; absolute external ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area DABS (ABS)
+                                     28 
+                                     29 ; default segment ordering for linker
+                                     30 	.area HOME
+                                     31 	.area GSINIT
+                                     32 	.area GSFINAL
+                                     33 	.area CONST
+                                     34 	.area INITIALIZER
+                                     35 	.area CODE
+                                     36 
+                                     37 ;--------------------------------------------------------
+                                     38 ; global & static initialisations
+                                     39 ;--------------------------------------------------------
+                                     40 	.area HOME
+                                     41 	.area GSINIT
+                                     42 	.area GSFINAL
+                                     43 	.area GSINIT
+                                     44 ;--------------------------------------------------------
+                                     45 ; Home
+                                     46 ;--------------------------------------------------------
+                                     47 	.area HOME
+                                     48 	.area HOME
+                                     49 ;--------------------------------------------------------
+                                     50 ; code
+                                     51 ;--------------------------------------------------------
+                                     52 	.area CODE
+                           000000    53 	Sstm8s_itc$ITC_GetCPUCC$0 ==.
+                                     54 ;	../SPL/src/stm8s_itc.c: 50: uint8_t ITC_GetCPUCC(void)
+                                     55 ; genLabel
+                                     56 ;	-----------------------------------------
+                                     57 ;	 function ITC_GetCPUCC
+                                     58 ;	-----------------------------------------
+                                     59 ;	Register assignment is optimal.
+                                     60 ;	Stack space usage: 0 bytes.
+      000000                         61 _ITC_GetCPUCC:
+                           000000    62 	Sstm8s_itc$ITC_GetCPUCC$1 ==.
+                           000000    63 	Sstm8s_itc$ITC_GetCPUCC$2 ==.
+                                     64 ;	../SPL/src/stm8s_itc.c: 59: __asm__("push cc");
+                                     65 ;	genInline
+      000000 8A               [ 1]   66 	push	cc
+                           000001    67 	Sstm8s_itc$ITC_GetCPUCC$3 ==.
+                                     68 ;	../SPL/src/stm8s_itc.c: 60: __asm__("pop a");
+                                     69 ;	genInline
+      000001 84               [ 1]   70 	pop	a
+                                     71 ; genLabel
+      000002                         72 00101$:
+                           000002    73 	Sstm8s_itc$ITC_GetCPUCC$4 ==.
+                                     74 ;	../SPL/src/stm8s_itc.c: 65: }
+                                     75 ; genEndFunction
+                           000002    76 	Sstm8s_itc$ITC_GetCPUCC$5 ==.
+                           000002    77 	XG$ITC_GetCPUCC$0$0 ==.
+      000002 81               [ 4]   78 	ret
+                           000003    79 	Sstm8s_itc$ITC_GetCPUCC$6 ==.
+                           000003    80 	Sstm8s_itc$ITC_DeInit$7 ==.
+                                     81 ;	../SPL/src/stm8s_itc.c: 83: void ITC_DeInit(void)
+                                     82 ; genLabel
+                                     83 ;	-----------------------------------------
+                                     84 ;	 function ITC_DeInit
+                                     85 ;	-----------------------------------------
+                                     86 ;	Register assignment is optimal.
+                                     87 ;	Stack space usage: 0 bytes.
+      000003                         88 _ITC_DeInit:
+                           000003    89 	Sstm8s_itc$ITC_DeInit$8 ==.
+                           000003    90 	Sstm8s_itc$ITC_DeInit$9 ==.
+                                     91 ;	../SPL/src/stm8s_itc.c: 85: ITC->ISPR1 = ITC_SPRX_RESET_VALUE;
+                                     92 ; genPointerSet
+      000003 35 FF 7F 70      [ 1]   93 	mov	0x7f70+0, #0xff
+                           000007    94 	Sstm8s_itc$ITC_DeInit$10 ==.
+                                     95 ;	../SPL/src/stm8s_itc.c: 86: ITC->ISPR2 = ITC_SPRX_RESET_VALUE;
+                                     96 ; genPointerSet
+      000007 35 FF 7F 71      [ 1]   97 	mov	0x7f71+0, #0xff
+                           00000B    98 	Sstm8s_itc$ITC_DeInit$11 ==.
+                                     99 ;	../SPL/src/stm8s_itc.c: 87: ITC->ISPR3 = ITC_SPRX_RESET_VALUE;
+                                    100 ; genPointerSet
+      00000B 35 FF 7F 72      [ 1]  101 	mov	0x7f72+0, #0xff
+                           00000F   102 	Sstm8s_itc$ITC_DeInit$12 ==.
+                                    103 ;	../SPL/src/stm8s_itc.c: 88: ITC->ISPR4 = ITC_SPRX_RESET_VALUE;
+                                    104 ; genPointerSet
+      00000F 35 FF 7F 73      [ 1]  105 	mov	0x7f73+0, #0xff
+                           000013   106 	Sstm8s_itc$ITC_DeInit$13 ==.
+                                    107 ;	../SPL/src/stm8s_itc.c: 89: ITC->ISPR5 = ITC_SPRX_RESET_VALUE;
+                                    108 ; genPointerSet
+      000013 35 FF 7F 74      [ 1]  109 	mov	0x7f74+0, #0xff
+                           000017   110 	Sstm8s_itc$ITC_DeInit$14 ==.
+                                    111 ;	../SPL/src/stm8s_itc.c: 90: ITC->ISPR6 = ITC_SPRX_RESET_VALUE;
+                                    112 ; genPointerSet
+      000017 35 FF 7F 75      [ 1]  113 	mov	0x7f75+0, #0xff
+                           00001B   114 	Sstm8s_itc$ITC_DeInit$15 ==.
+                                    115 ;	../SPL/src/stm8s_itc.c: 91: ITC->ISPR7 = ITC_SPRX_RESET_VALUE;
+                                    116 ; genPointerSet
+      00001B 35 FF 7F 76      [ 1]  117 	mov	0x7f76+0, #0xff
+                           00001F   118 	Sstm8s_itc$ITC_DeInit$16 ==.
+                                    119 ;	../SPL/src/stm8s_itc.c: 92: ITC->ISPR8 = ITC_SPRX_RESET_VALUE;
+                                    120 ; genPointerSet
+      00001F 35 FF 7F 77      [ 1]  121 	mov	0x7f77+0, #0xff
+                                    122 ; genLabel
+      000023                        123 00101$:
+                           000023   124 	Sstm8s_itc$ITC_DeInit$17 ==.
+                                    125 ;	../SPL/src/stm8s_itc.c: 93: }
+                                    126 ; genEndFunction
+                           000023   127 	Sstm8s_itc$ITC_DeInit$18 ==.
+                           000023   128 	XG$ITC_DeInit$0$0 ==.
+      000023 81               [ 4]  129 	ret
+                           000024   130 	Sstm8s_itc$ITC_DeInit$19 ==.
+                           000024   131 	Sstm8s_itc$ITC_GetSoftIntStatus$20 ==.
+                                    132 ;	../SPL/src/stm8s_itc.c: 100: uint8_t ITC_GetSoftIntStatus(void)
+                                    133 ; genLabel
+                                    134 ;	-----------------------------------------
+                                    135 ;	 function ITC_GetSoftIntStatus
+                                    136 ;	-----------------------------------------
+                                    137 ;	Register assignment is optimal.
+                                    138 ;	Stack space usage: 0 bytes.
+      000024                        139 _ITC_GetSoftIntStatus:
+                           000024   140 	Sstm8s_itc$ITC_GetSoftIntStatus$21 ==.
+                           000024   141 	Sstm8s_itc$ITC_GetSoftIntStatus$22 ==.
+                                    142 ;	../SPL/src/stm8s_itc.c: 102: return (uint8_t)(ITC_GetCPUCC() & CPU_CC_I1I0);
+                                    143 ; genCall
+      000024 CDr00r00         [ 4]  144 	call	_ITC_GetCPUCC
+                                    145 ; genAnd
+      000027 A4 28            [ 1]  146 	and	a, #0x28
+                                    147 ; genReturn
+                                    148 ; genLabel
+      000029                        149 00101$:
+                           000029   150 	Sstm8s_itc$ITC_GetSoftIntStatus$23 ==.
+                                    151 ;	../SPL/src/stm8s_itc.c: 103: }
+                                    152 ; genEndFunction
+                           000029   153 	Sstm8s_itc$ITC_GetSoftIntStatus$24 ==.
+                           000029   154 	XG$ITC_GetSoftIntStatus$0$0 ==.
+      000029 81               [ 4]  155 	ret
+                           00002A   156 	Sstm8s_itc$ITC_GetSoftIntStatus$25 ==.
+                           00002A   157 	Sstm8s_itc$ITC_GetSoftwarePriority$26 ==.
+                                    158 ;	../SPL/src/stm8s_itc.c: 110: ITC_PriorityLevel_TypeDef ITC_GetSoftwarePriority(ITC_Irq_TypeDef IrqNum)
+                                    159 ; genLabel
+                                    160 ;	-----------------------------------------
+                                    161 ;	 function ITC_GetSoftwarePriority
+                                    162 ;	-----------------------------------------
+                                    163 ;	Register assignment might be sub-optimal.
+                                    164 ;	Stack space usage: 2 bytes.
+      00002A                        165 _ITC_GetSoftwarePriority:
+                           00002A   166 	Sstm8s_itc$ITC_GetSoftwarePriority$27 ==.
+      00002A 89               [ 2]  167 	pushw	x
+                           00002B   168 	Sstm8s_itc$ITC_GetSoftwarePriority$28 ==.
+                           00002B   169 	Sstm8s_itc$ITC_GetSoftwarePriority$29 ==.
+                                    170 ;	../SPL/src/stm8s_itc.c: 112: uint8_t Value = 0;
+                                    171 ; genAssign
+      00002B 5F               [ 1]  172 	clrw	x
+                           00002C   173 	Sstm8s_itc$ITC_GetSoftwarePriority$30 ==.
+                                    174 ;	../SPL/src/stm8s_itc.c: 119: Mask = (uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U));
+                                    175 ; genCast
+                                    176 ; genAssign
+      00002C 7B 05            [ 1]  177 	ld	a, (0x05, sp)
+      00002E 90 5F            [ 1]  178 	clrw	y
+                                    179 ; genAnd
+      000030 A4 03            [ 1]  180 	and	a, #0x03
+      000032 95               [ 1]  181 	ld	xh, a
+      000033 4F               [ 1]  182 	clr	a
+                                    183 ; genCast
+                                    184 ; genAssign
+      000034 9E               [ 1]  185 	ld	a, xh
+                                    186 ; genLeftShiftLiteral
+      000035 48               [ 1]  187 	sll	a
+      000036 6B 01            [ 1]  188 	ld	(0x01, sp), a
+                                    189 ; genLeftShift
+      000038 A6 03            [ 1]  190 	ld	a, #0x03
+      00003A 6B 02            [ 1]  191 	ld	(0x02, sp), a
+      00003C 7B 01            [ 1]  192 	ld	a, (0x01, sp)
+      00003E 27 05            [ 1]  193 	jreq	00136$
+      000040                        194 00135$:
+      000040 08 02            [ 1]  195 	sll	(0x02, sp)
+      000042 4A               [ 1]  196 	dec	a
+      000043 26 FB            [ 1]  197 	jrne	00135$
+      000045                        198 00136$:
+                           000045   199 	Sstm8s_itc$ITC_GetSoftwarePriority$31 ==.
+                                    200 ;	../SPL/src/stm8s_itc.c: 121: switch (IrqNum)
+                                    201 ; genCmp
+                                    202 ; genCmpTop
+      000045 7B 05            [ 1]  203 	ld	a, (0x05, sp)
+      000047 A1 18            [ 1]  204 	cp	a, #0x18
+      000049 23 03            [ 2]  205 	jrule	00137$
+      00004B CCr00rC5         [ 2]  206 	jp	00127$
+      00004E                        207 00137$:
+                                    208 ; skipping generated iCode
+                                    209 ; genJumpTab
+      00004E 5F               [ 1]  210 	clrw	x
+      00004F 7B 05            [ 1]  211 	ld	a, (0x05, sp)
+      000051 97               [ 1]  212 	ld	xl, a
+      000052 58               [ 2]  213 	sllw	x
+      000053 DEu00u57         [ 2]  214 	ldw	x, (#00138$, x)
+      000056 FC               [ 2]  215 	jp	(x)
+      000057                        216 00138$:
+      000057r00r89                  217 	.dw	#00104$
+      000059r00r89                  218 	.dw	#00104$
+      00005Br00r89                  219 	.dw	#00104$
+      00005Dr00r89                  220 	.dw	#00104$
+      00005Fr00r92                  221 	.dw	#00108$
+      000061r00r92                  222 	.dw	#00108$
+      000063r00r92                  223 	.dw	#00108$
+      000065r00r92                  224 	.dw	#00108$
+      000067r00r9B                  225 	.dw	#00112$
+      000069r00r9B                  226 	.dw	#00112$
+      00006Br00r9B                  227 	.dw	#00112$
+      00006Dr00r9B                  228 	.dw	#00112$
+      00006Fr00rA4                  229 	.dw	#00116$
+      000071r00rA4                  230 	.dw	#00116$
+      000073r00rA4                  231 	.dw	#00116$
+      000075r00rA4                  232 	.dw	#00116$
+      000077r00rAD                  233 	.dw	#00120$
+      000079r00rAD                  234 	.dw	#00120$
+      00007Br00rAD                  235 	.dw	#00120$
+      00007Dr00rAD                  236 	.dw	#00120$
+      00007Fr00rB6                  237 	.dw	#00124$
+      000081r00rB6                  238 	.dw	#00124$
+      000083r00rB6                  239 	.dw	#00124$
+      000085r00rB6                  240 	.dw	#00124$
+      000087r00rBF                  241 	.dw	#00125$
+                           000089   242 	Sstm8s_itc$ITC_GetSoftwarePriority$32 ==.
+                           000089   243 	Sstm8s_itc$ITC_GetSoftwarePriority$33 ==.
+                                    244 ;	../SPL/src/stm8s_itc.c: 126: case ITC_IRQ_PORTA:
+                                    245 ; genLabel
+      000089                        246 00104$:
+                           000089   247 	Sstm8s_itc$ITC_GetSoftwarePriority$34 ==.
+                                    248 ;	../SPL/src/stm8s_itc.c: 127: Value = (uint8_t)(ITC->ISPR1 & Mask); /* Read software priority */
+                                    249 ; genPointerGet
+      000089 C6 7F 70         [ 1]  250 	ld	a, 0x7f70
+                                    251 ; genAnd
+      00008C 14 02            [ 1]  252 	and	a, (0x02, sp)
+      00008E 97               [ 1]  253 	ld	xl, a
+                           00008F   254 	Sstm8s_itc$ITC_GetSoftwarePriority$35 ==.
+                                    255 ;	../SPL/src/stm8s_itc.c: 128: break;
+                                    256 ; genGoto
+      00008F CCr00rC5         [ 2]  257 	jp	00127$
+                           000092   258 	Sstm8s_itc$ITC_GetSoftwarePriority$36 ==.
+                                    259 ;	../SPL/src/stm8s_itc.c: 133: case ITC_IRQ_PORTE:
+                                    260 ; genLabel
+      000092                        261 00108$:
+                           000092   262 	Sstm8s_itc$ITC_GetSoftwarePriority$37 ==.
+                                    263 ;	../SPL/src/stm8s_itc.c: 134: Value = (uint8_t)(ITC->ISPR2 & Mask); /* Read software priority */
+                                    264 ; genPointerGet
+      000092 C6 7F 71         [ 1]  265 	ld	a, 0x7f71
+                                    266 ; genAnd
+      000095 14 02            [ 1]  267 	and	a, (0x02, sp)
+      000097 97               [ 1]  268 	ld	xl, a
+                           000098   269 	Sstm8s_itc$ITC_GetSoftwarePriority$38 ==.
+                                    270 ;	../SPL/src/stm8s_itc.c: 135: break;
+                                    271 ; genGoto
+      000098 CCr00rC5         [ 2]  272 	jp	00127$
+                           00009B   273 	Sstm8s_itc$ITC_GetSoftwarePriority$39 ==.
+                                    274 ;	../SPL/src/stm8s_itc.c: 145: case ITC_IRQ_TIM1_OVF:
+                                    275 ; genLabel
+      00009B                        276 00112$:
+                           00009B   277 	Sstm8s_itc$ITC_GetSoftwarePriority$40 ==.
+                                    278 ;	../SPL/src/stm8s_itc.c: 146: Value = (uint8_t)(ITC->ISPR3 & Mask); /* Read software priority */
+                                    279 ; genPointerGet
+      00009B C6 7F 72         [ 1]  280 	ld	a, 0x7f72
+                                    281 ; genAnd
+      00009E 14 02            [ 1]  282 	and	a, (0x02, sp)
+      0000A0 97               [ 1]  283 	ld	xl, a
+                           0000A1   284 	Sstm8s_itc$ITC_GetSoftwarePriority$41 ==.
+                                    285 ;	../SPL/src/stm8s_itc.c: 147: break;
+                                    286 ; genGoto
+      0000A1 CCr00rC5         [ 2]  287 	jp	00127$
+                           0000A4   288 	Sstm8s_itc$ITC_GetSoftwarePriority$42 ==.
+                                    289 ;	../SPL/src/stm8s_itc.c: 157: case ITC_IRQ_TIM3_OVF:
+                                    290 ; genLabel
+      0000A4                        291 00116$:
+                           0000A4   292 	Sstm8s_itc$ITC_GetSoftwarePriority$43 ==.
+                                    293 ;	../SPL/src/stm8s_itc.c: 158: Value = (uint8_t)(ITC->ISPR4 & Mask); /* Read software priority */
+                                    294 ; genPointerGet
+      0000A4 C6 7F 73         [ 1]  295 	ld	a, 0x7f73
+                                    296 ; genAnd
+      0000A7 14 02            [ 1]  297 	and	a, (0x02, sp)
+      0000A9 97               [ 1]  298 	ld	xl, a
+                           0000AA   299 	Sstm8s_itc$ITC_GetSoftwarePriority$44 ==.
+                                    300 ;	../SPL/src/stm8s_itc.c: 159: break;
+                                    301 ; genGoto
+      0000AA CCr00rC5         [ 2]  302 	jp	00127$
+                           0000AD   303 	Sstm8s_itc$ITC_GetSoftwarePriority$45 ==.
+                                    304 ;	../SPL/src/stm8s_itc.c: 171: case ITC_IRQ_I2C:
+                                    305 ; genLabel
+      0000AD                        306 00120$:
+                           0000AD   307 	Sstm8s_itc$ITC_GetSoftwarePriority$46 ==.
+                                    308 ;	../SPL/src/stm8s_itc.c: 172: Value = (uint8_t)(ITC->ISPR5 & Mask); /* Read software priority */
+                                    309 ; genPointerGet
+      0000AD C6 7F 74         [ 1]  310 	ld	a, 0x7f74
+                                    311 ; genAnd
+      0000B0 14 02            [ 1]  312 	and	a, (0x02, sp)
+      0000B2 97               [ 1]  313 	ld	xl, a
+                           0000B3   314 	Sstm8s_itc$ITC_GetSoftwarePriority$47 ==.
+                                    315 ;	../SPL/src/stm8s_itc.c: 173: break;
+                                    316 ; genGoto
+      0000B3 CCr00rC5         [ 2]  317 	jp	00127$
+                           0000B6   318 	Sstm8s_itc$ITC_GetSoftwarePriority$48 ==.
+                                    319 ;	../SPL/src/stm8s_itc.c: 192: case ITC_IRQ_TIM4_OVF:
+                                    320 ; genLabel
+      0000B6                        321 00124$:
+                           0000B6   322 	Sstm8s_itc$ITC_GetSoftwarePriority$49 ==.
+                                    323 ;	../SPL/src/stm8s_itc.c: 194: Value = (uint8_t)(ITC->ISPR6 & Mask); /* Read software priority */
+                                    324 ; genPointerGet
+      0000B6 C6 7F 75         [ 1]  325 	ld	a, 0x7f75
+                                    326 ; genAnd
+      0000B9 14 02            [ 1]  327 	and	a, (0x02, sp)
+      0000BB 97               [ 1]  328 	ld	xl, a
+                           0000BC   329 	Sstm8s_itc$ITC_GetSoftwarePriority$50 ==.
+                                    330 ;	../SPL/src/stm8s_itc.c: 195: break;
+                                    331 ; genGoto
+      0000BC CCr00rC5         [ 2]  332 	jp	00127$
+                           0000BF   333 	Sstm8s_itc$ITC_GetSoftwarePriority$51 ==.
+                                    334 ;	../SPL/src/stm8s_itc.c: 197: case ITC_IRQ_EEPROM_EEC:
+                                    335 ; genLabel
+      0000BF                        336 00125$:
+                           0000BF   337 	Sstm8s_itc$ITC_GetSoftwarePriority$52 ==.
+                                    338 ;	../SPL/src/stm8s_itc.c: 198: Value = (uint8_t)(ITC->ISPR7 & Mask); /* Read software priority */
+                                    339 ; genPointerGet
+      0000BF C6 7F 76         [ 1]  340 	ld	a, 0x7f76
+                                    341 ; genAnd
+      0000C2 14 02            [ 1]  342 	and	a, (0x02, sp)
+      0000C4 97               [ 1]  343 	ld	xl, a
+                           0000C5   344 	Sstm8s_itc$ITC_GetSoftwarePriority$53 ==.
+                           0000C5   345 	Sstm8s_itc$ITC_GetSoftwarePriority$54 ==.
+                                    346 ;	../SPL/src/stm8s_itc.c: 203: }
+                                    347 ; genLabel
+      0000C5                        348 00127$:
+                           0000C5   349 	Sstm8s_itc$ITC_GetSoftwarePriority$55 ==.
+                                    350 ;	../SPL/src/stm8s_itc.c: 205: Value >>= (uint8_t)(((uint8_t)IrqNum % 4u) * 2u);
+                                    351 ; genRightShift
+      0000C5 7B 01            [ 1]  352 	ld	a, (0x01, sp)
+      0000C7 27 06            [ 1]  353 	jreq	00140$
+      0000C9                        354 00139$:
+      0000C9 41               [ 1]  355 	exg	a, xl
+      0000CA 44               [ 1]  356 	srl	a
+      0000CB 41               [ 1]  357 	exg	a, xl
+      0000CC 4A               [ 1]  358 	dec	a
+      0000CD 26 FA            [ 1]  359 	jrne	00139$
+      0000CF                        360 00140$:
+                                    361 ; genAssign
+      0000CF 9F               [ 1]  362 	ld	a, xl
+                           0000D0   363 	Sstm8s_itc$ITC_GetSoftwarePriority$56 ==.
+                                    364 ;	../SPL/src/stm8s_itc.c: 207: return((ITC_PriorityLevel_TypeDef)Value);
+                                    365 ; genReturn
+                                    366 ; genLabel
+      0000D0                        367 00128$:
+                           0000D0   368 	Sstm8s_itc$ITC_GetSoftwarePriority$57 ==.
+                                    369 ;	../SPL/src/stm8s_itc.c: 208: }
+                                    370 ; genEndFunction
+      0000D0 85               [ 2]  371 	popw	x
+                           0000D1   372 	Sstm8s_itc$ITC_GetSoftwarePriority$58 ==.
+                           0000D1   373 	Sstm8s_itc$ITC_GetSoftwarePriority$59 ==.
+                           0000D1   374 	XG$ITC_GetSoftwarePriority$0$0 ==.
+      0000D1 81               [ 4]  375 	ret
+                           0000D2   376 	Sstm8s_itc$ITC_GetSoftwarePriority$60 ==.
+                           0000D2   377 	Sstm8s_itc$ITC_SetSoftwarePriority$61 ==.
+                                    378 ;	../SPL/src/stm8s_itc.c: 223: void ITC_SetSoftwarePriority(ITC_Irq_TypeDef IrqNum, ITC_PriorityLevel_TypeDef PriorityValue)
+                                    379 ; genLabel
+                                    380 ;	-----------------------------------------
+                                    381 ;	 function ITC_SetSoftwarePriority
+                                    382 ;	-----------------------------------------
+                                    383 ;	Register assignment might be sub-optimal.
+                                    384 ;	Stack space usage: 2 bytes.
+      0000D2                        385 _ITC_SetSoftwarePriority:
+                           0000D2   386 	Sstm8s_itc$ITC_SetSoftwarePriority$62 ==.
+      0000D2 89               [ 2]  387 	pushw	x
+                           0000D3   388 	Sstm8s_itc$ITC_SetSoftwarePriority$63 ==.
+                           0000D3   389 	Sstm8s_itc$ITC_SetSoftwarePriority$64 ==.
+                                    390 ;	../SPL/src/stm8s_itc.c: 237: Mask = (uint8_t)(~(uint8_t)(0x03U << (((uint8_t)IrqNum % 4U) * 2U)));
+                                    391 ; genCast
+                                    392 ; genAssign
+      0000D3 7B 05            [ 1]  393 	ld	a, (0x05, sp)
+      0000D5 5F               [ 1]  394 	clrw	x
+                                    395 ; genAnd
+      0000D6 A4 03            [ 1]  396 	and	a, #0x03
+      0000D8 97               [ 1]  397 	ld	xl, a
+      0000D9 4F               [ 1]  398 	clr	a
+                                    399 ; genCast
+                                    400 ; genAssign
+                                    401 ; genLeftShiftLiteral
+      0000DA 58               [ 2]  402 	sllw	x
+                                    403 ; genLeftShift
+      0000DB A6 03            [ 1]  404 	ld	a, #0x03
+      0000DD 88               [ 1]  405 	push	a
+                           0000DE   406 	Sstm8s_itc$ITC_SetSoftwarePriority$65 ==.
+      0000DE 9F               [ 1]  407 	ld	a, xl
+      0000DF 4D               [ 1]  408 	tnz	a
+      0000E0 27 05            [ 1]  409 	jreq	00136$
+      0000E2                        410 00135$:
+      0000E2 08 01            [ 1]  411 	sll	(1, sp)
+      0000E4 4A               [ 1]  412 	dec	a
+      0000E5 26 FB            [ 1]  413 	jrne	00135$
+      0000E7                        414 00136$:
+      0000E7 84               [ 1]  415 	pop	a
+                           0000E8   416 	Sstm8s_itc$ITC_SetSoftwarePriority$66 ==.
+                                    417 ; genCpl
+      0000E8 43               [ 1]  418 	cpl	a
+                                    419 ; genAssign
+      0000E9 6B 01            [ 1]  420 	ld	(0x01, sp), a
+                           0000EB   421 	Sstm8s_itc$ITC_SetSoftwarePriority$67 ==.
+                                    422 ;	../SPL/src/stm8s_itc.c: 240: NewPriority = (uint8_t)((uint8_t)(PriorityValue) << (((uint8_t)IrqNum % 4U) * 2U));
+                                    423 ; genLeftShift
+      0000EB 7B 06            [ 1]  424 	ld	a, (0x06, sp)
+      0000ED 88               [ 1]  425 	push	a
+                           0000EE   426 	Sstm8s_itc$ITC_SetSoftwarePriority$68 ==.
+      0000EE 9F               [ 1]  427 	ld	a, xl
+      0000EF 4D               [ 1]  428 	tnz	a
+      0000F0 27 05            [ 1]  429 	jreq	00138$
+      0000F2                        430 00137$:
+      0000F2 08 01            [ 1]  431 	sll	(1, sp)
+      0000F4 4A               [ 1]  432 	dec	a
+      0000F5 26 FB            [ 1]  433 	jrne	00137$
+      0000F7                        434 00138$:
+      0000F7 84               [ 1]  435 	pop	a
+                           0000F8   436 	Sstm8s_itc$ITC_SetSoftwarePriority$69 ==.
+                                    437 ; genAssign
+      0000F8 6B 02            [ 1]  438 	ld	(0x02, sp), a
+                           0000FA   439 	Sstm8s_itc$ITC_SetSoftwarePriority$70 ==.
+                                    440 ;	../SPL/src/stm8s_itc.c: 242: switch (IrqNum)
+                                    441 ; genCmp
+                                    442 ; genCmpTop
+      0000FA 7B 05            [ 1]  443 	ld	a, (0x05, sp)
+      0000FC A1 18            [ 1]  444 	cp	a, #0x18
+      0000FE 23 03            [ 2]  445 	jrule	00139$
+      000100 CCr01rC0         [ 2]  446 	jp	00128$
+      000103                        447 00139$:
+                                    448 ; skipping generated iCode
+                                    449 ; genJumpTab
+      000103 5F               [ 1]  450 	clrw	x
+      000104 7B 05            [ 1]  451 	ld	a, (0x05, sp)
+      000106 97               [ 1]  452 	ld	xl, a
+      000107 58               [ 2]  453 	sllw	x
+      000108 DEu01u0C         [ 2]  454 	ldw	x, (#00140$, x)
+      00010B FC               [ 2]  455 	jp	(x)
+      00010C                        456 00140$:
+      00010Cr01r3E                  457 	.dw	#00104$
+      00010Er01r3E                  458 	.dw	#00104$
+      000110r01r3E                  459 	.dw	#00104$
+      000112r01r3E                  460 	.dw	#00104$
+      000114r01r51                  461 	.dw	#00108$
+      000116r01r51                  462 	.dw	#00108$
+      000118r01r51                  463 	.dw	#00108$
+      00011Ar01r51                  464 	.dw	#00108$
+      00011Cr01r64                  465 	.dw	#00112$
+      00011Er01r64                  466 	.dw	#00112$
+      000120r01r64                  467 	.dw	#00112$
+      000122r01r64                  468 	.dw	#00112$
+      000124r01r77                  469 	.dw	#00116$
+      000126r01r77                  470 	.dw	#00116$
+      000128r01r77                  471 	.dw	#00116$
+      00012Ar01r77                  472 	.dw	#00116$
+      00012Cr01r8A                  473 	.dw	#00120$
+      00012Er01r8A                  474 	.dw	#00120$
+      000130r01r8A                  475 	.dw	#00120$
+      000132r01r8A                  476 	.dw	#00120$
+      000134r01r9D                  477 	.dw	#00124$
+      000136r01r9D                  478 	.dw	#00124$
+      000138r01r9D                  479 	.dw	#00124$
+      00013Ar01r9D                  480 	.dw	#00124$
+      00013Cr01rB0                  481 	.dw	#00125$
+                           00013E   482 	Sstm8s_itc$ITC_SetSoftwarePriority$71 ==.
+                           00013E   483 	Sstm8s_itc$ITC_SetSoftwarePriority$72 ==.
+                                    484 ;	../SPL/src/stm8s_itc.c: 247: case ITC_IRQ_PORTA:
+                                    485 ; genLabel
+      00013E                        486 00104$:
+                           00013E   487 	Sstm8s_itc$ITC_SetSoftwarePriority$73 ==.
+                                    488 ;	../SPL/src/stm8s_itc.c: 248: ITC->ISPR1 &= Mask;
+                                    489 ; genPointerGet
+      00013E C6 7F 70         [ 1]  490 	ld	a, 0x7f70
+                                    491 ; genAnd
+      000141 14 01            [ 1]  492 	and	a, (0x01, sp)
+                                    493 ; genPointerSet
+      000143 C7 7F 70         [ 1]  494 	ld	0x7f70, a
+                           000146   495 	Sstm8s_itc$ITC_SetSoftwarePriority$74 ==.
+                                    496 ;	../SPL/src/stm8s_itc.c: 249: ITC->ISPR1 |= NewPriority;
+                                    497 ; genPointerGet
+      000146 C6 7F 70         [ 1]  498 	ld	a, 0x7f70
+                                    499 ; genOr
+      000149 1A 02            [ 1]  500 	or	a, (0x02, sp)
+                                    501 ; genPointerSet
+      00014B C7 7F 70         [ 1]  502 	ld	0x7f70, a
+                           00014E   503 	Sstm8s_itc$ITC_SetSoftwarePriority$75 ==.
+                                    504 ;	../SPL/src/stm8s_itc.c: 250: break;
+                                    505 ; genGoto
+      00014E CCr01rC0         [ 2]  506 	jp	00128$
+                           000151   507 	Sstm8s_itc$ITC_SetSoftwarePriority$76 ==.
+                                    508 ;	../SPL/src/stm8s_itc.c: 255: case ITC_IRQ_PORTE:
+                                    509 ; genLabel
+      000151                        510 00108$:
+                           000151   511 	Sstm8s_itc$ITC_SetSoftwarePriority$77 ==.
+                                    512 ;	../SPL/src/stm8s_itc.c: 256: ITC->ISPR2 &= Mask;
+                                    513 ; genPointerGet
+      000151 C6 7F 71         [ 1]  514 	ld	a, 0x7f71
+                                    515 ; genAnd
+      000154 14 01            [ 1]  516 	and	a, (0x01, sp)
+                                    517 ; genPointerSet
+      000156 C7 7F 71         [ 1]  518 	ld	0x7f71, a
+                           000159   519 	Sstm8s_itc$ITC_SetSoftwarePriority$78 ==.
+                                    520 ;	../SPL/src/stm8s_itc.c: 257: ITC->ISPR2 |= NewPriority;
+                                    521 ; genPointerGet
+      000159 C6 7F 71         [ 1]  522 	ld	a, 0x7f71
+                                    523 ; genOr
+      00015C 1A 02            [ 1]  524 	or	a, (0x02, sp)
+                                    525 ; genPointerSet
+      00015E C7 7F 71         [ 1]  526 	ld	0x7f71, a
+                           000161   527 	Sstm8s_itc$ITC_SetSoftwarePriority$79 ==.
+                                    528 ;	../SPL/src/stm8s_itc.c: 258: break;
+                                    529 ; genGoto
+      000161 CCr01rC0         [ 2]  530 	jp	00128$
+                           000164   531 	Sstm8s_itc$ITC_SetSoftwarePriority$80 ==.
+                                    532 ;	../SPL/src/stm8s_itc.c: 268: case ITC_IRQ_TIM1_OVF:
+                                    533 ; genLabel
+      000164                        534 00112$:
+                           000164   535 	Sstm8s_itc$ITC_SetSoftwarePriority$81 ==.
+                                    536 ;	../SPL/src/stm8s_itc.c: 269: ITC->ISPR3 &= Mask;
+                                    537 ; genPointerGet
+      000164 C6 7F 72         [ 1]  538 	ld	a, 0x7f72
+                                    539 ; genAnd
+      000167 14 01            [ 1]  540 	and	a, (0x01, sp)
+                                    541 ; genPointerSet
+      000169 C7 7F 72         [ 1]  542 	ld	0x7f72, a
+                           00016C   543 	Sstm8s_itc$ITC_SetSoftwarePriority$82 ==.
+                                    544 ;	../SPL/src/stm8s_itc.c: 270: ITC->ISPR3 |= NewPriority;
+                                    545 ; genPointerGet
+      00016C C6 7F 72         [ 1]  546 	ld	a, 0x7f72
+                                    547 ; genOr
+      00016F 1A 02            [ 1]  548 	or	a, (0x02, sp)
+                                    549 ; genPointerSet
+      000171 C7 7F 72         [ 1]  550 	ld	0x7f72, a
+                           000174   551 	Sstm8s_itc$ITC_SetSoftwarePriority$83 ==.
+                                    552 ;	../SPL/src/stm8s_itc.c: 271: break;
+                                    553 ; genGoto
+      000174 CCr01rC0         [ 2]  554 	jp	00128$
+                           000177   555 	Sstm8s_itc$ITC_SetSoftwarePriority$84 ==.
+                                    556 ;	../SPL/src/stm8s_itc.c: 281: case ITC_IRQ_TIM3_OVF:
+                                    557 ; genLabel
+      000177                        558 00116$:
+                           000177   559 	Sstm8s_itc$ITC_SetSoftwarePriority$85 ==.
+                                    560 ;	../SPL/src/stm8s_itc.c: 282: ITC->ISPR4 &= Mask;
+                                    561 ; genPointerGet
+      000177 C6 7F 73         [ 1]  562 	ld	a, 0x7f73
+                                    563 ; genAnd
+      00017A 14 01            [ 1]  564 	and	a, (0x01, sp)
+                                    565 ; genPointerSet
+      00017C C7 7F 73         [ 1]  566 	ld	0x7f73, a
+                           00017F   567 	Sstm8s_itc$ITC_SetSoftwarePriority$86 ==.
+                                    568 ;	../SPL/src/stm8s_itc.c: 283: ITC->ISPR4 |= NewPriority;
+                                    569 ; genPointerGet
+      00017F C6 7F 73         [ 1]  570 	ld	a, 0x7f73
+                                    571 ; genOr
+      000182 1A 02            [ 1]  572 	or	a, (0x02, sp)
+                                    573 ; genPointerSet
+      000184 C7 7F 73         [ 1]  574 	ld	0x7f73, a
+                           000187   575 	Sstm8s_itc$ITC_SetSoftwarePriority$87 ==.
+                                    576 ;	../SPL/src/stm8s_itc.c: 284: break;
+                                    577 ; genGoto
+      000187 CCr01rC0         [ 2]  578 	jp	00128$
+                           00018A   579 	Sstm8s_itc$ITC_SetSoftwarePriority$88 ==.
+                                    580 ;	../SPL/src/stm8s_itc.c: 296: case ITC_IRQ_I2C:
+                                    581 ; genLabel
+      00018A                        582 00120$:
+                           00018A   583 	Sstm8s_itc$ITC_SetSoftwarePriority$89 ==.
+                                    584 ;	../SPL/src/stm8s_itc.c: 297: ITC->ISPR5 &= Mask;
+                                    585 ; genPointerGet
+      00018A C6 7F 74         [ 1]  586 	ld	a, 0x7f74
+                                    587 ; genAnd
+      00018D 14 01            [ 1]  588 	and	a, (0x01, sp)
+                                    589 ; genPointerSet
+      00018F C7 7F 74         [ 1]  590 	ld	0x7f74, a
+                           000192   591 	Sstm8s_itc$ITC_SetSoftwarePriority$90 ==.
+                                    592 ;	../SPL/src/stm8s_itc.c: 298: ITC->ISPR5 |= NewPriority;
+                                    593 ; genPointerGet
+      000192 C6 7F 74         [ 1]  594 	ld	a, 0x7f74
+                                    595 ; genOr
+      000195 1A 02            [ 1]  596 	or	a, (0x02, sp)
+                                    597 ; genPointerSet
+      000197 C7 7F 74         [ 1]  598 	ld	0x7f74, a
+                           00019A   599 	Sstm8s_itc$ITC_SetSoftwarePriority$91 ==.
+                                    600 ;	../SPL/src/stm8s_itc.c: 299: break;
+                                    601 ; genGoto
+      00019A CCr01rC0         [ 2]  602 	jp	00128$
+                           00019D   603 	Sstm8s_itc$ITC_SetSoftwarePriority$92 ==.
+                                    604 ;	../SPL/src/stm8s_itc.c: 321: case ITC_IRQ_TIM4_OVF:
+                                    605 ; genLabel
+      00019D                        606 00124$:
+                           00019D   607 	Sstm8s_itc$ITC_SetSoftwarePriority$93 ==.
+                                    608 ;	../SPL/src/stm8s_itc.c: 323: ITC->ISPR6 &= Mask;
+                                    609 ; genPointerGet
+      00019D C6 7F 75         [ 1]  610 	ld	a, 0x7f75
+                                    611 ; genAnd
+      0001A0 14 01            [ 1]  612 	and	a, (0x01, sp)
+                                    613 ; genPointerSet
+      0001A2 C7 7F 75         [ 1]  614 	ld	0x7f75, a
+                           0001A5   615 	Sstm8s_itc$ITC_SetSoftwarePriority$94 ==.
+                                    616 ;	../SPL/src/stm8s_itc.c: 324: ITC->ISPR6 |= NewPriority;
+                                    617 ; genPointerGet
+      0001A5 C6 7F 75         [ 1]  618 	ld	a, 0x7f75
+                                    619 ; genOr
+      0001A8 1A 02            [ 1]  620 	or	a, (0x02, sp)
+                                    621 ; genPointerSet
+      0001AA C7 7F 75         [ 1]  622 	ld	0x7f75, a
+                           0001AD   623 	Sstm8s_itc$ITC_SetSoftwarePriority$95 ==.
+                                    624 ;	../SPL/src/stm8s_itc.c: 325: break;
+                                    625 ; genGoto
+      0001AD CCr01rC0         [ 2]  626 	jp	00128$
+                           0001B0   627 	Sstm8s_itc$ITC_SetSoftwarePriority$96 ==.
+                                    628 ;	../SPL/src/stm8s_itc.c: 327: case ITC_IRQ_EEPROM_EEC:
+                                    629 ; genLabel
+      0001B0                        630 00125$:
+                           0001B0   631 	Sstm8s_itc$ITC_SetSoftwarePriority$97 ==.
+                                    632 ;	../SPL/src/stm8s_itc.c: 328: ITC->ISPR7 &= Mask;
+                                    633 ; genPointerGet
+      0001B0 C6 7F 76         [ 1]  634 	ld	a, 0x7f76
+                                    635 ; genAnd
+      0001B3 14 01            [ 1]  636 	and	a, (0x01, sp)
+                                    637 ; genPointerSet
+      0001B5 C7 7F 76         [ 1]  638 	ld	0x7f76, a
+                           0001B8   639 	Sstm8s_itc$ITC_SetSoftwarePriority$98 ==.
+                                    640 ;	../SPL/src/stm8s_itc.c: 329: ITC->ISPR7 |= NewPriority;
+                                    641 ; genPointerGet
+      0001B8 C6 7F 76         [ 1]  642 	ld	a, 0x7f76
+                                    643 ; genOr
+      0001BB 1A 02            [ 1]  644 	or	a, (0x02, sp)
+                                    645 ; genPointerSet
+      0001BD C7 7F 76         [ 1]  646 	ld	0x7f76, a
+                           0001C0   647 	Sstm8s_itc$ITC_SetSoftwarePriority$99 ==.
+                           0001C0   648 	Sstm8s_itc$ITC_SetSoftwarePriority$100 ==.
+                                    649 ;	../SPL/src/stm8s_itc.c: 334: }
+                                    650 ; genLabel
+      0001C0                        651 00128$:
+                           0001C0   652 	Sstm8s_itc$ITC_SetSoftwarePriority$101 ==.
+                                    653 ;	../SPL/src/stm8s_itc.c: 335: }
+                                    654 ; genEndFunction
+      0001C0 85               [ 2]  655 	popw	x
+                           0001C1   656 	Sstm8s_itc$ITC_SetSoftwarePriority$102 ==.
+                           0001C1   657 	Sstm8s_itc$ITC_SetSoftwarePriority$103 ==.
+                           0001C1   658 	XG$ITC_SetSoftwarePriority$0$0 ==.
+      0001C1 81               [ 4]  659 	ret
+                           0001C2   660 	Sstm8s_itc$ITC_SetSoftwarePriority$104 ==.
+                                    661 	.area CODE
+                                    662 	.area CONST
+                                    663 	.area INITIALIZER
+                                    664 	.area CABS (ABS)
+                                    665 
+                                    666 	.area .debug_line (NOLOAD)
+      000000 00 00 02 87            667 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        668 Ldebug_line_start:
+      000004 00 02                  669 	.dw	2
+      000006 00 00 00 77            670 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     671 	.db	1
+      00000B 01                     672 	.db	1
+      00000C FB                     673 	.db	-5
+      00000D 0F                     674 	.db	15
+      00000E 0A                     675 	.db	10
+      00000F 00                     676 	.db	0
+      000010 01                     677 	.db	1
+      000011 01                     678 	.db	1
+      000012 01                     679 	.db	1
+      000013 01                     680 	.db	1
+      000014 00                     681 	.db	0
+      000015 00                     682 	.db	0
+      000016 00                     683 	.db	0
+      000017 01                     684 	.db	1
+      000018 43 3A 5C 50 72 6F 67   685 	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+             5C 73 74 6D 38
+      000040 00                     686 	.db	0
+      000041 43 3A 5C 50 72 6F 67   687 	.ascii "C:\Program Files\SDCC\bin\..\include"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+      000064 00                     688 	.db	0
+      000065 00                     689 	.db	0
+      000066 2E 2E 2F 53 50 4C 2F   690 	.ascii "../SPL/src/stm8s_itc.c"
+             73 72 63 2F 73 74 6D
+             38 73 5F 69 74 63 2E
+             63
+      00007C 00                     691 	.db	0
+      00007D 00                     692 	.uleb128	0
+      00007E 00                     693 	.uleb128	0
+      00007F 00                     694 	.uleb128	0
+      000080 00                     695 	.db	0
+      000081                        696 Ldebug_line_stmt:
+      000081 00                     697 	.db	0
+      000082 05                     698 	.uleb128	5
+      000083 02                     699 	.db	2
+      000084 00 00r00r00            700 	.dw	0,(Sstm8s_itc$ITC_GetCPUCC$0)
+      000088 03                     701 	.db	3
+      000089 31                     702 	.sleb128	49
+      00008A 01                     703 	.db	1
+      00008B 09                     704 	.db	9
+      00008C 00 00                  705 	.dw	Sstm8s_itc$ITC_GetCPUCC$2-Sstm8s_itc$ITC_GetCPUCC$0
+      00008E 03                     706 	.db	3
+      00008F 09                     707 	.sleb128	9
+      000090 01                     708 	.db	1
+      000091 09                     709 	.db	9
+      000092 00 01                  710 	.dw	Sstm8s_itc$ITC_GetCPUCC$3-Sstm8s_itc$ITC_GetCPUCC$2
+      000094 03                     711 	.db	3
+      000095 01                     712 	.sleb128	1
+      000096 01                     713 	.db	1
+      000097 09                     714 	.db	9
+      000098 00 01                  715 	.dw	Sstm8s_itc$ITC_GetCPUCC$4-Sstm8s_itc$ITC_GetCPUCC$3
+      00009A 03                     716 	.db	3
+      00009B 05                     717 	.sleb128	5
+      00009C 01                     718 	.db	1
+      00009D 09                     719 	.db	9
+      00009E 00 01                  720 	.dw	1+Sstm8s_itc$ITC_GetCPUCC$5-Sstm8s_itc$ITC_GetCPUCC$4
+      0000A0 00                     721 	.db	0
+      0000A1 01                     722 	.uleb128	1
+      0000A2 01                     723 	.db	1
+      0000A3 00                     724 	.db	0
+      0000A4 05                     725 	.uleb128	5
+      0000A5 02                     726 	.db	2
+      0000A6 00 00r00r03            727 	.dw	0,(Sstm8s_itc$ITC_DeInit$7)
+      0000AA 03                     728 	.db	3
+      0000AB D2 00                  729 	.sleb128	82
+      0000AD 01                     730 	.db	1
+      0000AE 09                     731 	.db	9
+      0000AF 00 00                  732 	.dw	Sstm8s_itc$ITC_DeInit$9-Sstm8s_itc$ITC_DeInit$7
+      0000B1 03                     733 	.db	3
+      0000B2 02                     734 	.sleb128	2
+      0000B3 01                     735 	.db	1
+      0000B4 09                     736 	.db	9
+      0000B5 00 04                  737 	.dw	Sstm8s_itc$ITC_DeInit$10-Sstm8s_itc$ITC_DeInit$9
+      0000B7 03                     738 	.db	3
+      0000B8 01                     739 	.sleb128	1
+      0000B9 01                     740 	.db	1
+      0000BA 09                     741 	.db	9
+      0000BB 00 04                  742 	.dw	Sstm8s_itc$ITC_DeInit$11-Sstm8s_itc$ITC_DeInit$10
+      0000BD 03                     743 	.db	3
+      0000BE 01                     744 	.sleb128	1
+      0000BF 01                     745 	.db	1
+      0000C0 09                     746 	.db	9
+      0000C1 00 04                  747 	.dw	Sstm8s_itc$ITC_DeInit$12-Sstm8s_itc$ITC_DeInit$11
+      0000C3 03                     748 	.db	3
+      0000C4 01                     749 	.sleb128	1
+      0000C5 01                     750 	.db	1
+      0000C6 09                     751 	.db	9
+      0000C7 00 04                  752 	.dw	Sstm8s_itc$ITC_DeInit$13-Sstm8s_itc$ITC_DeInit$12
+      0000C9 03                     753 	.db	3
+      0000CA 01                     754 	.sleb128	1
+      0000CB 01                     755 	.db	1
+      0000CC 09                     756 	.db	9
+      0000CD 00 04                  757 	.dw	Sstm8s_itc$ITC_DeInit$14-Sstm8s_itc$ITC_DeInit$13
+      0000CF 03                     758 	.db	3
+      0000D0 01                     759 	.sleb128	1
+      0000D1 01                     760 	.db	1
+      0000D2 09                     761 	.db	9
+      0000D3 00 04                  762 	.dw	Sstm8s_itc$ITC_DeInit$15-Sstm8s_itc$ITC_DeInit$14
+      0000D5 03                     763 	.db	3
+      0000D6 01                     764 	.sleb128	1
+      0000D7 01                     765 	.db	1
+      0000D8 09                     766 	.db	9
+      0000D9 00 04                  767 	.dw	Sstm8s_itc$ITC_DeInit$16-Sstm8s_itc$ITC_DeInit$15
+      0000DB 03                     768 	.db	3
+      0000DC 01                     769 	.sleb128	1
+      0000DD 01                     770 	.db	1
+      0000DE 09                     771 	.db	9
+      0000DF 00 04                  772 	.dw	Sstm8s_itc$ITC_DeInit$17-Sstm8s_itc$ITC_DeInit$16
+      0000E1 03                     773 	.db	3
+      0000E2 01                     774 	.sleb128	1
+      0000E3 01                     775 	.db	1
+      0000E4 09                     776 	.db	9
+      0000E5 00 01                  777 	.dw	1+Sstm8s_itc$ITC_DeInit$18-Sstm8s_itc$ITC_DeInit$17
+      0000E7 00                     778 	.db	0
+      0000E8 01                     779 	.uleb128	1
+      0000E9 01                     780 	.db	1
+      0000EA 00                     781 	.db	0
+      0000EB 05                     782 	.uleb128	5
+      0000EC 02                     783 	.db	2
+      0000ED 00 00r00r24            784 	.dw	0,(Sstm8s_itc$ITC_GetSoftIntStatus$20)
+      0000F1 03                     785 	.db	3
+      0000F2 E3 00                  786 	.sleb128	99
+      0000F4 01                     787 	.db	1
+      0000F5 09                     788 	.db	9
+      0000F6 00 00                  789 	.dw	Sstm8s_itc$ITC_GetSoftIntStatus$22-Sstm8s_itc$ITC_GetSoftIntStatus$20
+      0000F8 03                     790 	.db	3
+      0000F9 02                     791 	.sleb128	2
+      0000FA 01                     792 	.db	1
+      0000FB 09                     793 	.db	9
+      0000FC 00 05                  794 	.dw	Sstm8s_itc$ITC_GetSoftIntStatus$23-Sstm8s_itc$ITC_GetSoftIntStatus$22
+      0000FE 03                     795 	.db	3
+      0000FF 01                     796 	.sleb128	1
+      000100 01                     797 	.db	1
+      000101 09                     798 	.db	9
+      000102 00 01                  799 	.dw	1+Sstm8s_itc$ITC_GetSoftIntStatus$24-Sstm8s_itc$ITC_GetSoftIntStatus$23
+      000104 00                     800 	.db	0
+      000105 01                     801 	.uleb128	1
+      000106 01                     802 	.db	1
+      000107 00                     803 	.db	0
+      000108 05                     804 	.uleb128	5
+      000109 02                     805 	.db	2
+      00010A 00 00r00r2A            806 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$26)
+      00010E 03                     807 	.db	3
+      00010F ED 00                  808 	.sleb128	109
+      000111 01                     809 	.db	1
+      000112 09                     810 	.db	9
+      000113 00 01                  811 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$29-Sstm8s_itc$ITC_GetSoftwarePriority$26
+      000115 03                     812 	.db	3
+      000116 02                     813 	.sleb128	2
+      000117 01                     814 	.db	1
+      000118 09                     815 	.db	9
+      000119 00 01                  816 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$30-Sstm8s_itc$ITC_GetSoftwarePriority$29
+      00011B 03                     817 	.db	3
+      00011C 07                     818 	.sleb128	7
+      00011D 01                     819 	.db	1
+      00011E 09                     820 	.db	9
+      00011F 00 19                  821 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$31-Sstm8s_itc$ITC_GetSoftwarePriority$30
+      000121 03                     822 	.db	3
+      000122 02                     823 	.sleb128	2
+      000123 01                     824 	.db	1
+      000124 09                     825 	.db	9
+      000125 00 44                  826 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$33-Sstm8s_itc$ITC_GetSoftwarePriority$31
+      000127 03                     827 	.db	3
+      000128 05                     828 	.sleb128	5
+      000129 01                     829 	.db	1
+      00012A 09                     830 	.db	9
+      00012B 00 00                  831 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$34-Sstm8s_itc$ITC_GetSoftwarePriority$33
+      00012D 03                     832 	.db	3
+      00012E 01                     833 	.sleb128	1
+      00012F 01                     834 	.db	1
+      000130 09                     835 	.db	9
+      000131 00 06                  836 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$35-Sstm8s_itc$ITC_GetSoftwarePriority$34
+      000133 03                     837 	.db	3
+      000134 01                     838 	.sleb128	1
+      000135 01                     839 	.db	1
+      000136 09                     840 	.db	9
+      000137 00 03                  841 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$36-Sstm8s_itc$ITC_GetSoftwarePriority$35
+      000139 03                     842 	.db	3
+      00013A 05                     843 	.sleb128	5
+      00013B 01                     844 	.db	1
+      00013C 09                     845 	.db	9
+      00013D 00 00                  846 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$37-Sstm8s_itc$ITC_GetSoftwarePriority$36
+      00013F 03                     847 	.db	3
+      000140 01                     848 	.sleb128	1
+      000141 01                     849 	.db	1
+      000142 09                     850 	.db	9
+      000143 00 06                  851 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$38-Sstm8s_itc$ITC_GetSoftwarePriority$37
+      000145 03                     852 	.db	3
+      000146 01                     853 	.sleb128	1
+      000147 01                     854 	.db	1
+      000148 09                     855 	.db	9
+      000149 00 03                  856 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$39-Sstm8s_itc$ITC_GetSoftwarePriority$38
+      00014B 03                     857 	.db	3
+      00014C 0A                     858 	.sleb128	10
+      00014D 01                     859 	.db	1
+      00014E 09                     860 	.db	9
+      00014F 00 00                  861 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$40-Sstm8s_itc$ITC_GetSoftwarePriority$39
+      000151 03                     862 	.db	3
+      000152 01                     863 	.sleb128	1
+      000153 01                     864 	.db	1
+      000154 09                     865 	.db	9
+      000155 00 06                  866 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$41-Sstm8s_itc$ITC_GetSoftwarePriority$40
+      000157 03                     867 	.db	3
+      000158 01                     868 	.sleb128	1
+      000159 01                     869 	.db	1
+      00015A 09                     870 	.db	9
+      00015B 00 03                  871 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$42-Sstm8s_itc$ITC_GetSoftwarePriority$41
+      00015D 03                     872 	.db	3
+      00015E 0A                     873 	.sleb128	10
+      00015F 01                     874 	.db	1
+      000160 09                     875 	.db	9
+      000161 00 00                  876 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$43-Sstm8s_itc$ITC_GetSoftwarePriority$42
+      000163 03                     877 	.db	3
+      000164 01                     878 	.sleb128	1
+      000165 01                     879 	.db	1
+      000166 09                     880 	.db	9
+      000167 00 06                  881 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$44-Sstm8s_itc$ITC_GetSoftwarePriority$43
+      000169 03                     882 	.db	3
+      00016A 01                     883 	.sleb128	1
+      00016B 01                     884 	.db	1
+      00016C 09                     885 	.db	9
+      00016D 00 03                  886 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$45-Sstm8s_itc$ITC_GetSoftwarePriority$44
+      00016F 03                     887 	.db	3
+      000170 0C                     888 	.sleb128	12
+      000171 01                     889 	.db	1
+      000172 09                     890 	.db	9
+      000173 00 00                  891 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$46-Sstm8s_itc$ITC_GetSoftwarePriority$45
+      000175 03                     892 	.db	3
+      000176 01                     893 	.sleb128	1
+      000177 01                     894 	.db	1
+      000178 09                     895 	.db	9
+      000179 00 06                  896 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$47-Sstm8s_itc$ITC_GetSoftwarePriority$46
+      00017B 03                     897 	.db	3
+      00017C 01                     898 	.sleb128	1
+      00017D 01                     899 	.db	1
+      00017E 09                     900 	.db	9
+      00017F 00 03                  901 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$48-Sstm8s_itc$ITC_GetSoftwarePriority$47
+      000181 03                     902 	.db	3
+      000182 13                     903 	.sleb128	19
+      000183 01                     904 	.db	1
+      000184 09                     905 	.db	9
+      000185 00 00                  906 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$49-Sstm8s_itc$ITC_GetSoftwarePriority$48
+      000187 03                     907 	.db	3
+      000188 02                     908 	.sleb128	2
+      000189 01                     909 	.db	1
+      00018A 09                     910 	.db	9
+      00018B 00 06                  911 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$50-Sstm8s_itc$ITC_GetSoftwarePriority$49
+      00018D 03                     912 	.db	3
+      00018E 01                     913 	.sleb128	1
+      00018F 01                     914 	.db	1
+      000190 09                     915 	.db	9
+      000191 00 03                  916 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$51-Sstm8s_itc$ITC_GetSoftwarePriority$50
+      000193 03                     917 	.db	3
+      000194 02                     918 	.sleb128	2
+      000195 01                     919 	.db	1
+      000196 09                     920 	.db	9
+      000197 00 00                  921 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$52-Sstm8s_itc$ITC_GetSoftwarePriority$51
+      000199 03                     922 	.db	3
+      00019A 01                     923 	.sleb128	1
+      00019B 01                     924 	.db	1
+      00019C 09                     925 	.db	9
+      00019D 00 06                  926 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$54-Sstm8s_itc$ITC_GetSoftwarePriority$52
+      00019F 03                     927 	.db	3
+      0001A0 05                     928 	.sleb128	5
+      0001A1 01                     929 	.db	1
+      0001A2 09                     930 	.db	9
+      0001A3 00 00                  931 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$55-Sstm8s_itc$ITC_GetSoftwarePriority$54
+      0001A5 03                     932 	.db	3
+      0001A6 02                     933 	.sleb128	2
+      0001A7 01                     934 	.db	1
+      0001A8 09                     935 	.db	9
+      0001A9 00 0B                  936 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$56-Sstm8s_itc$ITC_GetSoftwarePriority$55
+      0001AB 03                     937 	.db	3
+      0001AC 02                     938 	.sleb128	2
+      0001AD 01                     939 	.db	1
+      0001AE 09                     940 	.db	9
+      0001AF 00 00                  941 	.dw	Sstm8s_itc$ITC_GetSoftwarePriority$57-Sstm8s_itc$ITC_GetSoftwarePriority$56
+      0001B1 03                     942 	.db	3
+      0001B2 01                     943 	.sleb128	1
+      0001B3 01                     944 	.db	1
+      0001B4 09                     945 	.db	9
+      0001B5 00 02                  946 	.dw	1+Sstm8s_itc$ITC_GetSoftwarePriority$59-Sstm8s_itc$ITC_GetSoftwarePriority$57
+      0001B7 00                     947 	.db	0
+      0001B8 01                     948 	.uleb128	1
+      0001B9 01                     949 	.db	1
+      0001BA 00                     950 	.db	0
+      0001BB 05                     951 	.uleb128	5
+      0001BC 02                     952 	.db	2
+      0001BD 00 00r00rD2            953 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$61)
+      0001C1 03                     954 	.db	3
+      0001C2 DE 01                  955 	.sleb128	222
+      0001C4 01                     956 	.db	1
+      0001C5 09                     957 	.db	9
+      0001C6 00 01                  958 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$64-Sstm8s_itc$ITC_SetSoftwarePriority$61
+      0001C8 03                     959 	.db	3
+      0001C9 0E                     960 	.sleb128	14
+      0001CA 01                     961 	.db	1
+      0001CB 09                     962 	.db	9
+      0001CC 00 18                  963 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$67-Sstm8s_itc$ITC_SetSoftwarePriority$64
+      0001CE 03                     964 	.db	3
+      0001CF 03                     965 	.sleb128	3
+      0001D0 01                     966 	.db	1
+      0001D1 09                     967 	.db	9
+      0001D2 00 0F                  968 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$70-Sstm8s_itc$ITC_SetSoftwarePriority$67
+      0001D4 03                     969 	.db	3
+      0001D5 02                     970 	.sleb128	2
+      0001D6 01                     971 	.db	1
+      0001D7 09                     972 	.db	9
+      0001D8 00 44                  973 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$72-Sstm8s_itc$ITC_SetSoftwarePriority$70
+      0001DA 03                     974 	.db	3
+      0001DB 05                     975 	.sleb128	5
+      0001DC 01                     976 	.db	1
+      0001DD 09                     977 	.db	9
+      0001DE 00 00                  978 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$73-Sstm8s_itc$ITC_SetSoftwarePriority$72
+      0001E0 03                     979 	.db	3
+      0001E1 01                     980 	.sleb128	1
+      0001E2 01                     981 	.db	1
+      0001E3 09                     982 	.db	9
+      0001E4 00 08                  983 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$74-Sstm8s_itc$ITC_SetSoftwarePriority$73
+      0001E6 03                     984 	.db	3
+      0001E7 01                     985 	.sleb128	1
+      0001E8 01                     986 	.db	1
+      0001E9 09                     987 	.db	9
+      0001EA 00 08                  988 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$75-Sstm8s_itc$ITC_SetSoftwarePriority$74
+      0001EC 03                     989 	.db	3
+      0001ED 01                     990 	.sleb128	1
+      0001EE 01                     991 	.db	1
+      0001EF 09                     992 	.db	9
+      0001F0 00 03                  993 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$76-Sstm8s_itc$ITC_SetSoftwarePriority$75
+      0001F2 03                     994 	.db	3
+      0001F3 05                     995 	.sleb128	5
+      0001F4 01                     996 	.db	1
+      0001F5 09                     997 	.db	9
+      0001F6 00 00                  998 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$77-Sstm8s_itc$ITC_SetSoftwarePriority$76
+      0001F8 03                     999 	.db	3
+      0001F9 01                    1000 	.sleb128	1
+      0001FA 01                    1001 	.db	1
+      0001FB 09                    1002 	.db	9
+      0001FC 00 08                 1003 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$78-Sstm8s_itc$ITC_SetSoftwarePriority$77
+      0001FE 03                    1004 	.db	3
+      0001FF 01                    1005 	.sleb128	1
+      000200 01                    1006 	.db	1
+      000201 09                    1007 	.db	9
+      000202 00 08                 1008 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$79-Sstm8s_itc$ITC_SetSoftwarePriority$78
+      000204 03                    1009 	.db	3
+      000205 01                    1010 	.sleb128	1
+      000206 01                    1011 	.db	1
+      000207 09                    1012 	.db	9
+      000208 00 03                 1013 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$80-Sstm8s_itc$ITC_SetSoftwarePriority$79
+      00020A 03                    1014 	.db	3
+      00020B 0A                    1015 	.sleb128	10
+      00020C 01                    1016 	.db	1
+      00020D 09                    1017 	.db	9
+      00020E 00 00                 1018 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$81-Sstm8s_itc$ITC_SetSoftwarePriority$80
+      000210 03                    1019 	.db	3
+      000211 01                    1020 	.sleb128	1
+      000212 01                    1021 	.db	1
+      000213 09                    1022 	.db	9
+      000214 00 08                 1023 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$82-Sstm8s_itc$ITC_SetSoftwarePriority$81
+      000216 03                    1024 	.db	3
+      000217 01                    1025 	.sleb128	1
+      000218 01                    1026 	.db	1
+      000219 09                    1027 	.db	9
+      00021A 00 08                 1028 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$83-Sstm8s_itc$ITC_SetSoftwarePriority$82
+      00021C 03                    1029 	.db	3
+      00021D 01                    1030 	.sleb128	1
+      00021E 01                    1031 	.db	1
+      00021F 09                    1032 	.db	9
+      000220 00 03                 1033 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$84-Sstm8s_itc$ITC_SetSoftwarePriority$83
+      000222 03                    1034 	.db	3
+      000223 0A                    1035 	.sleb128	10
+      000224 01                    1036 	.db	1
+      000225 09                    1037 	.db	9
+      000226 00 00                 1038 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$85-Sstm8s_itc$ITC_SetSoftwarePriority$84
+      000228 03                    1039 	.db	3
+      000229 01                    1040 	.sleb128	1
+      00022A 01                    1041 	.db	1
+      00022B 09                    1042 	.db	9
+      00022C 00 08                 1043 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$86-Sstm8s_itc$ITC_SetSoftwarePriority$85
+      00022E 03                    1044 	.db	3
+      00022F 01                    1045 	.sleb128	1
+      000230 01                    1046 	.db	1
+      000231 09                    1047 	.db	9
+      000232 00 08                 1048 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$87-Sstm8s_itc$ITC_SetSoftwarePriority$86
+      000234 03                    1049 	.db	3
+      000235 01                    1050 	.sleb128	1
+      000236 01                    1051 	.db	1
+      000237 09                    1052 	.db	9
+      000238 00 03                 1053 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$88-Sstm8s_itc$ITC_SetSoftwarePriority$87
+      00023A 03                    1054 	.db	3
+      00023B 0C                    1055 	.sleb128	12
+      00023C 01                    1056 	.db	1
+      00023D 09                    1057 	.db	9
+      00023E 00 00                 1058 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$89-Sstm8s_itc$ITC_SetSoftwarePriority$88
+      000240 03                    1059 	.db	3
+      000241 01                    1060 	.sleb128	1
+      000242 01                    1061 	.db	1
+      000243 09                    1062 	.db	9
+      000244 00 08                 1063 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$90-Sstm8s_itc$ITC_SetSoftwarePriority$89
+      000246 03                    1064 	.db	3
+      000247 01                    1065 	.sleb128	1
+      000248 01                    1066 	.db	1
+      000249 09                    1067 	.db	9
+      00024A 00 08                 1068 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$91-Sstm8s_itc$ITC_SetSoftwarePriority$90
+      00024C 03                    1069 	.db	3
+      00024D 01                    1070 	.sleb128	1
+      00024E 01                    1071 	.db	1
+      00024F 09                    1072 	.db	9
+      000250 00 03                 1073 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$92-Sstm8s_itc$ITC_SetSoftwarePriority$91
+      000252 03                    1074 	.db	3
+      000253 16                    1075 	.sleb128	22
+      000254 01                    1076 	.db	1
+      000255 09                    1077 	.db	9
+      000256 00 00                 1078 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$93-Sstm8s_itc$ITC_SetSoftwarePriority$92
+      000258 03                    1079 	.db	3
+      000259 02                    1080 	.sleb128	2
+      00025A 01                    1081 	.db	1
+      00025B 09                    1082 	.db	9
+      00025C 00 08                 1083 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$94-Sstm8s_itc$ITC_SetSoftwarePriority$93
+      00025E 03                    1084 	.db	3
+      00025F 01                    1085 	.sleb128	1
+      000260 01                    1086 	.db	1
+      000261 09                    1087 	.db	9
+      000262 00 08                 1088 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$95-Sstm8s_itc$ITC_SetSoftwarePriority$94
+      000264 03                    1089 	.db	3
+      000265 01                    1090 	.sleb128	1
+      000266 01                    1091 	.db	1
+      000267 09                    1092 	.db	9
+      000268 00 03                 1093 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$96-Sstm8s_itc$ITC_SetSoftwarePriority$95
+      00026A 03                    1094 	.db	3
+      00026B 02                    1095 	.sleb128	2
+      00026C 01                    1096 	.db	1
+      00026D 09                    1097 	.db	9
+      00026E 00 00                 1098 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$97-Sstm8s_itc$ITC_SetSoftwarePriority$96
+      000270 03                    1099 	.db	3
+      000271 01                    1100 	.sleb128	1
+      000272 01                    1101 	.db	1
+      000273 09                    1102 	.db	9
+      000274 00 08                 1103 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$98-Sstm8s_itc$ITC_SetSoftwarePriority$97
+      000276 03                    1104 	.db	3
+      000277 01                    1105 	.sleb128	1
+      000278 01                    1106 	.db	1
+      000279 09                    1107 	.db	9
+      00027A 00 08                 1108 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$100-Sstm8s_itc$ITC_SetSoftwarePriority$98
+      00027C 03                    1109 	.db	3
+      00027D 05                    1110 	.sleb128	5
+      00027E 01                    1111 	.db	1
+      00027F 09                    1112 	.db	9
+      000280 00 00                 1113 	.dw	Sstm8s_itc$ITC_SetSoftwarePriority$101-Sstm8s_itc$ITC_SetSoftwarePriority$100
+      000282 03                    1114 	.db	3
+      000283 01                    1115 	.sleb128	1
+      000284 01                    1116 	.db	1
+      000285 09                    1117 	.db	9
+      000286 00 02                 1118 	.dw	1+Sstm8s_itc$ITC_SetSoftwarePriority$103-Sstm8s_itc$ITC_SetSoftwarePriority$101
+      000288 00                    1119 	.db	0
+      000289 01                    1120 	.uleb128	1
+      00028A 01                    1121 	.db	1
+      00028B                       1122 Ldebug_line_end:
+                                   1123 
+                                   1124 	.area .debug_loc (NOLOAD)
+      000000                       1125 Ldebug_loc_start:
+      000000 00 00r01rC1           1126 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$102)
+      000004 00 00r01rC2           1127 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$104)
+      000008 00 02                 1128 	.dw	2
+      00000A 78                    1129 	.db	120
+      00000B 01                    1130 	.sleb128	1
+      00000C 00 00r00rF8           1131 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$69)
+      000010 00 00r01rC1           1132 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$102)
+      000014 00 02                 1133 	.dw	2
+      000016 78                    1134 	.db	120
+      000017 03                    1135 	.sleb128	3
+      000018 00 00r00rEE           1136 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$68)
+      00001C 00 00r00rF8           1137 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$69)
+      000020 00 02                 1138 	.dw	2
+      000022 78                    1139 	.db	120
+      000023 04                    1140 	.sleb128	4
+      000024 00 00r00rE8           1141 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$66)
+      000028 00 00r00rEE           1142 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$68)
+      00002C 00 02                 1143 	.dw	2
+      00002E 78                    1144 	.db	120
+      00002F 03                    1145 	.sleb128	3
+      000030 00 00r00rDE           1146 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$65)
+      000034 00 00r00rE8           1147 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$66)
+      000038 00 02                 1148 	.dw	2
+      00003A 78                    1149 	.db	120
+      00003B 04                    1150 	.sleb128	4
+      00003C 00 00r00rD3           1151 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$63)
+      000040 00 00r00rDE           1152 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$65)
+      000044 00 02                 1153 	.dw	2
+      000046 78                    1154 	.db	120
+      000047 03                    1155 	.sleb128	3
+      000048 00 00r00rD2           1156 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$62)
+      00004C 00 00r00rD3           1157 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$63)
+      000050 00 02                 1158 	.dw	2
+      000052 78                    1159 	.db	120
+      000053 01                    1160 	.sleb128	1
+      000054 00 00 00 00           1161 	.dw	0,0
+      000058 00 00 00 00           1162 	.dw	0,0
+      00005C 00 00r00rD1           1163 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$58)
+      000060 00 00r00rD2           1164 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$60)
+      000064 00 02                 1165 	.dw	2
+      000066 78                    1166 	.db	120
+      000067 01                    1167 	.sleb128	1
+      000068 00 00r00r2B           1168 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$28)
+      00006C 00 00r00rD1           1169 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$58)
+      000070 00 02                 1170 	.dw	2
+      000072 78                    1171 	.db	120
+      000073 03                    1172 	.sleb128	3
+      000074 00 00r00r2A           1173 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$27)
+      000078 00 00r00r2B           1174 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$28)
+      00007C 00 02                 1175 	.dw	2
+      00007E 78                    1176 	.db	120
+      00007F 01                    1177 	.sleb128	1
+      000080 00 00 00 00           1178 	.dw	0,0
+      000084 00 00 00 00           1179 	.dw	0,0
+      000088 00 00r00r24           1180 	.dw	0,(Sstm8s_itc$ITC_GetSoftIntStatus$21)
+      00008C 00 00r00r2A           1181 	.dw	0,(Sstm8s_itc$ITC_GetSoftIntStatus$25)
+      000090 00 02                 1182 	.dw	2
+      000092 78                    1183 	.db	120
+      000093 01                    1184 	.sleb128	1
+      000094 00 00 00 00           1185 	.dw	0,0
+      000098 00 00 00 00           1186 	.dw	0,0
+      00009C 00 00r00r03           1187 	.dw	0,(Sstm8s_itc$ITC_DeInit$8)
+      0000A0 00 00r00r24           1188 	.dw	0,(Sstm8s_itc$ITC_DeInit$19)
+      0000A4 00 02                 1189 	.dw	2
+      0000A6 78                    1190 	.db	120
+      0000A7 01                    1191 	.sleb128	1
+      0000A8 00 00 00 00           1192 	.dw	0,0
+      0000AC 00 00 00 00           1193 	.dw	0,0
+      0000B0 00 00r00r00           1194 	.dw	0,(Sstm8s_itc$ITC_GetCPUCC$1)
+      0000B4 00 00r00r03           1195 	.dw	0,(Sstm8s_itc$ITC_GetCPUCC$6)
+      0000B8 00 02                 1196 	.dw	2
+      0000BA 78                    1197 	.db	120
+      0000BB 01                    1198 	.sleb128	1
+      0000BC 00 00 00 00           1199 	.dw	0,0
+      0000C0 00 00 00 00           1200 	.dw	0,0
+                                   1201 
+                                   1202 	.area .debug_abbrev (NOLOAD)
+      000000                       1203 Ldebug_abbrev:
+      000000 03                    1204 	.uleb128	3
+      000001 2E                    1205 	.uleb128	46
+      000002 00                    1206 	.db	0
+      000003 03                    1207 	.uleb128	3
+      000004 08                    1208 	.uleb128	8
+      000005 11                    1209 	.uleb128	17
+      000006 01                    1210 	.uleb128	1
+      000007 12                    1211 	.uleb128	18
+      000008 01                    1212 	.uleb128	1
+      000009 3F                    1213 	.uleb128	63
+      00000A 0C                    1214 	.uleb128	12
+      00000B 40                    1215 	.uleb128	64
+      00000C 06                    1216 	.uleb128	6
+      00000D 49                    1217 	.uleb128	73
+      00000E 13                    1218 	.uleb128	19
+      00000F 00                    1219 	.uleb128	0
+      000010 00                    1220 	.uleb128	0
+      000011 06                    1221 	.uleb128	6
+      000012 05                    1222 	.uleb128	5
+      000013 00                    1223 	.db	0
+      000014 02                    1224 	.uleb128	2
+      000015 0A                    1225 	.uleb128	10
+      000016 03                    1226 	.uleb128	3
+      000017 08                    1227 	.uleb128	8
+      000018 49                    1228 	.uleb128	73
+      000019 13                    1229 	.uleb128	19
+      00001A 00                    1230 	.uleb128	0
+      00001B 00                    1231 	.uleb128	0
+      00001C 08                    1232 	.uleb128	8
+      00001D 34                    1233 	.uleb128	52
+      00001E 00                    1234 	.db	0
+      00001F 02                    1235 	.uleb128	2
+      000020 0A                    1236 	.uleb128	10
+      000021 03                    1237 	.uleb128	3
+      000022 08                    1238 	.uleb128	8
+      000023 49                    1239 	.uleb128	73
+      000024 13                    1240 	.uleb128	19
+      000025 00                    1241 	.uleb128	0
+      000026 00                    1242 	.uleb128	0
+      000027 05                    1243 	.uleb128	5
+      000028 2E                    1244 	.uleb128	46
+      000029 01                    1245 	.db	1
+      00002A 01                    1246 	.uleb128	1
+      00002B 13                    1247 	.uleb128	19
+      00002C 03                    1248 	.uleb128	3
+      00002D 08                    1249 	.uleb128	8
+      00002E 11                    1250 	.uleb128	17
+      00002F 01                    1251 	.uleb128	1
+      000030 12                    1252 	.uleb128	18
+      000031 01                    1253 	.uleb128	1
+      000032 3F                    1254 	.uleb128	63
+      000033 0C                    1255 	.uleb128	12
+      000034 40                    1256 	.uleb128	64
+      000035 06                    1257 	.uleb128	6
+      000036 49                    1258 	.uleb128	73
+      000037 13                    1259 	.uleb128	19
+      000038 00                    1260 	.uleb128	0
+      000039 00                    1261 	.uleb128	0
+      00003A 01                    1262 	.uleb128	1
+      00003B 11                    1263 	.uleb128	17
+      00003C 01                    1264 	.db	1
+      00003D 03                    1265 	.uleb128	3
+      00003E 08                    1266 	.uleb128	8
+      00003F 10                    1267 	.uleb128	16
+      000040 06                    1268 	.uleb128	6
+      000041 13                    1269 	.uleb128	19
+      000042 0B                    1270 	.uleb128	11
+      000043 25                    1271 	.uleb128	37
+      000044 08                    1272 	.uleb128	8
+      000045 00                    1273 	.uleb128	0
+      000046 00                    1274 	.uleb128	0
+      000047 07                    1275 	.uleb128	7
+      000048 0B                    1276 	.uleb128	11
+      000049 00                    1277 	.db	0
+      00004A 11                    1278 	.uleb128	17
+      00004B 01                    1279 	.uleb128	1
+      00004C 12                    1280 	.uleb128	18
+      00004D 01                    1281 	.uleb128	1
+      00004E 00                    1282 	.uleb128	0
+      00004F 00                    1283 	.uleb128	0
+      000050 04                    1284 	.uleb128	4
+      000051 2E                    1285 	.uleb128	46
+      000052 00                    1286 	.db	0
+      000053 03                    1287 	.uleb128	3
+      000054 08                    1288 	.uleb128	8
+      000055 11                    1289 	.uleb128	17
+      000056 01                    1290 	.uleb128	1
+      000057 12                    1291 	.uleb128	18
+      000058 01                    1292 	.uleb128	1
+      000059 3F                    1293 	.uleb128	63
+      00005A 0C                    1294 	.uleb128	12
+      00005B 40                    1295 	.uleb128	64
+      00005C 06                    1296 	.uleb128	6
+      00005D 00                    1297 	.uleb128	0
+      00005E 00                    1298 	.uleb128	0
+      00005F 09                    1299 	.uleb128	9
+      000060 2E                    1300 	.uleb128	46
+      000061 01                    1301 	.db	1
+      000062 03                    1302 	.uleb128	3
+      000063 08                    1303 	.uleb128	8
+      000064 11                    1304 	.uleb128	17
+      000065 01                    1305 	.uleb128	1
+      000066 12                    1306 	.uleb128	18
+      000067 01                    1307 	.uleb128	1
+      000068 3F                    1308 	.uleb128	63
+      000069 0C                    1309 	.uleb128	12
+      00006A 40                    1310 	.uleb128	64
+      00006B 06                    1311 	.uleb128	6
+      00006C 00                    1312 	.uleb128	0
+      00006D 00                    1313 	.uleb128	0
+      00006E 02                    1314 	.uleb128	2
+      00006F 24                    1315 	.uleb128	36
+      000070 00                    1316 	.db	0
+      000071 03                    1317 	.uleb128	3
+      000072 08                    1318 	.uleb128	8
+      000073 0B                    1319 	.uleb128	11
+      000074 0B                    1320 	.uleb128	11
+      000075 3E                    1321 	.uleb128	62
+      000076 0B                    1322 	.uleb128	11
+      000077 00                    1323 	.uleb128	0
+      000078 00                    1324 	.uleb128	0
+      000079 00                    1325 	.uleb128	0
+                                   1326 
+                                   1327 	.area .debug_info (NOLOAD)
+      000000 00 00 01 88           1328 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                       1329 Ldebug_info_start:
+      000004 00 02                 1330 	.dw	2
+      000006 00 00r00r00           1331 	.dw	0,(Ldebug_abbrev)
+      00000A 04                    1332 	.db	4
+      00000B 01                    1333 	.uleb128	1
+      00000C 2E 2E 2F 53 50 4C 2F  1334 	.ascii "../SPL/src/stm8s_itc.c"
+             73 72 63 2F 73 74 6D
+             38 73 5F 69 74 63 2E
+             63
+      000022 00                    1335 	.db	0
+      000023 00 00r00r00           1336 	.dw	0,(Ldebug_line_start+-4)
+      000027 01                    1337 	.db	1
+      000028 53 44 43 43 20 76 65  1338 	.ascii "SDCC version 4.1.0 #12072"
+             72 73 69 6F 6E 20 34
+             2E 31 2E 30 20 23 31
+             32 30 37 32
+      000041 00                    1339 	.db	0
+      000042 02                    1340 	.uleb128	2
+      000043 75 6E 73 69 67 6E 65  1341 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      000050 00                    1342 	.db	0
+      000051 01                    1343 	.db	1
+      000052 08                    1344 	.db	8
+      000053 03                    1345 	.uleb128	3
+      000054 49 54 43 5F 47 65 74  1346 	.ascii "ITC_GetCPUCC"
+             43 50 55 43 43
+      000060 00                    1347 	.db	0
+      000061 00 00r00r00           1348 	.dw	0,(_ITC_GetCPUCC)
+      000065 00 00r00r03           1349 	.dw	0,(XG$ITC_GetCPUCC$0$0+1)
+      000069 01                    1350 	.db	1
+      00006A 00 00r00rB0           1351 	.dw	0,(Ldebug_loc_start+176)
+      00006E 00 00 00 42           1352 	.dw	0,66
+      000072 04                    1353 	.uleb128	4
+      000073 49 54 43 5F 44 65 49  1354 	.ascii "ITC_DeInit"
+             6E 69 74
+      00007D 00                    1355 	.db	0
+      00007E 00 00r00r03           1356 	.dw	0,(_ITC_DeInit)
+      000082 00 00r00r24           1357 	.dw	0,(XG$ITC_DeInit$0$0+1)
+      000086 01                    1358 	.db	1
+      000087 00 00r00r9C           1359 	.dw	0,(Ldebug_loc_start+156)
+      00008B 03                    1360 	.uleb128	3
+      00008C 49 54 43 5F 47 65 74  1361 	.ascii "ITC_GetSoftIntStatus"
+             53 6F 66 74 49 6E 74
+             53 74 61 74 75 73
+      0000A0 00                    1362 	.db	0
+      0000A1 00 00r00r24           1363 	.dw	0,(_ITC_GetSoftIntStatus)
+      0000A5 00 00r00r2A           1364 	.dw	0,(XG$ITC_GetSoftIntStatus$0$0+1)
+      0000A9 01                    1365 	.db	1
+      0000AA 00 00r00r88           1366 	.dw	0,(Ldebug_loc_start+136)
+      0000AE 00 00 00 42           1367 	.dw	0,66
+      0000B2 05                    1368 	.uleb128	5
+      0000B3 00 00 01 13           1369 	.dw	0,275
+      0000B7 49 54 43 5F 47 65 74  1370 	.ascii "ITC_GetSoftwarePriority"
+             53 6F 66 74 77 61 72
+             65 50 72 69 6F 72 69
+             74 79
+      0000CE 00                    1371 	.db	0
+      0000CF 00 00r00r2A           1372 	.dw	0,(_ITC_GetSoftwarePriority)
+      0000D3 00 00r00rD2           1373 	.dw	0,(XG$ITC_GetSoftwarePriority$0$0+1)
+      0000D7 01                    1374 	.db	1
+      0000D8 00 00r00r5C           1375 	.dw	0,(Ldebug_loc_start+92)
+      0000DC 00 00 00 42           1376 	.dw	0,66
+      0000E0 06                    1377 	.uleb128	6
+      0000E1 02                    1378 	.db	2
+      0000E2 91                    1379 	.db	145
+      0000E3 02                    1380 	.sleb128	2
+      0000E4 49 72 71 4E 75 6D     1381 	.ascii "IrqNum"
+      0000EA 00                    1382 	.db	0
+      0000EB 00 00 00 42           1383 	.dw	0,66
+      0000EF 07                    1384 	.uleb128	7
+      0000F0 00 00r00r89           1385 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$32)
+      0000F4 00 00r00rC5           1386 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$53)
+      0000F8 08                    1387 	.uleb128	8
+      0000F9 01                    1388 	.db	1
+      0000FA 50                    1389 	.db	80
+      0000FB 56 61 6C 75 65        1390 	.ascii "Value"
+      000100 00                    1391 	.db	0
+      000101 00 00 00 42           1392 	.dw	0,66
+      000105 08                    1393 	.uleb128	8
+      000106 02                    1394 	.db	2
+      000107 91                    1395 	.db	145
+      000108 7F                    1396 	.sleb128	-1
+      000109 4D 61 73 6B           1397 	.ascii "Mask"
+      00010D 00                    1398 	.db	0
+      00010E 00 00 00 42           1399 	.dw	0,66
+      000112 00                    1400 	.uleb128	0
+      000113 09                    1401 	.uleb128	9
+      000114 49 54 43 5F 53 65 74  1402 	.ascii "ITC_SetSoftwarePriority"
+             53 6F 66 74 77 61 72
+             65 50 72 69 6F 72 69
+             74 79
+      00012B 00                    1403 	.db	0
+      00012C 00 00r00rD2           1404 	.dw	0,(_ITC_SetSoftwarePriority)
+      000130 00 00r01rC2           1405 	.dw	0,(XG$ITC_SetSoftwarePriority$0$0+1)
+      000134 01                    1406 	.db	1
+      000135 00 00r00r00           1407 	.dw	0,(Ldebug_loc_start)
+      000139 06                    1408 	.uleb128	6
+      00013A 02                    1409 	.db	2
+      00013B 91                    1410 	.db	145
+      00013C 02                    1411 	.sleb128	2
+      00013D 49 72 71 4E 75 6D     1412 	.ascii "IrqNum"
+      000143 00                    1413 	.db	0
+      000144 00 00 00 42           1414 	.dw	0,66
+      000148 06                    1415 	.uleb128	6
+      000149 02                    1416 	.db	2
+      00014A 91                    1417 	.db	145
+      00014B 03                    1418 	.sleb128	3
+      00014C 50 72 69 6F 72 69 74  1419 	.ascii "PriorityValue"
+             79 56 61 6C 75 65
+      000159 00                    1420 	.db	0
+      00015A 00 00 00 42           1421 	.dw	0,66
+      00015E 07                    1422 	.uleb128	7
+      00015F 00 00r01r3E           1423 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$71)
+      000163 00 00r01rC0           1424 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$99)
+      000167 08                    1425 	.uleb128	8
+      000168 02                    1426 	.db	2
+      000169 91                    1427 	.db	145
+      00016A 7E                    1428 	.sleb128	-2
+      00016B 4D 61 73 6B           1429 	.ascii "Mask"
+      00016F 00                    1430 	.db	0
+      000170 00 00 00 42           1431 	.dw	0,66
+      000174 08                    1432 	.uleb128	8
+      000175 02                    1433 	.db	2
+      000176 91                    1434 	.db	145
+      000177 7F                    1435 	.sleb128	-1
+      000178 4E 65 77 50 72 69 6F  1436 	.ascii "NewPriority"
+             72 69 74 79
+      000183 00                    1437 	.db	0
+      000184 00 00 00 42           1438 	.dw	0,66
+      000188 00                    1439 	.uleb128	0
+      000189 00                    1440 	.uleb128	0
+      00018A 00                    1441 	.uleb128	0
+      00018B 00                    1442 	.uleb128	0
+      00018C                       1443 Ldebug_info_end:
+                                   1444 
+                                   1445 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 00 7F           1446 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                       1447 Ldebug_pubnames_start:
+      000004 00 02                 1448 	.dw	2
+      000006 00 00r00r00           1449 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 01 8C           1450 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 53           1451 	.dw	0,83
+      000012 49 54 43 5F 47 65 74  1452 	.ascii "ITC_GetCPUCC"
+             43 50 55 43 43
+      00001E 00                    1453 	.db	0
+      00001F 00 00 00 72           1454 	.dw	0,114
+      000023 49 54 43 5F 44 65 49  1455 	.ascii "ITC_DeInit"
+             6E 69 74
+      00002D 00                    1456 	.db	0
+      00002E 00 00 00 8B           1457 	.dw	0,139
+      000032 49 54 43 5F 47 65 74  1458 	.ascii "ITC_GetSoftIntStatus"
+             53 6F 66 74 49 6E 74
+             53 74 61 74 75 73
+      000046 00                    1459 	.db	0
+      000047 00 00 00 B2           1460 	.dw	0,178
+      00004B 49 54 43 5F 47 65 74  1461 	.ascii "ITC_GetSoftwarePriority"
+             53 6F 66 74 77 61 72
+             65 50 72 69 6F 72 69
+             74 79
+      000062 00                    1462 	.db	0
+      000063 00 00 01 13           1463 	.dw	0,275
+      000067 49 54 43 5F 53 65 74  1464 	.ascii "ITC_SetSoftwarePriority"
+             53 6F 66 74 77 61 72
+             65 50 72 69 6F 72 69
+             74 79
+      00007E 00                    1465 	.db	0
+      00007F 00 00 00 00           1466 	.dw	0,0
+      000083                       1467 Ldebug_pubnames_end:
+                                   1468 
+                                   1469 	.area .debug_frame (NOLOAD)
+      000000 00 00                 1470 	.dw	0
+      000002 00 0E                 1471 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                       1472 Ldebug_CIE0_start:
+      000004 FF FF                 1473 	.dw	0xffff
+      000006 FF FF                 1474 	.dw	0xffff
+      000008 01                    1475 	.db	1
+      000009 00                    1476 	.db	0
+      00000A 01                    1477 	.uleb128	1
+      00000B 7F                    1478 	.sleb128	-1
+      00000C 09                    1479 	.db	9
+      00000D 0C                    1480 	.db	12
+      00000E 08                    1481 	.uleb128	8
+      00000F 02                    1482 	.uleb128	2
+      000010 89                    1483 	.db	137
+      000011 01                    1484 	.uleb128	1
+      000012                       1485 Ldebug_CIE0_end:
+      000012 00 00 00 3D           1486 	.dw	0,61
+      000016 00 00r00r00           1487 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r00rD2           1488 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$62)	;initial loc
+      00001E 00 00 00 F0           1489 	.dw	0,Sstm8s_itc$ITC_SetSoftwarePriority$104-Sstm8s_itc$ITC_SetSoftwarePriority$62
+      000022 01                    1490 	.db	1
+      000023 00 00r00rD2           1491 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$62)
+      000027 0E                    1492 	.db	14
+      000028 02                    1493 	.uleb128	2
+      000029 01                    1494 	.db	1
+      00002A 00 00r00rD3           1495 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$63)
+      00002E 0E                    1496 	.db	14
+      00002F 04                    1497 	.uleb128	4
+      000030 01                    1498 	.db	1
+      000031 00 00r00rDE           1499 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$65)
+      000035 0E                    1500 	.db	14
+      000036 05                    1501 	.uleb128	5
+      000037 01                    1502 	.db	1
+      000038 00 00r00rE8           1503 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$66)
+      00003C 0E                    1504 	.db	14
+      00003D 04                    1505 	.uleb128	4
+      00003E 01                    1506 	.db	1
+      00003F 00 00r00rEE           1507 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$68)
+      000043 0E                    1508 	.db	14
+      000044 05                    1509 	.uleb128	5
+      000045 01                    1510 	.db	1
+      000046 00 00r00rF8           1511 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$69)
+      00004A 0E                    1512 	.db	14
+      00004B 04                    1513 	.uleb128	4
+      00004C 01                    1514 	.db	1
+      00004D 00 00r01rC1           1515 	.dw	0,(Sstm8s_itc$ITC_SetSoftwarePriority$102)
+      000051 0E                    1516 	.db	14
+      000052 02                    1517 	.uleb128	2
+                                   1518 
+                                   1519 	.area .debug_frame (NOLOAD)
+      000053 00 00                 1520 	.dw	0
+      000055 00 0E                 1521 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      000057                       1522 Ldebug_CIE1_start:
+      000057 FF FF                 1523 	.dw	0xffff
+      000059 FF FF                 1524 	.dw	0xffff
+      00005B 01                    1525 	.db	1
+      00005C 00                    1526 	.db	0
+      00005D 01                    1527 	.uleb128	1
+      00005E 7F                    1528 	.sleb128	-1
+      00005F 09                    1529 	.db	9
+      000060 0C                    1530 	.db	12
+      000061 08                    1531 	.uleb128	8
+      000062 02                    1532 	.uleb128	2
+      000063 89                    1533 	.db	137
+      000064 01                    1534 	.uleb128	1
+      000065                       1535 Ldebug_CIE1_end:
+      000065 00 00 00 21           1536 	.dw	0,33
+      000069 00 00r00r53           1537 	.dw	0,(Ldebug_CIE1_start-4)
+      00006D 00 00r00r2A           1538 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$27)	;initial loc
+      000071 00 00 00 A8           1539 	.dw	0,Sstm8s_itc$ITC_GetSoftwarePriority$60-Sstm8s_itc$ITC_GetSoftwarePriority$27
+      000075 01                    1540 	.db	1
+      000076 00 00r00r2A           1541 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$27)
+      00007A 0E                    1542 	.db	14
+      00007B 02                    1543 	.uleb128	2
+      00007C 01                    1544 	.db	1
+      00007D 00 00r00r2B           1545 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$28)
+      000081 0E                    1546 	.db	14
+      000082 04                    1547 	.uleb128	4
+      000083 01                    1548 	.db	1
+      000084 00 00r00rD1           1549 	.dw	0,(Sstm8s_itc$ITC_GetSoftwarePriority$58)
+      000088 0E                    1550 	.db	14
+      000089 02                    1551 	.uleb128	2
+                                   1552 
+                                   1553 	.area .debug_frame (NOLOAD)
+      00008A 00 00                 1554 	.dw	0
+      00008C 00 0E                 1555 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      00008E                       1556 Ldebug_CIE2_start:
+      00008E FF FF                 1557 	.dw	0xffff
+      000090 FF FF                 1558 	.dw	0xffff
+      000092 01                    1559 	.db	1
+      000093 00                    1560 	.db	0
+      000094 01                    1561 	.uleb128	1
+      000095 7F                    1562 	.sleb128	-1
+      000096 09                    1563 	.db	9
+      000097 0C                    1564 	.db	12
+      000098 08                    1565 	.uleb128	8
+      000099 02                    1566 	.uleb128	2
+      00009A 89                    1567 	.db	137
+      00009B 01                    1568 	.uleb128	1
+      00009C                       1569 Ldebug_CIE2_end:
+      00009C 00 00 00 13           1570 	.dw	0,19
+      0000A0 00 00r00r8A           1571 	.dw	0,(Ldebug_CIE2_start-4)
+      0000A4 00 00r00r24           1572 	.dw	0,(Sstm8s_itc$ITC_GetSoftIntStatus$21)	;initial loc
+      0000A8 00 00 00 06           1573 	.dw	0,Sstm8s_itc$ITC_GetSoftIntStatus$25-Sstm8s_itc$ITC_GetSoftIntStatus$21
+      0000AC 01                    1574 	.db	1
+      0000AD 00 00r00r24           1575 	.dw	0,(Sstm8s_itc$ITC_GetSoftIntStatus$21)
+      0000B1 0E                    1576 	.db	14
+      0000B2 02                    1577 	.uleb128	2
+                                   1578 
+                                   1579 	.area .debug_frame (NOLOAD)
+      0000B3 00 00                 1580 	.dw	0
+      0000B5 00 0E                 1581 	.dw	Ldebug_CIE3_end-Ldebug_CIE3_start
+      0000B7                       1582 Ldebug_CIE3_start:
+      0000B7 FF FF                 1583 	.dw	0xffff
+      0000B9 FF FF                 1584 	.dw	0xffff
+      0000BB 01                    1585 	.db	1
+      0000BC 00                    1586 	.db	0
+      0000BD 01                    1587 	.uleb128	1
+      0000BE 7F                    1588 	.sleb128	-1
+      0000BF 09                    1589 	.db	9
+      0000C0 0C                    1590 	.db	12
+      0000C1 08                    1591 	.uleb128	8
+      0000C2 02                    1592 	.uleb128	2
+      0000C3 89                    1593 	.db	137
+      0000C4 01                    1594 	.uleb128	1
+      0000C5                       1595 Ldebug_CIE3_end:
+      0000C5 00 00 00 13           1596 	.dw	0,19
+      0000C9 00 00r00rB3           1597 	.dw	0,(Ldebug_CIE3_start-4)
+      0000CD 00 00r00r03           1598 	.dw	0,(Sstm8s_itc$ITC_DeInit$8)	;initial loc
+      0000D1 00 00 00 21           1599 	.dw	0,Sstm8s_itc$ITC_DeInit$19-Sstm8s_itc$ITC_DeInit$8
+      0000D5 01                    1600 	.db	1
+      0000D6 00 00r00r03           1601 	.dw	0,(Sstm8s_itc$ITC_DeInit$8)
+      0000DA 0E                    1602 	.db	14
+      0000DB 02                    1603 	.uleb128	2
+                                   1604 
+                                   1605 	.area .debug_frame (NOLOAD)
+      0000DC 00 00                 1606 	.dw	0
+      0000DE 00 0E                 1607 	.dw	Ldebug_CIE4_end-Ldebug_CIE4_start
+      0000E0                       1608 Ldebug_CIE4_start:
+      0000E0 FF FF                 1609 	.dw	0xffff
+      0000E2 FF FF                 1610 	.dw	0xffff
+      0000E4 01                    1611 	.db	1
+      0000E5 00                    1612 	.db	0
+      0000E6 01                    1613 	.uleb128	1
+      0000E7 7F                    1614 	.sleb128	-1
+      0000E8 09                    1615 	.db	9
+      0000E9 0C                    1616 	.db	12
+      0000EA 08                    1617 	.uleb128	8
+      0000EB 02                    1618 	.uleb128	2
+      0000EC 89                    1619 	.db	137
+      0000ED 01                    1620 	.uleb128	1
+      0000EE                       1621 Ldebug_CIE4_end:
+      0000EE 00 00 00 13           1622 	.dw	0,19
+      0000F2 00 00r00rDC           1623 	.dw	0,(Ldebug_CIE4_start-4)
+      0000F6 00 00r00r00           1624 	.dw	0,(Sstm8s_itc$ITC_GetCPUCC$1)	;initial loc
+      0000FA 00 00 00 03           1625 	.dw	0,Sstm8s_itc$ITC_GetCPUCC$6-Sstm8s_itc$ITC_GetCPUCC$1
+      0000FE 01                    1626 	.db	1
+      0000FF 00 00r00r00           1627 	.dw	0,(Sstm8s_itc$ITC_GetCPUCC$1)
+      000103 0E                    1628 	.db	14
+      000104 02                    1629 	.uleb128	2

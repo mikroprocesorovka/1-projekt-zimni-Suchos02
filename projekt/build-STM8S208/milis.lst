@@ -1,0 +1,951 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module milis
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM4_ClearFlag
+                                     12 	.globl _TIM4_ITConfig
+                                     13 	.globl _TIM4_Cmd
+                                     14 	.globl _TIM4_TimeBaseInit
+                                     15 	.globl _ITC_SetSoftwarePriority
+                                     16 	.globl _miliseconds
+                                     17 	.globl _milis
+                                     18 	.globl _init_milis
+                                     19 	.globl _TIM4_UPD_OVF_IRQHandler
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DATA
+                                     24 ;--------------------------------------------------------
+                                     25 ; ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area INITIALIZED
+                           000000    28 G$miliseconds$0_0$0==.
+      000000                         29 _miliseconds::
+      000000                         30 	.ds 4
+                                     31 ;--------------------------------------------------------
+                                     32 ; absolute external ram data
+                                     33 ;--------------------------------------------------------
+                                     34 	.area DABS (ABS)
+                                     35 
+                                     36 ; default segment ordering for linker
+                                     37 	.area HOME
+                                     38 	.area GSINIT
+                                     39 	.area GSFINAL
+                                     40 	.area CONST
+                                     41 	.area INITIALIZER
+                                     42 	.area CODE
+                                     43 
+                                     44 ;--------------------------------------------------------
+                                     45 ; global & static initialisations
+                                     46 ;--------------------------------------------------------
+                                     47 	.area HOME
+                                     48 	.area GSINIT
+                                     49 	.area GSFINAL
+                                     50 	.area GSINIT
+                                     51 ;--------------------------------------------------------
+                                     52 ; Home
+                                     53 ;--------------------------------------------------------
+                                     54 	.area HOME
+                                     55 	.area HOME
+                                     56 ;--------------------------------------------------------
+                                     57 ; code
+                                     58 ;--------------------------------------------------------
+                                     59 	.area CODE
+                           000000    60 	Smilis$milis$0 ==.
+                                     61 ;	./src/milis.c: 13: MILIS_PROTOTYPE
+                                     62 ; genLabel
+                                     63 ;	-----------------------------------------
+                                     64 ;	 function milis
+                                     65 ;	-----------------------------------------
+                                     66 ;	Register assignment is optimal.
+                                     67 ;	Stack space usage: 4 bytes.
+      000000                         68 _milis:
+                           000000    69 	Smilis$milis$1 ==.
+      000000 52 04            [ 2]   70 	sub	sp, #4
+                           000002    71 	Smilis$milis$2 ==.
+                           000002    72 	Smilis$milis$3 ==.
+                                     73 ;	./src/milis.c: 20: TIM4_ITConfig(TIM4_IT_UPDATE, DISABLE);
+                                     74 ; genIPush
+      000002 4B 00            [ 1]   75 	push	#0x00
+                           000004    76 	Smilis$milis$4 ==.
+                                     77 ; genIPush
+      000004 4B 01            [ 1]   78 	push	#0x01
+                           000006    79 	Smilis$milis$5 ==.
+                                     80 ; genCall
+      000006 CDr00r00         [ 4]   81 	call	_TIM4_ITConfig
+      000009 85               [ 2]   82 	popw	x
+                           00000A    83 	Smilis$milis$6 ==.
+                           00000A    84 	Smilis$milis$7 ==.
+                                     85 ;	./src/milis.c: 21: tmp = miliseconds;
+                                     86 ; genAssign
+      00000A CEu00u02         [ 2]   87 	ldw	x, _miliseconds+2
+      00000D 90 CEu00u00      [ 2]   88 	ldw	y, _miliseconds+0
+      000011 17 01            [ 2]   89 	ldw	(0x01, sp), y
+                           000013    90 	Smilis$milis$8 ==.
+                                     91 ;	./src/milis.c: 22: TIM4_ITConfig(TIM4_IT_UPDATE, ENABLE);
+                                     92 ; genIPush
+      000013 89               [ 2]   93 	pushw	x
+                           000014    94 	Smilis$milis$9 ==.
+      000014 4B 01            [ 1]   95 	push	#0x01
+                           000016    96 	Smilis$milis$10 ==.
+                                     97 ; genIPush
+      000016 4B 01            [ 1]   98 	push	#0x01
+                           000018    99 	Smilis$milis$11 ==.
+                                    100 ; genCall
+      000018 CDr00r00         [ 4]  101 	call	_TIM4_ITConfig
+      00001B 85               [ 2]  102 	popw	x
+                           00001C   103 	Smilis$milis$12 ==.
+      00001C 85               [ 2]  104 	popw	x
+                           00001D   105 	Smilis$milis$13 ==.
+                           00001D   106 	Smilis$milis$14 ==.
+                                    107 ;	./src/milis.c: 23: return tmp;
+                                    108 ; genReturn
+      00001D 16 01            [ 2]  109 	ldw	y, (0x01, sp)
+                                    110 ; genLabel
+      00001F                        111 00101$:
+                           00001F   112 	Smilis$milis$15 ==.
+                                    113 ;	./src/milis.c: 24: }
+                                    114 ; genEndFunction
+      00001F 5B 04            [ 2]  115 	addw	sp, #4
+                           000021   116 	Smilis$milis$16 ==.
+                           000021   117 	Smilis$milis$17 ==.
+                           000021   118 	XG$milis$0$0 ==.
+      000021 81               [ 4]  119 	ret
+                           000022   120 	Smilis$milis$18 ==.
+                           000022   121 	Smilis$init_milis$19 ==.
+                                    122 ;	./src/milis.c: 27: void init_milis(void)
+                                    123 ; genLabel
+                                    124 ;	-----------------------------------------
+                                    125 ;	 function init_milis
+                                    126 ;	-----------------------------------------
+                                    127 ;	Register assignment is optimal.
+                                    128 ;	Stack space usage: 0 bytes.
+      000022                        129 _init_milis:
+                           000022   130 	Smilis$init_milis$20 ==.
+                           000022   131 	Smilis$init_milis$21 ==.
+                                    132 ;	./src/milis.c: 29: TIM4_TimeBaseInit(PRESCALER, PERIOD);       // (16MHz / 128) / 125 = 1000Hz
+                                    133 ; genIPush
+      000022 4B 7C            [ 1]  134 	push	#0x7c
+                           000024   135 	Smilis$init_milis$22 ==.
+                                    136 ; genIPush
+      000024 4B 07            [ 1]  137 	push	#0x07
+                           000026   138 	Smilis$init_milis$23 ==.
+                                    139 ; genCall
+      000026 CDr00r00         [ 4]  140 	call	_TIM4_TimeBaseInit
+      000029 85               [ 2]  141 	popw	x
+                           00002A   142 	Smilis$init_milis$24 ==.
+                           00002A   143 	Smilis$init_milis$25 ==.
+                                    144 ;	./src/milis.c: 30: TIM4_ClearFlag(TIM4_FLAG_UPDATE);
+                                    145 ; genIPush
+      00002A 4B 01            [ 1]  146 	push	#0x01
+                           00002C   147 	Smilis$init_milis$26 ==.
+                                    148 ; genCall
+      00002C CDr00r00         [ 4]  149 	call	_TIM4_ClearFlag
+      00002F 84               [ 1]  150 	pop	a
+                           000030   151 	Smilis$init_milis$27 ==.
+                           000030   152 	Smilis$init_milis$28 ==.
+                                    153 ;	./src/milis.c: 31: TIM4_ITConfig(TIM4_IT_UPDATE, ENABLE);
+                                    154 ; genIPush
+      000030 4B 01            [ 1]  155 	push	#0x01
+                           000032   156 	Smilis$init_milis$29 ==.
+                                    157 ; genIPush
+      000032 4B 01            [ 1]  158 	push	#0x01
+                           000034   159 	Smilis$init_milis$30 ==.
+                                    160 ; genCall
+      000034 CDr00r00         [ 4]  161 	call	_TIM4_ITConfig
+      000037 85               [ 2]  162 	popw	x
+                           000038   163 	Smilis$init_milis$31 ==.
+                           000038   164 	Smilis$init_milis$32 ==.
+                                    165 ;	./src/milis.c: 32: ITC_SetSoftwarePriority(ITC_IRQ_TIM4_OVF, ITC_PRIORITYLEVEL_1);     // nízká priorita pøerušení
+                                    166 ; genIPush
+      000038 4B 01            [ 1]  167 	push	#0x01
+                           00003A   168 	Smilis$init_milis$33 ==.
+                                    169 ; genIPush
+      00003A 4B 17            [ 1]  170 	push	#0x17
+                           00003C   171 	Smilis$init_milis$34 ==.
+                                    172 ; genCall
+      00003C CDr00r00         [ 4]  173 	call	_ITC_SetSoftwarePriority
+      00003F 85               [ 2]  174 	popw	x
+                           000040   175 	Smilis$init_milis$35 ==.
+                           000040   176 	Smilis$init_milis$36 ==.
+                                    177 ;	./src/milis.c: 33: enableInterrupts();
+                                    178 ;	genInline
+      000040 9A               [ 1]  179 	rim
+                           000041   180 	Smilis$init_milis$37 ==.
+                                    181 ;	./src/milis.c: 34: TIM4_Cmd(ENABLE);
+                                    182 ; genIPush
+      000041 4B 01            [ 1]  183 	push	#0x01
+                           000043   184 	Smilis$init_milis$38 ==.
+                                    185 ; genCall
+      000043 CDr00r00         [ 4]  186 	call	_TIM4_Cmd
+      000046 84               [ 1]  187 	pop	a
+                           000047   188 	Smilis$init_milis$39 ==.
+                                    189 ; genLabel
+      000047                        190 00101$:
+                           000047   191 	Smilis$init_milis$40 ==.
+                                    192 ;	./src/milis.c: 35: }
+                                    193 ; genEndFunction
+                           000047   194 	Smilis$init_milis$41 ==.
+                           000047   195 	XG$init_milis$0$0 ==.
+      000047 81               [ 4]  196 	ret
+                           000048   197 	Smilis$init_milis$42 ==.
+                           000048   198 	Smilis$TIM4_UPD_OVF_IRQHandler$43 ==.
+                                    199 ;	./src/milis.c: 38: INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
+                                    200 ; genLabel
+                                    201 ;	-----------------------------------------
+                                    202 ;	 function TIM4_UPD_OVF_IRQHandler
+                                    203 ;	-----------------------------------------
+                                    204 ;	Register assignment might be sub-optimal.
+                                    205 ;	Stack space usage: 0 bytes.
+      000048                        206 _TIM4_UPD_OVF_IRQHandler:
+                                    207 ;	Reset bit 6 of reg CC. Hardware bug workaround.
+      000048 62               [ 2]  208 	div	x, a
+                           000049   209 	Smilis$TIM4_UPD_OVF_IRQHandler$44 ==.
+                           000049   210 	Smilis$TIM4_UPD_OVF_IRQHandler$45 ==.
+                                    211 ;	./src/milis.c: 40: TIM4_ClearFlag(TIM4_FLAG_UPDATE);
+                                    212 ; genIPush
+      000049 4B 01            [ 1]  213 	push	#0x01
+                           00004B   214 	Smilis$TIM4_UPD_OVF_IRQHandler$46 ==.
+                                    215 ; genCall
+      00004B CDr00r00         [ 4]  216 	call	_TIM4_ClearFlag
+      00004E 84               [ 1]  217 	pop	a
+                           00004F   218 	Smilis$TIM4_UPD_OVF_IRQHandler$47 ==.
+                           00004F   219 	Smilis$TIM4_UPD_OVF_IRQHandler$48 ==.
+                                    220 ;	./src/milis.c: 41: miliseconds++;
+                                    221 ; genAssign
+      00004F CEu00u02         [ 2]  222 	ldw	x, _miliseconds+2
+      000052 90 CEu00u00      [ 2]  223 	ldw	y, _miliseconds+0
+                                    224 ; genPlus
+      000056 5C               [ 1]  225 	incw	x
+      000057 26 02            [ 1]  226 	jrne	00103$
+      000059 90 5C            [ 1]  227 	incw	y
+      00005B                        228 00103$:
+                                    229 ; genAssign
+      00005B CFu00u02         [ 2]  230 	ldw	_miliseconds+2, x
+      00005E 90 CFu00u00      [ 2]  231 	ldw	_miliseconds+0, y
+                                    232 ; genLabel
+      000062                        233 00101$:
+                           000062   234 	Smilis$TIM4_UPD_OVF_IRQHandler$49 ==.
+                                    235 ;	./src/milis.c: 42: }
+                                    236 ; genEndFunction
+                           000062   237 	Smilis$TIM4_UPD_OVF_IRQHandler$50 ==.
+                           000062   238 	XG$TIM4_UPD_OVF_IRQHandler$0$0 ==.
+      000062 80               [11]  239 	iret
+                           000063   240 	Smilis$TIM4_UPD_OVF_IRQHandler$51 ==.
+                                    241 	.area CODE
+                                    242 	.area CONST
+                                    243 	.area INITIALIZER
+                           000000   244 Fmilis$__xinit_miliseconds$0_0$0 == .
+      000000                        245 __xinit__miliseconds:
+      000000 00 00 00 00            246 	.byte #0x00, #0x00, #0x00, #0x00	; 0
+                                    247 	.area CABS (ABS)
+                                    248 
+                                    249 	.area .debug_line (NOLOAD)
+      000000 00 00 00 FE            250 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        251 Ldebug_line_start:
+      000004 00 02                  252 	.dw	2
+      000006 00 00 00 6E            253 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     254 	.db	1
+      00000B 01                     255 	.db	1
+      00000C FB                     256 	.db	-5
+      00000D 0F                     257 	.db	15
+      00000E 0A                     258 	.db	10
+      00000F 00                     259 	.db	0
+      000010 01                     260 	.db	1
+      000011 01                     261 	.db	1
+      000012 01                     262 	.db	1
+      000013 01                     263 	.db	1
+      000014 00                     264 	.db	0
+      000015 00                     265 	.db	0
+      000016 00                     266 	.db	0
+      000017 01                     267 	.db	1
+      000018 43 3A 5C 50 72 6F 67   268 	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+             5C 73 74 6D 38
+      000040 00                     269 	.db	0
+      000041 43 3A 5C 50 72 6F 67   270 	.ascii "C:\Program Files\SDCC\bin\..\include"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+      000064 00                     271 	.db	0
+      000065 00                     272 	.db	0
+      000066 2E 2F 73 72 63 2F 6D   273 	.ascii "./src/milis.c"
+             69 6C 69 73 2E 63
+      000073 00                     274 	.db	0
+      000074 00                     275 	.uleb128	0
+      000075 00                     276 	.uleb128	0
+      000076 00                     277 	.uleb128	0
+      000077 00                     278 	.db	0
+      000078                        279 Ldebug_line_stmt:
+      000078 00                     280 	.db	0
+      000079 05                     281 	.uleb128	5
+      00007A 02                     282 	.db	2
+      00007B 00 00r00r00            283 	.dw	0,(Smilis$milis$0)
+      00007F 03                     284 	.db	3
+      000080 0C                     285 	.sleb128	12
+      000081 01                     286 	.db	1
+      000082 09                     287 	.db	9
+      000083 00 02                  288 	.dw	Smilis$milis$3-Smilis$milis$0
+      000085 03                     289 	.db	3
+      000086 07                     290 	.sleb128	7
+      000087 01                     291 	.db	1
+      000088 09                     292 	.db	9
+      000089 00 08                  293 	.dw	Smilis$milis$7-Smilis$milis$3
+      00008B 03                     294 	.db	3
+      00008C 01                     295 	.sleb128	1
+      00008D 01                     296 	.db	1
+      00008E 09                     297 	.db	9
+      00008F 00 09                  298 	.dw	Smilis$milis$8-Smilis$milis$7
+      000091 03                     299 	.db	3
+      000092 01                     300 	.sleb128	1
+      000093 01                     301 	.db	1
+      000094 09                     302 	.db	9
+      000095 00 0A                  303 	.dw	Smilis$milis$14-Smilis$milis$8
+      000097 03                     304 	.db	3
+      000098 01                     305 	.sleb128	1
+      000099 01                     306 	.db	1
+      00009A 09                     307 	.db	9
+      00009B 00 02                  308 	.dw	Smilis$milis$15-Smilis$milis$14
+      00009D 03                     309 	.db	3
+      00009E 01                     310 	.sleb128	1
+      00009F 01                     311 	.db	1
+      0000A0 09                     312 	.db	9
+      0000A1 00 03                  313 	.dw	1+Smilis$milis$17-Smilis$milis$15
+      0000A3 00                     314 	.db	0
+      0000A4 01                     315 	.uleb128	1
+      0000A5 01                     316 	.db	1
+      0000A6 00                     317 	.db	0
+      0000A7 05                     318 	.uleb128	5
+      0000A8 02                     319 	.db	2
+      0000A9 00 00r00r22            320 	.dw	0,(Smilis$init_milis$19)
+      0000AD 03                     321 	.db	3
+      0000AE 1A                     322 	.sleb128	26
+      0000AF 01                     323 	.db	1
+      0000B0 09                     324 	.db	9
+      0000B1 00 00                  325 	.dw	Smilis$init_milis$21-Smilis$init_milis$19
+      0000B3 03                     326 	.db	3
+      0000B4 02                     327 	.sleb128	2
+      0000B5 01                     328 	.db	1
+      0000B6 09                     329 	.db	9
+      0000B7 00 08                  330 	.dw	Smilis$init_milis$25-Smilis$init_milis$21
+      0000B9 03                     331 	.db	3
+      0000BA 01                     332 	.sleb128	1
+      0000BB 01                     333 	.db	1
+      0000BC 09                     334 	.db	9
+      0000BD 00 06                  335 	.dw	Smilis$init_milis$28-Smilis$init_milis$25
+      0000BF 03                     336 	.db	3
+      0000C0 01                     337 	.sleb128	1
+      0000C1 01                     338 	.db	1
+      0000C2 09                     339 	.db	9
+      0000C3 00 08                  340 	.dw	Smilis$init_milis$32-Smilis$init_milis$28
+      0000C5 03                     341 	.db	3
+      0000C6 01                     342 	.sleb128	1
+      0000C7 01                     343 	.db	1
+      0000C8 09                     344 	.db	9
+      0000C9 00 08                  345 	.dw	Smilis$init_milis$36-Smilis$init_milis$32
+      0000CB 03                     346 	.db	3
+      0000CC 01                     347 	.sleb128	1
+      0000CD 01                     348 	.db	1
+      0000CE 09                     349 	.db	9
+      0000CF 00 01                  350 	.dw	Smilis$init_milis$37-Smilis$init_milis$36
+      0000D1 03                     351 	.db	3
+      0000D2 01                     352 	.sleb128	1
+      0000D3 01                     353 	.db	1
+      0000D4 09                     354 	.db	9
+      0000D5 00 06                  355 	.dw	Smilis$init_milis$40-Smilis$init_milis$37
+      0000D7 03                     356 	.db	3
+      0000D8 01                     357 	.sleb128	1
+      0000D9 01                     358 	.db	1
+      0000DA 09                     359 	.db	9
+      0000DB 00 01                  360 	.dw	1+Smilis$init_milis$41-Smilis$init_milis$40
+      0000DD 00                     361 	.db	0
+      0000DE 01                     362 	.uleb128	1
+      0000DF 01                     363 	.db	1
+      0000E0 00                     364 	.db	0
+      0000E1 05                     365 	.uleb128	5
+      0000E2 02                     366 	.db	2
+      0000E3 00 00r00r48            367 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$43)
+      0000E7 03                     368 	.db	3
+      0000E8 25                     369 	.sleb128	37
+      0000E9 01                     370 	.db	1
+      0000EA 09                     371 	.db	9
+      0000EB 00 01                  372 	.dw	Smilis$TIM4_UPD_OVF_IRQHandler$45-Smilis$TIM4_UPD_OVF_IRQHandler$43
+      0000ED 03                     373 	.db	3
+      0000EE 02                     374 	.sleb128	2
+      0000EF 01                     375 	.db	1
+      0000F0 09                     376 	.db	9
+      0000F1 00 06                  377 	.dw	Smilis$TIM4_UPD_OVF_IRQHandler$48-Smilis$TIM4_UPD_OVF_IRQHandler$45
+      0000F3 03                     378 	.db	3
+      0000F4 01                     379 	.sleb128	1
+      0000F5 01                     380 	.db	1
+      0000F6 09                     381 	.db	9
+      0000F7 00 13                  382 	.dw	Smilis$TIM4_UPD_OVF_IRQHandler$49-Smilis$TIM4_UPD_OVF_IRQHandler$48
+      0000F9 03                     383 	.db	3
+      0000FA 01                     384 	.sleb128	1
+      0000FB 01                     385 	.db	1
+      0000FC 09                     386 	.db	9
+      0000FD 00 01                  387 	.dw	1+Smilis$TIM4_UPD_OVF_IRQHandler$50-Smilis$TIM4_UPD_OVF_IRQHandler$49
+      0000FF 00                     388 	.db	0
+      000100 01                     389 	.uleb128	1
+      000101 01                     390 	.db	1
+      000102                        391 Ldebug_line_end:
+                                    392 
+                                    393 	.area .debug_loc (NOLOAD)
+      000000                        394 Ldebug_loc_start:
+      000000 00 00r00r4F            395 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$47)
+      000004 00 00r00r63            396 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$51)
+      000008 00 02                  397 	.dw	2
+      00000A 78                     398 	.db	120
+      00000B 01                     399 	.sleb128	1
+      00000C 00 00r00r4B            400 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$46)
+      000010 00 00r00r4F            401 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$47)
+      000014 00 02                  402 	.dw	2
+      000016 78                     403 	.db	120
+      000017 02                     404 	.sleb128	2
+      000018 00 00r00r49            405 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$44)
+      00001C 00 00r00r4B            406 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$46)
+      000020 00 02                  407 	.dw	2
+      000022 78                     408 	.db	120
+      000023 01                     409 	.sleb128	1
+      000024 00 00 00 00            410 	.dw	0,0
+      000028 00 00 00 00            411 	.dw	0,0
+      00002C 00 00r00r47            412 	.dw	0,(Smilis$init_milis$39)
+      000030 00 00r00r48            413 	.dw	0,(Smilis$init_milis$42)
+      000034 00 02                  414 	.dw	2
+      000036 78                     415 	.db	120
+      000037 01                     416 	.sleb128	1
+      000038 00 00r00r43            417 	.dw	0,(Smilis$init_milis$38)
+      00003C 00 00r00r47            418 	.dw	0,(Smilis$init_milis$39)
+      000040 00 02                  419 	.dw	2
+      000042 78                     420 	.db	120
+      000043 02                     421 	.sleb128	2
+      000044 00 00r00r40            422 	.dw	0,(Smilis$init_milis$35)
+      000048 00 00r00r43            423 	.dw	0,(Smilis$init_milis$38)
+      00004C 00 02                  424 	.dw	2
+      00004E 78                     425 	.db	120
+      00004F 01                     426 	.sleb128	1
+      000050 00 00r00r3C            427 	.dw	0,(Smilis$init_milis$34)
+      000054 00 00r00r40            428 	.dw	0,(Smilis$init_milis$35)
+      000058 00 02                  429 	.dw	2
+      00005A 78                     430 	.db	120
+      00005B 03                     431 	.sleb128	3
+      00005C 00 00r00r3A            432 	.dw	0,(Smilis$init_milis$33)
+      000060 00 00r00r3C            433 	.dw	0,(Smilis$init_milis$34)
+      000064 00 02                  434 	.dw	2
+      000066 78                     435 	.db	120
+      000067 02                     436 	.sleb128	2
+      000068 00 00r00r38            437 	.dw	0,(Smilis$init_milis$31)
+      00006C 00 00r00r3A            438 	.dw	0,(Smilis$init_milis$33)
+      000070 00 02                  439 	.dw	2
+      000072 78                     440 	.db	120
+      000073 01                     441 	.sleb128	1
+      000074 00 00r00r34            442 	.dw	0,(Smilis$init_milis$30)
+      000078 00 00r00r38            443 	.dw	0,(Smilis$init_milis$31)
+      00007C 00 02                  444 	.dw	2
+      00007E 78                     445 	.db	120
+      00007F 03                     446 	.sleb128	3
+      000080 00 00r00r32            447 	.dw	0,(Smilis$init_milis$29)
+      000084 00 00r00r34            448 	.dw	0,(Smilis$init_milis$30)
+      000088 00 02                  449 	.dw	2
+      00008A 78                     450 	.db	120
+      00008B 02                     451 	.sleb128	2
+      00008C 00 00r00r30            452 	.dw	0,(Smilis$init_milis$27)
+      000090 00 00r00r32            453 	.dw	0,(Smilis$init_milis$29)
+      000094 00 02                  454 	.dw	2
+      000096 78                     455 	.db	120
+      000097 01                     456 	.sleb128	1
+      000098 00 00r00r2C            457 	.dw	0,(Smilis$init_milis$26)
+      00009C 00 00r00r30            458 	.dw	0,(Smilis$init_milis$27)
+      0000A0 00 02                  459 	.dw	2
+      0000A2 78                     460 	.db	120
+      0000A3 02                     461 	.sleb128	2
+      0000A4 00 00r00r2A            462 	.dw	0,(Smilis$init_milis$24)
+      0000A8 00 00r00r2C            463 	.dw	0,(Smilis$init_milis$26)
+      0000AC 00 02                  464 	.dw	2
+      0000AE 78                     465 	.db	120
+      0000AF 01                     466 	.sleb128	1
+      0000B0 00 00r00r26            467 	.dw	0,(Smilis$init_milis$23)
+      0000B4 00 00r00r2A            468 	.dw	0,(Smilis$init_milis$24)
+      0000B8 00 02                  469 	.dw	2
+      0000BA 78                     470 	.db	120
+      0000BB 03                     471 	.sleb128	3
+      0000BC 00 00r00r24            472 	.dw	0,(Smilis$init_milis$22)
+      0000C0 00 00r00r26            473 	.dw	0,(Smilis$init_milis$23)
+      0000C4 00 02                  474 	.dw	2
+      0000C6 78                     475 	.db	120
+      0000C7 02                     476 	.sleb128	2
+      0000C8 00 00r00r22            477 	.dw	0,(Smilis$init_milis$20)
+      0000CC 00 00r00r24            478 	.dw	0,(Smilis$init_milis$22)
+      0000D0 00 02                  479 	.dw	2
+      0000D2 78                     480 	.db	120
+      0000D3 01                     481 	.sleb128	1
+      0000D4 00 00 00 00            482 	.dw	0,0
+      0000D8 00 00 00 00            483 	.dw	0,0
+      0000DC 00 00r00r21            484 	.dw	0,(Smilis$milis$16)
+      0000E0 00 00r00r22            485 	.dw	0,(Smilis$milis$18)
+      0000E4 00 02                  486 	.dw	2
+      0000E6 78                     487 	.db	120
+      0000E7 01                     488 	.sleb128	1
+      0000E8 00 00r00r1D            489 	.dw	0,(Smilis$milis$13)
+      0000EC 00 00r00r21            490 	.dw	0,(Smilis$milis$16)
+      0000F0 00 02                  491 	.dw	2
+      0000F2 78                     492 	.db	120
+      0000F3 05                     493 	.sleb128	5
+      0000F4 00 00r00r1C            494 	.dw	0,(Smilis$milis$12)
+      0000F8 00 00r00r1D            495 	.dw	0,(Smilis$milis$13)
+      0000FC 00 02                  496 	.dw	2
+      0000FE 78                     497 	.db	120
+      0000FF 07                     498 	.sleb128	7
+      000100 00 00r00r18            499 	.dw	0,(Smilis$milis$11)
+      000104 00 00r00r1C            500 	.dw	0,(Smilis$milis$12)
+      000108 00 02                  501 	.dw	2
+      00010A 78                     502 	.db	120
+      00010B 09                     503 	.sleb128	9
+      00010C 00 00r00r16            504 	.dw	0,(Smilis$milis$10)
+      000110 00 00r00r18            505 	.dw	0,(Smilis$milis$11)
+      000114 00 02                  506 	.dw	2
+      000116 78                     507 	.db	120
+      000117 08                     508 	.sleb128	8
+      000118 00 00r00r14            509 	.dw	0,(Smilis$milis$9)
+      00011C 00 00r00r16            510 	.dw	0,(Smilis$milis$10)
+      000120 00 02                  511 	.dw	2
+      000122 78                     512 	.db	120
+      000123 07                     513 	.sleb128	7
+      000124 00 00r00r0A            514 	.dw	0,(Smilis$milis$6)
+      000128 00 00r00r14            515 	.dw	0,(Smilis$milis$9)
+      00012C 00 02                  516 	.dw	2
+      00012E 78                     517 	.db	120
+      00012F 05                     518 	.sleb128	5
+      000130 00 00r00r06            519 	.dw	0,(Smilis$milis$5)
+      000134 00 00r00r0A            520 	.dw	0,(Smilis$milis$6)
+      000138 00 02                  521 	.dw	2
+      00013A 78                     522 	.db	120
+      00013B 07                     523 	.sleb128	7
+      00013C 00 00r00r04            524 	.dw	0,(Smilis$milis$4)
+      000140 00 00r00r06            525 	.dw	0,(Smilis$milis$5)
+      000144 00 02                  526 	.dw	2
+      000146 78                     527 	.db	120
+      000147 06                     528 	.sleb128	6
+      000148 00 00r00r02            529 	.dw	0,(Smilis$milis$2)
+      00014C 00 00r00r04            530 	.dw	0,(Smilis$milis$4)
+      000150 00 02                  531 	.dw	2
+      000152 78                     532 	.db	120
+      000153 05                     533 	.sleb128	5
+      000154 00 00r00r00            534 	.dw	0,(Smilis$milis$1)
+      000158 00 00r00r02            535 	.dw	0,(Smilis$milis$2)
+      00015C 00 02                  536 	.dw	2
+      00015E 78                     537 	.db	120
+      00015F 01                     538 	.sleb128	1
+      000160 00 00 00 00            539 	.dw	0,0
+      000164 00 00 00 00            540 	.dw	0,0
+                                    541 
+                                    542 	.area .debug_abbrev (NOLOAD)
+      000000                        543 Ldebug_abbrev:
+      000000 07                     544 	.uleb128	7
+      000001 35                     545 	.uleb128	53
+      000002 00                     546 	.db	0
+      000003 49                     547 	.uleb128	73
+      000004 13                     548 	.uleb128	19
+      000005 00                     549 	.uleb128	0
+      000006 00                     550 	.uleb128	0
+      000007 08                     551 	.uleb128	8
+      000008 34                     552 	.uleb128	52
+      000009 00                     553 	.db	0
+      00000A 02                     554 	.uleb128	2
+      00000B 0A                     555 	.uleb128	10
+      00000C 03                     556 	.uleb128	3
+      00000D 08                     557 	.uleb128	8
+      00000E 3F                     558 	.uleb128	63
+      00000F 0C                     559 	.uleb128	12
+      000010 49                     560 	.uleb128	73
+      000011 13                     561 	.uleb128	19
+      000012 00                     562 	.uleb128	0
+      000013 00                     563 	.uleb128	0
+      000014 04                     564 	.uleb128	4
+      000015 34                     565 	.uleb128	52
+      000016 00                     566 	.db	0
+      000017 02                     567 	.uleb128	2
+      000018 0A                     568 	.uleb128	10
+      000019 03                     569 	.uleb128	3
+      00001A 08                     570 	.uleb128	8
+      00001B 49                     571 	.uleb128	73
+      00001C 13                     572 	.uleb128	19
+      00001D 00                     573 	.uleb128	0
+      00001E 00                     574 	.uleb128	0
+      00001F 03                     575 	.uleb128	3
+      000020 2E                     576 	.uleb128	46
+      000021 01                     577 	.db	1
+      000022 01                     578 	.uleb128	1
+      000023 13                     579 	.uleb128	19
+      000024 03                     580 	.uleb128	3
+      000025 08                     581 	.uleb128	8
+      000026 11                     582 	.uleb128	17
+      000027 01                     583 	.uleb128	1
+      000028 12                     584 	.uleb128	18
+      000029 01                     585 	.uleb128	1
+      00002A 3F                     586 	.uleb128	63
+      00002B 0C                     587 	.uleb128	12
+      00002C 40                     588 	.uleb128	64
+      00002D 06                     589 	.uleb128	6
+      00002E 49                     590 	.uleb128	73
+      00002F 13                     591 	.uleb128	19
+      000030 00                     592 	.uleb128	0
+      000031 00                     593 	.uleb128	0
+      000032 01                     594 	.uleb128	1
+      000033 11                     595 	.uleb128	17
+      000034 01                     596 	.db	1
+      000035 03                     597 	.uleb128	3
+      000036 08                     598 	.uleb128	8
+      000037 10                     599 	.uleb128	16
+      000038 06                     600 	.uleb128	6
+      000039 13                     601 	.uleb128	19
+      00003A 0B                     602 	.uleb128	11
+      00003B 25                     603 	.uleb128	37
+      00003C 08                     604 	.uleb128	8
+      00003D 00                     605 	.uleb128	0
+      00003E 00                     606 	.uleb128	0
+      00003F 05                     607 	.uleb128	5
+      000040 2E                     608 	.uleb128	46
+      000041 00                     609 	.db	0
+      000042 03                     610 	.uleb128	3
+      000043 08                     611 	.uleb128	8
+      000044 11                     612 	.uleb128	17
+      000045 01                     613 	.uleb128	1
+      000046 12                     614 	.uleb128	18
+      000047 01                     615 	.uleb128	1
+      000048 3F                     616 	.uleb128	63
+      000049 0C                     617 	.uleb128	12
+      00004A 40                     618 	.uleb128	64
+      00004B 06                     619 	.uleb128	6
+      00004C 00                     620 	.uleb128	0
+      00004D 00                     621 	.uleb128	0
+      00004E 02                     622 	.uleb128	2
+      00004F 24                     623 	.uleb128	36
+      000050 00                     624 	.db	0
+      000051 03                     625 	.uleb128	3
+      000052 08                     626 	.uleb128	8
+      000053 0B                     627 	.uleb128	11
+      000054 0B                     628 	.uleb128	11
+      000055 3E                     629 	.uleb128	62
+      000056 0B                     630 	.uleb128	11
+      000057 00                     631 	.uleb128	0
+      000058 00                     632 	.uleb128	0
+      000059 06                     633 	.uleb128	6
+      00005A 2E                     634 	.uleb128	46
+      00005B 00                     635 	.db	0
+      00005C 03                     636 	.uleb128	3
+      00005D 08                     637 	.uleb128	8
+      00005E 11                     638 	.uleb128	17
+      00005F 01                     639 	.uleb128	1
+      000060 12                     640 	.uleb128	18
+      000061 01                     641 	.uleb128	1
+      000062 36                     642 	.uleb128	54
+      000063 0B                     643 	.uleb128	11
+      000064 3F                     644 	.uleb128	63
+      000065 0C                     645 	.uleb128	12
+      000066 40                     646 	.uleb128	64
+      000067 06                     647 	.uleb128	6
+      000068 00                     648 	.uleb128	0
+      000069 00                     649 	.uleb128	0
+      00006A 00                     650 	.uleb128	0
+                                    651 
+                                    652 	.area .debug_info (NOLOAD)
+      000000 00 00 00 DB            653 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                        654 Ldebug_info_start:
+      000004 00 02                  655 	.dw	2
+      000006 00 00r00r00            656 	.dw	0,(Ldebug_abbrev)
+      00000A 04                     657 	.db	4
+      00000B 01                     658 	.uleb128	1
+      00000C 2E 2F 73 72 63 2F 6D   659 	.ascii "./src/milis.c"
+             69 6C 69 73 2E 63
+      000019 00                     660 	.db	0
+      00001A 00 00r00r00            661 	.dw	0,(Ldebug_line_start+-4)
+      00001E 01                     662 	.db	1
+      00001F 53 44 43 43 20 76 65   663 	.ascii "SDCC version 4.1.0 #12072"
+             72 73 69 6F 6E 20 34
+             2E 31 2E 30 20 23 31
+             32 30 37 32
+      000038 00                     664 	.db	0
+      000039 02                     665 	.uleb128	2
+      00003A 75 6E 73 69 67 6E 65   666 	.ascii "unsigned long"
+             64 20 6C 6F 6E 67
+      000047 00                     667 	.db	0
+      000048 04                     668 	.db	4
+      000049 07                     669 	.db	7
+      00004A 03                     670 	.uleb128	3
+      00004B 00 00 00 7F            671 	.dw	0,127
+      00004F 6D 69 6C 69 73         672 	.ascii "milis"
+      000054 00                     673 	.db	0
+      000055 00 00r00r00            674 	.dw	0,(_milis)
+      000059 00 00r00r22            675 	.dw	0,(XG$milis$0$0+1)
+      00005D 01                     676 	.db	1
+      00005E 00 00r00rDC            677 	.dw	0,(Ldebug_loc_start+220)
+      000062 00 00 00 39            678 	.dw	0,57
+      000066 04                     679 	.uleb128	4
+      000067 0E                     680 	.db	14
+      000068 91                     681 	.db	145
+      000069 7C                     682 	.sleb128	-4
+      00006A 93                     683 	.db	147
+      00006B 01                     684 	.uleb128	1
+      00006C 91                     685 	.db	145
+      00006D 7D                     686 	.sleb128	-3
+      00006E 93                     687 	.db	147
+      00006F 01                     688 	.uleb128	1
+      000070 52                     689 	.db	82
+      000071 93                     690 	.db	147
+      000072 01                     691 	.uleb128	1
+      000073 51                     692 	.db	81
+      000074 93                     693 	.db	147
+      000075 01                     694 	.uleb128	1
+      000076 74 6D 70               695 	.ascii "tmp"
+      000079 00                     696 	.db	0
+      00007A 00 00 00 39            697 	.dw	0,57
+      00007E 00                     698 	.uleb128	0
+      00007F 05                     699 	.uleb128	5
+      000080 69 6E 69 74 5F 6D 69   700 	.ascii "init_milis"
+             6C 69 73
+      00008A 00                     701 	.db	0
+      00008B 00 00r00r22            702 	.dw	0,(_init_milis)
+      00008F 00 00r00r48            703 	.dw	0,(XG$init_milis$0$0+1)
+      000093 01                     704 	.db	1
+      000094 00 00r00r2C            705 	.dw	0,(Ldebug_loc_start+44)
+      000098 06                     706 	.uleb128	6
+      000099 54 49 4D 34 5F 55 50   707 	.ascii "TIM4_UPD_OVF_IRQHandler"
+             44 5F 4F 56 46 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      0000B0 00                     708 	.db	0
+      0000B1 00 00r00r48            709 	.dw	0,(_TIM4_UPD_OVF_IRQHandler)
+      0000B5 00 00r00r63            710 	.dw	0,(XG$TIM4_UPD_OVF_IRQHandler$0$0+1)
+      0000B9 03                     711 	.db	3
+      0000BA 01                     712 	.db	1
+      0000BB 00 00r00r00            713 	.dw	0,(Ldebug_loc_start)
+      0000BF 07                     714 	.uleb128	7
+      0000C0 00 00 00 39            715 	.dw	0,57
+      0000C4 08                     716 	.uleb128	8
+      0000C5 05                     717 	.db	5
+      0000C6 03                     718 	.db	3
+      0000C7 00 00r00r00            719 	.dw	0,(_miliseconds)
+      0000CB 6D 69 6C 69 73 65 63   720 	.ascii "miliseconds"
+             6F 6E 64 73
+      0000D6 00                     721 	.db	0
+      0000D7 01                     722 	.db	1
+      0000D8 00 00 00 BF            723 	.dw	0,191
+      0000DC 00                     724 	.uleb128	0
+      0000DD 00                     725 	.uleb128	0
+      0000DE 00                     726 	.uleb128	0
+      0000DF                        727 Ldebug_info_end:
+                                    728 
+                                    729 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 00 53            730 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                        731 Ldebug_pubnames_start:
+      000004 00 02                  732 	.dw	2
+      000006 00 00r00r00            733 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 00 DF            734 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 4A            735 	.dw	0,74
+      000012 6D 69 6C 69 73         736 	.ascii "milis"
+      000017 00                     737 	.db	0
+      000018 00 00 00 7F            738 	.dw	0,127
+      00001C 69 6E 69 74 5F 6D 69   739 	.ascii "init_milis"
+             6C 69 73
+      000026 00                     740 	.db	0
+      000027 00 00 00 98            741 	.dw	0,152
+      00002B 54 49 4D 34 5F 55 50   742 	.ascii "TIM4_UPD_OVF_IRQHandler"
+             44 5F 4F 56 46 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      000042 00                     743 	.db	0
+      000043 00 00 00 C4            744 	.dw	0,196
+      000047 6D 69 6C 69 73 65 63   745 	.ascii "miliseconds"
+             6F 6E 64 73
+      000052 00                     746 	.db	0
+      000053 00 00 00 00            747 	.dw	0,0
+      000057                        748 Ldebug_pubnames_end:
+                                    749 
+                                    750 	.area .debug_frame (NOLOAD)
+      000000 00 00                  751 	.dw	0
+      000002 00 0E                  752 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                        753 Ldebug_CIE0_start:
+      000004 FF FF                  754 	.dw	0xffff
+      000006 FF FF                  755 	.dw	0xffff
+      000008 01                     756 	.db	1
+      000009 00                     757 	.db	0
+      00000A 01                     758 	.uleb128	1
+      00000B 7F                     759 	.sleb128	-1
+      00000C 09                     760 	.db	9
+      00000D 0C                     761 	.db	12
+      00000E 08                     762 	.uleb128	8
+      00000F 09                     763 	.uleb128	9
+      000010 89                     764 	.db	137
+      000011 01                     765 	.uleb128	1
+      000012                        766 Ldebug_CIE0_end:
+      000012 00 00 00 21            767 	.dw	0,33
+      000016 00 00r00r00            768 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r00r49            769 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$44)	;initial loc
+      00001E 00 00 00 1A            770 	.dw	0,Smilis$TIM4_UPD_OVF_IRQHandler$51-Smilis$TIM4_UPD_OVF_IRQHandler$44
+      000022 01                     771 	.db	1
+      000023 00 00r00r49            772 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$44)
+      000027 0E                     773 	.db	14
+      000028 09                     774 	.uleb128	9
+      000029 01                     775 	.db	1
+      00002A 00 00r00r4B            776 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$46)
+      00002E 0E                     777 	.db	14
+      00002F 0A                     778 	.uleb128	10
+      000030 01                     779 	.db	1
+      000031 00 00r00r4F            780 	.dw	0,(Smilis$TIM4_UPD_OVF_IRQHandler$47)
+      000035 0E                     781 	.db	14
+      000036 09                     782 	.uleb128	9
+                                    783 
+                                    784 	.area .debug_frame (NOLOAD)
+      000037 00 00                  785 	.dw	0
+      000039 00 0E                  786 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      00003B                        787 Ldebug_CIE1_start:
+      00003B FF FF                  788 	.dw	0xffff
+      00003D FF FF                  789 	.dw	0xffff
+      00003F 01                     790 	.db	1
+      000040 00                     791 	.db	0
+      000041 01                     792 	.uleb128	1
+      000042 7F                     793 	.sleb128	-1
+      000043 09                     794 	.db	9
+      000044 0C                     795 	.db	12
+      000045 08                     796 	.uleb128	8
+      000046 02                     797 	.uleb128	2
+      000047 89                     798 	.db	137
+      000048 01                     799 	.uleb128	1
+      000049                        800 Ldebug_CIE1_end:
+      000049 00 00 00 6E            801 	.dw	0,110
+      00004D 00 00r00r37            802 	.dw	0,(Ldebug_CIE1_start-4)
+      000051 00 00r00r22            803 	.dw	0,(Smilis$init_milis$20)	;initial loc
+      000055 00 00 00 26            804 	.dw	0,Smilis$init_milis$42-Smilis$init_milis$20
+      000059 01                     805 	.db	1
+      00005A 00 00r00r22            806 	.dw	0,(Smilis$init_milis$20)
+      00005E 0E                     807 	.db	14
+      00005F 02                     808 	.uleb128	2
+      000060 01                     809 	.db	1
+      000061 00 00r00r24            810 	.dw	0,(Smilis$init_milis$22)
+      000065 0E                     811 	.db	14
+      000066 03                     812 	.uleb128	3
+      000067 01                     813 	.db	1
+      000068 00 00r00r26            814 	.dw	0,(Smilis$init_milis$23)
+      00006C 0E                     815 	.db	14
+      00006D 04                     816 	.uleb128	4
+      00006E 01                     817 	.db	1
+      00006F 00 00r00r2A            818 	.dw	0,(Smilis$init_milis$24)
+      000073 0E                     819 	.db	14
+      000074 02                     820 	.uleb128	2
+      000075 01                     821 	.db	1
+      000076 00 00r00r2C            822 	.dw	0,(Smilis$init_milis$26)
+      00007A 0E                     823 	.db	14
+      00007B 03                     824 	.uleb128	3
+      00007C 01                     825 	.db	1
+      00007D 00 00r00r30            826 	.dw	0,(Smilis$init_milis$27)
+      000081 0E                     827 	.db	14
+      000082 02                     828 	.uleb128	2
+      000083 01                     829 	.db	1
+      000084 00 00r00r32            830 	.dw	0,(Smilis$init_milis$29)
+      000088 0E                     831 	.db	14
+      000089 03                     832 	.uleb128	3
+      00008A 01                     833 	.db	1
+      00008B 00 00r00r34            834 	.dw	0,(Smilis$init_milis$30)
+      00008F 0E                     835 	.db	14
+      000090 04                     836 	.uleb128	4
+      000091 01                     837 	.db	1
+      000092 00 00r00r38            838 	.dw	0,(Smilis$init_milis$31)
+      000096 0E                     839 	.db	14
+      000097 02                     840 	.uleb128	2
+      000098 01                     841 	.db	1
+      000099 00 00r00r3A            842 	.dw	0,(Smilis$init_milis$33)
+      00009D 0E                     843 	.db	14
+      00009E 03                     844 	.uleb128	3
+      00009F 01                     845 	.db	1
+      0000A0 00 00r00r3C            846 	.dw	0,(Smilis$init_milis$34)
+      0000A4 0E                     847 	.db	14
+      0000A5 04                     848 	.uleb128	4
+      0000A6 01                     849 	.db	1
+      0000A7 00 00r00r40            850 	.dw	0,(Smilis$init_milis$35)
+      0000AB 0E                     851 	.db	14
+      0000AC 02                     852 	.uleb128	2
+      0000AD 01                     853 	.db	1
+      0000AE 00 00r00r43            854 	.dw	0,(Smilis$init_milis$38)
+      0000B2 0E                     855 	.db	14
+      0000B3 03                     856 	.uleb128	3
+      0000B4 01                     857 	.db	1
+      0000B5 00 00r00r47            858 	.dw	0,(Smilis$init_milis$39)
+      0000B9 0E                     859 	.db	14
+      0000BA 02                     860 	.uleb128	2
+                                    861 
+                                    862 	.area .debug_frame (NOLOAD)
+      0000BB 00 00                  863 	.dw	0
+      0000BD 00 0E                  864 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      0000BF                        865 Ldebug_CIE2_start:
+      0000BF FF FF                  866 	.dw	0xffff
+      0000C1 FF FF                  867 	.dw	0xffff
+      0000C3 01                     868 	.db	1
+      0000C4 00                     869 	.db	0
+      0000C5 01                     870 	.uleb128	1
+      0000C6 7F                     871 	.sleb128	-1
+      0000C7 09                     872 	.db	9
+      0000C8 0C                     873 	.db	12
+      0000C9 08                     874 	.uleb128	8
+      0000CA 02                     875 	.uleb128	2
+      0000CB 89                     876 	.db	137
+      0000CC 01                     877 	.uleb128	1
+      0000CD                        878 Ldebug_CIE2_end:
+      0000CD 00 00 00 59            879 	.dw	0,89
+      0000D1 00 00r00rBB            880 	.dw	0,(Ldebug_CIE2_start-4)
+      0000D5 00 00r00r00            881 	.dw	0,(Smilis$milis$1)	;initial loc
+      0000D9 00 00 00 22            882 	.dw	0,Smilis$milis$18-Smilis$milis$1
+      0000DD 01                     883 	.db	1
+      0000DE 00 00r00r00            884 	.dw	0,(Smilis$milis$1)
+      0000E2 0E                     885 	.db	14
+      0000E3 02                     886 	.uleb128	2
+      0000E4 01                     887 	.db	1
+      0000E5 00 00r00r02            888 	.dw	0,(Smilis$milis$2)
+      0000E9 0E                     889 	.db	14
+      0000EA 06                     890 	.uleb128	6
+      0000EB 01                     891 	.db	1
+      0000EC 00 00r00r04            892 	.dw	0,(Smilis$milis$4)
+      0000F0 0E                     893 	.db	14
+      0000F1 07                     894 	.uleb128	7
+      0000F2 01                     895 	.db	1
+      0000F3 00 00r00r06            896 	.dw	0,(Smilis$milis$5)
+      0000F7 0E                     897 	.db	14
+      0000F8 08                     898 	.uleb128	8
+      0000F9 01                     899 	.db	1
+      0000FA 00 00r00r0A            900 	.dw	0,(Smilis$milis$6)
+      0000FE 0E                     901 	.db	14
+      0000FF 06                     902 	.uleb128	6
+      000100 01                     903 	.db	1
+      000101 00 00r00r14            904 	.dw	0,(Smilis$milis$9)
+      000105 0E                     905 	.db	14
+      000106 08                     906 	.uleb128	8
+      000107 01                     907 	.db	1
+      000108 00 00r00r16            908 	.dw	0,(Smilis$milis$10)
+      00010C 0E                     909 	.db	14
+      00010D 09                     910 	.uleb128	9
+      00010E 01                     911 	.db	1
+      00010F 00 00r00r18            912 	.dw	0,(Smilis$milis$11)
+      000113 0E                     913 	.db	14
+      000114 0A                     914 	.uleb128	10
+      000115 01                     915 	.db	1
+      000116 00 00r00r1C            916 	.dw	0,(Smilis$milis$12)
+      00011A 0E                     917 	.db	14
+      00011B 08                     918 	.uleb128	8
+      00011C 01                     919 	.db	1
+      00011D 00 00r00r1D            920 	.dw	0,(Smilis$milis$13)
+      000121 0E                     921 	.db	14
+      000122 06                     922 	.uleb128	6
+      000123 01                     923 	.db	1
+      000124 00 00r00r21            924 	.dw	0,(Smilis$milis$16)
+      000128 0E                     925 	.db	14
+      000129 02                     926 	.uleb128	2

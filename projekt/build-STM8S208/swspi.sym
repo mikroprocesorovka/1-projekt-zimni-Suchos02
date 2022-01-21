@@ -1,0 +1,204 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$swspi$100                                                    00001A GR
+  9 A$swspi$103                                                    00001C GR
+  9 A$swspi$106                                                    00001E GR
+  9 A$swspi$108                                                    000020 GR
+  9 A$swspi$111                                                    000022 GR
+  9 A$swspi$112                                                    000025 GR
+  9 A$swspi$121                                                    000027 GR
+  9 A$swspi$133                                                    000028 GR
+  9 A$swspi$138                                                    000029 GR
+  9 A$swspi$139                                                    00002C GR
+  9 A$swspi$143                                                    00002E GR
+  9 A$swspi$146                                                    000030 GR
+  9 A$swspi$148                                                    000032 GR
+  9 A$swspi$151                                                    000034 GR
+  9 A$swspi$152                                                    000037 GR
+  9 A$swspi$159                                                    000039 GR
+  9 A$swspi$160                                                    00003B GR
+  9 A$swspi$161                                                    00003D GR
+  9 A$swspi$167                                                    000040 GR
+  9 A$swspi$168                                                    000042 GR
+  9 A$swspi$169                                                    000044 GR
+  9 A$swspi$170                                                    000045 GR
+  9 A$swspi$171                                                    000047 GR
+  9 A$swspi$172                                                    000049 GR
+  9 A$swspi$174                                                    00004A GR
+  9 A$swspi$175                                                    00004B GR
+  9 A$swspi$176                                                    00004D GR
+  9 A$swspi$182                                                    000050 GR
+  9 A$swspi$185                                                    000052 GR
+  9 A$swspi$187                                                    000054 GR
+  9 A$swspi$190                                                    000056 GR
+  9 A$swspi$191                                                    000059 GR
+  9 A$swspi$195                                                    00005B GR
+  9 A$swspi$202                                                    00005E GR
+  9 A$swspi$205                                                    000060 GR
+  9 A$swspi$207                                                    000062 GR
+  9 A$swspi$210                                                    000064 GR
+  9 A$swspi$211                                                    000067 GR
+  9 A$swspi$219                                                    000069 GR
+  9 A$swspi$222                                                    00006B GR
+  9 A$swspi$224                                                    00006D GR
+  9 A$swspi$227                                                    00006F GR
+  9 A$swspi$228                                                    000072 GR
+  9 A$swspi$233                                                    000074 GR
+  9 A$swspi$234                                                    000076 GR
+  9 A$swspi$238                                                    000078 GR
+  9 A$swspi$241                                                    00007A GR
+  9 A$swspi$243                                                    00007C GR
+  9 A$swspi$246                                                    00007E GR
+  9 A$swspi$247                                                    000081 GR
+  9 A$swspi$251                                                    000083 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$swspi$257                                                    000086 GR
+  9 A$swspi$260                                                    000088 GR
+  9 A$swspi$262                                                    00008A GR
+  9 A$swspi$265                                                    00008C GR
+  9 A$swspi$266                                                    00008F GR
+  9 A$swspi$273                                                    000091 GR
+  9 A$swspi$277                                                    000092 GR
+  9 A$swspi$66                                                     000000 GR
+  9 A$swspi$69                                                     000002 GR
+  9 A$swspi$72                                                     000004 GR
+  9 A$swspi$74                                                     000006 GR
+  9 A$swspi$77                                                     000008 GR
+  9 A$swspi$78                                                     00000B GR
+  9 A$swspi$83                                                     00000D GR
+  9 A$swspi$86                                                     00000F GR
+  9 A$swspi$89                                                     000011 GR
+  9 A$swspi$91                                                     000013 GR
+  9 A$swspi$94                                                     000015 GR
+  9 A$swspi$95                                                     000018 GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE1_end                                                0000F1 R
+ 10 Ldebug_CIE1_start                                              0000E3 R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                0000BE R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                0000F2 R
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               000078 R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            000030 R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Sswspi$swspi_init$0                                         =  000000 GR
+  9 Sswspi$swspi_init$1                                         =  000000 GR
+  9 Sswspi$swspi_init$10                                        =  000011 GR
+  9 Sswspi$swspi_init$11                                        =  000013 GR
+  9 Sswspi$swspi_init$12                                        =  000015 GR
+  9 Sswspi$swspi_init$13                                        =  00001A GR
+  9 Sswspi$swspi_init$14                                        =  00001A GR
+  9 Sswspi$swspi_init$15                                        =  00001C GR
+  9 Sswspi$swspi_init$16                                        =  00001E GR
+  9 Sswspi$swspi_init$17                                        =  000020 GR
+  9 Sswspi$swspi_init$18                                        =  000022 GR
+  9 Sswspi$swspi_init$19                                        =  000027 GR
+  9 Sswspi$swspi_init$2                                         =  000000 GR
+  9 Sswspi$swspi_init$20                                        =  000027 GR
+  9 Sswspi$swspi_init$21                                        =  000027 GR
+  9 Sswspi$swspi_init$22                                        =  000028 GR
+  9 Sswspi$swspi_init$3                                         =  000002 GR
+  9 Sswspi$swspi_init$4                                         =  000004 GR
+  9 Sswspi$swspi_init$5                                         =  000006 GR
+  9 Sswspi$swspi_init$6                                         =  000008 GR
+  9 Sswspi$swspi_init$7                                         =  00000D GR
+  9 Sswspi$swspi_init$8                                         =  00000D GR
+  9 Sswspi$swspi_init$9                                         =  00000F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sswspi$swspi_tx16$23                                        =  000028 GR
+  9 Sswspi$swspi_tx16$24                                        =  000028 GR
+  9 Sswspi$swspi_tx16$25                                        =  000029 GR
+  9 Sswspi$swspi_tx16$26                                        =  000029 GR
+  9 Sswspi$swspi_tx16$27                                        =  00002E GR
+  9 Sswspi$swspi_tx16$28                                        =  000030 GR
+  9 Sswspi$swspi_tx16$29                                        =  000032 GR
+  9 Sswspi$swspi_tx16$30                                        =  000034 GR
+  9 Sswspi$swspi_tx16$31                                        =  000039 GR
+  9 Sswspi$swspi_tx16$32                                        =  000039 GR
+  9 Sswspi$swspi_tx16$33                                        =  000040 GR
+  9 Sswspi$swspi_tx16$34                                        =  000040 GR
+  9 Sswspi$swspi_tx16$35                                        =  000050 GR
+  9 Sswspi$swspi_tx16$36                                        =  000050 GR
+  9 Sswspi$swspi_tx16$37                                        =  000052 GR
+  9 Sswspi$swspi_tx16$38                                        =  000054 GR
+  9 Sswspi$swspi_tx16$39                                        =  000056 GR
+  9 Sswspi$swspi_tx16$40                                        =  00005B GR
+  9 Sswspi$swspi_tx16$41                                        =  00005B GR
+  9 Sswspi$swspi_tx16$42                                        =  00005E GR
+  9 Sswspi$swspi_tx16$43                                        =  00005E GR
+  9 Sswspi$swspi_tx16$44                                        =  000060 GR
+  9 Sswspi$swspi_tx16$45                                        =  000062 GR
+  9 Sswspi$swspi_tx16$46                                        =  000064 GR
+  9 Sswspi$swspi_tx16$47                                        =  000069 GR
+  9 Sswspi$swspi_tx16$48                                        =  000069 GR
+  9 Sswspi$swspi_tx16$49                                        =  000069 GR
+  9 Sswspi$swspi_tx16$50                                        =  00006B GR
+  9 Sswspi$swspi_tx16$51                                        =  00006D GR
+  9 Sswspi$swspi_tx16$52                                        =  00006F GR
+  9 Sswspi$swspi_tx16$53                                        =  000074 GR
+  9 Sswspi$swspi_tx16$54                                        =  000074 GR
+  9 Sswspi$swspi_tx16$55                                        =  000078 GR
+  9 Sswspi$swspi_tx16$56                                        =  00007A GR
+  9 Sswspi$swspi_tx16$57                                        =  00007C GR
+  9 Sswspi$swspi_tx16$58                                        =  00007E GR
+  9 Sswspi$swspi_tx16$59                                        =  000083 GR
+  9 Sswspi$swspi_tx16$60                                        =  000083 GR
+  9 Sswspi$swspi_tx16$61                                        =  000086 GR
+  9 Sswspi$swspi_tx16$62                                        =  000088 GR
+  9 Sswspi$swspi_tx16$63                                        =  00008A GR
+  9 Sswspi$swspi_tx16$64                                        =  00008C GR
+  9 Sswspi$swspi_tx16$65                                        =  000091 GR
+  9 Sswspi$swspi_tx16$66                                        =  000091 GR
+  9 Sswspi$swspi_tx16$67                                        =  000092 GR
+  9 Sswspi$swspi_tx16$68                                        =  000092 GR
+  9 Sswspi$swspi_tx16$69                                        =  000093 GR
+  9 XG$swspi_init$0$0                                           =  000027 GR
+  9 XG$swspi_tx16$0$0                                           =  000092 GR
+    _GPIO_Init                                                     ****** GX
+    _GPIO_WriteHigh                                                ****** GX
+    _GPIO_WriteLow                                                 ****** GX
+  9 _swspi_init                                                    000000 GR
+  9 _swspi_tx16                                                    000028 GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size     93   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size     F2   flags  100
+   C .debug_loc                                 size    214   flags  100
+   D .debug_abbrev                              size     63   flags  100
+   E .debug_info                                size     BE   flags  100
+   F .debug_pubnames                            size     30   flags  100
+  10 .debug_frame                               size    171   flags  100
+
