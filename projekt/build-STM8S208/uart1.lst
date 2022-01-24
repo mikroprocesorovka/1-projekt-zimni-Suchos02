@@ -1,0 +1,837 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module uart1
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _getchar
+                                     12 	.globl _putchar
+                                     13 	.globl _UART1_GetFlagStatus
+                                     14 	.globl _UART1_SendData8
+                                     15 	.globl _UART1_ReceiveData8
+                                     16 	.globl _UART1_Cmd
+                                     17 	.globl _UART1_Init
+                                     18 	.globl _UART1_DeInit
+                                     19 	.globl _init_uart1
+                                     20 ;--------------------------------------------------------
+                                     21 ; ram data
+                                     22 ;--------------------------------------------------------
+                                     23 	.area DATA
+                                     24 ;--------------------------------------------------------
+                                     25 ; ram data
+                                     26 ;--------------------------------------------------------
+                                     27 	.area INITIALIZED
+                                     28 ;--------------------------------------------------------
+                                     29 ; absolute external ram data
+                                     30 ;--------------------------------------------------------
+                                     31 	.area DABS (ABS)
+                                     32 
+                                     33 ; default segment ordering for linker
+                                     34 	.area HOME
+                                     35 	.area GSINIT
+                                     36 	.area GSFINAL
+                                     37 	.area CONST
+                                     38 	.area INITIALIZER
+                                     39 	.area CODE
+                                     40 
+                                     41 ;--------------------------------------------------------
+                                     42 ; global & static initialisations
+                                     43 ;--------------------------------------------------------
+                                     44 	.area HOME
+                                     45 	.area GSINIT
+                                     46 	.area GSFINAL
+                                     47 	.area GSINIT
+                                     48 ;--------------------------------------------------------
+                                     49 ; Home
+                                     50 ;--------------------------------------------------------
+                                     51 	.area HOME
+                                     52 	.area HOME
+                                     53 ;--------------------------------------------------------
+                                     54 ; code
+                                     55 ;--------------------------------------------------------
+                                     56 	.area CODE
+                           000000    57 	Suart1$init_uart1$0 ==.
+                                     58 ;	./src/uart1.c: 13: void init_uart1(void)
+                                     59 ; genLabel
+                                     60 ;	-----------------------------------------
+                                     61 ;	 function init_uart1
+                                     62 ;	-----------------------------------------
+                                     63 ;	Register assignment is optimal.
+                                     64 ;	Stack space usage: 0 bytes.
+      000000                         65 _init_uart1:
+                           000000    66 	Suart1$init_uart1$1 ==.
+                           000000    67 	Suart1$init_uart1$2 ==.
+                                     68 ;	./src/uart1.c: 15: UART1_DeInit();
+                                     69 ; genCall
+      000000 CDr00r00         [ 4]   70 	call	_UART1_DeInit
+                           000003    71 	Suart1$init_uart1$3 ==.
+                                     72 ;	./src/uart1.c: 17: UART1_Init((uint32_t) 115200,       // - BaudRate = 115200 baud  
+                                     73 ; genIPush
+      000003 4B 0C            [ 1]   74 	push	#0x0c
+                           000005    75 	Suart1$init_uart1$4 ==.
+                                     76 ; genIPush
+      000005 4B 80            [ 1]   77 	push	#0x80
+                           000007    78 	Suart1$init_uart1$5 ==.
+                                     79 ; genIPush
+      000007 4B 00            [ 1]   80 	push	#0x00
+                           000009    81 	Suart1$init_uart1$6 ==.
+                                     82 ; genIPush
+      000009 4B 00            [ 1]   83 	push	#0x00
+                           00000B    84 	Suart1$init_uart1$7 ==.
+                                     85 ; genIPush
+      00000B 4B 00            [ 1]   86 	push	#0x00
+                           00000D    87 	Suart1$init_uart1$8 ==.
+                                     88 ; genIPush
+      00000D 4B 00            [ 1]   89 	push	#0x00
+                           00000F    90 	Suart1$init_uart1$9 ==.
+      00000F 4B C2            [ 1]   91 	push	#0xc2
+                           000011    92 	Suart1$init_uart1$10 ==.
+      000011 4B 01            [ 1]   93 	push	#0x01
+                           000013    94 	Suart1$init_uart1$11 ==.
+      000013 4B 00            [ 1]   95 	push	#0x00
+                           000015    96 	Suart1$init_uart1$12 ==.
+                                     97 ; genCall
+      000015 CDr00r00         [ 4]   98 	call	_UART1_Init
+      000018 5B 09            [ 2]   99 	addw	sp, #9
+                           00001A   100 	Suart1$init_uart1$13 ==.
+                           00001A   101 	Suart1$init_uart1$14 ==.
+                                    102 ;	./src/uart1.c: 24: UART1_Cmd(ENABLE);
+                                    103 ; genIPush
+      00001A 4B 01            [ 1]  104 	push	#0x01
+                           00001C   105 	Suart1$init_uart1$15 ==.
+                                    106 ; genCall
+      00001C CDr00r00         [ 4]  107 	call	_UART1_Cmd
+      00001F 84               [ 1]  108 	pop	a
+                           000020   109 	Suart1$init_uart1$16 ==.
+                                    110 ; genLabel
+      000020                        111 00101$:
+                           000020   112 	Suart1$init_uart1$17 ==.
+                                    113 ;	./src/uart1.c: 25: }
+                                    114 ; genEndFunction
+                           000020   115 	Suart1$init_uart1$18 ==.
+                           000020   116 	XG$init_uart1$0$0 ==.
+      000020 81               [ 4]  117 	ret
+                           000021   118 	Suart1$init_uart1$19 ==.
+                           000021   119 	Suart1$putchar$20 ==.
+                                    120 ;	./src/uart1.c: 28: PUTCHAR_PROTOTYPE {
+                                    121 ; genLabel
+                                    122 ;	-----------------------------------------
+                                    123 ;	 function putchar
+                                    124 ;	-----------------------------------------
+                                    125 ;	Register assignment is optimal.
+                                    126 ;	Stack space usage: 0 bytes.
+      000021                        127 _putchar:
+                           000021   128 	Suart1$putchar$21 ==.
+                           000021   129 	Suart1$putchar$22 ==.
+                                    130 ;	./src/uart1.c: 30: UART1_SendData8(c);
+                                    131 ; genCast
+                                    132 ; genAssign
+      000021 7B 04            [ 1]  133 	ld	a, (0x04, sp)
+                                    134 ; genIPush
+      000023 88               [ 1]  135 	push	a
+                           000024   136 	Suart1$putchar$23 ==.
+                                    137 ; genCall
+      000024 CDr00r00         [ 4]  138 	call	_UART1_SendData8
+      000027 84               [ 1]  139 	pop	a
+                           000028   140 	Suart1$putchar$24 ==.
+                           000028   141 	Suart1$putchar$25 ==.
+                                    142 ;	./src/uart1.c: 32: while (UART1_GetFlagStatus(UART1_FLAG_TXE) == RESET){
+                                    143 ; genLabel
+      000028                        144 00101$:
+                                    145 ; genIPush
+      000028 4B 80            [ 1]  146 	push	#0x80
+                           00002A   147 	Suart1$putchar$26 ==.
+      00002A 4B 00            [ 1]  148 	push	#0x00
+                           00002C   149 	Suart1$putchar$27 ==.
+                                    150 ; genCall
+      00002C CDr00r00         [ 4]  151 	call	_UART1_GetFlagStatus
+      00002F 85               [ 2]  152 	popw	x
+                           000030   153 	Suart1$putchar$28 ==.
+                                    154 ; genIfx
+      000030 4D               [ 1]  155 	tnz	a
+      000031 26 03            [ 1]  156 	jrne	00116$
+      000033 CCr00r28         [ 2]  157 	jp	00101$
+      000036                        158 00116$:
+                           000036   159 	Suart1$putchar$29 ==.
+                                    160 ;	./src/uart1.c: 35: return (c);
+                                    161 ; genReturn
+      000036 1E 03            [ 2]  162 	ldw	x, (0x03, sp)
+                                    163 ; genLabel
+      000038                        164 00104$:
+                           000038   165 	Suart1$putchar$30 ==.
+                                    166 ;	./src/uart1.c: 36: }
+                                    167 ; genEndFunction
+                           000038   168 	Suart1$putchar$31 ==.
+                           000038   169 	XG$putchar$0$0 ==.
+      000038 81               [ 4]  170 	ret
+                           000039   171 	Suart1$putchar$32 ==.
+                           000039   172 	Suart1$getchar$33 ==.
+                                    173 ;	./src/uart1.c: 43: GETCHAR_PROTOTYPE {
+                                    174 ; genLabel
+                                    175 ;	-----------------------------------------
+                                    176 ;	 function getchar
+                                    177 ;	-----------------------------------------
+                                    178 ;	Register assignment might be sub-optimal.
+                                    179 ;	Stack space usage: 0 bytes.
+      000039                        180 _getchar:
+                           000039   181 	Suart1$getchar$34 ==.
+                           000039   182 	Suart1$getchar$35 ==.
+                                    183 ;	./src/uart1.c: 50: while (UART1_GetFlagStatus(UART1_FLAG_RXNE) == RESET) {
+                                    184 ; genLabel
+      000039                        185 00101$:
+                                    186 ; genIPush
+      000039 4B 20            [ 1]  187 	push	#0x20
+                           00003B   188 	Suart1$getchar$36 ==.
+      00003B 4B 00            [ 1]  189 	push	#0x00
+                           00003D   190 	Suart1$getchar$37 ==.
+                                    191 ; genCall
+      00003D CDr00r00         [ 4]  192 	call	_UART1_GetFlagStatus
+      000040 85               [ 2]  193 	popw	x
+                           000041   194 	Suart1$getchar$38 ==.
+                                    195 ; genIfx
+      000041 4D               [ 1]  196 	tnz	a
+      000042 26 03            [ 1]  197 	jrne	00116$
+      000044 CCr00r39         [ 2]  198 	jp	00101$
+      000047                        199 00116$:
+                           000047   200 	Suart1$getchar$39 ==.
+                                    201 ;	./src/uart1.c: 53: c = UART1_ReceiveData8();
+                                    202 ; genCall
+      000047 CDr00r00         [ 4]  203 	call	_UART1_ReceiveData8
+                                    204 ; genCast
+                                    205 ; genAssign
+      00004A 5F               [ 1]  206 	clrw	x
+      00004B 97               [ 1]  207 	ld	xl, a
+                                    208 ; genAssign
+                           00004C   209 	Suart1$getchar$40 ==.
+                                    210 ;	./src/uart1.c: 54: return (c);
+                                    211 ; genReturn
+                                    212 ; genLabel
+      00004C                        213 00104$:
+                           00004C   214 	Suart1$getchar$41 ==.
+                                    215 ;	./src/uart1.c: 55: }
+                                    216 ; genEndFunction
+                           00004C   217 	Suart1$getchar$42 ==.
+                           00004C   218 	XG$getchar$0$0 ==.
+      00004C 81               [ 4]  219 	ret
+                           00004D   220 	Suart1$getchar$43 ==.
+                                    221 	.area CODE
+                                    222 	.area CONST
+                                    223 	.area INITIALIZER
+                                    224 	.area CABS (ABS)
+                                    225 
+                                    226 	.area .debug_line (NOLOAD)
+      000000 00 00 00 EC            227 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        228 Ldebug_line_start:
+      000004 00 02                  229 	.dw	2
+      000006 00 00 00 6E            230 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     231 	.db	1
+      00000B 01                     232 	.db	1
+      00000C FB                     233 	.db	-5
+      00000D 0F                     234 	.db	15
+      00000E 0A                     235 	.db	10
+      00000F 00                     236 	.db	0
+      000010 01                     237 	.db	1
+      000011 01                     238 	.db	1
+      000012 01                     239 	.db	1
+      000013 01                     240 	.db	1
+      000014 00                     241 	.db	0
+      000015 00                     242 	.db	0
+      000016 00                     243 	.db	0
+      000017 01                     244 	.db	1
+      000018 43 3A 5C 50 72 6F 67   245 	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+             5C 73 74 6D 38
+      000040 00                     246 	.db	0
+      000041 43 3A 5C 50 72 6F 67   247 	.ascii "C:\Program Files\SDCC\bin\..\include"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+      000064 00                     248 	.db	0
+      000065 00                     249 	.db	0
+      000066 2E 2F 73 72 63 2F 75   250 	.ascii "./src/uart1.c"
+             61 72 74 31 2E 63
+      000073 00                     251 	.db	0
+      000074 00                     252 	.uleb128	0
+      000075 00                     253 	.uleb128	0
+      000076 00                     254 	.uleb128	0
+      000077 00                     255 	.db	0
+      000078                        256 Ldebug_line_stmt:
+      000078 00                     257 	.db	0
+      000079 05                     258 	.uleb128	5
+      00007A 02                     259 	.db	2
+      00007B 00 00r00r00            260 	.dw	0,(Suart1$init_uart1$0)
+      00007F 03                     261 	.db	3
+      000080 0C                     262 	.sleb128	12
+      000081 01                     263 	.db	1
+      000082 09                     264 	.db	9
+      000083 00 00                  265 	.dw	Suart1$init_uart1$2-Suart1$init_uart1$0
+      000085 03                     266 	.db	3
+      000086 02                     267 	.sleb128	2
+      000087 01                     268 	.db	1
+      000088 09                     269 	.db	9
+      000089 00 03                  270 	.dw	Suart1$init_uart1$3-Suart1$init_uart1$2
+      00008B 03                     271 	.db	3
+      00008C 02                     272 	.sleb128	2
+      00008D 01                     273 	.db	1
+      00008E 09                     274 	.db	9
+      00008F 00 17                  275 	.dw	Suart1$init_uart1$14-Suart1$init_uart1$3
+      000091 03                     276 	.db	3
+      000092 07                     277 	.sleb128	7
+      000093 01                     278 	.db	1
+      000094 09                     279 	.db	9
+      000095 00 06                  280 	.dw	Suart1$init_uart1$17-Suart1$init_uart1$14
+      000097 03                     281 	.db	3
+      000098 01                     282 	.sleb128	1
+      000099 01                     283 	.db	1
+      00009A 09                     284 	.db	9
+      00009B 00 01                  285 	.dw	1+Suart1$init_uart1$18-Suart1$init_uart1$17
+      00009D 00                     286 	.db	0
+      00009E 01                     287 	.uleb128	1
+      00009F 01                     288 	.db	1
+      0000A0 00                     289 	.db	0
+      0000A1 05                     290 	.uleb128	5
+      0000A2 02                     291 	.db	2
+      0000A3 00 00r00r21            292 	.dw	0,(Suart1$putchar$20)
+      0000A7 03                     293 	.db	3
+      0000A8 1B                     294 	.sleb128	27
+      0000A9 01                     295 	.db	1
+      0000AA 09                     296 	.db	9
+      0000AB 00 00                  297 	.dw	Suart1$putchar$22-Suart1$putchar$20
+      0000AD 03                     298 	.db	3
+      0000AE 02                     299 	.sleb128	2
+      0000AF 01                     300 	.db	1
+      0000B0 09                     301 	.db	9
+      0000B1 00 07                  302 	.dw	Suart1$putchar$25-Suart1$putchar$22
+      0000B3 03                     303 	.db	3
+      0000B4 02                     304 	.sleb128	2
+      0000B5 01                     305 	.db	1
+      0000B6 09                     306 	.db	9
+      0000B7 00 0E                  307 	.dw	Suart1$putchar$29-Suart1$putchar$25
+      0000B9 03                     308 	.db	3
+      0000BA 03                     309 	.sleb128	3
+      0000BB 01                     310 	.db	1
+      0000BC 09                     311 	.db	9
+      0000BD 00 02                  312 	.dw	Suart1$putchar$30-Suart1$putchar$29
+      0000BF 03                     313 	.db	3
+      0000C0 01                     314 	.sleb128	1
+      0000C1 01                     315 	.db	1
+      0000C2 09                     316 	.db	9
+      0000C3 00 01                  317 	.dw	1+Suart1$putchar$31-Suart1$putchar$30
+      0000C5 00                     318 	.db	0
+      0000C6 01                     319 	.uleb128	1
+      0000C7 01                     320 	.db	1
+      0000C8 00                     321 	.db	0
+      0000C9 05                     322 	.uleb128	5
+      0000CA 02                     323 	.db	2
+      0000CB 00 00r00r39            324 	.dw	0,(Suart1$getchar$33)
+      0000CF 03                     325 	.db	3
+      0000D0 2A                     326 	.sleb128	42
+      0000D1 01                     327 	.db	1
+      0000D2 09                     328 	.db	9
+      0000D3 00 00                  329 	.dw	Suart1$getchar$35-Suart1$getchar$33
+      0000D5 03                     330 	.db	3
+      0000D6 07                     331 	.sleb128	7
+      0000D7 01                     332 	.db	1
+      0000D8 09                     333 	.db	9
+      0000D9 00 0E                  334 	.dw	Suart1$getchar$39-Suart1$getchar$35
+      0000DB 03                     335 	.db	3
+      0000DC 03                     336 	.sleb128	3
+      0000DD 01                     337 	.db	1
+      0000DE 09                     338 	.db	9
+      0000DF 00 05                  339 	.dw	Suart1$getchar$40-Suart1$getchar$39
+      0000E1 03                     340 	.db	3
+      0000E2 01                     341 	.sleb128	1
+      0000E3 01                     342 	.db	1
+      0000E4 09                     343 	.db	9
+      0000E5 00 00                  344 	.dw	Suart1$getchar$41-Suart1$getchar$40
+      0000E7 03                     345 	.db	3
+      0000E8 01                     346 	.sleb128	1
+      0000E9 01                     347 	.db	1
+      0000EA 09                     348 	.db	9
+      0000EB 00 01                  349 	.dw	1+Suart1$getchar$42-Suart1$getchar$41
+      0000ED 00                     350 	.db	0
+      0000EE 01                     351 	.uleb128	1
+      0000EF 01                     352 	.db	1
+      0000F0                        353 Ldebug_line_end:
+                                    354 
+                                    355 	.area .debug_loc (NOLOAD)
+      000000                        356 Ldebug_loc_start:
+      000000 00 00r00r41            357 	.dw	0,(Suart1$getchar$38)
+      000004 00 00r00r4D            358 	.dw	0,(Suart1$getchar$43)
+      000008 00 02                  359 	.dw	2
+      00000A 78                     360 	.db	120
+      00000B 01                     361 	.sleb128	1
+      00000C 00 00r00r3D            362 	.dw	0,(Suart1$getchar$37)
+      000010 00 00r00r41            363 	.dw	0,(Suart1$getchar$38)
+      000014 00 02                  364 	.dw	2
+      000016 78                     365 	.db	120
+      000017 03                     366 	.sleb128	3
+      000018 00 00r00r3B            367 	.dw	0,(Suart1$getchar$36)
+      00001C 00 00r00r3D            368 	.dw	0,(Suart1$getchar$37)
+      000020 00 02                  369 	.dw	2
+      000022 78                     370 	.db	120
+      000023 02                     371 	.sleb128	2
+      000024 00 00r00r39            372 	.dw	0,(Suart1$getchar$34)
+      000028 00 00r00r3B            373 	.dw	0,(Suart1$getchar$36)
+      00002C 00 02                  374 	.dw	2
+      00002E 78                     375 	.db	120
+      00002F 01                     376 	.sleb128	1
+      000030 00 00 00 00            377 	.dw	0,0
+      000034 00 00 00 00            378 	.dw	0,0
+      000038 00 00r00r30            379 	.dw	0,(Suart1$putchar$28)
+      00003C 00 00r00r39            380 	.dw	0,(Suart1$putchar$32)
+      000040 00 02                  381 	.dw	2
+      000042 78                     382 	.db	120
+      000043 01                     383 	.sleb128	1
+      000044 00 00r00r2C            384 	.dw	0,(Suart1$putchar$27)
+      000048 00 00r00r30            385 	.dw	0,(Suart1$putchar$28)
+      00004C 00 02                  386 	.dw	2
+      00004E 78                     387 	.db	120
+      00004F 03                     388 	.sleb128	3
+      000050 00 00r00r2A            389 	.dw	0,(Suart1$putchar$26)
+      000054 00 00r00r2C            390 	.dw	0,(Suart1$putchar$27)
+      000058 00 02                  391 	.dw	2
+      00005A 78                     392 	.db	120
+      00005B 02                     393 	.sleb128	2
+      00005C 00 00r00r28            394 	.dw	0,(Suart1$putchar$24)
+      000060 00 00r00r2A            395 	.dw	0,(Suart1$putchar$26)
+      000064 00 02                  396 	.dw	2
+      000066 78                     397 	.db	120
+      000067 01                     398 	.sleb128	1
+      000068 00 00r00r24            399 	.dw	0,(Suart1$putchar$23)
+      00006C 00 00r00r28            400 	.dw	0,(Suart1$putchar$24)
+      000070 00 02                  401 	.dw	2
+      000072 78                     402 	.db	120
+      000073 02                     403 	.sleb128	2
+      000074 00 00r00r21            404 	.dw	0,(Suart1$putchar$21)
+      000078 00 00r00r24            405 	.dw	0,(Suart1$putchar$23)
+      00007C 00 02                  406 	.dw	2
+      00007E 78                     407 	.db	120
+      00007F 01                     408 	.sleb128	1
+      000080 00 00 00 00            409 	.dw	0,0
+      000084 00 00 00 00            410 	.dw	0,0
+      000088 00 00r00r20            411 	.dw	0,(Suart1$init_uart1$16)
+      00008C 00 00r00r21            412 	.dw	0,(Suart1$init_uart1$19)
+      000090 00 02                  413 	.dw	2
+      000092 78                     414 	.db	120
+      000093 01                     415 	.sleb128	1
+      000094 00 00r00r1C            416 	.dw	0,(Suart1$init_uart1$15)
+      000098 00 00r00r20            417 	.dw	0,(Suart1$init_uart1$16)
+      00009C 00 02                  418 	.dw	2
+      00009E 78                     419 	.db	120
+      00009F 02                     420 	.sleb128	2
+      0000A0 00 00r00r1A            421 	.dw	0,(Suart1$init_uart1$13)
+      0000A4 00 00r00r1C            422 	.dw	0,(Suart1$init_uart1$15)
+      0000A8 00 02                  423 	.dw	2
+      0000AA 78                     424 	.db	120
+      0000AB 01                     425 	.sleb128	1
+      0000AC 00 00r00r15            426 	.dw	0,(Suart1$init_uart1$12)
+      0000B0 00 00r00r1A            427 	.dw	0,(Suart1$init_uart1$13)
+      0000B4 00 02                  428 	.dw	2
+      0000B6 78                     429 	.db	120
+      0000B7 0A                     430 	.sleb128	10
+      0000B8 00 00r00r13            431 	.dw	0,(Suart1$init_uart1$11)
+      0000BC 00 00r00r15            432 	.dw	0,(Suart1$init_uart1$12)
+      0000C0 00 02                  433 	.dw	2
+      0000C2 78                     434 	.db	120
+      0000C3 09                     435 	.sleb128	9
+      0000C4 00 00r00r11            436 	.dw	0,(Suart1$init_uart1$10)
+      0000C8 00 00r00r13            437 	.dw	0,(Suart1$init_uart1$11)
+      0000CC 00 02                  438 	.dw	2
+      0000CE 78                     439 	.db	120
+      0000CF 08                     440 	.sleb128	8
+      0000D0 00 00r00r0F            441 	.dw	0,(Suart1$init_uart1$9)
+      0000D4 00 00r00r11            442 	.dw	0,(Suart1$init_uart1$10)
+      0000D8 00 02                  443 	.dw	2
+      0000DA 78                     444 	.db	120
+      0000DB 07                     445 	.sleb128	7
+      0000DC 00 00r00r0D            446 	.dw	0,(Suart1$init_uart1$8)
+      0000E0 00 00r00r0F            447 	.dw	0,(Suart1$init_uart1$9)
+      0000E4 00 02                  448 	.dw	2
+      0000E6 78                     449 	.db	120
+      0000E7 06                     450 	.sleb128	6
+      0000E8 00 00r00r0B            451 	.dw	0,(Suart1$init_uart1$7)
+      0000EC 00 00r00r0D            452 	.dw	0,(Suart1$init_uart1$8)
+      0000F0 00 02                  453 	.dw	2
+      0000F2 78                     454 	.db	120
+      0000F3 05                     455 	.sleb128	5
+      0000F4 00 00r00r09            456 	.dw	0,(Suart1$init_uart1$6)
+      0000F8 00 00r00r0B            457 	.dw	0,(Suart1$init_uart1$7)
+      0000FC 00 02                  458 	.dw	2
+      0000FE 78                     459 	.db	120
+      0000FF 04                     460 	.sleb128	4
+      000100 00 00r00r07            461 	.dw	0,(Suart1$init_uart1$5)
+      000104 00 00r00r09            462 	.dw	0,(Suart1$init_uart1$6)
+      000108 00 02                  463 	.dw	2
+      00010A 78                     464 	.db	120
+      00010B 03                     465 	.sleb128	3
+      00010C 00 00r00r05            466 	.dw	0,(Suart1$init_uart1$4)
+      000110 00 00r00r07            467 	.dw	0,(Suart1$init_uart1$5)
+      000114 00 02                  468 	.dw	2
+      000116 78                     469 	.db	120
+      000117 02                     470 	.sleb128	2
+      000118 00 00r00r00            471 	.dw	0,(Suart1$init_uart1$1)
+      00011C 00 00r00r05            472 	.dw	0,(Suart1$init_uart1$4)
+      000120 00 02                  473 	.dw	2
+      000122 78                     474 	.db	120
+      000123 01                     475 	.sleb128	1
+      000124 00 00 00 00            476 	.dw	0,0
+      000128 00 00 00 00            477 	.dw	0,0
+                                    478 
+                                    479 	.area .debug_abbrev (NOLOAD)
+      000000                        480 Ldebug_abbrev:
+      000000 06                     481 	.uleb128	6
+      000001 2E                     482 	.uleb128	46
+      000002 01                     483 	.db	1
+      000003 03                     484 	.uleb128	3
+      000004 08                     485 	.uleb128	8
+      000005 11                     486 	.uleb128	17
+      000006 01                     487 	.uleb128	1
+      000007 12                     488 	.uleb128	18
+      000008 01                     489 	.uleb128	1
+      000009 3F                     490 	.uleb128	63
+      00000A 0C                     491 	.uleb128	12
+      00000B 40                     492 	.uleb128	64
+      00000C 06                     493 	.uleb128	6
+      00000D 49                     494 	.uleb128	73
+      00000E 13                     495 	.uleb128	19
+      00000F 00                     496 	.uleb128	0
+      000010 00                     497 	.uleb128	0
+      000011 05                     498 	.uleb128	5
+      000012 05                     499 	.uleb128	5
+      000013 00                     500 	.db	0
+      000014 02                     501 	.uleb128	2
+      000015 0A                     502 	.uleb128	10
+      000016 03                     503 	.uleb128	3
+      000017 08                     504 	.uleb128	8
+      000018 49                     505 	.uleb128	73
+      000019 13                     506 	.uleb128	19
+      00001A 00                     507 	.uleb128	0
+      00001B 00                     508 	.uleb128	0
+      00001C 07                     509 	.uleb128	7
+      00001D 34                     510 	.uleb128	52
+      00001E 00                     511 	.db	0
+      00001F 02                     512 	.uleb128	2
+      000020 0A                     513 	.uleb128	10
+      000021 03                     514 	.uleb128	3
+      000022 08                     515 	.uleb128	8
+      000023 49                     516 	.uleb128	73
+      000024 13                     517 	.uleb128	19
+      000025 00                     518 	.uleb128	0
+      000026 00                     519 	.uleb128	0
+      000027 04                     520 	.uleb128	4
+      000028 2E                     521 	.uleb128	46
+      000029 01                     522 	.db	1
+      00002A 01                     523 	.uleb128	1
+      00002B 13                     524 	.uleb128	19
+      00002C 03                     525 	.uleb128	3
+      00002D 08                     526 	.uleb128	8
+      00002E 11                     527 	.uleb128	17
+      00002F 01                     528 	.uleb128	1
+      000030 12                     529 	.uleb128	18
+      000031 01                     530 	.uleb128	1
+      000032 3F                     531 	.uleb128	63
+      000033 0C                     532 	.uleb128	12
+      000034 40                     533 	.uleb128	64
+      000035 06                     534 	.uleb128	6
+      000036 49                     535 	.uleb128	73
+      000037 13                     536 	.uleb128	19
+      000038 00                     537 	.uleb128	0
+      000039 00                     538 	.uleb128	0
+      00003A 01                     539 	.uleb128	1
+      00003B 11                     540 	.uleb128	17
+      00003C 01                     541 	.db	1
+      00003D 03                     542 	.uleb128	3
+      00003E 08                     543 	.uleb128	8
+      00003F 10                     544 	.uleb128	16
+      000040 06                     545 	.uleb128	6
+      000041 13                     546 	.uleb128	19
+      000042 0B                     547 	.uleb128	11
+      000043 25                     548 	.uleb128	37
+      000044 08                     549 	.uleb128	8
+      000045 00                     550 	.uleb128	0
+      000046 00                     551 	.uleb128	0
+      000047 02                     552 	.uleb128	2
+      000048 2E                     553 	.uleb128	46
+      000049 00                     554 	.db	0
+      00004A 03                     555 	.uleb128	3
+      00004B 08                     556 	.uleb128	8
+      00004C 11                     557 	.uleb128	17
+      00004D 01                     558 	.uleb128	1
+      00004E 12                     559 	.uleb128	18
+      00004F 01                     560 	.uleb128	1
+      000050 3F                     561 	.uleb128	63
+      000051 0C                     562 	.uleb128	12
+      000052 40                     563 	.uleb128	64
+      000053 06                     564 	.uleb128	6
+      000054 00                     565 	.uleb128	0
+      000055 00                     566 	.uleb128	0
+      000056 03                     567 	.uleb128	3
+      000057 24                     568 	.uleb128	36
+      000058 00                     569 	.db	0
+      000059 03                     570 	.uleb128	3
+      00005A 08                     571 	.uleb128	8
+      00005B 0B                     572 	.uleb128	11
+      00005C 0B                     573 	.uleb128	11
+      00005D 3E                     574 	.uleb128	62
+      00005E 0B                     575 	.uleb128	11
+      00005F 00                     576 	.uleb128	0
+      000060 00                     577 	.uleb128	0
+      000061 00                     578 	.uleb128	0
+                                    579 
+                                    580 	.area .debug_info (NOLOAD)
+      000000 00 00 00 AA            581 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                        582 Ldebug_info_start:
+      000004 00 02                  583 	.dw	2
+      000006 00 00r00r00            584 	.dw	0,(Ldebug_abbrev)
+      00000A 04                     585 	.db	4
+      00000B 01                     586 	.uleb128	1
+      00000C 2E 2F 73 72 63 2F 75   587 	.ascii "./src/uart1.c"
+             61 72 74 31 2E 63
+      000019 00                     588 	.db	0
+      00001A 00 00r00r00            589 	.dw	0,(Ldebug_line_start+-4)
+      00001E 01                     590 	.db	1
+      00001F 53 44 43 43 20 76 65   591 	.ascii "SDCC version 4.1.0 #12072"
+             72 73 69 6F 6E 20 34
+             2E 31 2E 30 20 23 31
+             32 30 37 32
+      000038 00                     592 	.db	0
+      000039 02                     593 	.uleb128	2
+      00003A 69 6E 69 74 5F 75 61   594 	.ascii "init_uart1"
+             72 74 31
+      000044 00                     595 	.db	0
+      000045 00 00r00r00            596 	.dw	0,(_init_uart1)
+      000049 00 00r00r21            597 	.dw	0,(XG$init_uart1$0$0+1)
+      00004D 01                     598 	.db	1
+      00004E 00 00r00r88            599 	.dw	0,(Ldebug_loc_start+136)
+      000052 03                     600 	.uleb128	3
+      000053 69 6E 74               601 	.ascii "int"
+      000056 00                     602 	.db	0
+      000057 02                     603 	.db	2
+      000058 05                     604 	.db	5
+      000059 04                     605 	.uleb128	4
+      00005A 00 00 00 82            606 	.dw	0,130
+      00005E 70 75 74 63 68 61 72   607 	.ascii "putchar"
+      000065 00                     608 	.db	0
+      000066 00 00r00r21            609 	.dw	0,(_putchar)
+      00006A 00 00r00r39            610 	.dw	0,(XG$putchar$0$0+1)
+      00006E 01                     611 	.db	1
+      00006F 00 00r00r38            612 	.dw	0,(Ldebug_loc_start+56)
+      000073 00 00 00 52            613 	.dw	0,82
+      000077 05                     614 	.uleb128	5
+      000078 02                     615 	.db	2
+      000079 91                     616 	.db	145
+      00007A 02                     617 	.sleb128	2
+      00007B 63                     618 	.ascii "c"
+      00007C 00                     619 	.db	0
+      00007D 00 00 00 52            620 	.dw	0,82
+      000081 00                     621 	.uleb128	0
+      000082 06                     622 	.uleb128	6
+      000083 67 65 74 63 68 61 72   623 	.ascii "getchar"
+      00008A 00                     624 	.db	0
+      00008B 00 00r00r39            625 	.dw	0,(_getchar)
+      00008F 00 00r00r4D            626 	.dw	0,(XG$getchar$0$0+1)
+      000093 01                     627 	.db	1
+      000094 00 00r00r00            628 	.dw	0,(Ldebug_loc_start)
+      000098 00 00 00 52            629 	.dw	0,82
+      00009C 07                     630 	.uleb128	7
+      00009D 06                     631 	.db	6
+      00009E 52                     632 	.db	82
+      00009F 93                     633 	.db	147
+      0000A0 01                     634 	.uleb128	1
+      0000A1 51                     635 	.db	81
+      0000A2 93                     636 	.db	147
+      0000A3 01                     637 	.uleb128	1
+      0000A4 63                     638 	.ascii "c"
+      0000A5 00                     639 	.db	0
+      0000A6 00 00 00 52            640 	.dw	0,82
+      0000AA 00                     641 	.uleb128	0
+      0000AB 00                     642 	.uleb128	0
+      0000AC 00                     643 	.uleb128	0
+      0000AD 00                     644 	.uleb128	0
+      0000AE                        645 Ldebug_info_end:
+                                    646 
+                                    647 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 00 35            648 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                        649 Ldebug_pubnames_start:
+      000004 00 02                  650 	.dw	2
+      000006 00 00r00r00            651 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 00 AE            652 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 39            653 	.dw	0,57
+      000012 69 6E 69 74 5F 75 61   654 	.ascii "init_uart1"
+             72 74 31
+      00001C 00                     655 	.db	0
+      00001D 00 00 00 59            656 	.dw	0,89
+      000021 70 75 74 63 68 61 72   657 	.ascii "putchar"
+      000028 00                     658 	.db	0
+      000029 00 00 00 82            659 	.dw	0,130
+      00002D 67 65 74 63 68 61 72   660 	.ascii "getchar"
+      000034 00                     661 	.db	0
+      000035 00 00 00 00            662 	.dw	0,0
+      000039                        663 Ldebug_pubnames_end:
+                                    664 
+                                    665 	.area .debug_frame (NOLOAD)
+      000000 00 00                  666 	.dw	0
+      000002 00 0E                  667 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                        668 Ldebug_CIE0_start:
+      000004 FF FF                  669 	.dw	0xffff
+      000006 FF FF                  670 	.dw	0xffff
+      000008 01                     671 	.db	1
+      000009 00                     672 	.db	0
+      00000A 01                     673 	.uleb128	1
+      00000B 7F                     674 	.sleb128	-1
+      00000C 09                     675 	.db	9
+      00000D 0C                     676 	.db	12
+      00000E 08                     677 	.uleb128	8
+      00000F 02                     678 	.uleb128	2
+      000010 89                     679 	.db	137
+      000011 01                     680 	.uleb128	1
+      000012                        681 Ldebug_CIE0_end:
+      000012 00 00 00 28            682 	.dw	0,40
+      000016 00 00r00r00            683 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r00r39            684 	.dw	0,(Suart1$getchar$34)	;initial loc
+      00001E 00 00 00 14            685 	.dw	0,Suart1$getchar$43-Suart1$getchar$34
+      000022 01                     686 	.db	1
+      000023 00 00r00r39            687 	.dw	0,(Suart1$getchar$34)
+      000027 0E                     688 	.db	14
+      000028 02                     689 	.uleb128	2
+      000029 01                     690 	.db	1
+      00002A 00 00r00r3B            691 	.dw	0,(Suart1$getchar$36)
+      00002E 0E                     692 	.db	14
+      00002F 03                     693 	.uleb128	3
+      000030 01                     694 	.db	1
+      000031 00 00r00r3D            695 	.dw	0,(Suart1$getchar$37)
+      000035 0E                     696 	.db	14
+      000036 04                     697 	.uleb128	4
+      000037 01                     698 	.db	1
+      000038 00 00r00r41            699 	.dw	0,(Suart1$getchar$38)
+      00003C 0E                     700 	.db	14
+      00003D 02                     701 	.uleb128	2
+                                    702 
+                                    703 	.area .debug_frame (NOLOAD)
+      00003E 00 00                  704 	.dw	0
+      000040 00 0E                  705 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      000042                        706 Ldebug_CIE1_start:
+      000042 FF FF                  707 	.dw	0xffff
+      000044 FF FF                  708 	.dw	0xffff
+      000046 01                     709 	.db	1
+      000047 00                     710 	.db	0
+      000048 01                     711 	.uleb128	1
+      000049 7F                     712 	.sleb128	-1
+      00004A 09                     713 	.db	9
+      00004B 0C                     714 	.db	12
+      00004C 08                     715 	.uleb128	8
+      00004D 02                     716 	.uleb128	2
+      00004E 89                     717 	.db	137
+      00004F 01                     718 	.uleb128	1
+      000050                        719 Ldebug_CIE1_end:
+      000050 00 00 00 36            720 	.dw	0,54
+      000054 00 00r00r3E            721 	.dw	0,(Ldebug_CIE1_start-4)
+      000058 00 00r00r21            722 	.dw	0,(Suart1$putchar$21)	;initial loc
+      00005C 00 00 00 18            723 	.dw	0,Suart1$putchar$32-Suart1$putchar$21
+      000060 01                     724 	.db	1
+      000061 00 00r00r21            725 	.dw	0,(Suart1$putchar$21)
+      000065 0E                     726 	.db	14
+      000066 02                     727 	.uleb128	2
+      000067 01                     728 	.db	1
+      000068 00 00r00r24            729 	.dw	0,(Suart1$putchar$23)
+      00006C 0E                     730 	.db	14
+      00006D 03                     731 	.uleb128	3
+      00006E 01                     732 	.db	1
+      00006F 00 00r00r28            733 	.dw	0,(Suart1$putchar$24)
+      000073 0E                     734 	.db	14
+      000074 02                     735 	.uleb128	2
+      000075 01                     736 	.db	1
+      000076 00 00r00r2A            737 	.dw	0,(Suart1$putchar$26)
+      00007A 0E                     738 	.db	14
+      00007B 03                     739 	.uleb128	3
+      00007C 01                     740 	.db	1
+      00007D 00 00r00r2C            741 	.dw	0,(Suart1$putchar$27)
+      000081 0E                     742 	.db	14
+      000082 04                     743 	.uleb128	4
+      000083 01                     744 	.db	1
+      000084 00 00r00r30            745 	.dw	0,(Suart1$putchar$28)
+      000088 0E                     746 	.db	14
+      000089 02                     747 	.uleb128	2
+                                    748 
+                                    749 	.area .debug_frame (NOLOAD)
+      00008A 00 00                  750 	.dw	0
+      00008C 00 0E                  751 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      00008E                        752 Ldebug_CIE2_start:
+      00008E FF FF                  753 	.dw	0xffff
+      000090 FF FF                  754 	.dw	0xffff
+      000092 01                     755 	.db	1
+      000093 00                     756 	.db	0
+      000094 01                     757 	.uleb128	1
+      000095 7F                     758 	.sleb128	-1
+      000096 09                     759 	.db	9
+      000097 0C                     760 	.db	12
+      000098 08                     761 	.uleb128	8
+      000099 02                     762 	.uleb128	2
+      00009A 89                     763 	.db	137
+      00009B 01                     764 	.uleb128	1
+      00009C                        765 Ldebug_CIE2_end:
+      00009C 00 00 00 67            766 	.dw	0,103
+      0000A0 00 00r00r8A            767 	.dw	0,(Ldebug_CIE2_start-4)
+      0000A4 00 00r00r00            768 	.dw	0,(Suart1$init_uart1$1)	;initial loc
+      0000A8 00 00 00 21            769 	.dw	0,Suart1$init_uart1$19-Suart1$init_uart1$1
+      0000AC 01                     770 	.db	1
+      0000AD 00 00r00r00            771 	.dw	0,(Suart1$init_uart1$1)
+      0000B1 0E                     772 	.db	14
+      0000B2 02                     773 	.uleb128	2
+      0000B3 01                     774 	.db	1
+      0000B4 00 00r00r05            775 	.dw	0,(Suart1$init_uart1$4)
+      0000B8 0E                     776 	.db	14
+      0000B9 03                     777 	.uleb128	3
+      0000BA 01                     778 	.db	1
+      0000BB 00 00r00r07            779 	.dw	0,(Suart1$init_uart1$5)
+      0000BF 0E                     780 	.db	14
+      0000C0 04                     781 	.uleb128	4
+      0000C1 01                     782 	.db	1
+      0000C2 00 00r00r09            783 	.dw	0,(Suart1$init_uart1$6)
+      0000C6 0E                     784 	.db	14
+      0000C7 05                     785 	.uleb128	5
+      0000C8 01                     786 	.db	1
+      0000C9 00 00r00r0B            787 	.dw	0,(Suart1$init_uart1$7)
+      0000CD 0E                     788 	.db	14
+      0000CE 06                     789 	.uleb128	6
+      0000CF 01                     790 	.db	1
+      0000D0 00 00r00r0D            791 	.dw	0,(Suart1$init_uart1$8)
+      0000D4 0E                     792 	.db	14
+      0000D5 07                     793 	.uleb128	7
+      0000D6 01                     794 	.db	1
+      0000D7 00 00r00r0F            795 	.dw	0,(Suart1$init_uart1$9)
+      0000DB 0E                     796 	.db	14
+      0000DC 08                     797 	.uleb128	8
+      0000DD 01                     798 	.db	1
+      0000DE 00 00r00r11            799 	.dw	0,(Suart1$init_uart1$10)
+      0000E2 0E                     800 	.db	14
+      0000E3 09                     801 	.uleb128	9
+      0000E4 01                     802 	.db	1
+      0000E5 00 00r00r13            803 	.dw	0,(Suart1$init_uart1$11)
+      0000E9 0E                     804 	.db	14
+      0000EA 0A                     805 	.uleb128	10
+      0000EB 01                     806 	.db	1
+      0000EC 00 00r00r15            807 	.dw	0,(Suart1$init_uart1$12)
+      0000F0 0E                     808 	.db	14
+      0000F1 0B                     809 	.uleb128	11
+      0000F2 01                     810 	.db	1
+      0000F3 00 00r00r1A            811 	.dw	0,(Suart1$init_uart1$13)
+      0000F7 0E                     812 	.db	14
+      0000F8 02                     813 	.uleb128	2
+      0000F9 01                     814 	.db	1
+      0000FA 00 00r00r1C            815 	.dw	0,(Suart1$init_uart1$15)
+      0000FE 0E                     816 	.db	14
+      0000FF 03                     817 	.uleb128	3
+      000100 01                     818 	.db	1
+      000101 00 00r00r20            819 	.dw	0,(Suart1$init_uart1$16)
+      000105 0E                     820 	.db	14
+      000106 02                     821 	.uleb128	2

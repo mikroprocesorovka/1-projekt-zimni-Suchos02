@@ -1,0 +1,2301 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.1.0 #12072 (MINGW64)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_it
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TRAP_IRQHandler
+                                     12 	.globl _TLI_IRQHandler
+                                     13 	.globl _AWU_IRQHandler
+                                     14 	.globl _CLK_IRQHandler
+                                     15 	.globl _EXTI_PORTA_IRQHandler
+                                     16 	.globl _EXTI_PORTB_IRQHandler
+                                     17 	.globl _EXTI_PORTC_IRQHandler
+                                     18 	.globl _EXTI_PORTD_IRQHandler
+                                     19 	.globl _EXTI_PORTE_IRQHandler
+                                     20 	.globl _CAN_RX_IRQHandler
+                                     21 	.globl _CAN_TX_IRQHandler
+                                     22 	.globl _SPI_IRQHandler
+                                     23 	.globl _TIM1_UPD_OVF_TRG_BRK_IRQHandler
+                                     24 	.globl _TIM1_CAP_COM_IRQHandler
+                                     25 	.globl _TIM2_UPD_OVF_BRK_IRQHandler
+                                     26 	.globl _TIM2_CAP_COM_IRQHandler
+                                     27 	.globl _TIM3_UPD_OVF_BRK_IRQHandler
+                                     28 	.globl _TIM3_CAP_COM_IRQHandler
+                                     29 	.globl _UART1_TX_IRQHandler
+                                     30 	.globl _UART1_RX_IRQHandler
+                                     31 	.globl _I2C_IRQHandler
+                                     32 	.globl _UART3_TX_IRQHandler
+                                     33 	.globl _UART3_RX_IRQHandler
+                                     34 	.globl _ADC2_IRQHandler
+                                     35 	.globl _EEPROM_EEC_IRQHandler
+                                     36 ;--------------------------------------------------------
+                                     37 ; ram data
+                                     38 ;--------------------------------------------------------
+                                     39 	.area DATA
+                                     40 ;--------------------------------------------------------
+                                     41 ; ram data
+                                     42 ;--------------------------------------------------------
+                                     43 	.area INITIALIZED
+                                     44 ;--------------------------------------------------------
+                                     45 ; absolute external ram data
+                                     46 ;--------------------------------------------------------
+                                     47 	.area DABS (ABS)
+                                     48 
+                                     49 ; default segment ordering for linker
+                                     50 	.area HOME
+                                     51 	.area GSINIT
+                                     52 	.area GSFINAL
+                                     53 	.area CONST
+                                     54 	.area INITIALIZER
+                                     55 	.area CODE
+                                     56 
+                                     57 ;--------------------------------------------------------
+                                     58 ; global & static initialisations
+                                     59 ;--------------------------------------------------------
+                                     60 	.area HOME
+                                     61 	.area GSINIT
+                                     62 	.area GSFINAL
+                                     63 	.area GSINIT
+                                     64 ;--------------------------------------------------------
+                                     65 ; Home
+                                     66 ;--------------------------------------------------------
+                                     67 	.area HOME
+                                     68 	.area HOME
+                                     69 ;--------------------------------------------------------
+                                     70 ; code
+                                     71 ;--------------------------------------------------------
+                                     72 	.area CODE
+                           000000    73 	Sstm8s_it$TRAP_IRQHandler$0 ==.
+                                     74 ;	./src/stm8s_it.c: 63: INTERRUPT_HANDLER_TRAP(TRAP_IRQHandler)
+                                     75 ; genLabel
+                                     76 ;	-----------------------------------------
+                                     77 ;	 function TRAP_IRQHandler
+                                     78 ;	-----------------------------------------
+                                     79 ;	Register assignment is optimal.
+                                     80 ;	Stack space usage: 0 bytes.
+      000000                         81 _TRAP_IRQHandler:
+                           000000    82 	Sstm8s_it$TRAP_IRQHandler$1 ==.
+                           000000    83 	Sstm8s_it$TRAP_IRQHandler$2 ==.
+                                     84 ;	./src/stm8s_it.c: 68: }
+                                     85 ; genLabel
+      000000                         86 00101$:
+                                     87 ; genEndFunction
+                           000000    88 	Sstm8s_it$TRAP_IRQHandler$3 ==.
+                           000000    89 	XG$TRAP_IRQHandler$0$0 ==.
+      000000 80               [11]   90 	iret
+                           000001    91 	Sstm8s_it$TRAP_IRQHandler$4 ==.
+                           000001    92 	Sstm8s_it$TLI_IRQHandler$5 ==.
+                                     93 ;	./src/stm8s_it.c: 74: INTERRUPT_HANDLER(TLI_IRQHandler, 0)
+                                     94 ; genLabel
+                                     95 ;	-----------------------------------------
+                                     96 ;	 function TLI_IRQHandler
+                                     97 ;	-----------------------------------------
+                                     98 ;	Register assignment is optimal.
+                                     99 ;	Stack space usage: 0 bytes.
+      000001                        100 _TLI_IRQHandler:
+                           000001   101 	Sstm8s_it$TLI_IRQHandler$6 ==.
+                           000001   102 	Sstm8s_it$TLI_IRQHandler$7 ==.
+                                    103 ;	./src/stm8s_it.c: 79: }
+                                    104 ; genLabel
+      000001                        105 00101$:
+                                    106 ; genEndFunction
+                           000001   107 	Sstm8s_it$TLI_IRQHandler$8 ==.
+                           000001   108 	XG$TLI_IRQHandler$0$0 ==.
+      000001 80               [11]  109 	iret
+                           000002   110 	Sstm8s_it$TLI_IRQHandler$9 ==.
+                           000002   111 	Sstm8s_it$AWU_IRQHandler$10 ==.
+                                    112 ;	./src/stm8s_it.c: 86: INTERRUPT_HANDLER(AWU_IRQHandler, 1)
+                                    113 ; genLabel
+                                    114 ;	-----------------------------------------
+                                    115 ;	 function AWU_IRQHandler
+                                    116 ;	-----------------------------------------
+                                    117 ;	Register assignment is optimal.
+                                    118 ;	Stack space usage: 0 bytes.
+      000002                        119 _AWU_IRQHandler:
+                           000002   120 	Sstm8s_it$AWU_IRQHandler$11 ==.
+                           000002   121 	Sstm8s_it$AWU_IRQHandler$12 ==.
+                                    122 ;	./src/stm8s_it.c: 91: }
+                                    123 ; genLabel
+      000002                        124 00101$:
+                                    125 ; genEndFunction
+                           000002   126 	Sstm8s_it$AWU_IRQHandler$13 ==.
+                           000002   127 	XG$AWU_IRQHandler$0$0 ==.
+      000002 80               [11]  128 	iret
+                           000003   129 	Sstm8s_it$AWU_IRQHandler$14 ==.
+                           000003   130 	Sstm8s_it$CLK_IRQHandler$15 ==.
+                                    131 ;	./src/stm8s_it.c: 98: INTERRUPT_HANDLER(CLK_IRQHandler, 2)
+                                    132 ; genLabel
+                                    133 ;	-----------------------------------------
+                                    134 ;	 function CLK_IRQHandler
+                                    135 ;	-----------------------------------------
+                                    136 ;	Register assignment is optimal.
+                                    137 ;	Stack space usage: 0 bytes.
+      000003                        138 _CLK_IRQHandler:
+                           000003   139 	Sstm8s_it$CLK_IRQHandler$16 ==.
+                           000003   140 	Sstm8s_it$CLK_IRQHandler$17 ==.
+                                    141 ;	./src/stm8s_it.c: 103: }
+                                    142 ; genLabel
+      000003                        143 00101$:
+                                    144 ; genEndFunction
+                           000003   145 	Sstm8s_it$CLK_IRQHandler$18 ==.
+                           000003   146 	XG$CLK_IRQHandler$0$0 ==.
+      000003 80               [11]  147 	iret
+                           000004   148 	Sstm8s_it$CLK_IRQHandler$19 ==.
+                           000004   149 	Sstm8s_it$EXTI_PORTA_IRQHandler$20 ==.
+                                    150 ;	./src/stm8s_it.c: 110: INTERRUPT_HANDLER(EXTI_PORTA_IRQHandler, 3)
+                                    151 ; genLabel
+                                    152 ;	-----------------------------------------
+                                    153 ;	 function EXTI_PORTA_IRQHandler
+                                    154 ;	-----------------------------------------
+                                    155 ;	Register assignment is optimal.
+                                    156 ;	Stack space usage: 0 bytes.
+      000004                        157 _EXTI_PORTA_IRQHandler:
+                           000004   158 	Sstm8s_it$EXTI_PORTA_IRQHandler$21 ==.
+                           000004   159 	Sstm8s_it$EXTI_PORTA_IRQHandler$22 ==.
+                                    160 ;	./src/stm8s_it.c: 115: }
+                                    161 ; genLabel
+      000004                        162 00101$:
+                                    163 ; genEndFunction
+                           000004   164 	Sstm8s_it$EXTI_PORTA_IRQHandler$23 ==.
+                           000004   165 	XG$EXTI_PORTA_IRQHandler$0$0 ==.
+      000004 80               [11]  166 	iret
+                           000005   167 	Sstm8s_it$EXTI_PORTA_IRQHandler$24 ==.
+                           000005   168 	Sstm8s_it$EXTI_PORTB_IRQHandler$25 ==.
+                                    169 ;	./src/stm8s_it.c: 122: INTERRUPT_HANDLER(EXTI_PORTB_IRQHandler, 4)
+                                    170 ; genLabel
+                                    171 ;	-----------------------------------------
+                                    172 ;	 function EXTI_PORTB_IRQHandler
+                                    173 ;	-----------------------------------------
+                                    174 ;	Register assignment is optimal.
+                                    175 ;	Stack space usage: 0 bytes.
+      000005                        176 _EXTI_PORTB_IRQHandler:
+                           000005   177 	Sstm8s_it$EXTI_PORTB_IRQHandler$26 ==.
+                           000005   178 	Sstm8s_it$EXTI_PORTB_IRQHandler$27 ==.
+                                    179 ;	./src/stm8s_it.c: 127: }
+                                    180 ; genLabel
+      000005                        181 00101$:
+                                    182 ; genEndFunction
+                           000005   183 	Sstm8s_it$EXTI_PORTB_IRQHandler$28 ==.
+                           000005   184 	XG$EXTI_PORTB_IRQHandler$0$0 ==.
+      000005 80               [11]  185 	iret
+                           000006   186 	Sstm8s_it$EXTI_PORTB_IRQHandler$29 ==.
+                           000006   187 	Sstm8s_it$EXTI_PORTC_IRQHandler$30 ==.
+                                    188 ;	./src/stm8s_it.c: 134: INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
+                                    189 ; genLabel
+                                    190 ;	-----------------------------------------
+                                    191 ;	 function EXTI_PORTC_IRQHandler
+                                    192 ;	-----------------------------------------
+                                    193 ;	Register assignment is optimal.
+                                    194 ;	Stack space usage: 0 bytes.
+      000006                        195 _EXTI_PORTC_IRQHandler:
+                           000006   196 	Sstm8s_it$EXTI_PORTC_IRQHandler$31 ==.
+                           000006   197 	Sstm8s_it$EXTI_PORTC_IRQHandler$32 ==.
+                                    198 ;	./src/stm8s_it.c: 139: }
+                                    199 ; genLabel
+      000006                        200 00101$:
+                                    201 ; genEndFunction
+                           000006   202 	Sstm8s_it$EXTI_PORTC_IRQHandler$33 ==.
+                           000006   203 	XG$EXTI_PORTC_IRQHandler$0$0 ==.
+      000006 80               [11]  204 	iret
+                           000007   205 	Sstm8s_it$EXTI_PORTC_IRQHandler$34 ==.
+                           000007   206 	Sstm8s_it$EXTI_PORTD_IRQHandler$35 ==.
+                                    207 ;	./src/stm8s_it.c: 146: INTERRUPT_HANDLER(EXTI_PORTD_IRQHandler, 6)
+                                    208 ; genLabel
+                                    209 ;	-----------------------------------------
+                                    210 ;	 function EXTI_PORTD_IRQHandler
+                                    211 ;	-----------------------------------------
+                                    212 ;	Register assignment is optimal.
+                                    213 ;	Stack space usage: 0 bytes.
+      000007                        214 _EXTI_PORTD_IRQHandler:
+                           000007   215 	Sstm8s_it$EXTI_PORTD_IRQHandler$36 ==.
+                           000007   216 	Sstm8s_it$EXTI_PORTD_IRQHandler$37 ==.
+                                    217 ;	./src/stm8s_it.c: 151: }
+                                    218 ; genLabel
+      000007                        219 00101$:
+                                    220 ; genEndFunction
+                           000007   221 	Sstm8s_it$EXTI_PORTD_IRQHandler$38 ==.
+                           000007   222 	XG$EXTI_PORTD_IRQHandler$0$0 ==.
+      000007 80               [11]  223 	iret
+                           000008   224 	Sstm8s_it$EXTI_PORTD_IRQHandler$39 ==.
+                           000008   225 	Sstm8s_it$EXTI_PORTE_IRQHandler$40 ==.
+                                    226 ;	./src/stm8s_it.c: 158: INTERRUPT_HANDLER(EXTI_PORTE_IRQHandler, 7)
+                                    227 ; genLabel
+                                    228 ;	-----------------------------------------
+                                    229 ;	 function EXTI_PORTE_IRQHandler
+                                    230 ;	-----------------------------------------
+                                    231 ;	Register assignment is optimal.
+                                    232 ;	Stack space usage: 0 bytes.
+      000008                        233 _EXTI_PORTE_IRQHandler:
+                           000008   234 	Sstm8s_it$EXTI_PORTE_IRQHandler$41 ==.
+                           000008   235 	Sstm8s_it$EXTI_PORTE_IRQHandler$42 ==.
+                                    236 ;	./src/stm8s_it.c: 163: }
+                                    237 ; genLabel
+      000008                        238 00101$:
+                                    239 ; genEndFunction
+                           000008   240 	Sstm8s_it$EXTI_PORTE_IRQHandler$43 ==.
+                           000008   241 	XG$EXTI_PORTE_IRQHandler$0$0 ==.
+      000008 80               [11]  242 	iret
+                           000009   243 	Sstm8s_it$EXTI_PORTE_IRQHandler$44 ==.
+                           000009   244 	Sstm8s_it$CAN_RX_IRQHandler$45 ==.
+                                    245 ;	./src/stm8s_it.c: 184: INTERRUPT_HANDLER(CAN_RX_IRQHandler, 8)
+                                    246 ; genLabel
+                                    247 ;	-----------------------------------------
+                                    248 ;	 function CAN_RX_IRQHandler
+                                    249 ;	-----------------------------------------
+                                    250 ;	Register assignment is optimal.
+                                    251 ;	Stack space usage: 0 bytes.
+      000009                        252 _CAN_RX_IRQHandler:
+                           000009   253 	Sstm8s_it$CAN_RX_IRQHandler$46 ==.
+                           000009   254 	Sstm8s_it$CAN_RX_IRQHandler$47 ==.
+                                    255 ;	./src/stm8s_it.c: 189: }
+                                    256 ; genLabel
+      000009                        257 00101$:
+                                    258 ; genEndFunction
+                           000009   259 	Sstm8s_it$CAN_RX_IRQHandler$48 ==.
+                           000009   260 	XG$CAN_RX_IRQHandler$0$0 ==.
+      000009 80               [11]  261 	iret
+                           00000A   262 	Sstm8s_it$CAN_RX_IRQHandler$49 ==.
+                           00000A   263 	Sstm8s_it$CAN_TX_IRQHandler$50 ==.
+                                    264 ;	./src/stm8s_it.c: 196: INTERRUPT_HANDLER(CAN_TX_IRQHandler, 9)
+                                    265 ; genLabel
+                                    266 ;	-----------------------------------------
+                                    267 ;	 function CAN_TX_IRQHandler
+                                    268 ;	-----------------------------------------
+                                    269 ;	Register assignment is optimal.
+                                    270 ;	Stack space usage: 0 bytes.
+      00000A                        271 _CAN_TX_IRQHandler:
+                           00000A   272 	Sstm8s_it$CAN_TX_IRQHandler$51 ==.
+                           00000A   273 	Sstm8s_it$CAN_TX_IRQHandler$52 ==.
+                                    274 ;	./src/stm8s_it.c: 201: }
+                                    275 ; genLabel
+      00000A                        276 00101$:
+                                    277 ; genEndFunction
+                           00000A   278 	Sstm8s_it$CAN_TX_IRQHandler$53 ==.
+                           00000A   279 	XG$CAN_TX_IRQHandler$0$0 ==.
+      00000A 80               [11]  280 	iret
+                           00000B   281 	Sstm8s_it$CAN_TX_IRQHandler$54 ==.
+                           00000B   282 	Sstm8s_it$SPI_IRQHandler$55 ==.
+                                    283 ;	./src/stm8s_it.c: 209: INTERRUPT_HANDLER(SPI_IRQHandler, 10)
+                                    284 ; genLabel
+                                    285 ;	-----------------------------------------
+                                    286 ;	 function SPI_IRQHandler
+                                    287 ;	-----------------------------------------
+                                    288 ;	Register assignment is optimal.
+                                    289 ;	Stack space usage: 0 bytes.
+      00000B                        290 _SPI_IRQHandler:
+                           00000B   291 	Sstm8s_it$SPI_IRQHandler$56 ==.
+                           00000B   292 	Sstm8s_it$SPI_IRQHandler$57 ==.
+                                    293 ;	./src/stm8s_it.c: 214: }
+                                    294 ; genLabel
+      00000B                        295 00101$:
+                                    296 ; genEndFunction
+                           00000B   297 	Sstm8s_it$SPI_IRQHandler$58 ==.
+                           00000B   298 	XG$SPI_IRQHandler$0$0 ==.
+      00000B 80               [11]  299 	iret
+                           00000C   300 	Sstm8s_it$SPI_IRQHandler$59 ==.
+                           00000C   301 	Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$60 ==.
+                                    302 ;	./src/stm8s_it.c: 221: INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_BRK_IRQHandler, 11)
+                                    303 ; genLabel
+                                    304 ;	-----------------------------------------
+                                    305 ;	 function TIM1_UPD_OVF_TRG_BRK_IRQHandler
+                                    306 ;	-----------------------------------------
+                                    307 ;	Register assignment is optimal.
+                                    308 ;	Stack space usage: 0 bytes.
+      00000C                        309 _TIM1_UPD_OVF_TRG_BRK_IRQHandler:
+                           00000C   310 	Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$61 ==.
+                           00000C   311 	Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$62 ==.
+                                    312 ;	./src/stm8s_it.c: 226: }
+                                    313 ; genLabel
+      00000C                        314 00101$:
+                                    315 ; genEndFunction
+                           00000C   316 	Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$63 ==.
+                           00000C   317 	XG$TIM1_UPD_OVF_TRG_BRK_IRQHandler$0$0 ==.
+      00000C 80               [11]  318 	iret
+                           00000D   319 	Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$64 ==.
+                           00000D   320 	Sstm8s_it$TIM1_CAP_COM_IRQHandler$65 ==.
+                                    321 ;	./src/stm8s_it.c: 233: INTERRUPT_HANDLER(TIM1_CAP_COM_IRQHandler, 12)
+                                    322 ; genLabel
+                                    323 ;	-----------------------------------------
+                                    324 ;	 function TIM1_CAP_COM_IRQHandler
+                                    325 ;	-----------------------------------------
+                                    326 ;	Register assignment is optimal.
+                                    327 ;	Stack space usage: 0 bytes.
+      00000D                        328 _TIM1_CAP_COM_IRQHandler:
+                           00000D   329 	Sstm8s_it$TIM1_CAP_COM_IRQHandler$66 ==.
+                           00000D   330 	Sstm8s_it$TIM1_CAP_COM_IRQHandler$67 ==.
+                                    331 ;	./src/stm8s_it.c: 238: }
+                                    332 ; genLabel
+      00000D                        333 00101$:
+                                    334 ; genEndFunction
+                           00000D   335 	Sstm8s_it$TIM1_CAP_COM_IRQHandler$68 ==.
+                           00000D   336 	XG$TIM1_CAP_COM_IRQHandler$0$0 ==.
+      00000D 80               [11]  337 	iret
+                           00000E   338 	Sstm8s_it$TIM1_CAP_COM_IRQHandler$69 ==.
+                           00000E   339 	Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$70 ==.
+                                    340 ;	./src/stm8s_it.c: 270: INTERRUPT_HANDLER(TIM2_UPD_OVF_BRK_IRQHandler, 13)
+                                    341 ; genLabel
+                                    342 ;	-----------------------------------------
+                                    343 ;	 function TIM2_UPD_OVF_BRK_IRQHandler
+                                    344 ;	-----------------------------------------
+                                    345 ;	Register assignment is optimal.
+                                    346 ;	Stack space usage: 0 bytes.
+      00000E                        347 _TIM2_UPD_OVF_BRK_IRQHandler:
+                           00000E   348 	Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$71 ==.
+                           00000E   349 	Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$72 ==.
+                                    350 ;	./src/stm8s_it.c: 275: }
+                                    351 ; genLabel
+      00000E                        352 00101$:
+                                    353 ; genEndFunction
+                           00000E   354 	Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$73 ==.
+                           00000E   355 	XG$TIM2_UPD_OVF_BRK_IRQHandler$0$0 ==.
+      00000E 80               [11]  356 	iret
+                           00000F   357 	Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$74 ==.
+                           00000F   358 	Sstm8s_it$TIM2_CAP_COM_IRQHandler$75 ==.
+                                    359 ;	./src/stm8s_it.c: 282: INTERRUPT_HANDLER(TIM2_CAP_COM_IRQHandler, 14)
+                                    360 ; genLabel
+                                    361 ;	-----------------------------------------
+                                    362 ;	 function TIM2_CAP_COM_IRQHandler
+                                    363 ;	-----------------------------------------
+                                    364 ;	Register assignment is optimal.
+                                    365 ;	Stack space usage: 0 bytes.
+      00000F                        366 _TIM2_CAP_COM_IRQHandler:
+                           00000F   367 	Sstm8s_it$TIM2_CAP_COM_IRQHandler$76 ==.
+                           00000F   368 	Sstm8s_it$TIM2_CAP_COM_IRQHandler$77 ==.
+                                    369 ;	./src/stm8s_it.c: 287: }
+                                    370 ; genLabel
+      00000F                        371 00101$:
+                                    372 ; genEndFunction
+                           00000F   373 	Sstm8s_it$TIM2_CAP_COM_IRQHandler$78 ==.
+                           00000F   374 	XG$TIM2_CAP_COM_IRQHandler$0$0 ==.
+      00000F 80               [11]  375 	iret
+                           000010   376 	Sstm8s_it$TIM2_CAP_COM_IRQHandler$79 ==.
+                           000010   377 	Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$80 ==.
+                                    378 ;	./src/stm8s_it.c: 297: INTERRUPT_HANDLER(TIM3_UPD_OVF_BRK_IRQHandler, 15)
+                                    379 ; genLabel
+                                    380 ;	-----------------------------------------
+                                    381 ;	 function TIM3_UPD_OVF_BRK_IRQHandler
+                                    382 ;	-----------------------------------------
+                                    383 ;	Register assignment is optimal.
+                                    384 ;	Stack space usage: 0 bytes.
+      000010                        385 _TIM3_UPD_OVF_BRK_IRQHandler:
+                           000010   386 	Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$81 ==.
+                           000010   387 	Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$82 ==.
+                                    388 ;	./src/stm8s_it.c: 302: }
+                                    389 ; genLabel
+      000010                        390 00101$:
+                                    391 ; genEndFunction
+                           000010   392 	Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$83 ==.
+                           000010   393 	XG$TIM3_UPD_OVF_BRK_IRQHandler$0$0 ==.
+      000010 80               [11]  394 	iret
+                           000011   395 	Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$84 ==.
+                           000011   396 	Sstm8s_it$TIM3_CAP_COM_IRQHandler$85 ==.
+                                    397 ;	./src/stm8s_it.c: 309: INTERRUPT_HANDLER(TIM3_CAP_COM_IRQHandler, 16)
+                                    398 ; genLabel
+                                    399 ;	-----------------------------------------
+                                    400 ;	 function TIM3_CAP_COM_IRQHandler
+                                    401 ;	-----------------------------------------
+                                    402 ;	Register assignment is optimal.
+                                    403 ;	Stack space usage: 0 bytes.
+      000011                        404 _TIM3_CAP_COM_IRQHandler:
+                           000011   405 	Sstm8s_it$TIM3_CAP_COM_IRQHandler$86 ==.
+                           000011   406 	Sstm8s_it$TIM3_CAP_COM_IRQHandler$87 ==.
+                                    407 ;	./src/stm8s_it.c: 314: }
+                                    408 ; genLabel
+      000011                        409 00101$:
+                                    410 ; genEndFunction
+                           000011   411 	Sstm8s_it$TIM3_CAP_COM_IRQHandler$88 ==.
+                           000011   412 	XG$TIM3_CAP_COM_IRQHandler$0$0 ==.
+      000011 80               [11]  413 	iret
+                           000012   414 	Sstm8s_it$TIM3_CAP_COM_IRQHandler$89 ==.
+                           000012   415 	Sstm8s_it$UART1_TX_IRQHandler$90 ==.
+                                    416 ;	./src/stm8s_it.c: 324: INTERRUPT_HANDLER(UART1_TX_IRQHandler, 17)
+                                    417 ; genLabel
+                                    418 ;	-----------------------------------------
+                                    419 ;	 function UART1_TX_IRQHandler
+                                    420 ;	-----------------------------------------
+                                    421 ;	Register assignment is optimal.
+                                    422 ;	Stack space usage: 0 bytes.
+      000012                        423 _UART1_TX_IRQHandler:
+                           000012   424 	Sstm8s_it$UART1_TX_IRQHandler$91 ==.
+                           000012   425 	Sstm8s_it$UART1_TX_IRQHandler$92 ==.
+                                    426 ;	./src/stm8s_it.c: 329: }
+                                    427 ; genLabel
+      000012                        428 00101$:
+                                    429 ; genEndFunction
+                           000012   430 	Sstm8s_it$UART1_TX_IRQHandler$93 ==.
+                           000012   431 	XG$UART1_TX_IRQHandler$0$0 ==.
+      000012 80               [11]  432 	iret
+                           000013   433 	Sstm8s_it$UART1_TX_IRQHandler$94 ==.
+                           000013   434 	Sstm8s_it$UART1_RX_IRQHandler$95 ==.
+                                    435 ;	./src/stm8s_it.c: 336: INTERRUPT_HANDLER(UART1_RX_IRQHandler, 18)
+                                    436 ; genLabel
+                                    437 ;	-----------------------------------------
+                                    438 ;	 function UART1_RX_IRQHandler
+                                    439 ;	-----------------------------------------
+                                    440 ;	Register assignment is optimal.
+                                    441 ;	Stack space usage: 0 bytes.
+      000013                        442 _UART1_RX_IRQHandler:
+                           000013   443 	Sstm8s_it$UART1_RX_IRQHandler$96 ==.
+                           000013   444 	Sstm8s_it$UART1_RX_IRQHandler$97 ==.
+                                    445 ;	./src/stm8s_it.c: 341: }
+                                    446 ; genLabel
+      000013                        447 00101$:
+                                    448 ; genEndFunction
+                           000013   449 	Sstm8s_it$UART1_RX_IRQHandler$98 ==.
+                           000013   450 	XG$UART1_RX_IRQHandler$0$0 ==.
+      000013 80               [11]  451 	iret
+                           000014   452 	Sstm8s_it$UART1_RX_IRQHandler$99 ==.
+                           000014   453 	Sstm8s_it$I2C_IRQHandler$100 ==.
+                                    454 ;	./src/stm8s_it.c: 349: INTERRUPT_HANDLER(I2C_IRQHandler, 19)
+                                    455 ; genLabel
+                                    456 ;	-----------------------------------------
+                                    457 ;	 function I2C_IRQHandler
+                                    458 ;	-----------------------------------------
+                                    459 ;	Register assignment is optimal.
+                                    460 ;	Stack space usage: 0 bytes.
+      000014                        461 _I2C_IRQHandler:
+                           000014   462 	Sstm8s_it$I2C_IRQHandler$101 ==.
+                           000014   463 	Sstm8s_it$I2C_IRQHandler$102 ==.
+                                    464 ;	./src/stm8s_it.c: 354: }
+                                    465 ; genLabel
+      000014                        466 00101$:
+                                    467 ; genEndFunction
+                           000014   468 	Sstm8s_it$I2C_IRQHandler$103 ==.
+                           000014   469 	XG$I2C_IRQHandler$0$0 ==.
+      000014 80               [11]  470 	iret
+                           000015   471 	Sstm8s_it$I2C_IRQHandler$104 ==.
+                           000015   472 	Sstm8s_it$UART3_TX_IRQHandler$105 ==.
+                                    473 ;	./src/stm8s_it.c: 388: INTERRUPT_HANDLER(UART3_TX_IRQHandler, 20)
+                                    474 ; genLabel
+                                    475 ;	-----------------------------------------
+                                    476 ;	 function UART3_TX_IRQHandler
+                                    477 ;	-----------------------------------------
+                                    478 ;	Register assignment is optimal.
+                                    479 ;	Stack space usage: 0 bytes.
+      000015                        480 _UART3_TX_IRQHandler:
+                           000015   481 	Sstm8s_it$UART3_TX_IRQHandler$106 ==.
+                           000015   482 	Sstm8s_it$UART3_TX_IRQHandler$107 ==.
+                                    483 ;	./src/stm8s_it.c: 393: }
+                                    484 ; genLabel
+      000015                        485 00101$:
+                                    486 ; genEndFunction
+                           000015   487 	Sstm8s_it$UART3_TX_IRQHandler$108 ==.
+                           000015   488 	XG$UART3_TX_IRQHandler$0$0 ==.
+      000015 80               [11]  489 	iret
+                           000016   490 	Sstm8s_it$UART3_TX_IRQHandler$109 ==.
+                           000016   491 	Sstm8s_it$UART3_RX_IRQHandler$110 ==.
+                                    492 ;	./src/stm8s_it.c: 400: INTERRUPT_HANDLER(UART3_RX_IRQHandler, 21)
+                                    493 ; genLabel
+                                    494 ;	-----------------------------------------
+                                    495 ;	 function UART3_RX_IRQHandler
+                                    496 ;	-----------------------------------------
+                                    497 ;	Register assignment is optimal.
+                                    498 ;	Stack space usage: 0 bytes.
+      000016                        499 _UART3_RX_IRQHandler:
+                           000016   500 	Sstm8s_it$UART3_RX_IRQHandler$111 ==.
+                           000016   501 	Sstm8s_it$UART3_RX_IRQHandler$112 ==.
+                                    502 ;	./src/stm8s_it.c: 405: }
+                                    503 ; genLabel
+      000016                        504 00101$:
+                                    505 ; genEndFunction
+                           000016   506 	Sstm8s_it$UART3_RX_IRQHandler$113 ==.
+                           000016   507 	XG$UART3_RX_IRQHandler$0$0 ==.
+      000016 80               [11]  508 	iret
+                           000017   509 	Sstm8s_it$UART3_RX_IRQHandler$114 ==.
+                           000017   510 	Sstm8s_it$ADC2_IRQHandler$115 ==.
+                                    511 ;	./src/stm8s_it.c: 414: INTERRUPT_HANDLER(ADC2_IRQHandler, 22)
+                                    512 ; genLabel
+                                    513 ;	-----------------------------------------
+                                    514 ;	 function ADC2_IRQHandler
+                                    515 ;	-----------------------------------------
+                                    516 ;	Register assignment is optimal.
+                                    517 ;	Stack space usage: 0 bytes.
+      000017                        518 _ADC2_IRQHandler:
+                           000017   519 	Sstm8s_it$ADC2_IRQHandler$116 ==.
+                           000017   520 	Sstm8s_it$ADC2_IRQHandler$117 ==.
+                                    521 ;	./src/stm8s_it.c: 420: return;
+                                    522 ; genReturn
+                                    523 ; genLabel
+      000017                        524 00101$:
+                           000017   525 	Sstm8s_it$ADC2_IRQHandler$118 ==.
+                                    526 ;	./src/stm8s_it.c: 422: }
+                                    527 ; genEndFunction
+                           000017   528 	Sstm8s_it$ADC2_IRQHandler$119 ==.
+                           000017   529 	XG$ADC2_IRQHandler$0$0 ==.
+      000017 80               [11]  530 	iret
+                           000018   531 	Sstm8s_it$ADC2_IRQHandler$120 ==.
+                           000018   532 	Sstm8s_it$EEPROM_EEC_IRQHandler$121 ==.
+                                    533 ;	./src/stm8s_it.c: 471: INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
+                                    534 ; genLabel
+                                    535 ;	-----------------------------------------
+                                    536 ;	 function EEPROM_EEC_IRQHandler
+                                    537 ;	-----------------------------------------
+                                    538 ;	Register assignment is optimal.
+                                    539 ;	Stack space usage: 0 bytes.
+      000018                        540 _EEPROM_EEC_IRQHandler:
+                           000018   541 	Sstm8s_it$EEPROM_EEC_IRQHandler$122 ==.
+                           000018   542 	Sstm8s_it$EEPROM_EEC_IRQHandler$123 ==.
+                                    543 ;	./src/stm8s_it.c: 476: }
+                                    544 ; genLabel
+      000018                        545 00101$:
+                                    546 ; genEndFunction
+                           000018   547 	Sstm8s_it$EEPROM_EEC_IRQHandler$124 ==.
+                           000018   548 	XG$EEPROM_EEC_IRQHandler$0$0 ==.
+      000018 80               [11]  549 	iret
+                           000019   550 	Sstm8s_it$EEPROM_EEC_IRQHandler$125 ==.
+                                    551 	.area CODE
+                                    552 	.area CONST
+                                    553 	.area INITIALIZER
+                                    554 	.area CABS (ABS)
+                                    555 
+                                    556 	.area .debug_line (NOLOAD)
+      000000 00 00 02 BB            557 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        558 Ldebug_line_start:
+      000004 00 02                  559 	.dw	2
+      000006 00 00 00 71            560 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     561 	.db	1
+      00000B 01                     562 	.db	1
+      00000C FB                     563 	.db	-5
+      00000D 0F                     564 	.db	15
+      00000E 0A                     565 	.db	10
+      00000F 00                     566 	.db	0
+      000010 01                     567 	.db	1
+      000011 01                     568 	.db	1
+      000012 01                     569 	.db	1
+      000013 01                     570 	.db	1
+      000014 00                     571 	.db	0
+      000015 00                     572 	.db	0
+      000016 00                     573 	.db	0
+      000017 01                     574 	.db	1
+      000018 43 3A 5C 50 72 6F 67   575 	.ascii "C:\Program Files\SDCC\bin\..\include\stm8"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+             5C 73 74 6D 38
+      000040 00                     576 	.db	0
+      000041 43 3A 5C 50 72 6F 67   577 	.ascii "C:\Program Files\SDCC\bin\..\include"
+             72 61 6D 20 46 69 6C
+             65 73 5C 53 44 43 43
+             08 69 6E 5C 2E 2E 5C
+             69 6E 63 6C 75 64 65
+      000064 00                     578 	.db	0
+      000065 00                     579 	.db	0
+      000066 2E 2F 73 72 63 2F 73   580 	.ascii "./src/stm8s_it.c"
+             74 6D 38 73 5F 69 74
+             2E 63
+      000076 00                     581 	.db	0
+      000077 00                     582 	.uleb128	0
+      000078 00                     583 	.uleb128	0
+      000079 00                     584 	.uleb128	0
+      00007A 00                     585 	.db	0
+      00007B                        586 Ldebug_line_stmt:
+      00007B 00                     587 	.db	0
+      00007C 05                     588 	.uleb128	5
+      00007D 02                     589 	.db	2
+      00007E 00 00r00r00            590 	.dw	0,(Sstm8s_it$TRAP_IRQHandler$0)
+      000082 03                     591 	.db	3
+      000083 3E                     592 	.sleb128	62
+      000084 01                     593 	.db	1
+      000085 09                     594 	.db	9
+      000086 00 00                  595 	.dw	Sstm8s_it$TRAP_IRQHandler$2-Sstm8s_it$TRAP_IRQHandler$0
+      000088 03                     596 	.db	3
+      000089 05                     597 	.sleb128	5
+      00008A 01                     598 	.db	1
+      00008B 09                     599 	.db	9
+      00008C 00 01                  600 	.dw	1+Sstm8s_it$TRAP_IRQHandler$3-Sstm8s_it$TRAP_IRQHandler$2
+      00008E 00                     601 	.db	0
+      00008F 01                     602 	.uleb128	1
+      000090 01                     603 	.db	1
+      000091 00                     604 	.db	0
+      000092 05                     605 	.uleb128	5
+      000093 02                     606 	.db	2
+      000094 00 00r00r01            607 	.dw	0,(Sstm8s_it$TLI_IRQHandler$5)
+      000098 03                     608 	.db	3
+      000099 C9 00                  609 	.sleb128	73
+      00009B 01                     610 	.db	1
+      00009C 09                     611 	.db	9
+      00009D 00 00                  612 	.dw	Sstm8s_it$TLI_IRQHandler$7-Sstm8s_it$TLI_IRQHandler$5
+      00009F 03                     613 	.db	3
+      0000A0 05                     614 	.sleb128	5
+      0000A1 01                     615 	.db	1
+      0000A2 09                     616 	.db	9
+      0000A3 00 01                  617 	.dw	1+Sstm8s_it$TLI_IRQHandler$8-Sstm8s_it$TLI_IRQHandler$7
+      0000A5 00                     618 	.db	0
+      0000A6 01                     619 	.uleb128	1
+      0000A7 01                     620 	.db	1
+      0000A8 00                     621 	.db	0
+      0000A9 05                     622 	.uleb128	5
+      0000AA 02                     623 	.db	2
+      0000AB 00 00r00r02            624 	.dw	0,(Sstm8s_it$AWU_IRQHandler$10)
+      0000AF 03                     625 	.db	3
+      0000B0 D5 00                  626 	.sleb128	85
+      0000B2 01                     627 	.db	1
+      0000B3 09                     628 	.db	9
+      0000B4 00 00                  629 	.dw	Sstm8s_it$AWU_IRQHandler$12-Sstm8s_it$AWU_IRQHandler$10
+      0000B6 03                     630 	.db	3
+      0000B7 05                     631 	.sleb128	5
+      0000B8 01                     632 	.db	1
+      0000B9 09                     633 	.db	9
+      0000BA 00 01                  634 	.dw	1+Sstm8s_it$AWU_IRQHandler$13-Sstm8s_it$AWU_IRQHandler$12
+      0000BC 00                     635 	.db	0
+      0000BD 01                     636 	.uleb128	1
+      0000BE 01                     637 	.db	1
+      0000BF 00                     638 	.db	0
+      0000C0 05                     639 	.uleb128	5
+      0000C1 02                     640 	.db	2
+      0000C2 00 00r00r03            641 	.dw	0,(Sstm8s_it$CLK_IRQHandler$15)
+      0000C6 03                     642 	.db	3
+      0000C7 E1 00                  643 	.sleb128	97
+      0000C9 01                     644 	.db	1
+      0000CA 09                     645 	.db	9
+      0000CB 00 00                  646 	.dw	Sstm8s_it$CLK_IRQHandler$17-Sstm8s_it$CLK_IRQHandler$15
+      0000CD 03                     647 	.db	3
+      0000CE 05                     648 	.sleb128	5
+      0000CF 01                     649 	.db	1
+      0000D0 09                     650 	.db	9
+      0000D1 00 01                  651 	.dw	1+Sstm8s_it$CLK_IRQHandler$18-Sstm8s_it$CLK_IRQHandler$17
+      0000D3 00                     652 	.db	0
+      0000D4 01                     653 	.uleb128	1
+      0000D5 01                     654 	.db	1
+      0000D6 00                     655 	.db	0
+      0000D7 05                     656 	.uleb128	5
+      0000D8 02                     657 	.db	2
+      0000D9 00 00r00r04            658 	.dw	0,(Sstm8s_it$EXTI_PORTA_IRQHandler$20)
+      0000DD 03                     659 	.db	3
+      0000DE ED 00                  660 	.sleb128	109
+      0000E0 01                     661 	.db	1
+      0000E1 09                     662 	.db	9
+      0000E2 00 00                  663 	.dw	Sstm8s_it$EXTI_PORTA_IRQHandler$22-Sstm8s_it$EXTI_PORTA_IRQHandler$20
+      0000E4 03                     664 	.db	3
+      0000E5 05                     665 	.sleb128	5
+      0000E6 01                     666 	.db	1
+      0000E7 09                     667 	.db	9
+      0000E8 00 01                  668 	.dw	1+Sstm8s_it$EXTI_PORTA_IRQHandler$23-Sstm8s_it$EXTI_PORTA_IRQHandler$22
+      0000EA 00                     669 	.db	0
+      0000EB 01                     670 	.uleb128	1
+      0000EC 01                     671 	.db	1
+      0000ED 00                     672 	.db	0
+      0000EE 05                     673 	.uleb128	5
+      0000EF 02                     674 	.db	2
+      0000F0 00 00r00r05            675 	.dw	0,(Sstm8s_it$EXTI_PORTB_IRQHandler$25)
+      0000F4 03                     676 	.db	3
+      0000F5 F9 00                  677 	.sleb128	121
+      0000F7 01                     678 	.db	1
+      0000F8 09                     679 	.db	9
+      0000F9 00 00                  680 	.dw	Sstm8s_it$EXTI_PORTB_IRQHandler$27-Sstm8s_it$EXTI_PORTB_IRQHandler$25
+      0000FB 03                     681 	.db	3
+      0000FC 05                     682 	.sleb128	5
+      0000FD 01                     683 	.db	1
+      0000FE 09                     684 	.db	9
+      0000FF 00 01                  685 	.dw	1+Sstm8s_it$EXTI_PORTB_IRQHandler$28-Sstm8s_it$EXTI_PORTB_IRQHandler$27
+      000101 00                     686 	.db	0
+      000102 01                     687 	.uleb128	1
+      000103 01                     688 	.db	1
+      000104 00                     689 	.db	0
+      000105 05                     690 	.uleb128	5
+      000106 02                     691 	.db	2
+      000107 00 00r00r06            692 	.dw	0,(Sstm8s_it$EXTI_PORTC_IRQHandler$30)
+      00010B 03                     693 	.db	3
+      00010C 85 01                  694 	.sleb128	133
+      00010E 01                     695 	.db	1
+      00010F 09                     696 	.db	9
+      000110 00 00                  697 	.dw	Sstm8s_it$EXTI_PORTC_IRQHandler$32-Sstm8s_it$EXTI_PORTC_IRQHandler$30
+      000112 03                     698 	.db	3
+      000113 05                     699 	.sleb128	5
+      000114 01                     700 	.db	1
+      000115 09                     701 	.db	9
+      000116 00 01                  702 	.dw	1+Sstm8s_it$EXTI_PORTC_IRQHandler$33-Sstm8s_it$EXTI_PORTC_IRQHandler$32
+      000118 00                     703 	.db	0
+      000119 01                     704 	.uleb128	1
+      00011A 01                     705 	.db	1
+      00011B 00                     706 	.db	0
+      00011C 05                     707 	.uleb128	5
+      00011D 02                     708 	.db	2
+      00011E 00 00r00r07            709 	.dw	0,(Sstm8s_it$EXTI_PORTD_IRQHandler$35)
+      000122 03                     710 	.db	3
+      000123 91 01                  711 	.sleb128	145
+      000125 01                     712 	.db	1
+      000126 09                     713 	.db	9
+      000127 00 00                  714 	.dw	Sstm8s_it$EXTI_PORTD_IRQHandler$37-Sstm8s_it$EXTI_PORTD_IRQHandler$35
+      000129 03                     715 	.db	3
+      00012A 05                     716 	.sleb128	5
+      00012B 01                     717 	.db	1
+      00012C 09                     718 	.db	9
+      00012D 00 01                  719 	.dw	1+Sstm8s_it$EXTI_PORTD_IRQHandler$38-Sstm8s_it$EXTI_PORTD_IRQHandler$37
+      00012F 00                     720 	.db	0
+      000130 01                     721 	.uleb128	1
+      000131 01                     722 	.db	1
+      000132 00                     723 	.db	0
+      000133 05                     724 	.uleb128	5
+      000134 02                     725 	.db	2
+      000135 00 00r00r08            726 	.dw	0,(Sstm8s_it$EXTI_PORTE_IRQHandler$40)
+      000139 03                     727 	.db	3
+      00013A 9D 01                  728 	.sleb128	157
+      00013C 01                     729 	.db	1
+      00013D 09                     730 	.db	9
+      00013E 00 00                  731 	.dw	Sstm8s_it$EXTI_PORTE_IRQHandler$42-Sstm8s_it$EXTI_PORTE_IRQHandler$40
+      000140 03                     732 	.db	3
+      000141 05                     733 	.sleb128	5
+      000142 01                     734 	.db	1
+      000143 09                     735 	.db	9
+      000144 00 01                  736 	.dw	1+Sstm8s_it$EXTI_PORTE_IRQHandler$43-Sstm8s_it$EXTI_PORTE_IRQHandler$42
+      000146 00                     737 	.db	0
+      000147 01                     738 	.uleb128	1
+      000148 01                     739 	.db	1
+      000149 00                     740 	.db	0
+      00014A 05                     741 	.uleb128	5
+      00014B 02                     742 	.db	2
+      00014C 00 00r00r09            743 	.dw	0,(Sstm8s_it$CAN_RX_IRQHandler$45)
+      000150 03                     744 	.db	3
+      000151 B7 01                  745 	.sleb128	183
+      000153 01                     746 	.db	1
+      000154 09                     747 	.db	9
+      000155 00 00                  748 	.dw	Sstm8s_it$CAN_RX_IRQHandler$47-Sstm8s_it$CAN_RX_IRQHandler$45
+      000157 03                     749 	.db	3
+      000158 05                     750 	.sleb128	5
+      000159 01                     751 	.db	1
+      00015A 09                     752 	.db	9
+      00015B 00 01                  753 	.dw	1+Sstm8s_it$CAN_RX_IRQHandler$48-Sstm8s_it$CAN_RX_IRQHandler$47
+      00015D 00                     754 	.db	0
+      00015E 01                     755 	.uleb128	1
+      00015F 01                     756 	.db	1
+      000160 00                     757 	.db	0
+      000161 05                     758 	.uleb128	5
+      000162 02                     759 	.db	2
+      000163 00 00r00r0A            760 	.dw	0,(Sstm8s_it$CAN_TX_IRQHandler$50)
+      000167 03                     761 	.db	3
+      000168 C3 01                  762 	.sleb128	195
+      00016A 01                     763 	.db	1
+      00016B 09                     764 	.db	9
+      00016C 00 00                  765 	.dw	Sstm8s_it$CAN_TX_IRQHandler$52-Sstm8s_it$CAN_TX_IRQHandler$50
+      00016E 03                     766 	.db	3
+      00016F 05                     767 	.sleb128	5
+      000170 01                     768 	.db	1
+      000171 09                     769 	.db	9
+      000172 00 01                  770 	.dw	1+Sstm8s_it$CAN_TX_IRQHandler$53-Sstm8s_it$CAN_TX_IRQHandler$52
+      000174 00                     771 	.db	0
+      000175 01                     772 	.uleb128	1
+      000176 01                     773 	.db	1
+      000177 00                     774 	.db	0
+      000178 05                     775 	.uleb128	5
+      000179 02                     776 	.db	2
+      00017A 00 00r00r0B            777 	.dw	0,(Sstm8s_it$SPI_IRQHandler$55)
+      00017E 03                     778 	.db	3
+      00017F D0 01                  779 	.sleb128	208
+      000181 01                     780 	.db	1
+      000182 09                     781 	.db	9
+      000183 00 00                  782 	.dw	Sstm8s_it$SPI_IRQHandler$57-Sstm8s_it$SPI_IRQHandler$55
+      000185 03                     783 	.db	3
+      000186 05                     784 	.sleb128	5
+      000187 01                     785 	.db	1
+      000188 09                     786 	.db	9
+      000189 00 01                  787 	.dw	1+Sstm8s_it$SPI_IRQHandler$58-Sstm8s_it$SPI_IRQHandler$57
+      00018B 00                     788 	.db	0
+      00018C 01                     789 	.uleb128	1
+      00018D 01                     790 	.db	1
+      00018E 00                     791 	.db	0
+      00018F 05                     792 	.uleb128	5
+      000190 02                     793 	.db	2
+      000191 00 00r00r0C            794 	.dw	0,(Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$60)
+      000195 03                     795 	.db	3
+      000196 DC 01                  796 	.sleb128	220
+      000198 01                     797 	.db	1
+      000199 09                     798 	.db	9
+      00019A 00 00                  799 	.dw	Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$62-Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$60
+      00019C 03                     800 	.db	3
+      00019D 05                     801 	.sleb128	5
+      00019E 01                     802 	.db	1
+      00019F 09                     803 	.db	9
+      0001A0 00 01                  804 	.dw	1+Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$63-Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$62
+      0001A2 00                     805 	.db	0
+      0001A3 01                     806 	.uleb128	1
+      0001A4 01                     807 	.db	1
+      0001A5 00                     808 	.db	0
+      0001A6 05                     809 	.uleb128	5
+      0001A7 02                     810 	.db	2
+      0001A8 00 00r00r0D            811 	.dw	0,(Sstm8s_it$TIM1_CAP_COM_IRQHandler$65)
+      0001AC 03                     812 	.db	3
+      0001AD E8 01                  813 	.sleb128	232
+      0001AF 01                     814 	.db	1
+      0001B0 09                     815 	.db	9
+      0001B1 00 00                  816 	.dw	Sstm8s_it$TIM1_CAP_COM_IRQHandler$67-Sstm8s_it$TIM1_CAP_COM_IRQHandler$65
+      0001B3 03                     817 	.db	3
+      0001B4 05                     818 	.sleb128	5
+      0001B5 01                     819 	.db	1
+      0001B6 09                     820 	.db	9
+      0001B7 00 01                  821 	.dw	1+Sstm8s_it$TIM1_CAP_COM_IRQHandler$68-Sstm8s_it$TIM1_CAP_COM_IRQHandler$67
+      0001B9 00                     822 	.db	0
+      0001BA 01                     823 	.uleb128	1
+      0001BB 01                     824 	.db	1
+      0001BC 00                     825 	.db	0
+      0001BD 05                     826 	.uleb128	5
+      0001BE 02                     827 	.db	2
+      0001BF 00 00r00r0E            828 	.dw	0,(Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$70)
+      0001C3 03                     829 	.db	3
+      0001C4 8D 02                  830 	.sleb128	269
+      0001C6 01                     831 	.db	1
+      0001C7 09                     832 	.db	9
+      0001C8 00 00                  833 	.dw	Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$72-Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$70
+      0001CA 03                     834 	.db	3
+      0001CB 05                     835 	.sleb128	5
+      0001CC 01                     836 	.db	1
+      0001CD 09                     837 	.db	9
+      0001CE 00 01                  838 	.dw	1+Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$73-Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$72
+      0001D0 00                     839 	.db	0
+      0001D1 01                     840 	.uleb128	1
+      0001D2 01                     841 	.db	1
+      0001D3 00                     842 	.db	0
+      0001D4 05                     843 	.uleb128	5
+      0001D5 02                     844 	.db	2
+      0001D6 00 00r00r0F            845 	.dw	0,(Sstm8s_it$TIM2_CAP_COM_IRQHandler$75)
+      0001DA 03                     846 	.db	3
+      0001DB 99 02                  847 	.sleb128	281
+      0001DD 01                     848 	.db	1
+      0001DE 09                     849 	.db	9
+      0001DF 00 00                  850 	.dw	Sstm8s_it$TIM2_CAP_COM_IRQHandler$77-Sstm8s_it$TIM2_CAP_COM_IRQHandler$75
+      0001E1 03                     851 	.db	3
+      0001E2 05                     852 	.sleb128	5
+      0001E3 01                     853 	.db	1
+      0001E4 09                     854 	.db	9
+      0001E5 00 01                  855 	.dw	1+Sstm8s_it$TIM2_CAP_COM_IRQHandler$78-Sstm8s_it$TIM2_CAP_COM_IRQHandler$77
+      0001E7 00                     856 	.db	0
+      0001E8 01                     857 	.uleb128	1
+      0001E9 01                     858 	.db	1
+      0001EA 00                     859 	.db	0
+      0001EB 05                     860 	.uleb128	5
+      0001EC 02                     861 	.db	2
+      0001ED 00 00r00r10            862 	.dw	0,(Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$80)
+      0001F1 03                     863 	.db	3
+      0001F2 A8 02                  864 	.sleb128	296
+      0001F4 01                     865 	.db	1
+      0001F5 09                     866 	.db	9
+      0001F6 00 00                  867 	.dw	Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$82-Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$80
+      0001F8 03                     868 	.db	3
+      0001F9 05                     869 	.sleb128	5
+      0001FA 01                     870 	.db	1
+      0001FB 09                     871 	.db	9
+      0001FC 00 01                  872 	.dw	1+Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$83-Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$82
+      0001FE 00                     873 	.db	0
+      0001FF 01                     874 	.uleb128	1
+      000200 01                     875 	.db	1
+      000201 00                     876 	.db	0
+      000202 05                     877 	.uleb128	5
+      000203 02                     878 	.db	2
+      000204 00 00r00r11            879 	.dw	0,(Sstm8s_it$TIM3_CAP_COM_IRQHandler$85)
+      000208 03                     880 	.db	3
+      000209 B4 02                  881 	.sleb128	308
+      00020B 01                     882 	.db	1
+      00020C 09                     883 	.db	9
+      00020D 00 00                  884 	.dw	Sstm8s_it$TIM3_CAP_COM_IRQHandler$87-Sstm8s_it$TIM3_CAP_COM_IRQHandler$85
+      00020F 03                     885 	.db	3
+      000210 05                     886 	.sleb128	5
+      000211 01                     887 	.db	1
+      000212 09                     888 	.db	9
+      000213 00 01                  889 	.dw	1+Sstm8s_it$TIM3_CAP_COM_IRQHandler$88-Sstm8s_it$TIM3_CAP_COM_IRQHandler$87
+      000215 00                     890 	.db	0
+      000216 01                     891 	.uleb128	1
+      000217 01                     892 	.db	1
+      000218 00                     893 	.db	0
+      000219 05                     894 	.uleb128	5
+      00021A 02                     895 	.db	2
+      00021B 00 00r00r12            896 	.dw	0,(Sstm8s_it$UART1_TX_IRQHandler$90)
+      00021F 03                     897 	.db	3
+      000220 C3 02                  898 	.sleb128	323
+      000222 01                     899 	.db	1
+      000223 09                     900 	.db	9
+      000224 00 00                  901 	.dw	Sstm8s_it$UART1_TX_IRQHandler$92-Sstm8s_it$UART1_TX_IRQHandler$90
+      000226 03                     902 	.db	3
+      000227 05                     903 	.sleb128	5
+      000228 01                     904 	.db	1
+      000229 09                     905 	.db	9
+      00022A 00 01                  906 	.dw	1+Sstm8s_it$UART1_TX_IRQHandler$93-Sstm8s_it$UART1_TX_IRQHandler$92
+      00022C 00                     907 	.db	0
+      00022D 01                     908 	.uleb128	1
+      00022E 01                     909 	.db	1
+      00022F 00                     910 	.db	0
+      000230 05                     911 	.uleb128	5
+      000231 02                     912 	.db	2
+      000232 00 00r00r13            913 	.dw	0,(Sstm8s_it$UART1_RX_IRQHandler$95)
+      000236 03                     914 	.db	3
+      000237 CF 02                  915 	.sleb128	335
+      000239 01                     916 	.db	1
+      00023A 09                     917 	.db	9
+      00023B 00 00                  918 	.dw	Sstm8s_it$UART1_RX_IRQHandler$97-Sstm8s_it$UART1_RX_IRQHandler$95
+      00023D 03                     919 	.db	3
+      00023E 05                     920 	.sleb128	5
+      00023F 01                     921 	.db	1
+      000240 09                     922 	.db	9
+      000241 00 01                  923 	.dw	1+Sstm8s_it$UART1_RX_IRQHandler$98-Sstm8s_it$UART1_RX_IRQHandler$97
+      000243 00                     924 	.db	0
+      000244 01                     925 	.uleb128	1
+      000245 01                     926 	.db	1
+      000246 00                     927 	.db	0
+      000247 05                     928 	.uleb128	5
+      000248 02                     929 	.db	2
+      000249 00 00r00r14            930 	.dw	0,(Sstm8s_it$I2C_IRQHandler$100)
+      00024D 03                     931 	.db	3
+      00024E DC 02                  932 	.sleb128	348
+      000250 01                     933 	.db	1
+      000251 09                     934 	.db	9
+      000252 00 00                  935 	.dw	Sstm8s_it$I2C_IRQHandler$102-Sstm8s_it$I2C_IRQHandler$100
+      000254 03                     936 	.db	3
+      000255 05                     937 	.sleb128	5
+      000256 01                     938 	.db	1
+      000257 09                     939 	.db	9
+      000258 00 01                  940 	.dw	1+Sstm8s_it$I2C_IRQHandler$103-Sstm8s_it$I2C_IRQHandler$102
+      00025A 00                     941 	.db	0
+      00025B 01                     942 	.uleb128	1
+      00025C 01                     943 	.db	1
+      00025D 00                     944 	.db	0
+      00025E 05                     945 	.uleb128	5
+      00025F 02                     946 	.db	2
+      000260 00 00r00r15            947 	.dw	0,(Sstm8s_it$UART3_TX_IRQHandler$105)
+      000264 03                     948 	.db	3
+      000265 83 03                  949 	.sleb128	387
+      000267 01                     950 	.db	1
+      000268 09                     951 	.db	9
+      000269 00 00                  952 	.dw	Sstm8s_it$UART3_TX_IRQHandler$107-Sstm8s_it$UART3_TX_IRQHandler$105
+      00026B 03                     953 	.db	3
+      00026C 05                     954 	.sleb128	5
+      00026D 01                     955 	.db	1
+      00026E 09                     956 	.db	9
+      00026F 00 01                  957 	.dw	1+Sstm8s_it$UART3_TX_IRQHandler$108-Sstm8s_it$UART3_TX_IRQHandler$107
+      000271 00                     958 	.db	0
+      000272 01                     959 	.uleb128	1
+      000273 01                     960 	.db	1
+      000274 00                     961 	.db	0
+      000275 05                     962 	.uleb128	5
+      000276 02                     963 	.db	2
+      000277 00 00r00r16            964 	.dw	0,(Sstm8s_it$UART3_RX_IRQHandler$110)
+      00027B 03                     965 	.db	3
+      00027C 8F 03                  966 	.sleb128	399
+      00027E 01                     967 	.db	1
+      00027F 09                     968 	.db	9
+      000280 00 00                  969 	.dw	Sstm8s_it$UART3_RX_IRQHandler$112-Sstm8s_it$UART3_RX_IRQHandler$110
+      000282 03                     970 	.db	3
+      000283 05                     971 	.sleb128	5
+      000284 01                     972 	.db	1
+      000285 09                     973 	.db	9
+      000286 00 01                  974 	.dw	1+Sstm8s_it$UART3_RX_IRQHandler$113-Sstm8s_it$UART3_RX_IRQHandler$112
+      000288 00                     975 	.db	0
+      000289 01                     976 	.uleb128	1
+      00028A 01                     977 	.db	1
+      00028B 00                     978 	.db	0
+      00028C 05                     979 	.uleb128	5
+      00028D 02                     980 	.db	2
+      00028E 00 00r00r17            981 	.dw	0,(Sstm8s_it$ADC2_IRQHandler$115)
+      000292 03                     982 	.db	3
+      000293 9D 03                  983 	.sleb128	413
+      000295 01                     984 	.db	1
+      000296 09                     985 	.db	9
+      000297 00 00                  986 	.dw	Sstm8s_it$ADC2_IRQHandler$117-Sstm8s_it$ADC2_IRQHandler$115
+      000299 03                     987 	.db	3
+      00029A 06                     988 	.sleb128	6
+      00029B 01                     989 	.db	1
+      00029C 09                     990 	.db	9
+      00029D 00 00                  991 	.dw	Sstm8s_it$ADC2_IRQHandler$118-Sstm8s_it$ADC2_IRQHandler$117
+      00029F 03                     992 	.db	3
+      0002A0 02                     993 	.sleb128	2
+      0002A1 01                     994 	.db	1
+      0002A2 09                     995 	.db	9
+      0002A3 00 01                  996 	.dw	1+Sstm8s_it$ADC2_IRQHandler$119-Sstm8s_it$ADC2_IRQHandler$118
+      0002A5 00                     997 	.db	0
+      0002A6 01                     998 	.uleb128	1
+      0002A7 01                     999 	.db	1
+      0002A8 00                    1000 	.db	0
+      0002A9 05                    1001 	.uleb128	5
+      0002AA 02                    1002 	.db	2
+      0002AB 00 00r00r18           1003 	.dw	0,(Sstm8s_it$EEPROM_EEC_IRQHandler$121)
+      0002AF 03                    1004 	.db	3
+      0002B0 D6 03                 1005 	.sleb128	470
+      0002B2 01                    1006 	.db	1
+      0002B3 09                    1007 	.db	9
+      0002B4 00 00                 1008 	.dw	Sstm8s_it$EEPROM_EEC_IRQHandler$123-Sstm8s_it$EEPROM_EEC_IRQHandler$121
+      0002B6 03                    1009 	.db	3
+      0002B7 05                    1010 	.sleb128	5
+      0002B8 01                    1011 	.db	1
+      0002B9 09                    1012 	.db	9
+      0002BA 00 01                 1013 	.dw	1+Sstm8s_it$EEPROM_EEC_IRQHandler$124-Sstm8s_it$EEPROM_EEC_IRQHandler$123
+      0002BC 00                    1014 	.db	0
+      0002BD 01                    1015 	.uleb128	1
+      0002BE 01                    1016 	.db	1
+      0002BF                       1017 Ldebug_line_end:
+                                   1018 
+                                   1019 	.area .debug_loc (NOLOAD)
+      000000                       1020 Ldebug_loc_start:
+      000000 00 00r00r18           1021 	.dw	0,(Sstm8s_it$EEPROM_EEC_IRQHandler$122)
+      000004 00 00r00r19           1022 	.dw	0,(Sstm8s_it$EEPROM_EEC_IRQHandler$125)
+      000008 00 02                 1023 	.dw	2
+      00000A 78                    1024 	.db	120
+      00000B 01                    1025 	.sleb128	1
+      00000C 00 00 00 00           1026 	.dw	0,0
+      000010 00 00 00 00           1027 	.dw	0,0
+      000014 00 00r00r17           1028 	.dw	0,(Sstm8s_it$ADC2_IRQHandler$116)
+      000018 00 00r00r18           1029 	.dw	0,(Sstm8s_it$ADC2_IRQHandler$120)
+      00001C 00 02                 1030 	.dw	2
+      00001E 78                    1031 	.db	120
+      00001F 01                    1032 	.sleb128	1
+      000020 00 00 00 00           1033 	.dw	0,0
+      000024 00 00 00 00           1034 	.dw	0,0
+      000028 00 00r00r16           1035 	.dw	0,(Sstm8s_it$UART3_RX_IRQHandler$111)
+      00002C 00 00r00r17           1036 	.dw	0,(Sstm8s_it$UART3_RX_IRQHandler$114)
+      000030 00 02                 1037 	.dw	2
+      000032 78                    1038 	.db	120
+      000033 01                    1039 	.sleb128	1
+      000034 00 00 00 00           1040 	.dw	0,0
+      000038 00 00 00 00           1041 	.dw	0,0
+      00003C 00 00r00r15           1042 	.dw	0,(Sstm8s_it$UART3_TX_IRQHandler$106)
+      000040 00 00r00r16           1043 	.dw	0,(Sstm8s_it$UART3_TX_IRQHandler$109)
+      000044 00 02                 1044 	.dw	2
+      000046 78                    1045 	.db	120
+      000047 01                    1046 	.sleb128	1
+      000048 00 00 00 00           1047 	.dw	0,0
+      00004C 00 00 00 00           1048 	.dw	0,0
+      000050 00 00r00r14           1049 	.dw	0,(Sstm8s_it$I2C_IRQHandler$101)
+      000054 00 00r00r15           1050 	.dw	0,(Sstm8s_it$I2C_IRQHandler$104)
+      000058 00 02                 1051 	.dw	2
+      00005A 78                    1052 	.db	120
+      00005B 01                    1053 	.sleb128	1
+      00005C 00 00 00 00           1054 	.dw	0,0
+      000060 00 00 00 00           1055 	.dw	0,0
+      000064 00 00r00r13           1056 	.dw	0,(Sstm8s_it$UART1_RX_IRQHandler$96)
+      000068 00 00r00r14           1057 	.dw	0,(Sstm8s_it$UART1_RX_IRQHandler$99)
+      00006C 00 02                 1058 	.dw	2
+      00006E 78                    1059 	.db	120
+      00006F 01                    1060 	.sleb128	1
+      000070 00 00 00 00           1061 	.dw	0,0
+      000074 00 00 00 00           1062 	.dw	0,0
+      000078 00 00r00r12           1063 	.dw	0,(Sstm8s_it$UART1_TX_IRQHandler$91)
+      00007C 00 00r00r13           1064 	.dw	0,(Sstm8s_it$UART1_TX_IRQHandler$94)
+      000080 00 02                 1065 	.dw	2
+      000082 78                    1066 	.db	120
+      000083 01                    1067 	.sleb128	1
+      000084 00 00 00 00           1068 	.dw	0,0
+      000088 00 00 00 00           1069 	.dw	0,0
+      00008C 00 00r00r11           1070 	.dw	0,(Sstm8s_it$TIM3_CAP_COM_IRQHandler$86)
+      000090 00 00r00r12           1071 	.dw	0,(Sstm8s_it$TIM3_CAP_COM_IRQHandler$89)
+      000094 00 02                 1072 	.dw	2
+      000096 78                    1073 	.db	120
+      000097 01                    1074 	.sleb128	1
+      000098 00 00 00 00           1075 	.dw	0,0
+      00009C 00 00 00 00           1076 	.dw	0,0
+      0000A0 00 00r00r10           1077 	.dw	0,(Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$81)
+      0000A4 00 00r00r11           1078 	.dw	0,(Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$84)
+      0000A8 00 02                 1079 	.dw	2
+      0000AA 78                    1080 	.db	120
+      0000AB 01                    1081 	.sleb128	1
+      0000AC 00 00 00 00           1082 	.dw	0,0
+      0000B0 00 00 00 00           1083 	.dw	0,0
+      0000B4 00 00r00r0F           1084 	.dw	0,(Sstm8s_it$TIM2_CAP_COM_IRQHandler$76)
+      0000B8 00 00r00r10           1085 	.dw	0,(Sstm8s_it$TIM2_CAP_COM_IRQHandler$79)
+      0000BC 00 02                 1086 	.dw	2
+      0000BE 78                    1087 	.db	120
+      0000BF 01                    1088 	.sleb128	1
+      0000C0 00 00 00 00           1089 	.dw	0,0
+      0000C4 00 00 00 00           1090 	.dw	0,0
+      0000C8 00 00r00r0E           1091 	.dw	0,(Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$71)
+      0000CC 00 00r00r0F           1092 	.dw	0,(Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$74)
+      0000D0 00 02                 1093 	.dw	2
+      0000D2 78                    1094 	.db	120
+      0000D3 01                    1095 	.sleb128	1
+      0000D4 00 00 00 00           1096 	.dw	0,0
+      0000D8 00 00 00 00           1097 	.dw	0,0
+      0000DC 00 00r00r0D           1098 	.dw	0,(Sstm8s_it$TIM1_CAP_COM_IRQHandler$66)
+      0000E0 00 00r00r0E           1099 	.dw	0,(Sstm8s_it$TIM1_CAP_COM_IRQHandler$69)
+      0000E4 00 02                 1100 	.dw	2
+      0000E6 78                    1101 	.db	120
+      0000E7 01                    1102 	.sleb128	1
+      0000E8 00 00 00 00           1103 	.dw	0,0
+      0000EC 00 00 00 00           1104 	.dw	0,0
+      0000F0 00 00r00r0C           1105 	.dw	0,(Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$61)
+      0000F4 00 00r00r0D           1106 	.dw	0,(Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$64)
+      0000F8 00 02                 1107 	.dw	2
+      0000FA 78                    1108 	.db	120
+      0000FB 01                    1109 	.sleb128	1
+      0000FC 00 00 00 00           1110 	.dw	0,0
+      000100 00 00 00 00           1111 	.dw	0,0
+      000104 00 00r00r0B           1112 	.dw	0,(Sstm8s_it$SPI_IRQHandler$56)
+      000108 00 00r00r0C           1113 	.dw	0,(Sstm8s_it$SPI_IRQHandler$59)
+      00010C 00 02                 1114 	.dw	2
+      00010E 78                    1115 	.db	120
+      00010F 01                    1116 	.sleb128	1
+      000110 00 00 00 00           1117 	.dw	0,0
+      000114 00 00 00 00           1118 	.dw	0,0
+      000118 00 00r00r0A           1119 	.dw	0,(Sstm8s_it$CAN_TX_IRQHandler$51)
+      00011C 00 00r00r0B           1120 	.dw	0,(Sstm8s_it$CAN_TX_IRQHandler$54)
+      000120 00 02                 1121 	.dw	2
+      000122 78                    1122 	.db	120
+      000123 01                    1123 	.sleb128	1
+      000124 00 00 00 00           1124 	.dw	0,0
+      000128 00 00 00 00           1125 	.dw	0,0
+      00012C 00 00r00r09           1126 	.dw	0,(Sstm8s_it$CAN_RX_IRQHandler$46)
+      000130 00 00r00r0A           1127 	.dw	0,(Sstm8s_it$CAN_RX_IRQHandler$49)
+      000134 00 02                 1128 	.dw	2
+      000136 78                    1129 	.db	120
+      000137 01                    1130 	.sleb128	1
+      000138 00 00 00 00           1131 	.dw	0,0
+      00013C 00 00 00 00           1132 	.dw	0,0
+      000140 00 00r00r08           1133 	.dw	0,(Sstm8s_it$EXTI_PORTE_IRQHandler$41)
+      000144 00 00r00r09           1134 	.dw	0,(Sstm8s_it$EXTI_PORTE_IRQHandler$44)
+      000148 00 02                 1135 	.dw	2
+      00014A 78                    1136 	.db	120
+      00014B 01                    1137 	.sleb128	1
+      00014C 00 00 00 00           1138 	.dw	0,0
+      000150 00 00 00 00           1139 	.dw	0,0
+      000154 00 00r00r07           1140 	.dw	0,(Sstm8s_it$EXTI_PORTD_IRQHandler$36)
+      000158 00 00r00r08           1141 	.dw	0,(Sstm8s_it$EXTI_PORTD_IRQHandler$39)
+      00015C 00 02                 1142 	.dw	2
+      00015E 78                    1143 	.db	120
+      00015F 01                    1144 	.sleb128	1
+      000160 00 00 00 00           1145 	.dw	0,0
+      000164 00 00 00 00           1146 	.dw	0,0
+      000168 00 00r00r06           1147 	.dw	0,(Sstm8s_it$EXTI_PORTC_IRQHandler$31)
+      00016C 00 00r00r07           1148 	.dw	0,(Sstm8s_it$EXTI_PORTC_IRQHandler$34)
+      000170 00 02                 1149 	.dw	2
+      000172 78                    1150 	.db	120
+      000173 01                    1151 	.sleb128	1
+      000174 00 00 00 00           1152 	.dw	0,0
+      000178 00 00 00 00           1153 	.dw	0,0
+      00017C 00 00r00r05           1154 	.dw	0,(Sstm8s_it$EXTI_PORTB_IRQHandler$26)
+      000180 00 00r00r06           1155 	.dw	0,(Sstm8s_it$EXTI_PORTB_IRQHandler$29)
+      000184 00 02                 1156 	.dw	2
+      000186 78                    1157 	.db	120
+      000187 01                    1158 	.sleb128	1
+      000188 00 00 00 00           1159 	.dw	0,0
+      00018C 00 00 00 00           1160 	.dw	0,0
+      000190 00 00r00r04           1161 	.dw	0,(Sstm8s_it$EXTI_PORTA_IRQHandler$21)
+      000194 00 00r00r05           1162 	.dw	0,(Sstm8s_it$EXTI_PORTA_IRQHandler$24)
+      000198 00 02                 1163 	.dw	2
+      00019A 78                    1164 	.db	120
+      00019B 01                    1165 	.sleb128	1
+      00019C 00 00 00 00           1166 	.dw	0,0
+      0001A0 00 00 00 00           1167 	.dw	0,0
+      0001A4 00 00r00r03           1168 	.dw	0,(Sstm8s_it$CLK_IRQHandler$16)
+      0001A8 00 00r00r04           1169 	.dw	0,(Sstm8s_it$CLK_IRQHandler$19)
+      0001AC 00 02                 1170 	.dw	2
+      0001AE 78                    1171 	.db	120
+      0001AF 01                    1172 	.sleb128	1
+      0001B0 00 00 00 00           1173 	.dw	0,0
+      0001B4 00 00 00 00           1174 	.dw	0,0
+      0001B8 00 00r00r02           1175 	.dw	0,(Sstm8s_it$AWU_IRQHandler$11)
+      0001BC 00 00r00r03           1176 	.dw	0,(Sstm8s_it$AWU_IRQHandler$14)
+      0001C0 00 02                 1177 	.dw	2
+      0001C2 78                    1178 	.db	120
+      0001C3 01                    1179 	.sleb128	1
+      0001C4 00 00 00 00           1180 	.dw	0,0
+      0001C8 00 00 00 00           1181 	.dw	0,0
+      0001CC 00 00r00r01           1182 	.dw	0,(Sstm8s_it$TLI_IRQHandler$6)
+      0001D0 00 00r00r02           1183 	.dw	0,(Sstm8s_it$TLI_IRQHandler$9)
+      0001D4 00 02                 1184 	.dw	2
+      0001D6 78                    1185 	.db	120
+      0001D7 01                    1186 	.sleb128	1
+      0001D8 00 00 00 00           1187 	.dw	0,0
+      0001DC 00 00 00 00           1188 	.dw	0,0
+      0001E0 00 00r00r00           1189 	.dw	0,(Sstm8s_it$TRAP_IRQHandler$1)
+      0001E4 00 00r00r01           1190 	.dw	0,(Sstm8s_it$TRAP_IRQHandler$4)
+      0001E8 00 02                 1191 	.dw	2
+      0001EA 78                    1192 	.db	120
+      0001EB 01                    1193 	.sleb128	1
+      0001EC 00 00 00 00           1194 	.dw	0,0
+      0001F0 00 00 00 00           1195 	.dw	0,0
+                                   1196 
+                                   1197 	.area .debug_abbrev (NOLOAD)
+      000000                       1198 Ldebug_abbrev:
+      000000 01                    1199 	.uleb128	1
+      000001 11                    1200 	.uleb128	17
+      000002 01                    1201 	.db	1
+      000003 03                    1202 	.uleb128	3
+      000004 08                    1203 	.uleb128	8
+      000005 10                    1204 	.uleb128	16
+      000006 06                    1205 	.uleb128	6
+      000007 13                    1206 	.uleb128	19
+      000008 0B                    1207 	.uleb128	11
+      000009 25                    1208 	.uleb128	37
+      00000A 08                    1209 	.uleb128	8
+      00000B 00                    1210 	.uleb128	0
+      00000C 00                    1211 	.uleb128	0
+      00000D 02                    1212 	.uleb128	2
+      00000E 2E                    1213 	.uleb128	46
+      00000F 00                    1214 	.db	0
+      000010 03                    1215 	.uleb128	3
+      000011 08                    1216 	.uleb128	8
+      000012 11                    1217 	.uleb128	17
+      000013 01                    1218 	.uleb128	1
+      000014 12                    1219 	.uleb128	18
+      000015 01                    1220 	.uleb128	1
+      000016 36                    1221 	.uleb128	54
+      000017 0B                    1222 	.uleb128	11
+      000018 3F                    1223 	.uleb128	63
+      000019 0C                    1224 	.uleb128	12
+      00001A 40                    1225 	.uleb128	64
+      00001B 06                    1226 	.uleb128	6
+      00001C 00                    1227 	.uleb128	0
+      00001D 00                    1228 	.uleb128	0
+      00001E 00                    1229 	.uleb128	0
+                                   1230 
+                                   1231 	.area .debug_info (NOLOAD)
+      000000 00 00 03 B5           1232 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                       1233 Ldebug_info_start:
+      000004 00 02                 1234 	.dw	2
+      000006 00 00r00r00           1235 	.dw	0,(Ldebug_abbrev)
+      00000A 04                    1236 	.db	4
+      00000B 01                    1237 	.uleb128	1
+      00000C 2E 2F 73 72 63 2F 73  1238 	.ascii "./src/stm8s_it.c"
+             74 6D 38 73 5F 69 74
+             2E 63
+      00001C 00                    1239 	.db	0
+      00001D 00 00r00r00           1240 	.dw	0,(Ldebug_line_start+-4)
+      000021 01                    1241 	.db	1
+      000022 53 44 43 43 20 76 65  1242 	.ascii "SDCC version 4.1.0 #12072"
+             72 73 69 6F 6E 20 34
+             2E 31 2E 30 20 23 31
+             32 30 37 32
+      00003B 00                    1243 	.db	0
+      00003C 02                    1244 	.uleb128	2
+      00003D 54 52 41 50 5F 49 52  1245 	.ascii "TRAP_IRQHandler"
+             51 48 61 6E 64 6C 65
+             72
+      00004C 00                    1246 	.db	0
+      00004D 00 00r00r00           1247 	.dw	0,(_TRAP_IRQHandler)
+      000051 00 00r00r01           1248 	.dw	0,(XG$TRAP_IRQHandler$0$0+1)
+      000055 03                    1249 	.db	3
+      000056 01                    1250 	.db	1
+      000057 00 00r01rE0           1251 	.dw	0,(Ldebug_loc_start+480)
+      00005B 02                    1252 	.uleb128	2
+      00005C 54 4C 49 5F 49 52 51  1253 	.ascii "TLI_IRQHandler"
+             48 61 6E 64 6C 65 72
+      00006A 00                    1254 	.db	0
+      00006B 00 00r00r01           1255 	.dw	0,(_TLI_IRQHandler)
+      00006F 00 00r00r02           1256 	.dw	0,(XG$TLI_IRQHandler$0$0+1)
+      000073 03                    1257 	.db	3
+      000074 01                    1258 	.db	1
+      000075 00 00r01rCC           1259 	.dw	0,(Ldebug_loc_start+460)
+      000079 02                    1260 	.uleb128	2
+      00007A 41 57 55 5F 49 52 51  1261 	.ascii "AWU_IRQHandler"
+             48 61 6E 64 6C 65 72
+      000088 00                    1262 	.db	0
+      000089 00 00r00r02           1263 	.dw	0,(_AWU_IRQHandler)
+      00008D 00 00r00r03           1264 	.dw	0,(XG$AWU_IRQHandler$0$0+1)
+      000091 03                    1265 	.db	3
+      000092 01                    1266 	.db	1
+      000093 00 00r01rB8           1267 	.dw	0,(Ldebug_loc_start+440)
+      000097 02                    1268 	.uleb128	2
+      000098 43 4C 4B 5F 49 52 51  1269 	.ascii "CLK_IRQHandler"
+             48 61 6E 64 6C 65 72
+      0000A6 00                    1270 	.db	0
+      0000A7 00 00r00r03           1271 	.dw	0,(_CLK_IRQHandler)
+      0000AB 00 00r00r04           1272 	.dw	0,(XG$CLK_IRQHandler$0$0+1)
+      0000AF 03                    1273 	.db	3
+      0000B0 01                    1274 	.db	1
+      0000B1 00 00r01rA4           1275 	.dw	0,(Ldebug_loc_start+420)
+      0000B5 02                    1276 	.uleb128	2
+      0000B6 45 58 54 49 5F 50 4F  1277 	.ascii "EXTI_PORTA_IRQHandler"
+             52 54 41 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      0000CB 00                    1278 	.db	0
+      0000CC 00 00r00r04           1279 	.dw	0,(_EXTI_PORTA_IRQHandler)
+      0000D0 00 00r00r05           1280 	.dw	0,(XG$EXTI_PORTA_IRQHandler$0$0+1)
+      0000D4 03                    1281 	.db	3
+      0000D5 01                    1282 	.db	1
+      0000D6 00 00r01r90           1283 	.dw	0,(Ldebug_loc_start+400)
+      0000DA 02                    1284 	.uleb128	2
+      0000DB 45 58 54 49 5F 50 4F  1285 	.ascii "EXTI_PORTB_IRQHandler"
+             52 54 42 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      0000F0 00                    1286 	.db	0
+      0000F1 00 00r00r05           1287 	.dw	0,(_EXTI_PORTB_IRQHandler)
+      0000F5 00 00r00r06           1288 	.dw	0,(XG$EXTI_PORTB_IRQHandler$0$0+1)
+      0000F9 03                    1289 	.db	3
+      0000FA 01                    1290 	.db	1
+      0000FB 00 00r01r7C           1291 	.dw	0,(Ldebug_loc_start+380)
+      0000FF 02                    1292 	.uleb128	2
+      000100 45 58 54 49 5F 50 4F  1293 	.ascii "EXTI_PORTC_IRQHandler"
+             52 54 43 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      000115 00                    1294 	.db	0
+      000116 00 00r00r06           1295 	.dw	0,(_EXTI_PORTC_IRQHandler)
+      00011A 00 00r00r07           1296 	.dw	0,(XG$EXTI_PORTC_IRQHandler$0$0+1)
+      00011E 03                    1297 	.db	3
+      00011F 01                    1298 	.db	1
+      000120 00 00r01r68           1299 	.dw	0,(Ldebug_loc_start+360)
+      000124 02                    1300 	.uleb128	2
+      000125 45 58 54 49 5F 50 4F  1301 	.ascii "EXTI_PORTD_IRQHandler"
+             52 54 44 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      00013A 00                    1302 	.db	0
+      00013B 00 00r00r07           1303 	.dw	0,(_EXTI_PORTD_IRQHandler)
+      00013F 00 00r00r08           1304 	.dw	0,(XG$EXTI_PORTD_IRQHandler$0$0+1)
+      000143 03                    1305 	.db	3
+      000144 01                    1306 	.db	1
+      000145 00 00r01r54           1307 	.dw	0,(Ldebug_loc_start+340)
+      000149 02                    1308 	.uleb128	2
+      00014A 45 58 54 49 5F 50 4F  1309 	.ascii "EXTI_PORTE_IRQHandler"
+             52 54 45 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      00015F 00                    1310 	.db	0
+      000160 00 00r00r08           1311 	.dw	0,(_EXTI_PORTE_IRQHandler)
+      000164 00 00r00r09           1312 	.dw	0,(XG$EXTI_PORTE_IRQHandler$0$0+1)
+      000168 03                    1313 	.db	3
+      000169 01                    1314 	.db	1
+      00016A 00 00r01r40           1315 	.dw	0,(Ldebug_loc_start+320)
+      00016E 02                    1316 	.uleb128	2
+      00016F 43 41 4E 5F 52 58 5F  1317 	.ascii "CAN_RX_IRQHandler"
+             49 52 51 48 61 6E 64
+             6C 65 72
+      000180 00                    1318 	.db	0
+      000181 00 00r00r09           1319 	.dw	0,(_CAN_RX_IRQHandler)
+      000185 00 00r00r0A           1320 	.dw	0,(XG$CAN_RX_IRQHandler$0$0+1)
+      000189 03                    1321 	.db	3
+      00018A 01                    1322 	.db	1
+      00018B 00 00r01r2C           1323 	.dw	0,(Ldebug_loc_start+300)
+      00018F 02                    1324 	.uleb128	2
+      000190 43 41 4E 5F 54 58 5F  1325 	.ascii "CAN_TX_IRQHandler"
+             49 52 51 48 61 6E 64
+             6C 65 72
+      0001A1 00                    1326 	.db	0
+      0001A2 00 00r00r0A           1327 	.dw	0,(_CAN_TX_IRQHandler)
+      0001A6 00 00r00r0B           1328 	.dw	0,(XG$CAN_TX_IRQHandler$0$0+1)
+      0001AA 03                    1329 	.db	3
+      0001AB 01                    1330 	.db	1
+      0001AC 00 00r01r18           1331 	.dw	0,(Ldebug_loc_start+280)
+      0001B0 02                    1332 	.uleb128	2
+      0001B1 53 50 49 5F 49 52 51  1333 	.ascii "SPI_IRQHandler"
+             48 61 6E 64 6C 65 72
+      0001BF 00                    1334 	.db	0
+      0001C0 00 00r00r0B           1335 	.dw	0,(_SPI_IRQHandler)
+      0001C4 00 00r00r0C           1336 	.dw	0,(XG$SPI_IRQHandler$0$0+1)
+      0001C8 03                    1337 	.db	3
+      0001C9 01                    1338 	.db	1
+      0001CA 00 00r01r04           1339 	.dw	0,(Ldebug_loc_start+260)
+      0001CE 02                    1340 	.uleb128	2
+      0001CF 54 49 4D 31 5F 55 50  1341 	.ascii "TIM1_UPD_OVF_TRG_BRK_IRQHandler"
+             44 5F 4F 56 46 5F 54
+             52 47 5F 42 52 4B 5F
+             49 52 51 48 61 6E 64
+             6C 65 72
+      0001EE 00                    1342 	.db	0
+      0001EF 00 00r00r0C           1343 	.dw	0,(_TIM1_UPD_OVF_TRG_BRK_IRQHandler)
+      0001F3 00 00r00r0D           1344 	.dw	0,(XG$TIM1_UPD_OVF_TRG_BRK_IRQHandler$0$0+1)
+      0001F7 03                    1345 	.db	3
+      0001F8 01                    1346 	.db	1
+      0001F9 00 00r00rF0           1347 	.dw	0,(Ldebug_loc_start+240)
+      0001FD 02                    1348 	.uleb128	2
+      0001FE 54 49 4D 31 5F 43 41  1349 	.ascii "TIM1_CAP_COM_IRQHandler"
+             50 5F 43 4F 4D 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      000215 00                    1350 	.db	0
+      000216 00 00r00r0D           1351 	.dw	0,(_TIM1_CAP_COM_IRQHandler)
+      00021A 00 00r00r0E           1352 	.dw	0,(XG$TIM1_CAP_COM_IRQHandler$0$0+1)
+      00021E 03                    1353 	.db	3
+      00021F 01                    1354 	.db	1
+      000220 00 00r00rDC           1355 	.dw	0,(Ldebug_loc_start+220)
+      000224 02                    1356 	.uleb128	2
+      000225 54 49 4D 32 5F 55 50  1357 	.ascii "TIM2_UPD_OVF_BRK_IRQHandler"
+             44 5F 4F 56 46 5F 42
+             52 4B 5F 49 52 51 48
+             61 6E 64 6C 65 72
+      000240 00                    1358 	.db	0
+      000241 00 00r00r0E           1359 	.dw	0,(_TIM2_UPD_OVF_BRK_IRQHandler)
+      000245 00 00r00r0F           1360 	.dw	0,(XG$TIM2_UPD_OVF_BRK_IRQHandler$0$0+1)
+      000249 03                    1361 	.db	3
+      00024A 01                    1362 	.db	1
+      00024B 00 00r00rC8           1363 	.dw	0,(Ldebug_loc_start+200)
+      00024F 02                    1364 	.uleb128	2
+      000250 54 49 4D 32 5F 43 41  1365 	.ascii "TIM2_CAP_COM_IRQHandler"
+             50 5F 43 4F 4D 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      000267 00                    1366 	.db	0
+      000268 00 00r00r0F           1367 	.dw	0,(_TIM2_CAP_COM_IRQHandler)
+      00026C 00 00r00r10           1368 	.dw	0,(XG$TIM2_CAP_COM_IRQHandler$0$0+1)
+      000270 03                    1369 	.db	3
+      000271 01                    1370 	.db	1
+      000272 00 00r00rB4           1371 	.dw	0,(Ldebug_loc_start+180)
+      000276 02                    1372 	.uleb128	2
+      000277 54 49 4D 33 5F 55 50  1373 	.ascii "TIM3_UPD_OVF_BRK_IRQHandler"
+             44 5F 4F 56 46 5F 42
+             52 4B 5F 49 52 51 48
+             61 6E 64 6C 65 72
+      000292 00                    1374 	.db	0
+      000293 00 00r00r10           1375 	.dw	0,(_TIM3_UPD_OVF_BRK_IRQHandler)
+      000297 00 00r00r11           1376 	.dw	0,(XG$TIM3_UPD_OVF_BRK_IRQHandler$0$0+1)
+      00029B 03                    1377 	.db	3
+      00029C 01                    1378 	.db	1
+      00029D 00 00r00rA0           1379 	.dw	0,(Ldebug_loc_start+160)
+      0002A1 02                    1380 	.uleb128	2
+      0002A2 54 49 4D 33 5F 43 41  1381 	.ascii "TIM3_CAP_COM_IRQHandler"
+             50 5F 43 4F 4D 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      0002B9 00                    1382 	.db	0
+      0002BA 00 00r00r11           1383 	.dw	0,(_TIM3_CAP_COM_IRQHandler)
+      0002BE 00 00r00r12           1384 	.dw	0,(XG$TIM3_CAP_COM_IRQHandler$0$0+1)
+      0002C2 03                    1385 	.db	3
+      0002C3 01                    1386 	.db	1
+      0002C4 00 00r00r8C           1387 	.dw	0,(Ldebug_loc_start+140)
+      0002C8 02                    1388 	.uleb128	2
+      0002C9 55 41 52 54 31 5F 54  1389 	.ascii "UART1_TX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      0002DC 00                    1390 	.db	0
+      0002DD 00 00r00r12           1391 	.dw	0,(_UART1_TX_IRQHandler)
+      0002E1 00 00r00r13           1392 	.dw	0,(XG$UART1_TX_IRQHandler$0$0+1)
+      0002E5 03                    1393 	.db	3
+      0002E6 01                    1394 	.db	1
+      0002E7 00 00r00r78           1395 	.dw	0,(Ldebug_loc_start+120)
+      0002EB 02                    1396 	.uleb128	2
+      0002EC 55 41 52 54 31 5F 52  1397 	.ascii "UART1_RX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      0002FF 00                    1398 	.db	0
+      000300 00 00r00r13           1399 	.dw	0,(_UART1_RX_IRQHandler)
+      000304 00 00r00r14           1400 	.dw	0,(XG$UART1_RX_IRQHandler$0$0+1)
+      000308 03                    1401 	.db	3
+      000309 01                    1402 	.db	1
+      00030A 00 00r00r64           1403 	.dw	0,(Ldebug_loc_start+100)
+      00030E 02                    1404 	.uleb128	2
+      00030F 49 32 43 5F 49 52 51  1405 	.ascii "I2C_IRQHandler"
+             48 61 6E 64 6C 65 72
+      00031D 00                    1406 	.db	0
+      00031E 00 00r00r14           1407 	.dw	0,(_I2C_IRQHandler)
+      000322 00 00r00r15           1408 	.dw	0,(XG$I2C_IRQHandler$0$0+1)
+      000326 03                    1409 	.db	3
+      000327 01                    1410 	.db	1
+      000328 00 00r00r50           1411 	.dw	0,(Ldebug_loc_start+80)
+      00032C 02                    1412 	.uleb128	2
+      00032D 55 41 52 54 33 5F 54  1413 	.ascii "UART3_TX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      000340 00                    1414 	.db	0
+      000341 00 00r00r15           1415 	.dw	0,(_UART3_TX_IRQHandler)
+      000345 00 00r00r16           1416 	.dw	0,(XG$UART3_TX_IRQHandler$0$0+1)
+      000349 03                    1417 	.db	3
+      00034A 01                    1418 	.db	1
+      00034B 00 00r00r3C           1419 	.dw	0,(Ldebug_loc_start+60)
+      00034F 02                    1420 	.uleb128	2
+      000350 55 41 52 54 33 5F 52  1421 	.ascii "UART3_RX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      000363 00                    1422 	.db	0
+      000364 00 00r00r16           1423 	.dw	0,(_UART3_RX_IRQHandler)
+      000368 00 00r00r17           1424 	.dw	0,(XG$UART3_RX_IRQHandler$0$0+1)
+      00036C 03                    1425 	.db	3
+      00036D 01                    1426 	.db	1
+      00036E 00 00r00r28           1427 	.dw	0,(Ldebug_loc_start+40)
+      000372 02                    1428 	.uleb128	2
+      000373 41 44 43 32 5F 49 52  1429 	.ascii "ADC2_IRQHandler"
+             51 48 61 6E 64 6C 65
+             72
+      000382 00                    1430 	.db	0
+      000383 00 00r00r17           1431 	.dw	0,(_ADC2_IRQHandler)
+      000387 00 00r00r18           1432 	.dw	0,(XG$ADC2_IRQHandler$0$0+1)
+      00038B 03                    1433 	.db	3
+      00038C 01                    1434 	.db	1
+      00038D 00 00r00r14           1435 	.dw	0,(Ldebug_loc_start+20)
+      000391 02                    1436 	.uleb128	2
+      000392 45 45 50 52 4F 4D 5F  1437 	.ascii "EEPROM_EEC_IRQHandler"
+             45 45 43 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      0003A7 00                    1438 	.db	0
+      0003A8 00 00r00r18           1439 	.dw	0,(_EEPROM_EEC_IRQHandler)
+      0003AC 00 00r00r19           1440 	.dw	0,(XG$EEPROM_EEC_IRQHandler$0$0+1)
+      0003B0 03                    1441 	.db	3
+      0003B1 01                    1442 	.db	1
+      0003B2 00 00r00r00           1443 	.dw	0,(Ldebug_loc_start)
+      0003B6 00                    1444 	.uleb128	0
+      0003B7 00                    1445 	.uleb128	0
+      0003B8 00                    1446 	.uleb128	0
+      0003B9                       1447 Ldebug_info_end:
+                                   1448 
+                                   1449 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 02 75           1450 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                       1451 Ldebug_pubnames_start:
+      000004 00 02                 1452 	.dw	2
+      000006 00 00r00r00           1453 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 03 B9           1454 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 3C           1455 	.dw	0,60
+      000012 54 52 41 50 5F 49 52  1456 	.ascii "TRAP_IRQHandler"
+             51 48 61 6E 64 6C 65
+             72
+      000021 00                    1457 	.db	0
+      000022 00 00 00 5B           1458 	.dw	0,91
+      000026 54 4C 49 5F 49 52 51  1459 	.ascii "TLI_IRQHandler"
+             48 61 6E 64 6C 65 72
+      000034 00                    1460 	.db	0
+      000035 00 00 00 79           1461 	.dw	0,121
+      000039 41 57 55 5F 49 52 51  1462 	.ascii "AWU_IRQHandler"
+             48 61 6E 64 6C 65 72
+      000047 00                    1463 	.db	0
+      000048 00 00 00 97           1464 	.dw	0,151
+      00004C 43 4C 4B 5F 49 52 51  1465 	.ascii "CLK_IRQHandler"
+             48 61 6E 64 6C 65 72
+      00005A 00                    1466 	.db	0
+      00005B 00 00 00 B5           1467 	.dw	0,181
+      00005F 45 58 54 49 5F 50 4F  1468 	.ascii "EXTI_PORTA_IRQHandler"
+             52 54 41 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      000074 00                    1469 	.db	0
+      000075 00 00 00 DA           1470 	.dw	0,218
+      000079 45 58 54 49 5F 50 4F  1471 	.ascii "EXTI_PORTB_IRQHandler"
+             52 54 42 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      00008E 00                    1472 	.db	0
+      00008F 00 00 00 FF           1473 	.dw	0,255
+      000093 45 58 54 49 5F 50 4F  1474 	.ascii "EXTI_PORTC_IRQHandler"
+             52 54 43 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      0000A8 00                    1475 	.db	0
+      0000A9 00 00 01 24           1476 	.dw	0,292
+      0000AD 45 58 54 49 5F 50 4F  1477 	.ascii "EXTI_PORTD_IRQHandler"
+             52 54 44 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      0000C2 00                    1478 	.db	0
+      0000C3 00 00 01 49           1479 	.dw	0,329
+      0000C7 45 58 54 49 5F 50 4F  1480 	.ascii "EXTI_PORTE_IRQHandler"
+             52 54 45 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      0000DC 00                    1481 	.db	0
+      0000DD 00 00 01 6E           1482 	.dw	0,366
+      0000E1 43 41 4E 5F 52 58 5F  1483 	.ascii "CAN_RX_IRQHandler"
+             49 52 51 48 61 6E 64
+             6C 65 72
+      0000F2 00                    1484 	.db	0
+      0000F3 00 00 01 8F           1485 	.dw	0,399
+      0000F7 43 41 4E 5F 54 58 5F  1486 	.ascii "CAN_TX_IRQHandler"
+             49 52 51 48 61 6E 64
+             6C 65 72
+      000108 00                    1487 	.db	0
+      000109 00 00 01 B0           1488 	.dw	0,432
+      00010D 53 50 49 5F 49 52 51  1489 	.ascii "SPI_IRQHandler"
+             48 61 6E 64 6C 65 72
+      00011B 00                    1490 	.db	0
+      00011C 00 00 01 CE           1491 	.dw	0,462
+      000120 54 49 4D 31 5F 55 50  1492 	.ascii "TIM1_UPD_OVF_TRG_BRK_IRQHandler"
+             44 5F 4F 56 46 5F 54
+             52 47 5F 42 52 4B 5F
+             49 52 51 48 61 6E 64
+             6C 65 72
+      00013F 00                    1493 	.db	0
+      000140 00 00 01 FD           1494 	.dw	0,509
+      000144 54 49 4D 31 5F 43 41  1495 	.ascii "TIM1_CAP_COM_IRQHandler"
+             50 5F 43 4F 4D 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      00015B 00                    1496 	.db	0
+      00015C 00 00 02 24           1497 	.dw	0,548
+      000160 54 49 4D 32 5F 55 50  1498 	.ascii "TIM2_UPD_OVF_BRK_IRQHandler"
+             44 5F 4F 56 46 5F 42
+             52 4B 5F 49 52 51 48
+             61 6E 64 6C 65 72
+      00017B 00                    1499 	.db	0
+      00017C 00 00 02 4F           1500 	.dw	0,591
+      000180 54 49 4D 32 5F 43 41  1501 	.ascii "TIM2_CAP_COM_IRQHandler"
+             50 5F 43 4F 4D 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      000197 00                    1502 	.db	0
+      000198 00 00 02 76           1503 	.dw	0,630
+      00019C 54 49 4D 33 5F 55 50  1504 	.ascii "TIM3_UPD_OVF_BRK_IRQHandler"
+             44 5F 4F 56 46 5F 42
+             52 4B 5F 49 52 51 48
+             61 6E 64 6C 65 72
+      0001B7 00                    1505 	.db	0
+      0001B8 00 00 02 A1           1506 	.dw	0,673
+      0001BC 54 49 4D 33 5F 43 41  1507 	.ascii "TIM3_CAP_COM_IRQHandler"
+             50 5F 43 4F 4D 5F 49
+             52 51 48 61 6E 64 6C
+             65 72
+      0001D3 00                    1508 	.db	0
+      0001D4 00 00 02 C8           1509 	.dw	0,712
+      0001D8 55 41 52 54 31 5F 54  1510 	.ascii "UART1_TX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      0001EB 00                    1511 	.db	0
+      0001EC 00 00 02 EB           1512 	.dw	0,747
+      0001F0 55 41 52 54 31 5F 52  1513 	.ascii "UART1_RX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      000203 00                    1514 	.db	0
+      000204 00 00 03 0E           1515 	.dw	0,782
+      000208 49 32 43 5F 49 52 51  1516 	.ascii "I2C_IRQHandler"
+             48 61 6E 64 6C 65 72
+      000216 00                    1517 	.db	0
+      000217 00 00 03 2C           1518 	.dw	0,812
+      00021B 55 41 52 54 33 5F 54  1519 	.ascii "UART3_TX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      00022E 00                    1520 	.db	0
+      00022F 00 00 03 4F           1521 	.dw	0,847
+      000233 55 41 52 54 33 5F 52  1522 	.ascii "UART3_RX_IRQHandler"
+             58 5F 49 52 51 48 61
+             6E 64 6C 65 72
+      000246 00                    1523 	.db	0
+      000247 00 00 03 72           1524 	.dw	0,882
+      00024B 41 44 43 32 5F 49 52  1525 	.ascii "ADC2_IRQHandler"
+             51 48 61 6E 64 6C 65
+             72
+      00025A 00                    1526 	.db	0
+      00025B 00 00 03 91           1527 	.dw	0,913
+      00025F 45 45 50 52 4F 4D 5F  1528 	.ascii "EEPROM_EEC_IRQHandler"
+             45 45 43 5F 49 52 51
+             48 61 6E 64 6C 65 72
+      000274 00                    1529 	.db	0
+      000275 00 00 00 00           1530 	.dw	0,0
+      000279                       1531 Ldebug_pubnames_end:
+                                   1532 
+                                   1533 	.area .debug_frame (NOLOAD)
+      000000 00 00                 1534 	.dw	0
+      000002 00 0E                 1535 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                       1536 Ldebug_CIE0_start:
+      000004 FF FF                 1537 	.dw	0xffff
+      000006 FF FF                 1538 	.dw	0xffff
+      000008 01                    1539 	.db	1
+      000009 00                    1540 	.db	0
+      00000A 01                    1541 	.uleb128	1
+      00000B 7F                    1542 	.sleb128	-1
+      00000C 09                    1543 	.db	9
+      00000D 0C                    1544 	.db	12
+      00000E 08                    1545 	.uleb128	8
+      00000F 09                    1546 	.uleb128	9
+      000010 89                    1547 	.db	137
+      000011 01                    1548 	.uleb128	1
+      000012                       1549 Ldebug_CIE0_end:
+      000012 00 00 00 13           1550 	.dw	0,19
+      000016 00 00r00r00           1551 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r00r18           1552 	.dw	0,(Sstm8s_it$EEPROM_EEC_IRQHandler$122)	;initial loc
+      00001E 00 00 00 01           1553 	.dw	0,Sstm8s_it$EEPROM_EEC_IRQHandler$125-Sstm8s_it$EEPROM_EEC_IRQHandler$122
+      000022 01                    1554 	.db	1
+      000023 00 00r00r18           1555 	.dw	0,(Sstm8s_it$EEPROM_EEC_IRQHandler$122)
+      000027 0E                    1556 	.db	14
+      000028 09                    1557 	.uleb128	9
+                                   1558 
+                                   1559 	.area .debug_frame (NOLOAD)
+      000029 00 00                 1560 	.dw	0
+      00002B 00 0E                 1561 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      00002D                       1562 Ldebug_CIE1_start:
+      00002D FF FF                 1563 	.dw	0xffff
+      00002F FF FF                 1564 	.dw	0xffff
+      000031 01                    1565 	.db	1
+      000032 00                    1566 	.db	0
+      000033 01                    1567 	.uleb128	1
+      000034 7F                    1568 	.sleb128	-1
+      000035 09                    1569 	.db	9
+      000036 0C                    1570 	.db	12
+      000037 08                    1571 	.uleb128	8
+      000038 09                    1572 	.uleb128	9
+      000039 89                    1573 	.db	137
+      00003A 01                    1574 	.uleb128	1
+      00003B                       1575 Ldebug_CIE1_end:
+      00003B 00 00 00 13           1576 	.dw	0,19
+      00003F 00 00r00r29           1577 	.dw	0,(Ldebug_CIE1_start-4)
+      000043 00 00r00r17           1578 	.dw	0,(Sstm8s_it$ADC2_IRQHandler$116)	;initial loc
+      000047 00 00 00 01           1579 	.dw	0,Sstm8s_it$ADC2_IRQHandler$120-Sstm8s_it$ADC2_IRQHandler$116
+      00004B 01                    1580 	.db	1
+      00004C 00 00r00r17           1581 	.dw	0,(Sstm8s_it$ADC2_IRQHandler$116)
+      000050 0E                    1582 	.db	14
+      000051 09                    1583 	.uleb128	9
+                                   1584 
+                                   1585 	.area .debug_frame (NOLOAD)
+      000052 00 00                 1586 	.dw	0
+      000054 00 0E                 1587 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      000056                       1588 Ldebug_CIE2_start:
+      000056 FF FF                 1589 	.dw	0xffff
+      000058 FF FF                 1590 	.dw	0xffff
+      00005A 01                    1591 	.db	1
+      00005B 00                    1592 	.db	0
+      00005C 01                    1593 	.uleb128	1
+      00005D 7F                    1594 	.sleb128	-1
+      00005E 09                    1595 	.db	9
+      00005F 0C                    1596 	.db	12
+      000060 08                    1597 	.uleb128	8
+      000061 09                    1598 	.uleb128	9
+      000062 89                    1599 	.db	137
+      000063 01                    1600 	.uleb128	1
+      000064                       1601 Ldebug_CIE2_end:
+      000064 00 00 00 13           1602 	.dw	0,19
+      000068 00 00r00r52           1603 	.dw	0,(Ldebug_CIE2_start-4)
+      00006C 00 00r00r16           1604 	.dw	0,(Sstm8s_it$UART3_RX_IRQHandler$111)	;initial loc
+      000070 00 00 00 01           1605 	.dw	0,Sstm8s_it$UART3_RX_IRQHandler$114-Sstm8s_it$UART3_RX_IRQHandler$111
+      000074 01                    1606 	.db	1
+      000075 00 00r00r16           1607 	.dw	0,(Sstm8s_it$UART3_RX_IRQHandler$111)
+      000079 0E                    1608 	.db	14
+      00007A 09                    1609 	.uleb128	9
+                                   1610 
+                                   1611 	.area .debug_frame (NOLOAD)
+      00007B 00 00                 1612 	.dw	0
+      00007D 00 0E                 1613 	.dw	Ldebug_CIE3_end-Ldebug_CIE3_start
+      00007F                       1614 Ldebug_CIE3_start:
+      00007F FF FF                 1615 	.dw	0xffff
+      000081 FF FF                 1616 	.dw	0xffff
+      000083 01                    1617 	.db	1
+      000084 00                    1618 	.db	0
+      000085 01                    1619 	.uleb128	1
+      000086 7F                    1620 	.sleb128	-1
+      000087 09                    1621 	.db	9
+      000088 0C                    1622 	.db	12
+      000089 08                    1623 	.uleb128	8
+      00008A 09                    1624 	.uleb128	9
+      00008B 89                    1625 	.db	137
+      00008C 01                    1626 	.uleb128	1
+      00008D                       1627 Ldebug_CIE3_end:
+      00008D 00 00 00 13           1628 	.dw	0,19
+      000091 00 00r00r7B           1629 	.dw	0,(Ldebug_CIE3_start-4)
+      000095 00 00r00r15           1630 	.dw	0,(Sstm8s_it$UART3_TX_IRQHandler$106)	;initial loc
+      000099 00 00 00 01           1631 	.dw	0,Sstm8s_it$UART3_TX_IRQHandler$109-Sstm8s_it$UART3_TX_IRQHandler$106
+      00009D 01                    1632 	.db	1
+      00009E 00 00r00r15           1633 	.dw	0,(Sstm8s_it$UART3_TX_IRQHandler$106)
+      0000A2 0E                    1634 	.db	14
+      0000A3 09                    1635 	.uleb128	9
+                                   1636 
+                                   1637 	.area .debug_frame (NOLOAD)
+      0000A4 00 00                 1638 	.dw	0
+      0000A6 00 0E                 1639 	.dw	Ldebug_CIE4_end-Ldebug_CIE4_start
+      0000A8                       1640 Ldebug_CIE4_start:
+      0000A8 FF FF                 1641 	.dw	0xffff
+      0000AA FF FF                 1642 	.dw	0xffff
+      0000AC 01                    1643 	.db	1
+      0000AD 00                    1644 	.db	0
+      0000AE 01                    1645 	.uleb128	1
+      0000AF 7F                    1646 	.sleb128	-1
+      0000B0 09                    1647 	.db	9
+      0000B1 0C                    1648 	.db	12
+      0000B2 08                    1649 	.uleb128	8
+      0000B3 09                    1650 	.uleb128	9
+      0000B4 89                    1651 	.db	137
+      0000B5 01                    1652 	.uleb128	1
+      0000B6                       1653 Ldebug_CIE4_end:
+      0000B6 00 00 00 13           1654 	.dw	0,19
+      0000BA 00 00r00rA4           1655 	.dw	0,(Ldebug_CIE4_start-4)
+      0000BE 00 00r00r14           1656 	.dw	0,(Sstm8s_it$I2C_IRQHandler$101)	;initial loc
+      0000C2 00 00 00 01           1657 	.dw	0,Sstm8s_it$I2C_IRQHandler$104-Sstm8s_it$I2C_IRQHandler$101
+      0000C6 01                    1658 	.db	1
+      0000C7 00 00r00r14           1659 	.dw	0,(Sstm8s_it$I2C_IRQHandler$101)
+      0000CB 0E                    1660 	.db	14
+      0000CC 09                    1661 	.uleb128	9
+                                   1662 
+                                   1663 	.area .debug_frame (NOLOAD)
+      0000CD 00 00                 1664 	.dw	0
+      0000CF 00 0E                 1665 	.dw	Ldebug_CIE5_end-Ldebug_CIE5_start
+      0000D1                       1666 Ldebug_CIE5_start:
+      0000D1 FF FF                 1667 	.dw	0xffff
+      0000D3 FF FF                 1668 	.dw	0xffff
+      0000D5 01                    1669 	.db	1
+      0000D6 00                    1670 	.db	0
+      0000D7 01                    1671 	.uleb128	1
+      0000D8 7F                    1672 	.sleb128	-1
+      0000D9 09                    1673 	.db	9
+      0000DA 0C                    1674 	.db	12
+      0000DB 08                    1675 	.uleb128	8
+      0000DC 09                    1676 	.uleb128	9
+      0000DD 89                    1677 	.db	137
+      0000DE 01                    1678 	.uleb128	1
+      0000DF                       1679 Ldebug_CIE5_end:
+      0000DF 00 00 00 13           1680 	.dw	0,19
+      0000E3 00 00r00rCD           1681 	.dw	0,(Ldebug_CIE5_start-4)
+      0000E7 00 00r00r13           1682 	.dw	0,(Sstm8s_it$UART1_RX_IRQHandler$96)	;initial loc
+      0000EB 00 00 00 01           1683 	.dw	0,Sstm8s_it$UART1_RX_IRQHandler$99-Sstm8s_it$UART1_RX_IRQHandler$96
+      0000EF 01                    1684 	.db	1
+      0000F0 00 00r00r13           1685 	.dw	0,(Sstm8s_it$UART1_RX_IRQHandler$96)
+      0000F4 0E                    1686 	.db	14
+      0000F5 09                    1687 	.uleb128	9
+                                   1688 
+                                   1689 	.area .debug_frame (NOLOAD)
+      0000F6 00 00                 1690 	.dw	0
+      0000F8 00 0E                 1691 	.dw	Ldebug_CIE6_end-Ldebug_CIE6_start
+      0000FA                       1692 Ldebug_CIE6_start:
+      0000FA FF FF                 1693 	.dw	0xffff
+      0000FC FF FF                 1694 	.dw	0xffff
+      0000FE 01                    1695 	.db	1
+      0000FF 00                    1696 	.db	0
+      000100 01                    1697 	.uleb128	1
+      000101 7F                    1698 	.sleb128	-1
+      000102 09                    1699 	.db	9
+      000103 0C                    1700 	.db	12
+      000104 08                    1701 	.uleb128	8
+      000105 09                    1702 	.uleb128	9
+      000106 89                    1703 	.db	137
+      000107 01                    1704 	.uleb128	1
+      000108                       1705 Ldebug_CIE6_end:
+      000108 00 00 00 13           1706 	.dw	0,19
+      00010C 00 00r00rF6           1707 	.dw	0,(Ldebug_CIE6_start-4)
+      000110 00 00r00r12           1708 	.dw	0,(Sstm8s_it$UART1_TX_IRQHandler$91)	;initial loc
+      000114 00 00 00 01           1709 	.dw	0,Sstm8s_it$UART1_TX_IRQHandler$94-Sstm8s_it$UART1_TX_IRQHandler$91
+      000118 01                    1710 	.db	1
+      000119 00 00r00r12           1711 	.dw	0,(Sstm8s_it$UART1_TX_IRQHandler$91)
+      00011D 0E                    1712 	.db	14
+      00011E 09                    1713 	.uleb128	9
+                                   1714 
+                                   1715 	.area .debug_frame (NOLOAD)
+      00011F 00 00                 1716 	.dw	0
+      000121 00 0E                 1717 	.dw	Ldebug_CIE7_end-Ldebug_CIE7_start
+      000123                       1718 Ldebug_CIE7_start:
+      000123 FF FF                 1719 	.dw	0xffff
+      000125 FF FF                 1720 	.dw	0xffff
+      000127 01                    1721 	.db	1
+      000128 00                    1722 	.db	0
+      000129 01                    1723 	.uleb128	1
+      00012A 7F                    1724 	.sleb128	-1
+      00012B 09                    1725 	.db	9
+      00012C 0C                    1726 	.db	12
+      00012D 08                    1727 	.uleb128	8
+      00012E 09                    1728 	.uleb128	9
+      00012F 89                    1729 	.db	137
+      000130 01                    1730 	.uleb128	1
+      000131                       1731 Ldebug_CIE7_end:
+      000131 00 00 00 13           1732 	.dw	0,19
+      000135 00 00r01r1F           1733 	.dw	0,(Ldebug_CIE7_start-4)
+      000139 00 00r00r11           1734 	.dw	0,(Sstm8s_it$TIM3_CAP_COM_IRQHandler$86)	;initial loc
+      00013D 00 00 00 01           1735 	.dw	0,Sstm8s_it$TIM3_CAP_COM_IRQHandler$89-Sstm8s_it$TIM3_CAP_COM_IRQHandler$86
+      000141 01                    1736 	.db	1
+      000142 00 00r00r11           1737 	.dw	0,(Sstm8s_it$TIM3_CAP_COM_IRQHandler$86)
+      000146 0E                    1738 	.db	14
+      000147 09                    1739 	.uleb128	9
+                                   1740 
+                                   1741 	.area .debug_frame (NOLOAD)
+      000148 00 00                 1742 	.dw	0
+      00014A 00 0E                 1743 	.dw	Ldebug_CIE8_end-Ldebug_CIE8_start
+      00014C                       1744 Ldebug_CIE8_start:
+      00014C FF FF                 1745 	.dw	0xffff
+      00014E FF FF                 1746 	.dw	0xffff
+      000150 01                    1747 	.db	1
+      000151 00                    1748 	.db	0
+      000152 01                    1749 	.uleb128	1
+      000153 7F                    1750 	.sleb128	-1
+      000154 09                    1751 	.db	9
+      000155 0C                    1752 	.db	12
+      000156 08                    1753 	.uleb128	8
+      000157 09                    1754 	.uleb128	9
+      000158 89                    1755 	.db	137
+      000159 01                    1756 	.uleb128	1
+      00015A                       1757 Ldebug_CIE8_end:
+      00015A 00 00 00 13           1758 	.dw	0,19
+      00015E 00 00r01r48           1759 	.dw	0,(Ldebug_CIE8_start-4)
+      000162 00 00r00r10           1760 	.dw	0,(Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$81)	;initial loc
+      000166 00 00 00 01           1761 	.dw	0,Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$84-Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$81
+      00016A 01                    1762 	.db	1
+      00016B 00 00r00r10           1763 	.dw	0,(Sstm8s_it$TIM3_UPD_OVF_BRK_IRQHandler$81)
+      00016F 0E                    1764 	.db	14
+      000170 09                    1765 	.uleb128	9
+                                   1766 
+                                   1767 	.area .debug_frame (NOLOAD)
+      000171 00 00                 1768 	.dw	0
+      000173 00 0E                 1769 	.dw	Ldebug_CIE9_end-Ldebug_CIE9_start
+      000175                       1770 Ldebug_CIE9_start:
+      000175 FF FF                 1771 	.dw	0xffff
+      000177 FF FF                 1772 	.dw	0xffff
+      000179 01                    1773 	.db	1
+      00017A 00                    1774 	.db	0
+      00017B 01                    1775 	.uleb128	1
+      00017C 7F                    1776 	.sleb128	-1
+      00017D 09                    1777 	.db	9
+      00017E 0C                    1778 	.db	12
+      00017F 08                    1779 	.uleb128	8
+      000180 09                    1780 	.uleb128	9
+      000181 89                    1781 	.db	137
+      000182 01                    1782 	.uleb128	1
+      000183                       1783 Ldebug_CIE9_end:
+      000183 00 00 00 13           1784 	.dw	0,19
+      000187 00 00r01r71           1785 	.dw	0,(Ldebug_CIE9_start-4)
+      00018B 00 00r00r0F           1786 	.dw	0,(Sstm8s_it$TIM2_CAP_COM_IRQHandler$76)	;initial loc
+      00018F 00 00 00 01           1787 	.dw	0,Sstm8s_it$TIM2_CAP_COM_IRQHandler$79-Sstm8s_it$TIM2_CAP_COM_IRQHandler$76
+      000193 01                    1788 	.db	1
+      000194 00 00r00r0F           1789 	.dw	0,(Sstm8s_it$TIM2_CAP_COM_IRQHandler$76)
+      000198 0E                    1790 	.db	14
+      000199 09                    1791 	.uleb128	9
+                                   1792 
+                                   1793 	.area .debug_frame (NOLOAD)
+      00019A 00 00                 1794 	.dw	0
+      00019C 00 0E                 1795 	.dw	Ldebug_CIE10_end-Ldebug_CIE10_start
+      00019E                       1796 Ldebug_CIE10_start:
+      00019E FF FF                 1797 	.dw	0xffff
+      0001A0 FF FF                 1798 	.dw	0xffff
+      0001A2 01                    1799 	.db	1
+      0001A3 00                    1800 	.db	0
+      0001A4 01                    1801 	.uleb128	1
+      0001A5 7F                    1802 	.sleb128	-1
+      0001A6 09                    1803 	.db	9
+      0001A7 0C                    1804 	.db	12
+      0001A8 08                    1805 	.uleb128	8
+      0001A9 09                    1806 	.uleb128	9
+      0001AA 89                    1807 	.db	137
+      0001AB 01                    1808 	.uleb128	1
+      0001AC                       1809 Ldebug_CIE10_end:
+      0001AC 00 00 00 13           1810 	.dw	0,19
+      0001B0 00 00r01r9A           1811 	.dw	0,(Ldebug_CIE10_start-4)
+      0001B4 00 00r00r0E           1812 	.dw	0,(Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$71)	;initial loc
+      0001B8 00 00 00 01           1813 	.dw	0,Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$74-Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$71
+      0001BC 01                    1814 	.db	1
+      0001BD 00 00r00r0E           1815 	.dw	0,(Sstm8s_it$TIM2_UPD_OVF_BRK_IRQHandler$71)
+      0001C1 0E                    1816 	.db	14
+      0001C2 09                    1817 	.uleb128	9
+                                   1818 
+                                   1819 	.area .debug_frame (NOLOAD)
+      0001C3 00 00                 1820 	.dw	0
+      0001C5 00 0E                 1821 	.dw	Ldebug_CIE11_end-Ldebug_CIE11_start
+      0001C7                       1822 Ldebug_CIE11_start:
+      0001C7 FF FF                 1823 	.dw	0xffff
+      0001C9 FF FF                 1824 	.dw	0xffff
+      0001CB 01                    1825 	.db	1
+      0001CC 00                    1826 	.db	0
+      0001CD 01                    1827 	.uleb128	1
+      0001CE 7F                    1828 	.sleb128	-1
+      0001CF 09                    1829 	.db	9
+      0001D0 0C                    1830 	.db	12
+      0001D1 08                    1831 	.uleb128	8
+      0001D2 09                    1832 	.uleb128	9
+      0001D3 89                    1833 	.db	137
+      0001D4 01                    1834 	.uleb128	1
+      0001D5                       1835 Ldebug_CIE11_end:
+      0001D5 00 00 00 13           1836 	.dw	0,19
+      0001D9 00 00r01rC3           1837 	.dw	0,(Ldebug_CIE11_start-4)
+      0001DD 00 00r00r0D           1838 	.dw	0,(Sstm8s_it$TIM1_CAP_COM_IRQHandler$66)	;initial loc
+      0001E1 00 00 00 01           1839 	.dw	0,Sstm8s_it$TIM1_CAP_COM_IRQHandler$69-Sstm8s_it$TIM1_CAP_COM_IRQHandler$66
+      0001E5 01                    1840 	.db	1
+      0001E6 00 00r00r0D           1841 	.dw	0,(Sstm8s_it$TIM1_CAP_COM_IRQHandler$66)
+      0001EA 0E                    1842 	.db	14
+      0001EB 09                    1843 	.uleb128	9
+                                   1844 
+                                   1845 	.area .debug_frame (NOLOAD)
+      0001EC 00 00                 1846 	.dw	0
+      0001EE 00 0E                 1847 	.dw	Ldebug_CIE12_end-Ldebug_CIE12_start
+      0001F0                       1848 Ldebug_CIE12_start:
+      0001F0 FF FF                 1849 	.dw	0xffff
+      0001F2 FF FF                 1850 	.dw	0xffff
+      0001F4 01                    1851 	.db	1
+      0001F5 00                    1852 	.db	0
+      0001F6 01                    1853 	.uleb128	1
+      0001F7 7F                    1854 	.sleb128	-1
+      0001F8 09                    1855 	.db	9
+      0001F9 0C                    1856 	.db	12
+      0001FA 08                    1857 	.uleb128	8
+      0001FB 09                    1858 	.uleb128	9
+      0001FC 89                    1859 	.db	137
+      0001FD 01                    1860 	.uleb128	1
+      0001FE                       1861 Ldebug_CIE12_end:
+      0001FE 00 00 00 13           1862 	.dw	0,19
+      000202 00 00r01rEC           1863 	.dw	0,(Ldebug_CIE12_start-4)
+      000206 00 00r00r0C           1864 	.dw	0,(Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$61)	;initial loc
+      00020A 00 00 00 01           1865 	.dw	0,Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$64-Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$61
+      00020E 01                    1866 	.db	1
+      00020F 00 00r00r0C           1867 	.dw	0,(Sstm8s_it$TIM1_UPD_OVF_TRG_BRK_IRQHandler$61)
+      000213 0E                    1868 	.db	14
+      000214 09                    1869 	.uleb128	9
+                                   1870 
+                                   1871 	.area .debug_frame (NOLOAD)
+      000215 00 00                 1872 	.dw	0
+      000217 00 0E                 1873 	.dw	Ldebug_CIE13_end-Ldebug_CIE13_start
+      000219                       1874 Ldebug_CIE13_start:
+      000219 FF FF                 1875 	.dw	0xffff
+      00021B FF FF                 1876 	.dw	0xffff
+      00021D 01                    1877 	.db	1
+      00021E 00                    1878 	.db	0
+      00021F 01                    1879 	.uleb128	1
+      000220 7F                    1880 	.sleb128	-1
+      000221 09                    1881 	.db	9
+      000222 0C                    1882 	.db	12
+      000223 08                    1883 	.uleb128	8
+      000224 09                    1884 	.uleb128	9
+      000225 89                    1885 	.db	137
+      000226 01                    1886 	.uleb128	1
+      000227                       1887 Ldebug_CIE13_end:
+      000227 00 00 00 13           1888 	.dw	0,19
+      00022B 00 00r02r15           1889 	.dw	0,(Ldebug_CIE13_start-4)
+      00022F 00 00r00r0B           1890 	.dw	0,(Sstm8s_it$SPI_IRQHandler$56)	;initial loc
+      000233 00 00 00 01           1891 	.dw	0,Sstm8s_it$SPI_IRQHandler$59-Sstm8s_it$SPI_IRQHandler$56
+      000237 01                    1892 	.db	1
+      000238 00 00r00r0B           1893 	.dw	0,(Sstm8s_it$SPI_IRQHandler$56)
+      00023C 0E                    1894 	.db	14
+      00023D 09                    1895 	.uleb128	9
+                                   1896 
+                                   1897 	.area .debug_frame (NOLOAD)
+      00023E 00 00                 1898 	.dw	0
+      000240 00 0E                 1899 	.dw	Ldebug_CIE14_end-Ldebug_CIE14_start
+      000242                       1900 Ldebug_CIE14_start:
+      000242 FF FF                 1901 	.dw	0xffff
+      000244 FF FF                 1902 	.dw	0xffff
+      000246 01                    1903 	.db	1
+      000247 00                    1904 	.db	0
+      000248 01                    1905 	.uleb128	1
+      000249 7F                    1906 	.sleb128	-1
+      00024A 09                    1907 	.db	9
+      00024B 0C                    1908 	.db	12
+      00024C 08                    1909 	.uleb128	8
+      00024D 09                    1910 	.uleb128	9
+      00024E 89                    1911 	.db	137
+      00024F 01                    1912 	.uleb128	1
+      000250                       1913 Ldebug_CIE14_end:
+      000250 00 00 00 13           1914 	.dw	0,19
+      000254 00 00r02r3E           1915 	.dw	0,(Ldebug_CIE14_start-4)
+      000258 00 00r00r0A           1916 	.dw	0,(Sstm8s_it$CAN_TX_IRQHandler$51)	;initial loc
+      00025C 00 00 00 01           1917 	.dw	0,Sstm8s_it$CAN_TX_IRQHandler$54-Sstm8s_it$CAN_TX_IRQHandler$51
+      000260 01                    1918 	.db	1
+      000261 00 00r00r0A           1919 	.dw	0,(Sstm8s_it$CAN_TX_IRQHandler$51)
+      000265 0E                    1920 	.db	14
+      000266 09                    1921 	.uleb128	9
+                                   1922 
+                                   1923 	.area .debug_frame (NOLOAD)
+      000267 00 00                 1924 	.dw	0
+      000269 00 0E                 1925 	.dw	Ldebug_CIE15_end-Ldebug_CIE15_start
+      00026B                       1926 Ldebug_CIE15_start:
+      00026B FF FF                 1927 	.dw	0xffff
+      00026D FF FF                 1928 	.dw	0xffff
+      00026F 01                    1929 	.db	1
+      000270 00                    1930 	.db	0
+      000271 01                    1931 	.uleb128	1
+      000272 7F                    1932 	.sleb128	-1
+      000273 09                    1933 	.db	9
+      000274 0C                    1934 	.db	12
+      000275 08                    1935 	.uleb128	8
+      000276 09                    1936 	.uleb128	9
+      000277 89                    1937 	.db	137
+      000278 01                    1938 	.uleb128	1
+      000279                       1939 Ldebug_CIE15_end:
+      000279 00 00 00 13           1940 	.dw	0,19
+      00027D 00 00r02r67           1941 	.dw	0,(Ldebug_CIE15_start-4)
+      000281 00 00r00r09           1942 	.dw	0,(Sstm8s_it$CAN_RX_IRQHandler$46)	;initial loc
+      000285 00 00 00 01           1943 	.dw	0,Sstm8s_it$CAN_RX_IRQHandler$49-Sstm8s_it$CAN_RX_IRQHandler$46
+      000289 01                    1944 	.db	1
+      00028A 00 00r00r09           1945 	.dw	0,(Sstm8s_it$CAN_RX_IRQHandler$46)
+      00028E 0E                    1946 	.db	14
+      00028F 09                    1947 	.uleb128	9
+                                   1948 
+                                   1949 	.area .debug_frame (NOLOAD)
+      000290 00 00                 1950 	.dw	0
+      000292 00 0E                 1951 	.dw	Ldebug_CIE16_end-Ldebug_CIE16_start
+      000294                       1952 Ldebug_CIE16_start:
+      000294 FF FF                 1953 	.dw	0xffff
+      000296 FF FF                 1954 	.dw	0xffff
+      000298 01                    1955 	.db	1
+      000299 00                    1956 	.db	0
+      00029A 01                    1957 	.uleb128	1
+      00029B 7F                    1958 	.sleb128	-1
+      00029C 09                    1959 	.db	9
+      00029D 0C                    1960 	.db	12
+      00029E 08                    1961 	.uleb128	8
+      00029F 09                    1962 	.uleb128	9
+      0002A0 89                    1963 	.db	137
+      0002A1 01                    1964 	.uleb128	1
+      0002A2                       1965 Ldebug_CIE16_end:
+      0002A2 00 00 00 13           1966 	.dw	0,19
+      0002A6 00 00r02r90           1967 	.dw	0,(Ldebug_CIE16_start-4)
+      0002AA 00 00r00r08           1968 	.dw	0,(Sstm8s_it$EXTI_PORTE_IRQHandler$41)	;initial loc
+      0002AE 00 00 00 01           1969 	.dw	0,Sstm8s_it$EXTI_PORTE_IRQHandler$44-Sstm8s_it$EXTI_PORTE_IRQHandler$41
+      0002B2 01                    1970 	.db	1
+      0002B3 00 00r00r08           1971 	.dw	0,(Sstm8s_it$EXTI_PORTE_IRQHandler$41)
+      0002B7 0E                    1972 	.db	14
+      0002B8 09                    1973 	.uleb128	9
+                                   1974 
+                                   1975 	.area .debug_frame (NOLOAD)
+      0002B9 00 00                 1976 	.dw	0
+      0002BB 00 0E                 1977 	.dw	Ldebug_CIE17_end-Ldebug_CIE17_start
+      0002BD                       1978 Ldebug_CIE17_start:
+      0002BD FF FF                 1979 	.dw	0xffff
+      0002BF FF FF                 1980 	.dw	0xffff
+      0002C1 01                    1981 	.db	1
+      0002C2 00                    1982 	.db	0
+      0002C3 01                    1983 	.uleb128	1
+      0002C4 7F                    1984 	.sleb128	-1
+      0002C5 09                    1985 	.db	9
+      0002C6 0C                    1986 	.db	12
+      0002C7 08                    1987 	.uleb128	8
+      0002C8 09                    1988 	.uleb128	9
+      0002C9 89                    1989 	.db	137
+      0002CA 01                    1990 	.uleb128	1
+      0002CB                       1991 Ldebug_CIE17_end:
+      0002CB 00 00 00 13           1992 	.dw	0,19
+      0002CF 00 00r02rB9           1993 	.dw	0,(Ldebug_CIE17_start-4)
+      0002D3 00 00r00r07           1994 	.dw	0,(Sstm8s_it$EXTI_PORTD_IRQHandler$36)	;initial loc
+      0002D7 00 00 00 01           1995 	.dw	0,Sstm8s_it$EXTI_PORTD_IRQHandler$39-Sstm8s_it$EXTI_PORTD_IRQHandler$36
+      0002DB 01                    1996 	.db	1
+      0002DC 00 00r00r07           1997 	.dw	0,(Sstm8s_it$EXTI_PORTD_IRQHandler$36)
+      0002E0 0E                    1998 	.db	14
+      0002E1 09                    1999 	.uleb128	9
+                                   2000 
+                                   2001 	.area .debug_frame (NOLOAD)
+      0002E2 00 00                 2002 	.dw	0
+      0002E4 00 0E                 2003 	.dw	Ldebug_CIE18_end-Ldebug_CIE18_start
+      0002E6                       2004 Ldebug_CIE18_start:
+      0002E6 FF FF                 2005 	.dw	0xffff
+      0002E8 FF FF                 2006 	.dw	0xffff
+      0002EA 01                    2007 	.db	1
+      0002EB 00                    2008 	.db	0
+      0002EC 01                    2009 	.uleb128	1
+      0002ED 7F                    2010 	.sleb128	-1
+      0002EE 09                    2011 	.db	9
+      0002EF 0C                    2012 	.db	12
+      0002F0 08                    2013 	.uleb128	8
+      0002F1 09                    2014 	.uleb128	9
+      0002F2 89                    2015 	.db	137
+      0002F3 01                    2016 	.uleb128	1
+      0002F4                       2017 Ldebug_CIE18_end:
+      0002F4 00 00 00 13           2018 	.dw	0,19
+      0002F8 00 00r02rE2           2019 	.dw	0,(Ldebug_CIE18_start-4)
+      0002FC 00 00r00r06           2020 	.dw	0,(Sstm8s_it$EXTI_PORTC_IRQHandler$31)	;initial loc
+      000300 00 00 00 01           2021 	.dw	0,Sstm8s_it$EXTI_PORTC_IRQHandler$34-Sstm8s_it$EXTI_PORTC_IRQHandler$31
+      000304 01                    2022 	.db	1
+      000305 00 00r00r06           2023 	.dw	0,(Sstm8s_it$EXTI_PORTC_IRQHandler$31)
+      000309 0E                    2024 	.db	14
+      00030A 09                    2025 	.uleb128	9
+                                   2026 
+                                   2027 	.area .debug_frame (NOLOAD)
+      00030B 00 00                 2028 	.dw	0
+      00030D 00 0E                 2029 	.dw	Ldebug_CIE19_end-Ldebug_CIE19_start
+      00030F                       2030 Ldebug_CIE19_start:
+      00030F FF FF                 2031 	.dw	0xffff
+      000311 FF FF                 2032 	.dw	0xffff
+      000313 01                    2033 	.db	1
+      000314 00                    2034 	.db	0
+      000315 01                    2035 	.uleb128	1
+      000316 7F                    2036 	.sleb128	-1
+      000317 09                    2037 	.db	9
+      000318 0C                    2038 	.db	12
+      000319 08                    2039 	.uleb128	8
+      00031A 09                    2040 	.uleb128	9
+      00031B 89                    2041 	.db	137
+      00031C 01                    2042 	.uleb128	1
+      00031D                       2043 Ldebug_CIE19_end:
+      00031D 00 00 00 13           2044 	.dw	0,19
+      000321 00 00r03r0B           2045 	.dw	0,(Ldebug_CIE19_start-4)
+      000325 00 00r00r05           2046 	.dw	0,(Sstm8s_it$EXTI_PORTB_IRQHandler$26)	;initial loc
+      000329 00 00 00 01           2047 	.dw	0,Sstm8s_it$EXTI_PORTB_IRQHandler$29-Sstm8s_it$EXTI_PORTB_IRQHandler$26
+      00032D 01                    2048 	.db	1
+      00032E 00 00r00r05           2049 	.dw	0,(Sstm8s_it$EXTI_PORTB_IRQHandler$26)
+      000332 0E                    2050 	.db	14
+      000333 09                    2051 	.uleb128	9
+                                   2052 
+                                   2053 	.area .debug_frame (NOLOAD)
+      000334 00 00                 2054 	.dw	0
+      000336 00 0E                 2055 	.dw	Ldebug_CIE20_end-Ldebug_CIE20_start
+      000338                       2056 Ldebug_CIE20_start:
+      000338 FF FF                 2057 	.dw	0xffff
+      00033A FF FF                 2058 	.dw	0xffff
+      00033C 01                    2059 	.db	1
+      00033D 00                    2060 	.db	0
+      00033E 01                    2061 	.uleb128	1
+      00033F 7F                    2062 	.sleb128	-1
+      000340 09                    2063 	.db	9
+      000341 0C                    2064 	.db	12
+      000342 08                    2065 	.uleb128	8
+      000343 09                    2066 	.uleb128	9
+      000344 89                    2067 	.db	137
+      000345 01                    2068 	.uleb128	1
+      000346                       2069 Ldebug_CIE20_end:
+      000346 00 00 00 13           2070 	.dw	0,19
+      00034A 00 00r03r34           2071 	.dw	0,(Ldebug_CIE20_start-4)
+      00034E 00 00r00r04           2072 	.dw	0,(Sstm8s_it$EXTI_PORTA_IRQHandler$21)	;initial loc
+      000352 00 00 00 01           2073 	.dw	0,Sstm8s_it$EXTI_PORTA_IRQHandler$24-Sstm8s_it$EXTI_PORTA_IRQHandler$21
+      000356 01                    2074 	.db	1
+      000357 00 00r00r04           2075 	.dw	0,(Sstm8s_it$EXTI_PORTA_IRQHandler$21)
+      00035B 0E                    2076 	.db	14
+      00035C 09                    2077 	.uleb128	9
+                                   2078 
+                                   2079 	.area .debug_frame (NOLOAD)
+      00035D 00 00                 2080 	.dw	0
+      00035F 00 0E                 2081 	.dw	Ldebug_CIE21_end-Ldebug_CIE21_start
+      000361                       2082 Ldebug_CIE21_start:
+      000361 FF FF                 2083 	.dw	0xffff
+      000363 FF FF                 2084 	.dw	0xffff
+      000365 01                    2085 	.db	1
+      000366 00                    2086 	.db	0
+      000367 01                    2087 	.uleb128	1
+      000368 7F                    2088 	.sleb128	-1
+      000369 09                    2089 	.db	9
+      00036A 0C                    2090 	.db	12
+      00036B 08                    2091 	.uleb128	8
+      00036C 09                    2092 	.uleb128	9
+      00036D 89                    2093 	.db	137
+      00036E 01                    2094 	.uleb128	1
+      00036F                       2095 Ldebug_CIE21_end:
+      00036F 00 00 00 13           2096 	.dw	0,19
+      000373 00 00r03r5D           2097 	.dw	0,(Ldebug_CIE21_start-4)
+      000377 00 00r00r03           2098 	.dw	0,(Sstm8s_it$CLK_IRQHandler$16)	;initial loc
+      00037B 00 00 00 01           2099 	.dw	0,Sstm8s_it$CLK_IRQHandler$19-Sstm8s_it$CLK_IRQHandler$16
+      00037F 01                    2100 	.db	1
+      000380 00 00r00r03           2101 	.dw	0,(Sstm8s_it$CLK_IRQHandler$16)
+      000384 0E                    2102 	.db	14
+      000385 09                    2103 	.uleb128	9
+                                   2104 
+                                   2105 	.area .debug_frame (NOLOAD)
+      000386 00 00                 2106 	.dw	0
+      000388 00 0E                 2107 	.dw	Ldebug_CIE22_end-Ldebug_CIE22_start
+      00038A                       2108 Ldebug_CIE22_start:
+      00038A FF FF                 2109 	.dw	0xffff
+      00038C FF FF                 2110 	.dw	0xffff
+      00038E 01                    2111 	.db	1
+      00038F 00                    2112 	.db	0
+      000390 01                    2113 	.uleb128	1
+      000391 7F                    2114 	.sleb128	-1
+      000392 09                    2115 	.db	9
+      000393 0C                    2116 	.db	12
+      000394 08                    2117 	.uleb128	8
+      000395 09                    2118 	.uleb128	9
+      000396 89                    2119 	.db	137
+      000397 01                    2120 	.uleb128	1
+      000398                       2121 Ldebug_CIE22_end:
+      000398 00 00 00 13           2122 	.dw	0,19
+      00039C 00 00r03r86           2123 	.dw	0,(Ldebug_CIE22_start-4)
+      0003A0 00 00r00r02           2124 	.dw	0,(Sstm8s_it$AWU_IRQHandler$11)	;initial loc
+      0003A4 00 00 00 01           2125 	.dw	0,Sstm8s_it$AWU_IRQHandler$14-Sstm8s_it$AWU_IRQHandler$11
+      0003A8 01                    2126 	.db	1
+      0003A9 00 00r00r02           2127 	.dw	0,(Sstm8s_it$AWU_IRQHandler$11)
+      0003AD 0E                    2128 	.db	14
+      0003AE 09                    2129 	.uleb128	9
+                                   2130 
+                                   2131 	.area .debug_frame (NOLOAD)
+      0003AF 00 00                 2132 	.dw	0
+      0003B1 00 0E                 2133 	.dw	Ldebug_CIE23_end-Ldebug_CIE23_start
+      0003B3                       2134 Ldebug_CIE23_start:
+      0003B3 FF FF                 2135 	.dw	0xffff
+      0003B5 FF FF                 2136 	.dw	0xffff
+      0003B7 01                    2137 	.db	1
+      0003B8 00                    2138 	.db	0
+      0003B9 01                    2139 	.uleb128	1
+      0003BA 7F                    2140 	.sleb128	-1
+      0003BB 09                    2141 	.db	9
+      0003BC 0C                    2142 	.db	12
+      0003BD 08                    2143 	.uleb128	8
+      0003BE 09                    2144 	.uleb128	9
+      0003BF 89                    2145 	.db	137
+      0003C0 01                    2146 	.uleb128	1
+      0003C1                       2147 Ldebug_CIE23_end:
+      0003C1 00 00 00 13           2148 	.dw	0,19
+      0003C5 00 00r03rAF           2149 	.dw	0,(Ldebug_CIE23_start-4)
+      0003C9 00 00r00r01           2150 	.dw	0,(Sstm8s_it$TLI_IRQHandler$6)	;initial loc
+      0003CD 00 00 00 01           2151 	.dw	0,Sstm8s_it$TLI_IRQHandler$9-Sstm8s_it$TLI_IRQHandler$6
+      0003D1 01                    2152 	.db	1
+      0003D2 00 00r00r01           2153 	.dw	0,(Sstm8s_it$TLI_IRQHandler$6)
+      0003D6 0E                    2154 	.db	14
+      0003D7 09                    2155 	.uleb128	9
+                                   2156 
+                                   2157 	.area .debug_frame (NOLOAD)
+      0003D8 00 00                 2158 	.dw	0
+      0003DA 00 0E                 2159 	.dw	Ldebug_CIE24_end-Ldebug_CIE24_start
+      0003DC                       2160 Ldebug_CIE24_start:
+      0003DC FF FF                 2161 	.dw	0xffff
+      0003DE FF FF                 2162 	.dw	0xffff
+      0003E0 01                    2163 	.db	1
+      0003E1 00                    2164 	.db	0
+      0003E2 01                    2165 	.uleb128	1
+      0003E3 7F                    2166 	.sleb128	-1
+      0003E4 09                    2167 	.db	9
+      0003E5 0C                    2168 	.db	12
+      0003E6 08                    2169 	.uleb128	8
+      0003E7 09                    2170 	.uleb128	9
+      0003E8 89                    2171 	.db	137
+      0003E9 01                    2172 	.uleb128	1
+      0003EA                       2173 Ldebug_CIE24_end:
+      0003EA 00 00 00 13           2174 	.dw	0,19
+      0003EE 00 00r03rD8           2175 	.dw	0,(Ldebug_CIE24_start-4)
+      0003F2 00 00r00r00           2176 	.dw	0,(Sstm8s_it$TRAP_IRQHandler$1)	;initial loc
+      0003F6 00 00 00 01           2177 	.dw	0,Sstm8s_it$TRAP_IRQHandler$4-Sstm8s_it$TRAP_IRQHandler$1
+      0003FA 01                    2178 	.db	1
+      0003FB 00 00r00r00           2179 	.dw	0,(Sstm8s_it$TRAP_IRQHandler$1)
+      0003FF 0E                    2180 	.db	14
+      000400 09                    2181 	.uleb128	9

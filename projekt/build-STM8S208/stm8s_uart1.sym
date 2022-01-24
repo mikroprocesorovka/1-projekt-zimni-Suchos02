@@ -1,0 +1,1257 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$stm8s_uart1$1000                                             0002B8 GR
+  9 A$stm8s_uart1$1002                                             0002BA GR
+  9 A$stm8s_uart1$1005                                             0002BD GR
+  9 A$stm8s_uart1$101                                              00000A GR
+  9 A$stm8s_uart1$1012                                             0002C0 GR
+  9 A$stm8s_uart1$1014                                             0002C2 GR
+  9 A$stm8s_uart1$1023                                             0002C5 GR
+  9 A$stm8s_uart1$1038                                             0002C6 GR
+  9 A$stm8s_uart1$1042                                             0002C9 GR
+  9 A$stm8s_uart1$1043                                             0002CB GR
+  9 A$stm8s_uart1$1044                                             0002CD GR
+  9 A$stm8s_uart1$105                                              00000E GR
+  9 A$stm8s_uart1$1050                                             0002D0 GR
+  9 A$stm8s_uart1$1052                                             0002D2 GR
+  9 A$stm8s_uart1$1055                                             0002D5 GR
+  9 A$stm8s_uart1$1062                                             0002D8 GR
+  9 A$stm8s_uart1$1064                                             0002DA GR
+  9 A$stm8s_uart1$1073                                             0002DD GR
+  9 A$stm8s_uart1$1088                                             0002DE GR
+  9 A$stm8s_uart1$109                                              000012 GR
+  9 A$stm8s_uart1$1092                                             0002E1 GR
+  9 A$stm8s_uart1$1093                                             0002E3 GR
+  9 A$stm8s_uart1$1094                                             0002E5 GR
+  9 A$stm8s_uart1$1100                                             0002E8 GR
+  9 A$stm8s_uart1$1102                                             0002EA GR
+  9 A$stm8s_uart1$1105                                             0002ED GR
+  9 A$stm8s_uart1$1112                                             0002F0 GR
+  9 A$stm8s_uart1$1114                                             0002F2 GR
+  9 A$stm8s_uart1$1123                                             0002F5 GR
+  9 A$stm8s_uart1$113                                              000016 GR
+  9 A$stm8s_uart1$1138                                             0002F6 GR
+  9 A$stm8s_uart1$1142                                             0002F9 GR
+  9 A$stm8s_uart1$1143                                             0002FB GR
+  9 A$stm8s_uart1$1144                                             0002FD GR
+  9 A$stm8s_uart1$1150                                             000300 GR
+  9 A$stm8s_uart1$1152                                             000302 GR
+  9 A$stm8s_uart1$1155                                             000305 GR
+  9 A$stm8s_uart1$1162                                             000308 GR
+  9 A$stm8s_uart1$1164                                             00030A GR
+  9 A$stm8s_uart1$117                                              00001A GR
+  9 A$stm8s_uart1$1173                                             00030D GR
+  9 A$stm8s_uart1$1188                                             00030E GR
+  9 A$stm8s_uart1$1190                                             000311 GR
+  9 A$stm8s_uart1$1192                                             000313 GR
+  9 A$stm8s_uart1$1196                                             000316 GR
+  9 A$stm8s_uart1$1198                                             000319 GR
+  9 A$stm8s_uart1$1200                                             00031B GR
+  9 A$stm8s_uart1$1208                                             00031E GR
+  9 A$stm8s_uart1$121                                              00001E GR
+  9 A$stm8s_uart1$1223                                             00031F GR
+  9 A$stm8s_uart1$1227                                             000322 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$1228                                             000324 GR
+  9 A$stm8s_uart1$1229                                             000326 GR
+  9 A$stm8s_uart1$1235                                             000329 GR
+  9 A$stm8s_uart1$1237                                             00032B GR
+  9 A$stm8s_uart1$1240                                             00032E GR
+  9 A$stm8s_uart1$1247                                             000331 GR
+  9 A$stm8s_uart1$1249                                             000333 GR
+  9 A$stm8s_uart1$125                                              000022 GR
+  9 A$stm8s_uart1$1258                                             000336 GR
+  9 A$stm8s_uart1$1273                                             000337 GR
+  9 A$stm8s_uart1$1282                                             00033A GR
+  9 A$stm8s_uart1$129                                              000026 GR
+  9 A$stm8s_uart1$1294                                             00033B GR
+  9 A$stm8s_uart1$1299                                             00033C GR
+  9 A$stm8s_uart1$1302                                             00033F GR
+  9 A$stm8s_uart1$1304                                             000340 GR
+  9 A$stm8s_uart1$1305                                             000342 GR
+  9 A$stm8s_uart1$1306                                             000343 GR
+  9 A$stm8s_uart1$1308                                             000344 GR
+  9 A$stm8s_uart1$1309                                             000345 GR
+  9 A$stm8s_uart1$1311                                             000346 GR
+  9 A$stm8s_uart1$1315                                             000348 GR
+  9 A$stm8s_uart1$1318                                             00034B GR
+  9 A$stm8s_uart1$1320                                             00034C GR
+  9 A$stm8s_uart1$1321                                             00034E GR
+  9 A$stm8s_uart1$1322                                             00034F GR
+  9 A$stm8s_uart1$1323                                             000350 GR
+  9 A$stm8s_uart1$1325                                             000352 GR
+  9 A$stm8s_uart1$1326                                             000354 GR
+  9 A$stm8s_uart1$1333                                             000355 GR
+  9 A$stm8s_uart1$1337                                             000357 GR
+  9 A$stm8s_uart1$1352                                             000358 GR
+  9 A$stm8s_uart1$1353                                             00035B GR
+  9 A$stm8s_uart1$1354                                             00035D GR
+  9 A$stm8s_uart1$1362                                             00035E GR
+  9 A$stm8s_uart1$137                                              00002A GR
+  9 A$stm8s_uart1$1374                                             00035F GR
+  9 A$stm8s_uart1$1379                                             000360 GR
+  9 A$stm8s_uart1$1381                                             000363 GR
+  9 A$stm8s_uart1$1383                                             000365 GR
+  9 A$stm8s_uart1$1387                                             000368 GR
+  9 A$stm8s_uart1$1388                                             00036B GR
+  9 A$stm8s_uart1$1390                                             00036D GR
+  9 A$stm8s_uart1$1391                                             00036F GR
+  9 A$stm8s_uart1$1392                                             000370 GR
+  9 A$stm8s_uart1$1395                                             000371 GR
+  9 A$stm8s_uart1$1397                                             000372 GR
+  9 A$stm8s_uart1$1399                                             000374 GR
+  9 A$stm8s_uart1$1401                                             000376 GR
+  9 A$stm8s_uart1$1406                                             000379 GR
+  9 A$stm8s_uart1$1408                                             00037B GR
+  9 A$stm8s_uart1$1414                                             00037E GR
+  9 A$stm8s_uart1$1418                                             00037F GR
+  9 A$stm8s_uart1$1433                                             000380 GR
+  9 A$stm8s_uart1$1435                                             000383 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$1437                                             000385 GR
+  9 A$stm8s_uart1$1445                                             000388 GR
+  9 A$stm8s_uart1$1460                                             000389 GR
+  9 A$stm8s_uart1$1462                                             00038C GR
+  9 A$stm8s_uart1$1464                                             00038E GR
+  9 A$stm8s_uart1$1468                                             000391 GR
+  9 A$stm8s_uart1$1470                                             000394 GR
+  9 A$stm8s_uart1$1472                                             000396 GR
+  9 A$stm8s_uart1$1480                                             000399 GR
+  9 A$stm8s_uart1$149                                              00002B GR
+  9 A$stm8s_uart1$1495                                             00039A GR
+  9 A$stm8s_uart1$1496                                             00039D GR
+  9 A$stm8s_uart1$1497                                             00039F GR
+  9 A$stm8s_uart1$1505                                             0003A0 GR
+  9 A$stm8s_uart1$1520                                             0003A1 GR
+  9 A$stm8s_uart1$1521                                             0003A4 GR
+  9 A$stm8s_uart1$1522                                             0003A6 GR
+  9 A$stm8s_uart1$1530                                             0003A7 GR
+  9 A$stm8s_uart1$154                                              00002D GR
+  9 A$stm8s_uart1$1542                                             0003A8 GR
+  9 A$stm8s_uart1$1548                                             0003AA GR
+  9 A$stm8s_uart1$1549                                             0003AC GR
+  9 A$stm8s_uart1$1554                                             0003AE GR
+  9 A$stm8s_uart1$1555                                             0003B0 GR
+  9 A$stm8s_uart1$1559                                             0003B2 GR
+  9 A$stm8s_uart1$156                                              000030 GR
+  9 A$stm8s_uart1$1560                                             0003B4 GR
+  9 A$stm8s_uart1$1561                                             0003B7 GR
+  9 A$stm8s_uart1$1562                                             0003B9 GR
+  9 A$stm8s_uart1$1564                                             0003BC GR
+  9 A$stm8s_uart1$1572                                             0003BF GR
+  9 A$stm8s_uart1$1574                                             0003C2 GR
+  9 A$stm8s_uart1$1576                                             0003C4 GR
+  9 A$stm8s_uart1$1577                                             0003C5 GR
+  9 A$stm8s_uart1$1578                                             0003C7 GR
+  9 A$stm8s_uart1$158                                              000032 GR
+  9 A$stm8s_uart1$1584                                             0003CA GR
+  9 A$stm8s_uart1$1587                                             0003CC GR
+  9 A$stm8s_uart1$1594                                             0003CF GR
+  9 A$stm8s_uart1$1597                                             0003D0 GR
+  9 A$stm8s_uart1$1603                                             0003D3 GR
+  9 A$stm8s_uart1$1604                                             0003D5 GR
+  9 A$stm8s_uart1$1605                                             0003D8 GR
+  9 A$stm8s_uart1$1606                                             0003DA GR
+  9 A$stm8s_uart1$1608                                             0003DD GR
+  9 A$stm8s_uart1$1616                                             0003E0 GR
+  9 A$stm8s_uart1$1618                                             0003E3 GR
+  9 A$stm8s_uart1$162                                              000035 GR
+  9 A$stm8s_uart1$1620                                             0003E5 GR
+  9 A$stm8s_uart1$1621                                             0003E6 GR
+  9 A$stm8s_uart1$1622                                             0003E8 GR
+  9 A$stm8s_uart1$1628                                             0003EB GR
+  9 A$stm8s_uart1$1631                                             0003ED GR
+  9 A$stm8s_uart1$1638                                             0003F0 GR
+  9 A$stm8s_uart1$164                                              000038 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$1641                                             0003F1 GR
+  9 A$stm8s_uart1$1648                                             0003F4 GR
+  9 A$stm8s_uart1$1650                                             0003F7 GR
+  9 A$stm8s_uart1$1652                                             0003F9 GR
+  9 A$stm8s_uart1$1653                                             0003FA GR
+  9 A$stm8s_uart1$1654                                             0003FC GR
+  9 A$stm8s_uart1$166                                              00003A GR
+  9 A$stm8s_uart1$1660                                             0003FF GR
+  9 A$stm8s_uart1$1663                                             000401 GR
+  9 A$stm8s_uart1$1670                                             000404 GR
+  9 A$stm8s_uart1$1682                                             000405 GR
+  9 A$stm8s_uart1$1686                                             000407 GR
+  9 A$stm8s_uart1$170                                              00003D GR
+  9 A$stm8s_uart1$1702                                             000408 GR
+  9 A$stm8s_uart1$1704                                             00040A GR
+  9 A$stm8s_uart1$1705                                             00040D GR
+  9 A$stm8s_uart1$1706                                             00040F GR
+  9 A$stm8s_uart1$1708                                             000412 GR
+  9 A$stm8s_uart1$1716                                             000415 GR
+  9 A$stm8s_uart1$1719                                             000419 GR
+  9 A$stm8s_uart1$172                                              000040 GR
+  9 A$stm8s_uart1$1726                                             00041C GR
+  9 A$stm8s_uart1$1728                                             00041F GR
+  9 A$stm8s_uart1$1730                                             000421 GR
+  9 A$stm8s_uart1$1739                                             000424 GR
+  9 A$stm8s_uart1$174                                              000042 GR
+  9 A$stm8s_uart1$1751                                             000425 GR
+  9 A$stm8s_uart1$1757                                             000427 GR
+  9 A$stm8s_uart1$1758                                             000429 GR
+  9 A$stm8s_uart1$1760                                             00042A GR
+  9 A$stm8s_uart1$1761                                             00042B GR
+  9 A$stm8s_uart1$1763                                             00042D GR
+  9 A$stm8s_uart1$1765                                             00042E GR
+  9 A$stm8s_uart1$1766                                             000430 GR
+  9 A$stm8s_uart1$1767                                             000432 GR
+  9 A$stm8s_uart1$1769                                             000433 GR
+  9 A$stm8s_uart1$1770                                             000434 GR
+  9 A$stm8s_uart1$1772                                             000436 GR
+  9 A$stm8s_uart1$1773                                             000438 GR
+  9 A$stm8s_uart1$1774                                             000439 GR
+  9 A$stm8s_uart1$1779                                             00043B GR
+  9 A$stm8s_uart1$178                                              000045 GR
+  9 A$stm8s_uart1$1780                                             00043C GR
+  9 A$stm8s_uart1$1781                                             00043D GR
+  9 A$stm8s_uart1$1785                                             00043F GR
+  9 A$stm8s_uart1$1787                                             000440 GR
+  9 A$stm8s_uart1$1788                                             000442 GR
+  9 A$stm8s_uart1$1789                                             000444 GR
+  9 A$stm8s_uart1$1791                                             000445 GR
+  9 A$stm8s_uart1$1792                                             000446 GR
+  9 A$stm8s_uart1$1794                                             000448 GR
+  9 A$stm8s_uart1$1795                                             00044A GR
+  9 A$stm8s_uart1$1796                                             00044B GR
+  9 A$stm8s_uart1$180                                              000048 GR
+  9 A$stm8s_uart1$1802                                             00044D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$1803                                             00044F GR
+  9 A$stm8s_uart1$1805                                             000451 GR
+  9 A$stm8s_uart1$1806                                             000453 GR
+  9 A$stm8s_uart1$1807                                             000456 GR
+  9 A$stm8s_uart1$1808                                             000458 GR
+  9 A$stm8s_uart1$1810                                             00045B GR
+  9 A$stm8s_uart1$1818                                             00045E GR
+  9 A$stm8s_uart1$182                                              00004A GR
+  9 A$stm8s_uart1$1820                                             000461 GR
+  9 A$stm8s_uart1$1821                                             000463 GR
+  9 A$stm8s_uart1$1825                                             000464 GR
+  9 A$stm8s_uart1$1827                                             000467 GR
+  9 A$stm8s_uart1$1829                                             000469 GR
+  9 A$stm8s_uart1$1830                                             00046A GR
+  9 A$stm8s_uart1$1831                                             00046C GR
+  9 A$stm8s_uart1$1834                                             00046F GR
+  9 A$stm8s_uart1$1835                                             000470 GR
+  9 A$stm8s_uart1$1836                                             000471 GR
+  9 A$stm8s_uart1$1837                                             000473 GR
+  9 A$stm8s_uart1$1843                                             000476 GR
+  9 A$stm8s_uart1$1846                                             000478 GR
+  9 A$stm8s_uart1$1853                                             00047B GR
+  9 A$stm8s_uart1$1856                                             00047C GR
+  9 A$stm8s_uart1$186                                              00004D GR
+  9 A$stm8s_uart1$1862                                             00047F GR
+  9 A$stm8s_uart1$1863                                             000481 GR
+  9 A$stm8s_uart1$1864                                             000484 GR
+  9 A$stm8s_uart1$1865                                             000486 GR
+  9 A$stm8s_uart1$1867                                             000489 GR
+  9 A$stm8s_uart1$1875                                             00048C GR
+  9 A$stm8s_uart1$1877                                             00048F GR
+  9 A$stm8s_uart1$1879                                             000491 GR
+  9 A$stm8s_uart1$188                                              000050 GR
+  9 A$stm8s_uart1$1883                                             000492 GR
+  9 A$stm8s_uart1$1885                                             000495 GR
+  9 A$stm8s_uart1$1887                                             000497 GR
+  9 A$stm8s_uart1$1888                                             000498 GR
+  9 A$stm8s_uart1$1889                                             00049A GR
+  9 A$stm8s_uart1$1892                                             00049D GR
+  9 A$stm8s_uart1$1893                                             00049E GR
+  9 A$stm8s_uart1$1894                                             00049F GR
+  9 A$stm8s_uart1$1895                                             0004A1 GR
+  9 A$stm8s_uart1$190                                              000052 GR
+  9 A$stm8s_uart1$1901                                             0004A4 GR
+  9 A$stm8s_uart1$1904                                             0004A6 GR
+  9 A$stm8s_uart1$1911                                             0004A9 GR
+  9 A$stm8s_uart1$1914                                             0004AA GR
+  9 A$stm8s_uart1$1921                                             0004AD GR
+  9 A$stm8s_uart1$1923                                             0004B0 GR
+  9 A$stm8s_uart1$1924                                             0004B2 GR
+  9 A$stm8s_uart1$1928                                             0004B3 GR
+  9 A$stm8s_uart1$1930                                             0004B6 GR
+  9 A$stm8s_uart1$1932                                             0004B8 GR
+  9 A$stm8s_uart1$1933                                             0004B9 GR
+  9 A$stm8s_uart1$1934                                             0004BB GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$1937                                             0004BE GR
+  9 A$stm8s_uart1$1938                                             0004BF GR
+  9 A$stm8s_uart1$1939                                             0004C0 GR
+  9 A$stm8s_uart1$194                                              000055 GR
+  9 A$stm8s_uart1$1940                                             0004C2 GR
+  9 A$stm8s_uart1$1946                                             0004C5 GR
+  9 A$stm8s_uart1$1949                                             0004C7 GR
+  9 A$stm8s_uart1$1956                                             0004CA GR
+  9 A$stm8s_uart1$196                                              000058 GR
+  9 A$stm8s_uart1$1968                                             0004CB GR
+  9 A$stm8s_uart1$1972                                             0004CD GR
+  9 A$stm8s_uart1$198                                              00005A GR
+  9 A$stm8s_uart1$1988                                             0004CE GR
+  9 A$stm8s_uart1$1990                                             0004D0 GR
+  9 A$stm8s_uart1$1991                                             0004D3 GR
+  9 A$stm8s_uart1$1992                                             0004D5 GR
+  9 A$stm8s_uart1$1994                                             0004D8 GR
+  9 A$stm8s_uart1$2002                                             0004DB GR
+  9 A$stm8s_uart1$2005                                             0004DF GR
+  9 A$stm8s_uart1$2012                                             0004E2 GR
+  9 A$stm8s_uart1$2014                                             0004E5 GR
+  9 A$stm8s_uart1$2016                                             0004E7 GR
+  9 A$stm8s_uart1$2025                                             0004EA GR
+  9 A$stm8s_uart1$203                                              00005D GR
+  9 A$stm8s_uart1$205                                              000060 GR
+  9 A$stm8s_uart1$209                                              000064 GR
+  9 A$stm8s_uart1$211                                              000067 GR
+  9 A$stm8s_uart1$213                                              000069 GR
+  9 A$stm8s_uart1$217                                              00006C GR
+  9 A$stm8s_uart1$219                                              00006F GR
+  9 A$stm8s_uart1$221                                              000071 GR
+  9 A$stm8s_uart1$225                                              000074 GR
+  9 A$stm8s_uart1$226                                              000077 GR
+  9 A$stm8s_uart1$228                                              000079 GR
+  9 A$stm8s_uart1$229                                              00007B GR
+  9 A$stm8s_uart1$230                                              00007D GR
+  9 A$stm8s_uart1$231                                              00007F GR
+  9 A$stm8s_uart1$233                                              000081 GR
+  9 A$stm8s_uart1$234                                              000082 GR
+  9 A$stm8s_uart1$235                                              000084 GR
+  9 A$stm8s_uart1$236                                              000086 GR
+  9 A$stm8s_uart1$237                                              000087 GR
+  9 A$stm8s_uart1$239                                              000089 GR
+  9 A$stm8s_uart1$241                                              00008B GR
+  9 A$stm8s_uart1$242                                              00008D GR
+  9 A$stm8s_uart1$244                                              00008E GR
+  9 A$stm8s_uart1$245                                              000090 GR
+  9 A$stm8s_uart1$248                                              000091 GR
+  9 A$stm8s_uart1$249                                              000093 GR
+  9 A$stm8s_uart1$251                                              000094 GR
+  9 A$stm8s_uart1$254                                              000096 GR
+  9 A$stm8s_uart1$255                                              000099 GR
+  9 A$stm8s_uart1$257                                              00009B GR
+  9 A$stm8s_uart1$258                                              00009D GR
+  9 A$stm8s_uart1$260                                              00009F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$261                                              0000A1 GR
+  9 A$stm8s_uart1$262                                              0000A3 GR
+  9 A$stm8s_uart1$263                                              0000A5 GR
+  9 A$stm8s_uart1$267                                              0000A7 GR
+  9 A$stm8s_uart1$268                                              0000AA GR
+  9 A$stm8s_uart1$269                                              0000AC GR
+  9 A$stm8s_uart1$271                                              0000AE GR
+  9 A$stm8s_uart1$272                                              0000B0 GR
+  9 A$stm8s_uart1$274                                              0000B1 GR
+  9 A$stm8s_uart1$275                                              0000B3 GR
+  9 A$stm8s_uart1$278                                              0000B4 GR
+  9 A$stm8s_uart1$280                                              0000B6 GR
+  9 A$stm8s_uart1$281                                              0000B7 GR
+  9 A$stm8s_uart1$283                                              0000B8 GR
+  9 A$stm8s_uart1$286                                              0000BA GR
+  9 A$stm8s_uart1$287                                              0000BD GR
+  9 A$stm8s_uart1$289                                              0000BF GR
+  9 A$stm8s_uart1$291                                              0000C1 GR
+  9 A$stm8s_uart1$292                                              0000C3 GR
+  9 A$stm8s_uart1$294                                              0000C4 GR
+  9 A$stm8s_uart1$295                                              0000C6 GR
+  9 A$stm8s_uart1$298                                              0000C7 GR
+  9 A$stm8s_uart1$299                                              0000C9 GR
+  9 A$stm8s_uart1$301                                              0000CA GR
+  9 A$stm8s_uart1$304                                              0000CC GR
+  9 A$stm8s_uart1$305                                              0000CF GR
+  9 A$stm8s_uart1$308                                              0000D1 GR
+  9 A$stm8s_uart1$309                                              0000D3 GR
+  9 A$stm8s_uart1$313                                              0000D5 GR
+  9 A$stm8s_uart1$314                                              0000D8 GR
+  9 A$stm8s_uart1$316                                              0000DA GR
+  9 A$stm8s_uart1$317                                              0000DC GR
+  9 A$stm8s_uart1$319                                              0000DD GR
+  9 A$stm8s_uart1$320                                              0000DF GR
+  9 A$stm8s_uart1$323                                              0000E0 GR
+  9 A$stm8s_uart1$325                                              0000E2 GR
+  9 A$stm8s_uart1$326                                              0000E3 GR
+  9 A$stm8s_uart1$328                                              0000E4 GR
+  9 A$stm8s_uart1$331                                              0000E6 GR
+  9 A$stm8s_uart1$332                                              0000E9 GR
+  9 A$stm8s_uart1$334                                              0000EB GR
+  9 A$stm8s_uart1$335                                              0000ED GR
+  9 A$stm8s_uart1$337                                              0000EF GR
+  9 A$stm8s_uart1$338                                              0000F1 GR
+  9 A$stm8s_uart1$339                                              0000F4 GR
+  9 A$stm8s_uart1$340                                              0000F6 GR
+  9 A$stm8s_uart1$341                                              0000F8 GR
+  9 A$stm8s_uart1$342                                              0000FA GR
+  9 A$stm8s_uart1$343                                              0000FC GR
+  9 A$stm8s_uart1$344                                              0000FE GR
+  9 A$stm8s_uart1$345                                              000100 GR
+  9 A$stm8s_uart1$347                                              000102 GR
+  9 A$stm8s_uart1$348                                              000104 GR
+  9 A$stm8s_uart1$349                                              000106 GR
+  9 A$stm8s_uart1$351                                              000108 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$352                                              000109 GR
+  9 A$stm8s_uart1$353                                              00010B GR
+  9 A$stm8s_uart1$354                                              00010C GR
+  9 A$stm8s_uart1$357                                              00010E GR
+  9 A$stm8s_uart1$359                                              000110 GR
+  9 A$stm8s_uart1$361                                              000112 GR
+  9 A$stm8s_uart1$363                                              000114 GR
+  9 A$stm8s_uart1$366                                              000116 GR
+  9 A$stm8s_uart1$368                                              000117 GR
+  9 A$stm8s_uart1$371                                              000119 GR
+  9 A$stm8s_uart1$372                                              00011C GR
+  9 A$stm8s_uart1$374                                              00011E GR
+  9 A$stm8s_uart1$378                                              00011F GR
+  9 A$stm8s_uart1$380                                              000121 GR
+  9 A$stm8s_uart1$382                                              000123 GR
+  9 A$stm8s_uart1$386                                              000126 GR
+  9 A$stm8s_uart1$387                                              000129 GR
+  9 A$stm8s_uart1$390                                              00012B GR
+  9 A$stm8s_uart1$392                                              00012D GR
+  9 A$stm8s_uart1$393                                              00012F GR
+  9 A$stm8s_uart1$396                                              000130 GR
+  9 A$stm8s_uart1$398                                              000131 GR
+  9 A$stm8s_uart1$400                                              000133 GR
+  9 A$stm8s_uart1$402                                              000135 GR
+  9 A$stm8s_uart1$406                                              000138 GR
+  9 A$stm8s_uart1$407                                              00013B GR
+  9 A$stm8s_uart1$410                                              00013D GR
+  9 A$stm8s_uart1$412                                              00013F GR
+  9 A$stm8s_uart1$414                                              000141 GR
+  9 A$stm8s_uart1$418                                              000144 GR
+  9 A$stm8s_uart1$420                                              000147 GR
+  9 A$stm8s_uart1$422                                              000149 GR
+  9 A$stm8s_uart1$426                                              00014C GR
+  9 A$stm8s_uart1$428                                              00014F GR
+  9 A$stm8s_uart1$430                                              000151 GR
+  9 A$stm8s_uart1$434                                              000154 GR
+  9 A$stm8s_uart1$435                                              000157 GR
+  9 A$stm8s_uart1$437                                              000159 GR
+  9 A$stm8s_uart1$438                                              00015B GR
+  9 A$stm8s_uart1$440                                              00015D GR
+  9 A$stm8s_uart1$442                                              00015F GR
+  9 A$stm8s_uart1$446                                              000162 GR
+  9 A$stm8s_uart1$450                                              000165 GR
+  9 A$stm8s_uart1$452                                              000166 GR
+  9 A$stm8s_uart1$453                                              000168 GR
+  9 A$stm8s_uart1$454                                              00016A GR
+  9 A$stm8s_uart1$456                                              00016B GR
+  9 A$stm8s_uart1$457                                              00016D GR
+  9 A$stm8s_uart1$464                                              000170 GR
+  9 A$stm8s_uart1$466                                              000172 GR
+  9 A$stm8s_uart1$469                                              000175 GR
+  9 A$stm8s_uart1$476                                              000178 GR
+  9 A$stm8s_uart1$478                                              00017A GR
+  9 A$stm8s_uart1$485                                              00017D GR
+  9 A$stm8s_uart1$489                                              000180 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$491                                              000181 GR
+  9 A$stm8s_uart1$492                                              000183 GR
+  9 A$stm8s_uart1$493                                              000185 GR
+  9 A$stm8s_uart1$495                                              000186 GR
+  9 A$stm8s_uart1$496                                              000188 GR
+  9 A$stm8s_uart1$503                                              00018B GR
+  9 A$stm8s_uart1$505                                              00018D GR
+  9 A$stm8s_uart1$508                                              000190 GR
+  9 A$stm8s_uart1$515                                              000193 GR
+  9 A$stm8s_uart1$517                                              000195 GR
+  9 A$stm8s_uart1$524                                              000198 GR
+  9 A$stm8s_uart1$528                                              00019B GR
+  9 A$stm8s_uart1$529                                              00019D GR
+  9 A$stm8s_uart1$530                                              00019F GR
+  9 A$stm8s_uart1$537                                              0001A2 GR
+  9 A$stm8s_uart1$539                                              0001A4 GR
+  9 A$stm8s_uart1$542                                              0001A7 GR
+  9 A$stm8s_uart1$549                                              0001AA GR
+  9 A$stm8s_uart1$551                                              0001AB GR
+  9 A$stm8s_uart1$552                                              0001AD GR
+  9 A$stm8s_uart1$553                                              0001AF GR
+  9 A$stm8s_uart1$554                                              0001B1 GR
+  9 A$stm8s_uart1$557                                              0001B2 GR
+  9 A$stm8s_uart1$559                                              0001B4 GR
+  9 A$stm8s_uart1$566                                              0001B7 GR
+  9 A$stm8s_uart1$570                                              0001B9 GR
+  9 A$stm8s_uart1$585                                              0001BA GR
+  9 A$stm8s_uart1$589                                              0001BD GR
+  9 A$stm8s_uart1$590                                              0001BF GR
+  9 A$stm8s_uart1$591                                              0001C1 GR
+  9 A$stm8s_uart1$597                                              0001C4 GR
+  9 A$stm8s_uart1$599                                              0001C6 GR
+  9 A$stm8s_uart1$602                                              0001C9 GR
+  9 A$stm8s_uart1$609                                              0001CC GR
+  9 A$stm8s_uart1$611                                              0001CE GR
+  9 A$stm8s_uart1$620                                              0001D1 GR
+  9 A$stm8s_uart1$632                                              0001D2 GR
+  9 A$stm8s_uart1$638                                              0001D3 GR
+  9 A$stm8s_uart1$640                                              0001D5 GR
+  9 A$stm8s_uart1$647                                              0001D6 GR
+  9 A$stm8s_uart1$649                                              0001D8 GR
+  9 A$stm8s_uart1$651                                              0001DA GR
+  9 A$stm8s_uart1$653                                              0001DB GR
+  9 A$stm8s_uart1$654                                              0001DD GR
+  9 A$stm8s_uart1$655                                              0001DF GR
+  9 A$stm8s_uart1$657                                              0001E0 GR
+  9 A$stm8s_uart1$658                                              0001E1 GR
+  9 A$stm8s_uart1$660                                              0001E3 GR
+  9 A$stm8s_uart1$661                                              0001E5 GR
+  9 A$stm8s_uart1$662                                              0001E6 GR
+  9 A$stm8s_uart1$667                                              0001E8 GR
+  9 A$stm8s_uart1$668                                              0001E9 GR
+  9 A$stm8s_uart1$669                                              0001EA GR
+  9 A$stm8s_uart1$670                                              0001EC GR
+  9 A$stm8s_uart1$671                                              0001EE GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$672                                              0001F0 GR
+  9 A$stm8s_uart1$674                                              0001F3 GR
+  9 A$stm8s_uart1$680                                              0001F5 GR
+  9 A$stm8s_uart1$681                                              0001F6 GR
+  9 A$stm8s_uart1$682                                              0001F8 GR
+  9 A$stm8s_uart1$683                                              0001FA GR
+  9 A$stm8s_uart1$684                                              0001FC GR
+  9 A$stm8s_uart1$686                                              0001FF GR
+  9 A$stm8s_uart1$692                                              000200 GR
+  9 A$stm8s_uart1$693                                              000202 GR
+  9 A$stm8s_uart1$694                                              000204 GR
+  9 A$stm8s_uart1$700                                              000207 GR
+  9 A$stm8s_uart1$701                                              000209 GR
+  9 A$stm8s_uart1$702                                              00020B GR
+  9 A$stm8s_uart1$708                                              00020E GR
+  9 A$stm8s_uart1$710                                              000211 GR
+  9 A$stm8s_uart1$712                                              000213 GR
+  9 A$stm8s_uart1$715                                              000216 GR
+  9 A$stm8s_uart1$721                                              000219 GR
+  9 A$stm8s_uart1$722                                              00021A GR
+  9 A$stm8s_uart1$723                                              00021C GR
+  9 A$stm8s_uart1$729                                              00021F GR
+  9 A$stm8s_uart1$731                                              000222 GR
+  9 A$stm8s_uart1$733                                              000224 GR
+  9 A$stm8s_uart1$736                                              000227 GR
+  9 A$stm8s_uart1$743                                              00022A GR
+  9 A$stm8s_uart1$745                                              00022D GR
+  9 A$stm8s_uart1$747                                              00022F GR
+  9 A$stm8s_uart1$750                                              000232 GR
+  9 A$stm8s_uart1$756                                              000235 GR
+  9 A$stm8s_uart1$758                                              000236 GR
+  9 A$stm8s_uart1$759                                              000238 GR
+  9 A$stm8s_uart1$765                                              000239 GR
+  9 A$stm8s_uart1$766                                              00023B GR
+  9 A$stm8s_uart1$767                                              00023D GR
+  9 A$stm8s_uart1$773                                              000240 GR
+  9 A$stm8s_uart1$775                                              000243 GR
+  9 A$stm8s_uart1$777                                              000245 GR
+  9 A$stm8s_uart1$780                                              000248 GR
+  9 A$stm8s_uart1$786                                              00024B GR
+  9 A$stm8s_uart1$787                                              00024C GR
+  9 A$stm8s_uart1$788                                              00024E GR
+  9 A$stm8s_uart1$794                                              000251 GR
+  9 A$stm8s_uart1$796                                              000254 GR
+  9 A$stm8s_uart1$798                                              000256 GR
+  9 A$stm8s_uart1$801                                              000259 GR
+  9 A$stm8s_uart1$808                                              00025C GR
+  9 A$stm8s_uart1$810                                              00025F GR
+  9 A$stm8s_uart1$812                                              000261 GR
+  9 A$stm8s_uart1$819                                              000264 GR
+  9 A$stm8s_uart1$823                                              000265 GR
+  9 A$stm8s_uart1$838                                              000266 GR
+  9 A$stm8s_uart1$842                                              000269 GR
+  9 A$stm8s_uart1$843                                              00026B GR
+  9 A$stm8s_uart1$844                                              00026D GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_uart1$850                                              000270 GR
+  9 A$stm8s_uart1$852                                              000272 GR
+  9 A$stm8s_uart1$855                                              000275 GR
+  9 A$stm8s_uart1$862                                              000278 GR
+  9 A$stm8s_uart1$864                                              00027A GR
+  9 A$stm8s_uart1$873                                              00027D GR
+  9 A$stm8s_uart1$88                                               000000 GR
+  9 A$stm8s_uart1$888                                              00027E GR
+  9 A$stm8s_uart1$892                                              000281 GR
+  9 A$stm8s_uart1$893                                              000283 GR
+  9 A$stm8s_uart1$894                                              000285 GR
+  9 A$stm8s_uart1$900                                              000288 GR
+  9 A$stm8s_uart1$902                                              00028A GR
+  9 A$stm8s_uart1$905                                              00028D GR
+  9 A$stm8s_uart1$912                                              000290 GR
+  9 A$stm8s_uart1$914                                              000292 GR
+  9 A$stm8s_uart1$923                                              000295 GR
+  9 A$stm8s_uart1$93                                               000003 GR
+  9 A$stm8s_uart1$938                                              000296 GR
+  9 A$stm8s_uart1$942                                              000299 GR
+  9 A$stm8s_uart1$943                                              00029B GR
+  9 A$stm8s_uart1$944                                              00029D GR
+  9 A$stm8s_uart1$950                                              0002A0 GR
+  9 A$stm8s_uart1$952                                              0002A2 GR
+  9 A$stm8s_uart1$955                                              0002A5 GR
+  9 A$stm8s_uart1$962                                              0002A8 GR
+  9 A$stm8s_uart1$964                                              0002AA GR
+  9 A$stm8s_uart1$97                                               000006 GR
+  9 A$stm8s_uart1$973                                              0002AD GR
+  9 A$stm8s_uart1$988                                              0002AE GR
+  9 A$stm8s_uart1$992                                              0002B1 GR
+  9 A$stm8s_uart1$993                                              0002B3 GR
+  9 A$stm8s_uart1$994                                              0002B5 GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE10_end                                               00021C R
+ 10 Ldebug_CIE10_start                                             00020E R
+ 10 Ldebug_CIE11_end                                               000253 R
+ 10 Ldebug_CIE11_start                                             000245 R
+ 10 Ldebug_CIE12_end                                               00027C R
+ 10 Ldebug_CIE12_start                                             00026E R
+ 10 Ldebug_CIE13_end                                               0002A5 R
+ 10 Ldebug_CIE13_start                                             000297 R
+ 10 Ldebug_CIE14_end                                               0002CE R
+ 10 Ldebug_CIE14_start                                             0002C0 R
+ 10 Ldebug_CIE15_end                                               0002F7 R
+ 10 Ldebug_CIE15_start                                             0002E9 R
+ 10 Ldebug_CIE16_end                                               000320 R
+ 10 Ldebug_CIE16_start                                             000312 R
+ 10 Ldebug_CIE17_end                                               000349 R
+ 10 Ldebug_CIE17_start                                             00033B R
+ 10 Ldebug_CIE18_end                                               000372 R
+ 10 Ldebug_CIE18_start                                             000364 R
+ 10 Ldebug_CIE19_end                                               00039B R
+ 10 Ldebug_CIE19_start                                             00038D R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 10 Ldebug_CIE1_end                                                000042 R
+ 10 Ldebug_CIE1_start                                              000034 R
+ 10 Ldebug_CIE20_end                                               0003C4 R
+ 10 Ldebug_CIE20_start                                             0003B6 R
+ 10 Ldebug_CIE21_end                                               0003ED R
+ 10 Ldebug_CIE21_start                                             0003DF R
+ 10 Ldebug_CIE22_end                                               00044E R
+ 10 Ldebug_CIE22_start                                             000440 R
+ 10 Ldebug_CIE23_end                                               000477 R
+ 10 Ldebug_CIE23_start                                             000469 R
+ 10 Ldebug_CIE24_end                                               0005A3 R
+ 10 Ldebug_CIE24_start                                             000595 R
+ 10 Ldebug_CIE2_end                                                0000A3 R
+ 10 Ldebug_CIE2_start                                              000095 R
+ 10 Ldebug_CIE3_end                                                0000D3 R
+ 10 Ldebug_CIE3_start                                              0000C5 R
+ 10 Ldebug_CIE4_end                                                000118 R
+ 10 Ldebug_CIE4_start                                              00010A R
+ 10 Ldebug_CIE5_end                                                000141 R
+ 10 Ldebug_CIE5_start                                              000133 R
+ 10 Ldebug_CIE6_end                                                00016A R
+ 10 Ldebug_CIE6_start                                              00015C R
+ 10 Ldebug_CIE7_end                                                000193 R
+ 10 Ldebug_CIE7_start                                              000185 R
+ 10 Ldebug_CIE8_end                                                0001BC R
+ 10 Ldebug_CIE8_start                                              0001AE R
+ 10 Ldebug_CIE9_end                                                0001F3 R
+ 10 Ldebug_CIE9_start                                              0001E5 R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                0008CB R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                000621 R
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               000083 R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            000235 R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Sstm8s_uart1$UART1_ClearFlag$360                            =  000408 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$361                            =  000408 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$362                            =  000408 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$363                            =  000415 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$364                            =  000415 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$365                            =  000415 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$366                            =  000419 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$367                            =  00041C GR
+  9 Sstm8s_uart1$UART1_ClearFlag$368                            =  00041C GR
+  9 Sstm8s_uart1$UART1_ClearFlag$369                            =  000424 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$370                            =  000424 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$371                            =  000424 GR
+  9 Sstm8s_uart1$UART1_ClearFlag$372                            =  000425 GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$419                    =  0004CE GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$420                    =  0004CE GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$421                    =  0004CE GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$422                    =  0004DB GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$423                    =  0004DB GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 13.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$424                    =  0004DB GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$425                    =  0004DF GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$426                    =  0004E2 GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$427                    =  0004E2 GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$428                    =  0004EA GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$429                    =  0004EA GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$430                    =  0004EA GR
+  9 Sstm8s_uart1$UART1_ClearITPendingBit$431                    =  0004EB GR
+  9 Sstm8s_uart1$UART1_Cmd$100                                  =  0001BA GR
+  9 Sstm8s_uart1$UART1_Cmd$101                                  =  0001BA GR
+  9 Sstm8s_uart1$UART1_Cmd$102                                  =  0001BD GR
+  9 Sstm8s_uart1$UART1_Cmd$103                                  =  0001C4 GR
+  9 Sstm8s_uart1$UART1_Cmd$104                                  =  0001C4 GR
+  9 Sstm8s_uart1$UART1_Cmd$105                                  =  0001C9 GR
+  9 Sstm8s_uart1$UART1_Cmd$106                                  =  0001CC GR
+  9 Sstm8s_uart1$UART1_Cmd$107                                  =  0001CC GR
+  9 Sstm8s_uart1$UART1_Cmd$108                                  =  0001D1 GR
+  9 Sstm8s_uart1$UART1_Cmd$109                                  =  0001D1 GR
+  9 Sstm8s_uart1$UART1_Cmd$110                                  =  0001D1 GR
+  9 Sstm8s_uart1$UART1_Cmd$111                                  =  0001D2 GR
+  9 Sstm8s_uart1$UART1_Cmd$99                                   =  0001BA GR
+  9 Sstm8s_uart1$UART1_DeInit$0                                 =  000000 GR
+  9 Sstm8s_uart1$UART1_DeInit$1                                 =  000000 GR
+  9 Sstm8s_uart1$UART1_DeInit$10                                =  00001E GR
+  9 Sstm8s_uart1$UART1_DeInit$11                                =  000022 GR
+  9 Sstm8s_uart1$UART1_DeInit$12                                =  000026 GR
+  9 Sstm8s_uart1$UART1_DeInit$13                                =  00002A GR
+  9 Sstm8s_uart1$UART1_DeInit$14                                =  00002A GR
+  9 Sstm8s_uart1$UART1_DeInit$15                                =  00002B GR
+  9 Sstm8s_uart1$UART1_DeInit$2                                 =  000000 GR
+  9 Sstm8s_uart1$UART1_DeInit$3                                 =  000003 GR
+  9 Sstm8s_uart1$UART1_DeInit$4                                 =  000006 GR
+  9 Sstm8s_uart1$UART1_DeInit$5                                 =  00000A GR
+  9 Sstm8s_uart1$UART1_DeInit$6                                 =  00000E GR
+  9 Sstm8s_uart1$UART1_DeInit$7                                 =  000012 GR
+  9 Sstm8s_uart1$UART1_DeInit$8                                 =  000016 GR
+  9 Sstm8s_uart1$UART1_DeInit$9                                 =  00001A GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$322                        =  0003A8 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$323                        =  0003A8 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$324                        =  0003AA GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$325                        =  0003AA GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$326                        =  0003AE GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$327                        =  0003B2 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$328                        =  0003BF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$329                        =  0003BF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$330                        =  0003BF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$331                        =  0003CA GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$332                        =  0003CA GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$333                        =  0003CC GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$334                        =  0003CF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$335                        =  0003CF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$336                        =  0003D0 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$337                        =  0003D3 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$338                        =  0003E0 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$339                        =  0003E0 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 14.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_GetFlagStatus$340                        =  0003E0 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$341                        =  0003EB GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$342                        =  0003EB GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$343                        =  0003ED GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$344                        =  0003F0 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$345                        =  0003F0 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$346                        =  0003F1 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$347                        =  0003F4 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$348                        =  0003F4 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$349                        =  0003FF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$350                        =  0003FF GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$351                        =  000401 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$352                        =  000404 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$353                        =  000404 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$354                        =  000405 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$355                        =  000405 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$356                        =  000405 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$357                        =  000407 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$358                        =  000407 GR
+  9 Sstm8s_uart1$UART1_GetFlagStatus$359                        =  000408 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$373                          =  000425 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$374                          =  000425 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$375                          =  000427 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$376                          =  000427 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$377                          =  00042E GR
+  9 Sstm8s_uart1$UART1_GetITStatus$378                          =  000433 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$379                          =  00043B GR
+  9 Sstm8s_uart1$UART1_GetITStatus$380                          =  00043F GR
+  9 Sstm8s_uart1$UART1_GetITStatus$381                          =  000440 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$382                          =  000445 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$383                          =  00044D GR
+  9 Sstm8s_uart1$UART1_GetITStatus$384                          =  00045E GR
+  9 Sstm8s_uart1$UART1_GetITStatus$385                          =  00045E GR
+  9 Sstm8s_uart1$UART1_GetITStatus$386                          =  00045E GR
+  9 Sstm8s_uart1$UART1_GetITStatus$387                          =  000464 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$388                          =  000476 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$389                          =  000476 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$390                          =  000478 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$391                          =  00047B GR
+  9 Sstm8s_uart1$UART1_GetITStatus$392                          =  00047B GR
+  9 Sstm8s_uart1$UART1_GetITStatus$393                          =  00047C GR
+  9 Sstm8s_uart1$UART1_GetITStatus$394                          =  00047F GR
+  9 Sstm8s_uart1$UART1_GetITStatus$395                          =  00048C GR
+  9 Sstm8s_uart1$UART1_GetITStatus$396                          =  00048C GR
+  9 Sstm8s_uart1$UART1_GetITStatus$397                          =  00048C GR
+  9 Sstm8s_uart1$UART1_GetITStatus$398                          =  000492 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$399                          =  0004A4 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$400                          =  0004A4 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$401                          =  0004A6 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$402                          =  0004A9 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$403                          =  0004A9 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$404                          =  0004AA GR
+  9 Sstm8s_uart1$UART1_GetITStatus$405                          =  0004AD GR
+  9 Sstm8s_uart1$UART1_GetITStatus$406                          =  0004AD GR
+  9 Sstm8s_uart1$UART1_GetITStatus$407                          =  0004B3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 15.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_GetITStatus$408                          =  0004C5 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$409                          =  0004C5 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$410                          =  0004C7 GR
+  9 Sstm8s_uart1$UART1_GetITStatus$411                          =  0004CA GR
+  9 Sstm8s_uart1$UART1_GetITStatus$412                          =  0004CA GR
+  9 Sstm8s_uart1$UART1_GetITStatus$413                          =  0004CB GR
+  9 Sstm8s_uart1$UART1_GetITStatus$414                          =  0004CB GR
+  9 Sstm8s_uart1$UART1_GetITStatus$415                          =  0004CB GR
+  9 Sstm8s_uart1$UART1_GetITStatus$416                          =  0004CD GR
+  9 Sstm8s_uart1$UART1_GetITStatus$417                          =  0004CD GR
+  9 Sstm8s_uart1$UART1_GetITStatus$418                          =  0004CE GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$155                        =  000266 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$156                        =  000266 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$157                        =  000266 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$158                        =  000269 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$159                        =  000270 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$160                        =  000270 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$161                        =  000275 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$162                        =  000278 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$163                        =  000278 GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$164                        =  00027D GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$165                        =  00027D GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$166                        =  00027D GR
+  9 Sstm8s_uart1$UART1_HalfDuplexCmd$167                        =  00027E GR
+  9 Sstm8s_uart1$UART1_ITConfig$112                             =  0001D2 GR
+  9 Sstm8s_uart1$UART1_ITConfig$113                             =  0001D2 GR
+  9 Sstm8s_uart1$UART1_ITConfig$114                             =  0001D3 GR
+  9 Sstm8s_uart1$UART1_ITConfig$115                             =  0001D3 GR
+  9 Sstm8s_uart1$UART1_ITConfig$116                             =  0001D6 GR
+  9 Sstm8s_uart1$UART1_ITConfig$117                             =  0001DB GR
+  9 Sstm8s_uart1$UART1_ITConfig$118                             =  0001E0 GR
+  9 Sstm8s_uart1$UART1_ITConfig$119                             =  0001E8 GR
+  9 Sstm8s_uart1$UART1_ITConfig$120                             =  0001F5 GR
+  9 Sstm8s_uart1$UART1_ITConfig$121                             =  0001F5 GR
+  9 Sstm8s_uart1$UART1_ITConfig$122                             =  000200 GR
+  9 Sstm8s_uart1$UART1_ITConfig$123                             =  000200 GR
+  9 Sstm8s_uart1$UART1_ITConfig$124                             =  000207 GR
+  9 Sstm8s_uart1$UART1_ITConfig$125                             =  000207 GR
+  9 Sstm8s_uart1$UART1_ITConfig$126                             =  00020E GR
+  9 Sstm8s_uart1$UART1_ITConfig$127                             =  00020E GR
+  9 Sstm8s_uart1$UART1_ITConfig$128                             =  000216 GR
+  9 Sstm8s_uart1$UART1_ITConfig$129                             =  000219 GR
+  9 Sstm8s_uart1$UART1_ITConfig$130                             =  00021F GR
+  9 Sstm8s_uart1$UART1_ITConfig$131                             =  00021F GR
+  9 Sstm8s_uart1$UART1_ITConfig$132                             =  000227 GR
+  9 Sstm8s_uart1$UART1_ITConfig$133                             =  00022A GR
+  9 Sstm8s_uart1$UART1_ITConfig$134                             =  00022A GR
+  9 Sstm8s_uart1$UART1_ITConfig$135                             =  000232 GR
+  9 Sstm8s_uart1$UART1_ITConfig$136                             =  000235 GR
+  9 Sstm8s_uart1$UART1_ITConfig$137                             =  000236 GR
+  9 Sstm8s_uart1$UART1_ITConfig$138                             =  000239 GR
+  9 Sstm8s_uart1$UART1_ITConfig$139                             =  000239 GR
+  9 Sstm8s_uart1$UART1_ITConfig$140                             =  000239 GR
+  9 Sstm8s_uart1$UART1_ITConfig$141                             =  000240 GR
+  9 Sstm8s_uart1$UART1_ITConfig$142                             =  000240 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 16.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_ITConfig$143                             =  000248 GR
+  9 Sstm8s_uart1$UART1_ITConfig$144                             =  00024B GR
+  9 Sstm8s_uart1$UART1_ITConfig$145                             =  000251 GR
+  9 Sstm8s_uart1$UART1_ITConfig$146                             =  000251 GR
+  9 Sstm8s_uart1$UART1_ITConfig$147                             =  000259 GR
+  9 Sstm8s_uart1$UART1_ITConfig$148                             =  00025C GR
+  9 Sstm8s_uart1$UART1_ITConfig$149                             =  00025C GR
+  9 Sstm8s_uart1$UART1_ITConfig$150                             =  000264 GR
+  9 Sstm8s_uart1$UART1_ITConfig$151                             =  000264 GR
+  9 Sstm8s_uart1$UART1_ITConfig$152                             =  000265 GR
+  9 Sstm8s_uart1$UART1_ITConfig$153                             =  000265 GR
+  9 Sstm8s_uart1$UART1_ITConfig$154                             =  000266 GR
+  9 Sstm8s_uart1$UART1_Init$16                                  =  00002B GR
+  9 Sstm8s_uart1$UART1_Init$17                                  =  00002B GR
+  9 Sstm8s_uart1$UART1_Init$18                                  =  00002D GR
+  9 Sstm8s_uart1$UART1_Init$19                                  =  00002D GR
+  9 Sstm8s_uart1$UART1_Init$20                                  =  000035 GR
+  9 Sstm8s_uart1$UART1_Init$21                                  =  00003D GR
+  9 Sstm8s_uart1$UART1_Init$22                                  =  000045 GR
+  9 Sstm8s_uart1$UART1_Init$23                                  =  00004D GR
+  9 Sstm8s_uart1$UART1_Init$24                                  =  000055 GR
+  9 Sstm8s_uart1$UART1_Init$25                                  =  00005D GR
+  9 Sstm8s_uart1$UART1_Init$26                                  =  000064 GR
+  9 Sstm8s_uart1$UART1_Init$27                                  =  00006C GR
+  9 Sstm8s_uart1$UART1_Init$28                                  =  000074 GR
+  9 Sstm8s_uart1$UART1_Init$29                                  =  00008E GR
+  9 Sstm8s_uart1$UART1_Init$30                                  =  000091 GR
+  9 Sstm8s_uart1$UART1_Init$31                                  =  000094 GR
+  9 Sstm8s_uart1$UART1_Init$32                                  =  000096 GR
+  9 Sstm8s_uart1$UART1_Init$33                                  =  00009B GR
+  9 Sstm8s_uart1$UART1_Init$34                                  =  0000A7 GR
+  9 Sstm8s_uart1$UART1_Init$35                                  =  0000B1 GR
+  9 Sstm8s_uart1$UART1_Init$36                                  =  0000B4 GR
+  9 Sstm8s_uart1$UART1_Init$37                                  =  0000B6 GR
+  9 Sstm8s_uart1$UART1_Init$38                                  =  0000B8 GR
+  9 Sstm8s_uart1$UART1_Init$39                                  =  0000BA GR
+  9 Sstm8s_uart1$UART1_Init$40                                  =  0000BF GR
+  9 Sstm8s_uart1$UART1_Init$41                                  =  0000C4 GR
+  9 Sstm8s_uart1$UART1_Init$42                                  =  0000C7 GR
+  9 Sstm8s_uart1$UART1_Init$43                                  =  0000CA GR
+  9 Sstm8s_uart1$UART1_Init$44                                  =  0000CC GR
+  9 Sstm8s_uart1$UART1_Init$45                                  =  0000D1 GR
+  9 Sstm8s_uart1$UART1_Init$46                                  =  0000D5 GR
+  9 Sstm8s_uart1$UART1_Init$47                                  =  0000DD GR
+  9 Sstm8s_uart1$UART1_Init$48                                  =  0000E0 GR
+  9 Sstm8s_uart1$UART1_Init$49                                  =  0000E2 GR
+  9 Sstm8s_uart1$UART1_Init$50                                  =  0000E4 GR
+  9 Sstm8s_uart1$UART1_Init$51                                  =  0000E6 GR
+  9 Sstm8s_uart1$UART1_Init$52                                  =  0000EB GR
+  9 Sstm8s_uart1$UART1_Init$53                                  =  000110 GR
+  9 Sstm8s_uart1$UART1_Init$54                                  =  000112 GR
+  9 Sstm8s_uart1$UART1_Init$55                                  =  000114 GR
+  9 Sstm8s_uart1$UART1_Init$56                                  =  000116 GR
+  9 Sstm8s_uart1$UART1_Init$57                                  =  000117 GR
+  9 Sstm8s_uart1$UART1_Init$58                                  =  000119 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 17.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_Init$59                                  =  00011E GR
+  9 Sstm8s_uart1$UART1_Init$60                                  =  000126 GR
+  9 Sstm8s_uart1$UART1_Init$61                                  =  000138 GR
+  9 Sstm8s_uart1$UART1_Init$62                                  =  000144 GR
+  9 Sstm8s_uart1$UART1_Init$63                                  =  00014C GR
+  9 Sstm8s_uart1$UART1_Init$64                                  =  000154 GR
+  9 Sstm8s_uart1$UART1_Init$65                                  =  000162 GR
+  9 Sstm8s_uart1$UART1_Init$66                                  =  000165 GR
+  9 Sstm8s_uart1$UART1_Init$67                                  =  000166 GR
+  9 Sstm8s_uart1$UART1_Init$68                                  =  00016B GR
+  9 Sstm8s_uart1$UART1_Init$69                                  =  000170 GR
+  9 Sstm8s_uart1$UART1_Init$70                                  =  000170 GR
+  9 Sstm8s_uart1$UART1_Init$71                                  =  000175 GR
+  9 Sstm8s_uart1$UART1_Init$72                                  =  000178 GR
+  9 Sstm8s_uart1$UART1_Init$73                                  =  000178 GR
+  9 Sstm8s_uart1$UART1_Init$74                                  =  00017D GR
+  9 Sstm8s_uart1$UART1_Init$75                                  =  00017D GR
+  9 Sstm8s_uart1$UART1_Init$76                                  =  000180 GR
+  9 Sstm8s_uart1$UART1_Init$77                                  =  000181 GR
+  9 Sstm8s_uart1$UART1_Init$78                                  =  000186 GR
+  9 Sstm8s_uart1$UART1_Init$79                                  =  00018B GR
+  9 Sstm8s_uart1$UART1_Init$80                                  =  00018B GR
+  9 Sstm8s_uart1$UART1_Init$81                                  =  000190 GR
+  9 Sstm8s_uart1$UART1_Init$82                                  =  000193 GR
+  9 Sstm8s_uart1$UART1_Init$83                                  =  000193 GR
+  9 Sstm8s_uart1$UART1_Init$84                                  =  000198 GR
+  9 Sstm8s_uart1$UART1_Init$85                                  =  000198 GR
+  9 Sstm8s_uart1$UART1_Init$86                                  =  00019B GR
+  9 Sstm8s_uart1$UART1_Init$87                                  =  0001A2 GR
+  9 Sstm8s_uart1$UART1_Init$88                                  =  0001A2 GR
+  9 Sstm8s_uart1$UART1_Init$89                                  =  0001A7 GR
+  9 Sstm8s_uart1$UART1_Init$90                                  =  0001AA GR
+  9 Sstm8s_uart1$UART1_Init$91                                  =  0001AA GR
+  9 Sstm8s_uart1$UART1_Init$92                                  =  0001AB GR
+  9 Sstm8s_uart1$UART1_Init$93                                  =  0001B2 GR
+  9 Sstm8s_uart1$UART1_Init$94                                  =  0001B7 GR
+  9 Sstm8s_uart1$UART1_Init$95                                  =  0001B7 GR
+  9 Sstm8s_uart1$UART1_Init$96                                  =  0001B9 GR
+  9 Sstm8s_uart1$UART1_Init$97                                  =  0001B9 GR
+  9 Sstm8s_uart1$UART1_Init$98                                  =  0001BA GR
+  9 Sstm8s_uart1$UART1_IrDACmd$181                              =  000296 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$182                              =  000296 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$183                              =  000296 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$184                              =  000299 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$185                              =  0002A0 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$186                              =  0002A0 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$187                              =  0002A5 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$188                              =  0002A8 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$189                              =  0002A8 GR
+  9 Sstm8s_uart1$UART1_IrDACmd$190                              =  0002AD GR
+  9 Sstm8s_uart1$UART1_IrDACmd$191                              =  0002AD GR
+  9 Sstm8s_uart1$UART1_IrDACmd$192                              =  0002AD GR
+  9 Sstm8s_uart1$UART1_IrDACmd$193                              =  0002AE GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$168                           =  00027E GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$169                           =  00027E GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 18.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_IrDAConfig$170                           =  00027E GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$171                           =  000281 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$172                           =  000288 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$173                           =  000288 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$174                           =  00028D GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$175                           =  000290 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$176                           =  000290 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$177                           =  000295 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$178                           =  000295 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$179                           =  000295 GR
+  9 Sstm8s_uart1$UART1_IrDAConfig$180                           =  000296 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$194              =  0002AE GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$195              =  0002AE GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$196              =  0002AE GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$197              =  0002B1 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$198              =  0002B8 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$199              =  0002B8 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$200              =  0002BD GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$201              =  0002C0 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$202              =  0002C0 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$203              =  0002C5 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$204              =  0002C5 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$205              =  0002C5 GR
+  9 Sstm8s_uart1$UART1_LINBreakDetectionConfig$206              =  0002C6 GR
+  9 Sstm8s_uart1$UART1_LINCmd$207                               =  0002C6 GR
+  9 Sstm8s_uart1$UART1_LINCmd$208                               =  0002C6 GR
+  9 Sstm8s_uart1$UART1_LINCmd$209                               =  0002C6 GR
+  9 Sstm8s_uart1$UART1_LINCmd$210                               =  0002C9 GR
+  9 Sstm8s_uart1$UART1_LINCmd$211                               =  0002D0 GR
+  9 Sstm8s_uart1$UART1_LINCmd$212                               =  0002D0 GR
+  9 Sstm8s_uart1$UART1_LINCmd$213                               =  0002D5 GR
+  9 Sstm8s_uart1$UART1_LINCmd$214                               =  0002D8 GR
+  9 Sstm8s_uart1$UART1_LINCmd$215                               =  0002D8 GR
+  9 Sstm8s_uart1$UART1_LINCmd$216                               =  0002DD GR
+  9 Sstm8s_uart1$UART1_LINCmd$217                               =  0002DD GR
+  9 Sstm8s_uart1$UART1_LINCmd$218                               =  0002DD GR
+  9 Sstm8s_uart1$UART1_LINCmd$219                               =  0002DE GR
+  9 Sstm8s_uart1$UART1_ReceiveData8$266                         =  000337 GR
+  9 Sstm8s_uart1$UART1_ReceiveData8$267                         =  000337 GR
+  9 Sstm8s_uart1$UART1_ReceiveData8$268                         =  000337 GR
+  9 Sstm8s_uart1$UART1_ReceiveData8$269                         =  00033A GR
+  9 Sstm8s_uart1$UART1_ReceiveData8$270                         =  00033A GR
+  9 Sstm8s_uart1$UART1_ReceiveData8$271                         =  00033B GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$272                         =  00033B GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$273                         =  00033B GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$274                         =  00033C GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$275                         =  00033C GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$276                         =  000348 GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$277                         =  000355 GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$278                         =  000357 GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$279                         =  000357 GR
+  9 Sstm8s_uart1$UART1_ReceiveData9$280                         =  000358 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$253                    =  00031F GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$254                    =  00031F GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$255                    =  00031F GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 19.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$256                    =  000322 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$257                    =  000329 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$258                    =  000329 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$259                    =  00032E GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$260                    =  000331 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$261                    =  000331 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$262                    =  000336 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$263                    =  000336 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$264                    =  000336 GR
+  9 Sstm8s_uart1$UART1_ReceiverWakeUpCmd$265                    =  000337 GR
+  9 Sstm8s_uart1$UART1_SendBreak$297                            =  000380 GR
+  9 Sstm8s_uart1$UART1_SendBreak$298                            =  000380 GR
+  9 Sstm8s_uart1$UART1_SendBreak$299                            =  000380 GR
+  9 Sstm8s_uart1$UART1_SendBreak$300                            =  000388 GR
+  9 Sstm8s_uart1$UART1_SendBreak$301                            =  000388 GR
+  9 Sstm8s_uart1$UART1_SendBreak$302                            =  000389 GR
+  9 Sstm8s_uart1$UART1_SendData8$281                            =  000358 GR
+  9 Sstm8s_uart1$UART1_SendData8$282                            =  000358 GR
+  9 Sstm8s_uart1$UART1_SendData8$283                            =  000358 GR
+  9 Sstm8s_uart1$UART1_SendData8$284                            =  00035E GR
+  9 Sstm8s_uart1$UART1_SendData8$285                            =  00035E GR
+  9 Sstm8s_uart1$UART1_SendData8$286                            =  00035F GR
+  9 Sstm8s_uart1$UART1_SendData9$287                            =  00035F GR
+  9 Sstm8s_uart1$UART1_SendData9$288                            =  00035F GR
+  9 Sstm8s_uart1$UART1_SendData9$289                            =  000360 GR
+  9 Sstm8s_uart1$UART1_SendData9$290                            =  000360 GR
+  9 Sstm8s_uart1$UART1_SendData9$291                            =  000368 GR
+  9 Sstm8s_uart1$UART1_SendData9$292                            =  000379 GR
+  9 Sstm8s_uart1$UART1_SendData9$293                            =  00037E GR
+  9 Sstm8s_uart1$UART1_SendData9$294                            =  00037F GR
+  9 Sstm8s_uart1$UART1_SendData9$295                            =  00037F GR
+  9 Sstm8s_uart1$UART1_SendData9$296                            =  000380 GR
+  9 Sstm8s_uart1$UART1_SetAddress$303                           =  000389 GR
+  9 Sstm8s_uart1$UART1_SetAddress$304                           =  000389 GR
+  9 Sstm8s_uart1$UART1_SetAddress$305                           =  000389 GR
+  9 Sstm8s_uart1$UART1_SetAddress$306                           =  000391 GR
+  9 Sstm8s_uart1$UART1_SetAddress$307                           =  000399 GR
+  9 Sstm8s_uart1$UART1_SetAddress$308                           =  000399 GR
+  9 Sstm8s_uart1$UART1_SetAddress$309                           =  00039A GR
+  9 Sstm8s_uart1$UART1_SetGuardTime$310                         =  00039A GR
+  9 Sstm8s_uart1$UART1_SetGuardTime$311                         =  00039A GR
+  9 Sstm8s_uart1$UART1_SetGuardTime$312                         =  00039A GR
+  9 Sstm8s_uart1$UART1_SetGuardTime$313                         =  0003A0 GR
+  9 Sstm8s_uart1$UART1_SetGuardTime$314                         =  0003A0 GR
+  9 Sstm8s_uart1$UART1_SetGuardTime$315                         =  0003A1 GR
+  9 Sstm8s_uart1$UART1_SetPrescaler$316                         =  0003A1 GR
+  9 Sstm8s_uart1$UART1_SetPrescaler$317                         =  0003A1 GR
+  9 Sstm8s_uart1$UART1_SetPrescaler$318                         =  0003A1 GR
+  9 Sstm8s_uart1$UART1_SetPrescaler$319                         =  0003A7 GR
+  9 Sstm8s_uart1$UART1_SetPrescaler$320                         =  0003A7 GR
+  9 Sstm8s_uart1$UART1_SetPrescaler$321                         =  0003A8 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$220                         =  0002DE GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$221                         =  0002DE GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$222                         =  0002DE GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$223                         =  0002E1 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 20.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_uart1$UART1_SmartCardCmd$224                         =  0002E8 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$225                         =  0002E8 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$226                         =  0002ED GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$227                         =  0002F0 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$228                         =  0002F0 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$229                         =  0002F5 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$230                         =  0002F5 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$231                         =  0002F5 GR
+  9 Sstm8s_uart1$UART1_SmartCardCmd$232                         =  0002F6 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$233                     =  0002F6 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$234                     =  0002F6 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$235                     =  0002F6 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$236                     =  0002F9 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$237                     =  000300 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$238                     =  000300 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$239                     =  000305 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$240                     =  000308 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$241                     =  000308 GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$242                     =  00030D GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$243                     =  00030D GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$244                     =  00030D GR
+  9 Sstm8s_uart1$UART1_SmartCardNACKCmd$245                     =  00030E GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$246                         =  00030E GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$247                         =  00030E GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$248                         =  00030E GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$249                         =  000316 GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$250                         =  00031E GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$251                         =  00031E GR
+  9 Sstm8s_uart1$UART1_WakeUpConfig$252                         =  00031F GR
+  9 XG$UART1_ClearFlag$0$0                                      =  000424 GR
+  9 XG$UART1_ClearITPendingBit$0$0                              =  0004EA GR
+  9 XG$UART1_Cmd$0$0                                            =  0001D1 GR
+  9 XG$UART1_DeInit$0$0                                         =  00002A GR
+  9 XG$UART1_GetFlagStatus$0$0                                  =  000407 GR
+  9 XG$UART1_GetITStatus$0$0                                    =  0004CD GR
+  9 XG$UART1_HalfDuplexCmd$0$0                                  =  00027D GR
+  9 XG$UART1_ITConfig$0$0                                       =  000265 GR
+  9 XG$UART1_Init$0$0                                           =  0001B9 GR
+  9 XG$UART1_IrDACmd$0$0                                        =  0002AD GR
+  9 XG$UART1_IrDAConfig$0$0                                     =  000295 GR
+  9 XG$UART1_LINBreakDetectionConfig$0$0                        =  0002C5 GR
+  9 XG$UART1_LINCmd$0$0                                         =  0002DD GR
+  9 XG$UART1_ReceiveData8$0$0                                   =  00033A GR
+  9 XG$UART1_ReceiveData9$0$0                                   =  000357 GR
+  9 XG$UART1_ReceiverWakeUpCmd$0$0                              =  000336 GR
+  9 XG$UART1_SendBreak$0$0                                      =  000388 GR
+  9 XG$UART1_SendData8$0$0                                      =  00035E GR
+  9 XG$UART1_SendData9$0$0                                      =  00037F GR
+  9 XG$UART1_SetAddress$0$0                                     =  000399 GR
+  9 XG$UART1_SetGuardTime$0$0                                   =  0003A0 GR
+  9 XG$UART1_SetPrescaler$0$0                                   =  0003A7 GR
+  9 XG$UART1_SmartCardCmd$0$0                                   =  0002F5 GR
+  9 XG$UART1_SmartCardNACKCmd$0$0                               =  00030D GR
+  9 XG$UART1_WakeUpConfig$0$0                                   =  00031E GR
+    _CLK_GetClockFreq                                              ****** GX
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 21.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 _UART1_ClearFlag                                               000408 GR
+  9 _UART1_ClearITPendingBit                                       0004CE GR
+  9 _UART1_Cmd                                                     0001BA GR
+  9 _UART1_DeInit                                                  000000 GR
+  9 _UART1_GetFlagStatus                                           0003A8 GR
+  9 _UART1_GetITStatus                                             000425 GR
+  9 _UART1_HalfDuplexCmd                                           000266 GR
+  9 _UART1_ITConfig                                                0001D2 GR
+  9 _UART1_Init                                                    00002B GR
+  9 _UART1_IrDACmd                                                 000296 GR
+  9 _UART1_IrDAConfig                                              00027E GR
+  9 _UART1_LINBreakDetectionConfig                                 0002AE GR
+  9 _UART1_LINCmd                                                  0002C6 GR
+  9 _UART1_ReceiveData8                                            000337 GR
+  9 _UART1_ReceiveData9                                            00033B GR
+  9 _UART1_ReceiverWakeUpCmd                                       00031F GR
+  9 _UART1_SendBreak                                               000380 GR
+  9 _UART1_SendData8                                               000358 GR
+  9 _UART1_SendData9                                               00035F GR
+  9 _UART1_SetAddress                                              000389 GR
+  9 _UART1_SetGuardTime                                            00039A GR
+  9 _UART1_SetPrescaler                                            0003A1 GR
+  9 _UART1_SmartCardCmd                                            0002DE GR
+  9 _UART1_SmartCardNACKCmd                                        0002F6 GR
+  9 _UART1_WakeUpConfig                                            00030E GR
+    __divulong                                                     ****** GX
+    __mullong                                                      ****** GX
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 22.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size    4EB   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size    621   flags  100
+   C .debug_loc                                 size    4E8   flags  100
+   D .debug_abbrev                              size     94   flags  100
+   E .debug_info                                size    8CB   flags  100
+   F .debug_pubnames                            size    235   flags  100
+  10 .debug_frame                               size    5BA   flags  100
+
